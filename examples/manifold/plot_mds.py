@@ -7,7 +7,7 @@ An illustration of the metric and non-metric MDS on generated noisy data.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

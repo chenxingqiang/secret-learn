@@ -9,7 +9,7 @@ i.e. class one or two, using the logistic curve.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

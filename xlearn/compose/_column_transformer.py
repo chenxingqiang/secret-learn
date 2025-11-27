@@ -4,7 +4,7 @@ to work with heterogeneous data and to apply different transformers to
 different columns.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -781,7 +781,7 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
                     f"The output of the '{name}' transformer for column"
                     f" '{col_name}' has dtype {dtype} and uses pandas.NA to"
                     " represent null values. Storing this output in a numpy array"
-                    " can cause errors in downstream jax-sklearn estimators, and"
+                    " can cause errors in downstream secret-learn estimators, and"
                     " inefficiencies. To avoid this problem you can (i)"
                     " store the output in a pandas DataFrame by using"
                     f" {class_name}.set_output(transform='pandas') or (ii) modify"

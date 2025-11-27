@@ -16,7 +16,7 @@ for handling categorical features: :class:`TargetEncoder`,
     :ref:`User Guide <target_encoder>`. for details.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

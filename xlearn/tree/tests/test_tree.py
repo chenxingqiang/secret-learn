@@ -2650,7 +2650,7 @@ def test_sample_weight_non_uniform(make_data, Tree):
 
 def test_deterministic_pickle():
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/27268
+    # https://github.com/chenxingqiang/secret-learn/issues/27268
     # Uninitialised memory would lead to the two pickle strings being different.
     tree1 = DecisionTreeClassifier(random_state=0).fit(iris.data, iris.target)
     tree2 = DecisionTreeClassifier(random_state=0).fit(iris.data, iris.target)
@@ -2685,8 +2685,8 @@ def test_regression_tree_missing_values_toy(Tree, X, criterion):
     This test check that the MSE is null when there is a single sample in the leaf.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28254
-    https://github.com/chenxingqiang/jax-sklearn/issues/28316
+    https://github.com/chenxingqiang/secret-learn/issues/28254
+    https://github.com/chenxingqiang/secret-learn/issues/28316
     """
     X = X.reshape(-1, 1)
     y = np.arange(6)
@@ -2732,7 +2732,7 @@ def test_classification_tree_missing_values_toy():
     Here, we check that the impurity is null or positive in the leaves.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28254
+    https://github.com/chenxingqiang/secret-learn/issues/28254
     """
     X, y = datasets.load_iris(return_X_y=True)
 

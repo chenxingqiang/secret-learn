@@ -3,7 +3,7 @@ The :mod:`xlearn.model_selection._search` includes utilities to fine-tune the
 parameters of an estimator.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -1079,7 +1079,7 @@ class BaseSearchCV(MetaEstimatorMixin, BaseEstimator, metaclass=ABCMeta):
             # here we clone the estimator as well as the parameters, since
             # sometimes the parameters themselves might be estimators, e.g.
             # when we search over different estimators in a pipeline.
-            # ref: https://github.com/chenxingqiang/jax-sklearn/pull/26786
+            # ref: https://github.com/chenxingqiang/secret-learn/pull/26786
             self.best_estimator_ = clone(base_estimator).set_params(
                 **clone(self.best_params_, safe=False)
             )
@@ -1257,7 +1257,7 @@ class GridSearchCV(BaseSearchCV):
     Parameters
     ----------
     estimator : estimator object
-        This is assumed to implement the jax-sklearn estimator interface.
+        This is assumed to implement the secret-learn estimator interface.
         Either estimator needs to provide a ``score`` function,
         or ``scoring`` must be passed.
 
@@ -1635,7 +1635,7 @@ class RandomizedSearchCV(BaseSearchCV):
     ----------
     estimator : estimator object
         An object of that type is instantiated for each grid point.
-        This is assumed to implement the jax-sklearn estimator interface.
+        This is assumed to implement the secret-learn estimator interface.
         Either estimator needs to provide a ``score`` function,
         or ``scoring`` must be passed.
 

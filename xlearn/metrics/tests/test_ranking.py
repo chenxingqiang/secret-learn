@@ -1741,7 +1741,7 @@ def test_coverage_tie_handling():
 )
 def test_coverage_1d_error_message(y_true, y_score):
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/23368
+    # https://github.com/chenxingqiang/secret-learn/issues/23368
     with pytest.raises(ValueError, match=r"Expected 2D array, got 1D array instead"):
         coverage_error(y_true, y_score)
 
@@ -2261,7 +2261,7 @@ def test_roc_curve_with_probablity_estimates(global_random_seed):
     estimate.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/26193
+    https://github.com/chenxingqiang/secret-learn/issues/26193
     """
     rng = np.random.RandomState(global_random_seed)
     y_true = rng.randint(0, 2, size=10)

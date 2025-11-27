@@ -10,7 +10,7 @@ and can be found here:
   https://code.google.com/p/smhasher/
 
 """
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ..utils._typedefs cimport int32_t, uint32_t

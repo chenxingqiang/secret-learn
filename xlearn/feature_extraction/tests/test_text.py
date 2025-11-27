@@ -392,7 +392,7 @@ def test_fit_countvectorizer_twice():
 def test_countvectorizer_custom_token_pattern():
     """Check `get_feature_names_out()` when a custom token pattern is passed.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/12971
+    https://github.com/chenxingqiang/secret-learn/issues/12971
     """
     corpus = [
         "This is the 1st document in my corpus.",
@@ -411,7 +411,7 @@ def test_countvectorizer_custom_token_pattern():
 def test_countvectorizer_custom_token_pattern_with_several_group():
     """Check that we raise an error if token pattern capture several groups.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/12971
+    https://github.com/chenxingqiang/secret-learn/issues/12971
     """
     corpus = [
         "This is the 1st document in my corpus.",
@@ -1061,7 +1061,7 @@ def test_pickling_vectorizer():
 )
 def test_pickling_built_processors(factory):
     """Tokenizers cannot be pickled
-    https://github.com/chenxingqiang/jax-sklearn/issues/12833
+    https://github.com/chenxingqiang/secret-learn/issues/12833
     """
     vec = CountVectorizer()
     function = factory(vec)
@@ -1351,7 +1351,7 @@ def test_countvectorizer_sort_features_64bit_sparse_indices(csr_container):
     feature matrix.
 
     This test is skipped on 32bit platforms, see:
-        https://github.com/chenxingqiang/jax-sklearn/pull/11295
+        https://github.com/chenxingqiang/secret-learn/pull/11295
     for more details.
     """
 
@@ -1362,7 +1362,7 @@ def test_countvectorizer_sort_features_64bit_sparse_indices(csr_container):
     X.indices = X.indices.astype(INDICES_DTYPE)
     X.indptr = X.indptr.astype(INDICES_DTYPE)
 
-    vocabulary = {"jax-sklearn": 0, "is": 1, "great!": 2}
+    vocabulary = {"secret-learn": 0, "is": 1, "great!": 2}
 
     Xs = CountVectorizer()._sort_features(X, vocabulary)
 
@@ -1621,7 +1621,7 @@ def test_tfidf_vectorizer_perserve_dtype_idf(dtype):
     """Check that `idf_` has the same dtype as the input data.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/30016
+    https://github.com/chenxingqiang/secret-learn/issues/30016
     """
     X = [str(uuid.uuid4()) for i in range(100_000)]
     vectorizer = TfidfVectorizer(dtype=dtype).fit(X)

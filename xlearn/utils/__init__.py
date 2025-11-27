@@ -1,6 +1,6 @@
 """Various utilities to help with development."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ..exceptions import DataConversionWarning
@@ -10,7 +10,7 @@ from ._chunking import gen_batches, gen_even_slices
 
 # Make _safe_indexing importable from here for backward compat as this particular
 # helper is considered semi-private and typically very useful for third-party
-# libraries that want to comply with jax-sklearn's estimator API. In particular,
+# libraries that want to comply with secret-learn's estimator API. In particular,
 # _safe_indexing was included in our public API documentation despite the leading
 # `_` in its name.
 from ._indexing import (

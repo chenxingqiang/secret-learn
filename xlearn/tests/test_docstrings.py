@@ -46,7 +46,7 @@ def filter_errors(errors, method, Klass=None):
     """
     Ignore some errors based on the method type.
 
-    These rules are specific for jax-sklearn."""
+    These rules are specific for secret-learn."""
     for code, message in errors:
         # We ignore following error code,
         #  - RT02: The first line of the Returns section

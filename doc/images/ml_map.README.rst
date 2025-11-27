@@ -1,4 +1,4 @@
-The jax-sklearn machine learning cheat sheet was originally created by Andreas Mueller:
+The secret-learn machine learning cheat sheet was originally created by Andreas Mueller:
 https://peekaboo-vision.blogspot.de/2013/01/machine-learning-cheat-sheet-for-scikit.html
 
 The current version of the chart is located at `doc/images/ml_map.svg` in SVG+XML

@@ -33,7 +33,7 @@ influences the selected value of `C`. The question that arises is "How do we
 optimally adjust C to account for the different amount of training samples?"
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

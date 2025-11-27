@@ -15,7 +15,7 @@ estimated coefficients of the model to determine if the model is able to recover
 the coefficients from the noisy input data.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

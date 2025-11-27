@@ -1,23 +1,23 @@
 # ruff: noqa: CPY001, E501
 """
 =======================================
-Release Highlights for jax-sklearn 1.6
+Release Highlights for secret-learn 1.6
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.6! Many bug fixes
+We are pleased to announce the release of secret-learn 1.6! Many bug fixes
 and improvements were added, as well as some key new features. Below we
 detail the highlights of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_6>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
@@ -90,7 +90,7 @@ print(
 # the `transform_input` parameter to tell the pipeline to transform `X_val` before
 # passing it to `EstimatorWithValidationSet.fit`.
 #
-# Note that at this time jax-sklearn estimators have not yet been extended to accept
+# Note that at this time secret-learn estimators have not yet been extended to accept
 # user specified validation sets. This feature is released early to collect feedback
 # from third-party libraries who might benefit from it.
 
@@ -98,7 +98,7 @@ print(
 # Multiclass support for `LogisticRegression(solver="newton-cholesky")`
 # ---------------------------------------------------------------------
 #
-# The `"newton-cholesky"` solver (originally introduced in jax-sklearn version
+# The `"newton-cholesky"` solver (originally introduced in secret-learn version
 # 1.2) was previously limited to binary
 # :class:`~linear_model.LogisticRegression` and some other generalized linear
 # regression estimators (namely :class:`~linear_model.PoissonRegressor`,
@@ -113,7 +113,7 @@ print(
 # than other solvers on some medium sized datasets with one-hot encoded
 # categorical features as can be seen in the `benchmark results of the
 # pull-request
-# <https://github.com/chenxingqiang/jax-sklearn/pull/28840#issuecomment-2065368727>`_.
+# <https://github.com/chenxingqiang/secret-learn/pull/28840#issuecomment-2065368727>`_.
 
 # %%
 # Missing value support for Extra Trees
@@ -157,7 +157,7 @@ forest.predict(X)
 # :mod:`xlearn.metrics` module.
 #
 # Please refer to the :ref:`array API support<array_api>` page for instructions to use
-# jax-sklearn with array API compatible libraries such as PyTorch or CuPy.
+# secret-learn with array API compatible libraries such as PyTorch or CuPy.
 
 # %%
 # Almost complete Metadata Routing support
@@ -171,7 +171,7 @@ forest.predict(X)
 # Free-threaded CPython 3.13 support
 # ----------------------------------
 #
-# jax-sklearn has preliminary support for free-threaded CPython, in particular
+# secret-learn has preliminary support for free-threaded CPython, in particular
 # free-threaded wheels are available for all of our supported platforms.
 #
 # Free-threaded (also known as nogil) CPython 3.13 is an experimental version of
@@ -199,7 +199,7 @@ forest.predict(X)
 # - Estimator tags are now revamped and a part of the public API via
 #   :class:`xlearn.utils.Tags`. Estimators should now override the
 #   :meth:`BaseEstimator.__xlearn_tags__` method instead of implementing a `_more_tags`
-#   method. If you'd like to support multiple jax-sklearn versions, you can implement
+#   method. If you'd like to support multiple secret-learn versions, you can implement
 #   both methods in your class.
 # - As a consequence of developing a public tag API, we've removed the `_xfail_checks`
 #   tag and tests which are expected to fail are directly passed to

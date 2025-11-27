@@ -16,7 +16,7 @@ def clean():
     when switching from numpy<2 to numpy>=2 in the same conda environment or
     virtualenv.
     """
-    util.run([sys.executable, "-m", "pip", "uninstall", "jax-sklearn", "-y"])
+    util.run([sys.executable, "-m", "pip", "uninstall", "secret-learn", "-y"])
     default_meson_build_dir = (
         f"build/cp{sys.version_info.major}{sys.version_info.minor}"
     )

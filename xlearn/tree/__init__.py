@@ -1,6 +1,6 @@
 """Decision tree based models for classification and regression."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ._classes import (

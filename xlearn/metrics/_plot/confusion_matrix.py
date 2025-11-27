@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import product
@@ -21,7 +21,7 @@ class ConfusionMatrixDisplay:
     create a :class:`ConfusionMatrixDisplay`. All parameters are stored as
     attributes.
 
-    For general information regarding `jax-sklearn` visualization tools, see
+    For general information regarding `secret-learn` visualization tools, see
     the :ref:`Visualization Guide <visualizations>`.
     For guidance on interpreting these plots, refer to the
     :ref:`Model Evaluation Guide <confusion_matrix>`.
@@ -223,7 +223,7 @@ class ConfusionMatrixDisplay:
     ):
         """Plot Confusion Matrix given an estimator and some data.
 
-        For general information regarding `jax-sklearn` visualization tools, see
+        For general information regarding `secret-learn` visualization tools, see
         the :ref:`Visualization Guide <visualizations>`.
         For guidance on interpreting these plots, refer to the
         :ref:`Model Evaluation Guide <confusion_matrix>`.
@@ -371,7 +371,7 @@ class ConfusionMatrixDisplay:
     ):
         """Plot Confusion Matrix given true and predicted labels.
 
-        For general information regarding `jax-sklearn` visualization tools, see
+        For general information regarding `secret-learn` visualization tools, see
         the :ref:`Visualization Guide <visualizations>`.
         For guidance on interpreting these plots, refer to the
         :ref:`Model Evaluation Guide <confusion_matrix>`.

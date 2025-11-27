@@ -16,7 +16,7 @@ correspond to the scorer (key) that is set to the ``refit`` attribute.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np

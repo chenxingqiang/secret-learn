@@ -2,7 +2,7 @@
 Uses C++ map containers for fast dict-like behavior with keys being
 integers, and values float.
 """
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # C++

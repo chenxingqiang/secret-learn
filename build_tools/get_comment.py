@@ -82,7 +82,7 @@ def get_message(log_file, repo, pr_number, sha, run_id, details, versions):
             "## ❌ Linting issues\n\n"
             "There was an issue running the linter job. Please update with "
             "`upstream/main` ([link]("
-            "https://jax-sklearn.org/dev/developers/contributing.html"
+            "https://secret-learn.org/dev/developers/contributing.html"
             "#how-to-contribute)) and push the changes. If you already have done "
             "that, please send an empty commit with `git commit --allow-empty` "
             "and push the changes to trigger the CI.\n\n" + sub_text
@@ -212,7 +212,7 @@ def get_message(log_file, repo, pr_number, sha, run_id, details, versions):
         + "This PR is introducing linting issues. Here's a summary of the issues. "
         + "Note that you can avoid having linting issues by enabling `pre-commit` "
         + "hooks. Instructions to enable them can be found [here]("
-        + "https://jax-sklearn.org/dev/developers/contributing.html#how-to-contribute)"
+        + "https://secret-learn.org/dev/developers/contributing.html#how-to-contribute)"
         + ".\n\n"
         + "You can see the details of the linting issues under the `lint` job [here]"
         + f"(https://github.com/{repo}/actions/runs/{run_id})\n\n"

@@ -17,7 +17,7 @@ based on validation scores.
 See also :ref:`minimal_cost_complexity_pruning` for details on pruning.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt
@@ -32,7 +32,7 @@ from xlearn.tree import DecisionTreeClassifier
 # Minimal cost complexity pruning recursively finds the node with the "weakest
 # link". The weakest link is characterized by an effective alpha, where the
 # nodes with the smallest effective alpha are pruned first. To get an idea of
-# what values of ``ccp_alpha`` could be appropriate, jax-sklearn provides
+# what values of ``ccp_alpha`` could be appropriate, secret-learn provides
 # :func:`DecisionTreeClassifier.cost_complexity_pruning_path` that returns the
 # effective alphas and the corresponding total leaf impurities at each step of
 # the pruning process. As alpha increases, more of the tree is pruned, which

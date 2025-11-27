@@ -17,7 +17,7 @@ implementation_specific_values = [
 # _binary_tree.pxi is generated and is then literally Cython included in
 # ball_tree.pyx and kd_tree.pyx. See ball_tree.pyx.tp and kd_tree.pyx.tp.
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 }}
 

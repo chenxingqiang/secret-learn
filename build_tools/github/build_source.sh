@@ -13,7 +13,7 @@ source build_env/bin/activate
 python -m pip install numpy scipy cython
 python -m pip install twine build
 
-cd jax-sklearn/jax-sklearn
+cd secret-learn/secret-learn
 python -m build --sdist
 
 # Check whether the source distribution will render correctly

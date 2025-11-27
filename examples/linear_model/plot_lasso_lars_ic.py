@@ -24,7 +24,7 @@ the best model.
     <0712.0881>`
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

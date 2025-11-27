@@ -23,7 +23,7 @@ perception for this example. Both methods correctly mark x_3 as irrelevant.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

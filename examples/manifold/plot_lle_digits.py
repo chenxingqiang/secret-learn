@@ -7,7 +7,7 @@ We illustrate various embedding techniques on the digits dataset.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

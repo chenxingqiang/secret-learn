@@ -335,7 +335,7 @@ def test_one_hot_encoder_inverse_transform_raise_error_with_unknown(
     """Check that `inverse_transform` raise an error with unknown samples, no
     dropped feature, and `handle_unknow="error`.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/14934
+    https://github.com/chenxingqiang/secret-learn/issues/14934
     """
     enc = OneHotEncoder(sparse_output=sparse_).fit(X)
     msg = (
@@ -536,7 +536,7 @@ def test_encoder_nan_ending_specified_categories(Encoder):
     """Test encoder for specified categories that nan is at the end.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27088
+    https://github.com/chenxingqiang/secret-learn/issues/27088
     """
     cats = [np.array([0, np.nan, 1])]
     enc = Encoder(categories=cats)
@@ -1387,9 +1387,9 @@ def test_ohe_infrequent_user_cats_unknown_training_errors(kwargs):
 def test_encoders_string_categories(input_dtype, category_dtype, array_type):
     """Check that encoding work with object, unicode, and byte string dtypes.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/15616
-    https://github.com/chenxingqiang/jax-sklearn/issues/15726
-    https://github.com/chenxingqiang/jax-sklearn/issues/19677
+    https://github.com/chenxingqiang/secret-learn/issues/15616
+    https://github.com/chenxingqiang/secret-learn/issues/15726
+    https://github.com/chenxingqiang/secret-learn/issues/19677
     """
 
     X = np.array([["b"], ["a"]], dtype=input_dtype)
@@ -1740,7 +1740,7 @@ def test_encoder_duplicate_specified_categories(Encoder):
     """Test encoder for specified categories have duplicate values.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27088
+    https://github.com/chenxingqiang/secret-learn/issues/27088
     """
     cats = [np.array(["a", "b", "a"], dtype=object)]
     enc = Encoder(categories=cats)
@@ -1791,7 +1791,7 @@ def test_ordinal_encoder_handle_missing_and_unknown(X, expected_X_trans, X_test)
 def test_ordinal_encoder_sparse(csr_container):
     """Check that we raise proper error with sparse input in OrdinalEncoder.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19878
+    https://github.com/chenxingqiang/secret-learn/issues/19878
     """
     X = np.array([[3, 2, 1], [0, 1, 1]])
     X_sparse = csr_container(X)
@@ -1814,7 +1814,7 @@ def test_ordinal_encoder_fit_with_unseen_category():
     """Check OrdinalEncoder.fit works with unseen category when
     `handle_unknown="use_encoded_value"`.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19872
+    https://github.com/chenxingqiang/secret-learn/issues/19872
     """
     X = np.array([0, 0, 1, 0, 2, 5])[:, np.newaxis]
     oe = OrdinalEncoder(
@@ -1846,7 +1846,7 @@ def test_ordinal_encoder_fit_with_unseen_category():
 def test_ordinal_encoder_handle_unknown_string_dtypes(X_train, X_test):
     """Checks that `OrdinalEncoder` transforms string dtypes.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19872
+    https://github.com/chenxingqiang/secret-learn/issues/19872
     """
     enc = OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-9)
     enc.fit(X_train)
@@ -1859,7 +1859,7 @@ def test_ordinal_encoder_python_integer():
     """Check that `OrdinalEncoder` accepts Python integers that are potentially
     larger than 64 bits.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20721
+    https://github.com/chenxingqiang/secret-learn/issues/20721
     """
     X = np.array(
         [

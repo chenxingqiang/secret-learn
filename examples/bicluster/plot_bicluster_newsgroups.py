@@ -23,7 +23,7 @@ achieve a better V-measure than clusters found by MiniBatchKMeans.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 from collections import Counter
 from time import time

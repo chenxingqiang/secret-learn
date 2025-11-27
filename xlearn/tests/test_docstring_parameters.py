@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import importlib
@@ -84,7 +84,7 @@ def test_docstring_parameters():
     incorrect = []
     for name in PUBLIC_MODULES:
         if name.endswith(".conftest"):
-            # pytest tooling, not part of the jax-sklearn API
+            # pytest tooling, not part of the secret-learn API
             continue
         if name == "xlearn.utils.fixes":
             # We cannot always control these docstrings
@@ -92,7 +92,7 @@ def test_docstring_parameters():
         with warnings.catch_warnings(record=True):
             module = importlib.import_module(name)
         classes = inspect.getmembers(module, inspect.isclass)
-        # Exclude non-jax-sklearn classes
+        # Exclude non-secret-learn classes
         classes = [cls for cls in classes if cls[1].__module__.startswith("xlearn")]
         for cname, cls in classes:
             this_incorrect = []

@@ -14,7 +14,7 @@ class, making the deformation of the decision boundary more visible.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

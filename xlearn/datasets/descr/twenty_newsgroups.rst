@@ -229,7 +229,7 @@ https://www.mlb.com/news/cleveland-indians-team-name-change
 .. rubric:: Recommendation
 
 - When evaluating text classifiers on the 20 Newsgroups data, you
-  should strip newsgroup-related metadata. In jax-sklearn, you can do this
+  should strip newsgroup-related metadata. In secret-learn, you can do this
   by setting ``remove=('headers', 'footers', 'quotes')``. The F-score will be
   lower because it is more realistic.
 - This text dataset contains data which may be inappropriate for certain NLP

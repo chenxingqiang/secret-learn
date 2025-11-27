@@ -697,7 +697,7 @@ def test_pairwise_distances_reduction_is_usable_for(csr_container):
 
     # FIXME: the current Cython implementation is too slow for a large number of
     # features. We temporarily disable it to fallback on SciPy's implementation.
-    # See: https://github.com/chenxingqiang/jax-sklearn/issues/28191
+    # See: https://github.com/chenxingqiang/secret-learn/issues/28191
     assert not BaseDistancesReductionDispatcher.is_usable_for(
         X_csr, Y_csr, metric="sqeuclidean"
     )
@@ -712,7 +712,7 @@ def test_pairwise_distances_reduction_is_usable_for(csr_container):
 
     # CSR matrices with int64 indices and indptr (e.g. large nnz, or large n_features)
     # aren't supported as of now.
-    # See: https://github.com/chenxingqiang/jax-sklearn/issues/23653
+    # See: https://github.com/chenxingqiang/secret-learn/issues/23653
     # TODO: support CSR matrices with int64 indices and indptr
     X_csr_int64 = csr_container(X)
     X_csr_int64.indices = X_csr_int64.indices.astype(np.int64)
@@ -1396,7 +1396,7 @@ def test_pairwise_distances_argkmin(
 
     # Reference for argkmin results
     if metric == "euclidean":
-        # Compare to jax-sklearn GEMM optimized implementation
+        # Compare to secret-learn GEMM optimized implementation
         dist_matrix = euclidean_distances(X, Y)
     else:
         dist_matrix = cdist(X, Y, metric=metric, **metric_kwargs)
@@ -1454,7 +1454,7 @@ def test_pairwise_distances_radius_neighbors(
 
     # Reference for argkmin results
     if metric == "euclidean":
-        # Compare to jax-sklearn GEMM optimized implementation
+        # Compare to secret-learn GEMM optimized implementation
         dist_matrix = euclidean_distances(X, Y)
     else:
         dist_matrix = cdist(X, Y, metric=metric, **metric_kwargs)

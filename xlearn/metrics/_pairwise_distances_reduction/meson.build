@@ -1,6 +1,6 @@
 # Note: the dependencies between different Cython files in
 # _pairwise_distances_reduction is probably one of the most involved in
-# jax-sklearn. If you change this file make sure you build from scratch:
+# secret-learn. If you change this file make sure you build from scratch:
 # rm -rf build; make dev-meson
 # run a command like this:
 # ninja -C build/cp312 -t missingdeps
@@ -165,7 +165,7 @@ _argkmin_classmode = py.extension_module(
   dependencies: [np_dep, openmp_dep],
   # XXX: for some reason -fno-sized-deallocation is needed otherwise there is
   # an error with undefined symbol _ZdlPv at import time in manylinux wheels.
-  # See https://github.com/chenxingqiang/jax-sklearn/issues/28596 for more details.
+  # See https://github.com/chenxingqiang/secret-learn/issues/28596 for more details.
   cpp_args: ['-fno-sized-deallocation'],
   subdir: 'xlearn/metrics/_pairwise_distances_reduction',
   install: true

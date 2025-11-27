@@ -9,7 +9,7 @@ https://www.kaggle.com/datasets/jessicali9530/lfw-dataset
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -158,5 +158,5 @@ plt.show()
 # %%
 # Face recognition problem would be much more effectively solved by training
 # convolutional neural networks but this family of models is outside of the scope of
-# the jax-sklearn library. Interested readers should instead try to use pytorch or
+# the secret-learn library. Interested readers should instead try to use pytorch or
 # tensorflow to implement such models.

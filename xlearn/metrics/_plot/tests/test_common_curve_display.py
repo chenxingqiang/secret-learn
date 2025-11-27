@@ -271,7 +271,7 @@ def test_classifier_display_curve_named_constructor_return_type(
     """Check that named constructors return the correct type when subclassed.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/27675
+    https://github.com/chenxingqiang/secret-learn/pull/27675
     """
     X, y = data_binary
 

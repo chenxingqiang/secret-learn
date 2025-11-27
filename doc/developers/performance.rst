@@ -5,7 +5,7 @@ How to optimize for speed
 =========================
 
 The following gives some practical guidelines to help you write efficient
-code for the jax-sklearn project.
+code for the secret-learn project.
 
 .. note::
 
@@ -28,7 +28,7 @@ Python, Cython or C/C++?
 
 .. currentmodule:: xlearn
 
-In general, the jax-sklearn project emphasizes the **readability** of
+In general, the secret-learn project emphasizes the **readability** of
 the source code to make it easy for the project users to dive into the
 source code so as to understand how the algorithm behaves on their data
 but also for ease of maintainability (by the developers).
@@ -53,7 +53,7 @@ following:
 2. If there exists a well maintained BSD or MIT **C/C++** implementation
    of the same algorithm that is not too big, you can write a
    **Cython wrapper** for it and include a copy of the source code
-   of the library in the jax-sklearn source tree: this strategy is
+   of the library in the secret-learn source tree: this strategy is
    used for the classes :class:`svm.LinearSVC`, :class:`svm.SVC` and
    :class:`linear_model.LogisticRegression` (wrappers for liblinear
    and libsvm).
@@ -82,7 +82,7 @@ loads and prepare you data and then use the IPython integrated profiler
 for interactively exploring the relevant part for the code.
 
 Suppose we want to profile the Non Negative Matrix Factorization module
-of jax-sklearn. Let us setup a new IPython session and load the digits
+of secret-learn. Let us setup a new IPython session and load the digits
 dataset and as in the :ref:`sphx_glr_auto_examples_classification_plot_digits_classification.py` example::
 
   In [1]: from xlearn.decomposition import NMF
@@ -313,7 +313,7 @@ Python extension module.
 
 The `Cython's documentation <http://docs.cython.org/>`_ contains a tutorial and
 reference guide for developing such a module.
-For more information about developing in Cython for jax-sklearn, see :ref:`cython`.
+For more information about developing in Cython for secret-learn, see :ref:`cython`.
 
 
 .. _profiling-compiled-extension:

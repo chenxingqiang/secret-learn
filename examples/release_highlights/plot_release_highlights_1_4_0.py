@@ -1,23 +1,23 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.4
+Release Highlights for secret-learn 1.4
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.4! Many bug fixes
+We are pleased to announce the release of secret-learn 1.4! Many bug fixes
 and improvements were added, as well as some new key features. We detail
 below a few of the major features of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_4>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
@@ -54,7 +54,7 @@ print(f"ROC AUC score is {roc_auc_score(y_test, y_decision)}")
 # %%
 # Polars output in `set_output`
 # -----------------------------
-# jax-sklearn's transformers now support polars output with the `set_output` API.
+# secret-learn's transformers now support polars output with the `set_output` API.
 import polars as pl
 
 from xlearn.compose import ColumnTransformer
@@ -100,7 +100,7 @@ forest.predict(X)
 # Add support for monotonic constraints in tree-based models
 # ----------------------------------------------------------
 # While we added support for monotonic constraints in histogram-based gradient boosting
-# in jax-sklearn 0.23, we now support this feature for all other tree-based models as
+# in secret-learn 0.23, we now support this feature for all other tree-based models as
 # trees, random forests, extra-trees, and exact gradient boosting. Here, we show this
 # feature for random forest on a regression problem.
 import matplotlib.pyplot as plt

@@ -19,7 +19,7 @@ Exact PCA and probabilistic interpretation
 
 PCA is used to decompose a multivariate dataset in a set of successive
 orthogonal components that explain a maximum amount of the variance. In
-jax-sklearn, :class:`PCA` is implemented as a *transformer* object
+secret-learn, :class:`PCA` is implemented as a *transformer* object
 that learns :math:`n` components in its ``fit`` method, and can be used on new
 data to project it on these components.
 
@@ -425,7 +425,7 @@ truncated SVD on the resulting matrix is equivalent to PCA.
         and information retrieval (IR) literature
         swap the axes of the matrix :math:`X` so that it has shape
         ``(n_features, n_samples)``.
-        We present LSA in a different way that matches the jax-sklearn API better,
+        We present LSA in a different way that matches the secret-learn API better,
         but the singular values found are the same.
 
     While the :class:`TruncatedSVD` transformer
@@ -735,7 +735,7 @@ Independent component analysis (ICA)
 
 Independent component analysis separates a multivariate signal into
 additive subcomponents that are maximally independent. It is
-implemented in jax-sklearn using the :class:`Fast ICA <FastICA>`
+implemented in secret-learn using the :class:`Fast ICA <FastICA>`
 algorithm. Typically, ICA is not used for reducing dimensionality but
 for separating superimposed signals. Since the ICA model does not include
 a noise term, for the model to be correct, whitening must be applied.

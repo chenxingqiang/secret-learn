@@ -24,7 +24,7 @@ Loading features from dicts
 
 The class :class:`DictVectorizer` can be used to convert feature
 arrays represented as lists of standard Python ``dict`` objects to the
-NumPy/SciPy representation used by jax-sklearn estimators.
+NumPy/SciPy representation used by secret-learn estimators.
 
 While not particularly fast to process, Python's ``dict`` has the
 advantages of being convenient to use, being sparse (absent features
@@ -250,7 +250,7 @@ directly to the algorithms themselves as most of them expect numerical
 feature vectors with a fixed size rather than the raw text documents
 with variable length.
 
-In order to address this, jax-sklearn provides utilities for the most
+In order to address this, secret-learn provides utilities for the most
 common ways to extract numerical features from text content, namely:
 
 - **tokenizing** strings and giving an integer id for each possible token,
@@ -467,7 +467,7 @@ use in document classification and clustering.
 
 The following sections contain further explanations and examples that
 illustrate how the tf-idfs are computed exactly and how the tf-idfs
-computed in jax-sklearn's :class:`TfidfTransformer`
+computed in secret-learn's :class:`TfidfTransformer`
 and :class:`TfidfVectorizer` differ slightly from the standard textbook
 notation that defines the idf as
 
@@ -623,7 +623,7 @@ and the universal encodings UTF-8 and UTF-16. Many others exist.
     but this term is less accurate: several encodings can exist
     for a single character set.
 
-The text feature extractors in jax-sklearn know how to decode text files,
+The text feature extractors in secret-learn know how to decode text files,
 but only if you tell them what encoding the files are in.
 The :class:`CountVectorizer` takes an ``encoding`` parameter for this purpose.
 For modern text files, the correct encoding is probably UTF-8,
@@ -671,7 +671,7 @@ or ``"replace"``. See the documentation for the Python function
     the same feature.
 
   For example, the following snippet uses ``chardet``
-  (not shipped with jax-sklearn, must be installed separately)
+  (not shipped with secret-learn, must be installed separately)
   to figure out the encoding of three texts.
   It then vectorizes the texts and prints the learned vocabulary.
   The output is not shown here.
@@ -784,7 +784,7 @@ the meaning carried by that internal structure.
 In order to address the wider task of Natural Language Understanding,
 the local structure of sentences and paragraphs should thus be taken
 into account. Many such models will thus be casted as "Structured output"
-problems which are currently outside of the scope of jax-sklearn.
+problems which are currently outside of the scope of secret-learn.
 
 
 .. _hashing_vectorizer:
@@ -922,7 +922,7 @@ In particular we name:
   place at the analyzer level, so a custom analyzer may have to reproduce
   these steps.
 
-(Lucene users might recognize these names, but be aware that jax-sklearn
+(Lucene users might recognize these names, but be aware that secret-learn
 concepts may not map one-to-one onto Lucene concepts.)
 
 To make the preprocessor, tokenizer and analyzers aware of the model
@@ -938,7 +938,7 @@ factory methods instead of passing custom functions.
     ``analyzer=str.split``
   * Fancy token-level analysis such as stemming, lemmatizing, compound
     splitting, filtering based on part-of-speech, etc. are not included in the
-    jax-sklearn codebase, but can be added by customizing either the
+    secret-learn codebase, but can be added by customizing either the
     tokenizer or the analyzer.
     Here's a ``CountVectorizer`` with a tokenizer and lemmatizer using
     `NLTK <https://www.nltk.org/>`_::
@@ -1034,7 +1034,7 @@ on overlapping areas::
 
 The :class:`PatchExtractor` class works in the same way as
 :func:`extract_patches_2d`, only it supports multiple images as input. It is
-implemented as a jax-sklearn transformer, so it can be used in pipelines. See::
+implemented as a secret-learn transformer, so it can be used in pipelines. See::
 
     >>> five_images = np.arange(5 * 4 * 4 * 3).reshape(5, 4, 4, 3)
     >>> patches = image.PatchExtractor(patch_size=(2, 2)).transform(five_images)
@@ -1046,7 +1046,7 @@ implemented as a jax-sklearn transformer, so it can be used in pipelines. See::
 Connectivity graph of an image
 -------------------------------
 
-Several estimators in jax-sklearn can use connectivity information between
+Several estimators in secret-learn can use connectivity information between
 features or samples. For instance Ward clustering
 (:ref:`hierarchical_clustering`) can cluster together only neighboring pixels
 of an image, thus forming contiguous patches:

@@ -712,9 +712,9 @@ def test_pca_score3():
 @pytest.mark.parametrize("svd_solver", PCA_SOLVERS)
 def test_pca_sanity_noise_variance(svd_solver):
     # Sanity check for the noise_variance_. For more details see
-    # https://github.com/chenxingqiang/jax-sklearn/issues/7568
-    # https://github.com/chenxingqiang/jax-sklearn/issues/8541
-    # https://github.com/chenxingqiang/jax-sklearn/issues/8544
+    # https://github.com/chenxingqiang/secret-learn/issues/7568
+    # https://github.com/chenxingqiang/secret-learn/issues/8541
+    # https://github.com/chenxingqiang/secret-learn/issues/8544
     X, _ = datasets.load_digits(return_X_y=True)
     pca = PCA(n_components=30, svd_solver=svd_solver, random_state=0)
     pca.fit(X)
@@ -905,7 +905,7 @@ def test_fit_mle_too_few_samples():
 
 def test_mle_simple_case():
     # non-regression test for issue
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16730
+    # https://github.com/chenxingqiang/secret-learn/issues/16730
     n_samples, n_dim = 1000, 10
     X = np.random.RandomState(0).randn(n_samples, n_dim)
     X[:, -1] = np.mean(X[:, :-1], axis=-1)  # true X dim is ndim - 1
@@ -932,7 +932,7 @@ def test_pca_randomized_svd_n_oversamples():
     even when `X` as a large number of features.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20589
+    https://github.com/chenxingqiang/secret-learn/issues/20589
     """
     rng = np.random.RandomState(0)
     n_features = 100

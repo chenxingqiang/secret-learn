@@ -2,7 +2,7 @@
 estimator.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import operator
@@ -114,7 +114,7 @@ def _graphical_lasso(
         errors = dict(invalid="raise")
     try:
         # be robust to the max_iter=0 edge case, see:
-        # https://github.com/chenxingqiang/jax-sklearn/issues/4134
+        # https://github.com/chenxingqiang/secret-learn/issues/4134
         d_gap = np.inf
         # set a sub_covariance buffer
         sub_covariance = np.copy(covariance_[1:, 1:], order="C")

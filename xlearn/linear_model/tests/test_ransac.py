@@ -532,7 +532,7 @@ def test_ransac_final_model_fit_sample_weight():
 def test_perfect_horizontal_line():
     """Check that we can fit a line where all samples are inliers.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19497
+    https://github.com/chenxingqiang/secret-learn/issues/19497
     """
     X = np.arange(100)[:, None]
     y = np.zeros((100,))

@@ -9,7 +9,7 @@ Between Data Points", Science Feb. 2007
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np

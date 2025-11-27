@@ -1,6 +1,6 @@
 """Partial dependence plots for regression and classification models."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -127,7 +127,7 @@ def _grid_from_X(X, percentiles, is_categorical, grid_resolution, custom_values)
                     f"The column #{feature} contains mixed data types. Finding unique "
                     "categories fail due to sorting. It usually means that the column "
                     "contains `np.nan` values together with `str` categories. Such use "
-                    "case is not yet supported in jax-sklearn."
+                    "case is not yet supported in secret-learn."
                 ) from exc
 
             if is_cat or uniques.shape[0] < grid_resolution:
@@ -720,7 +720,7 @@ def partial_dependence(
                 "can lead to implicit rounding with NumPy arrays or even errors "
                 "with newer pandas versions. Please convert numerical features"
                 "to floating point dtypes ahead of time to avoid problems. "
-                "This will raise ValueError in jax-sklearn 1.9.",
+                "This will raise ValueError in secret-learn 1.9.",
                 FutureWarning,
             )
             # Do not warn again for other features to avoid spamming the caller.

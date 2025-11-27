@@ -335,7 +335,7 @@ def test_minibatch_kmeans_partial_fit_init(init):
 def test_kmeans_init_auto_with_initial_centroids(Estimator, init, expected_n_init):
     """Check that `n_init="auto"` chooses the right number of initializations.
     Non-regression test for #26657:
-    https://github.com/chenxingqiang/jax-sklearn/pull/26657
+    https://github.com/chenxingqiang/secret-learn/pull/26657
     """
     n_sample, n_features, n_clusters = 100, 10, 5
     X = np.random.randn(n_sample, n_features)
@@ -1352,7 +1352,7 @@ def test_relocating_with_duplicates(algorithm, array_constr):
     """Check that kmeans stops when there are more centers than non-duplicate samples
 
     Non-regression test for issue:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28055
+    https://github.com/chenxingqiang/secret-learn/issues/28055
     """
     X = np.array([[0, 0], [1, 1], [1, 1], [1, 0], [0, 1]])
     km = KMeans(n_clusters=5, init=X, algorithm=algorithm)

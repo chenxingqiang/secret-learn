@@ -8,7 +8,7 @@ if [[ "$GITHUB_EVENT_NAME" == "schedule" \
     ANACONDA_ORG="scientific-python-nightly-wheels"
     ANACONDA_TOKEN="$SCIKIT_LEARN_NIGHTLY_UPLOAD_TOKEN"
 else
-    ANACONDA_ORG="jax-sklearn-wheels-staging"
+    ANACONDA_ORG="secret-learn-wheels-staging"
     ANACONDA_TOKEN="$SCIKIT_LEARN_STAGING_UPLOAD_TOKEN"
 fi
 

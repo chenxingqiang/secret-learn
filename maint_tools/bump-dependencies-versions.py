@@ -57,7 +57,7 @@ def get_min_version_with_wheel(package_name, python_version):
 
 def get_min_python_version(scikit_learn_release_date_str="today"):
     # min Python version is the most recent Python release at least 3 years old
-    # at the time of the jax-sklearn release
+    # at the time of the secret-learn release
     if scikit_learn_release_date_str == "today":
         scikit_learn_release_date = pd.to_datetime(datetime.now().date())
     else:

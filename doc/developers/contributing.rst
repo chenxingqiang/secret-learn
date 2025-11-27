@@ -7,8 +7,8 @@ Contributing
 .. currentmodule:: xlearn
 
 This project is a community effort, and everyone is welcome to
-contribute. It is hosted on https://github.com/chenxingqiang/jax-sklearn.
-The decision making process and governance structure of jax-sklearn is laid
+contribute. It is hosted on https://github.com/chenxingqiang/secret-learn.
+The decision making process and governance structure of secret-learn is laid
 out in :ref:`governance`.
 
 Scikit-learn is somewhat :ref:`selective <selectiveness>` when it comes to
@@ -23,7 +23,7 @@ See :ref:`new_contributors` to get started.
 
     We aspire to treat everybody equally, and value their contributions.  We
     are particularly seeking people from underrepresented backgrounds in Open
-    Source Software and jax-sklearn in particular to participate and
+    Source Software and secret-learn in particular to participate and
     contribute their expertise and experience.
 
     Decisions are made based on technical merit and consensus.
@@ -41,13 +41,13 @@ See :ref:`new_contributors` to get started.
 In case you experience issues using this package, do not hesitate to submit a
 ticket to the
 `GitHub issue tracker
-<https://github.com/chenxingqiang/jax-sklearn/issues>`_. You are also
+<https://github.com/chenxingqiang/secret-learn/issues>`_. You are also
 welcome to post feature requests or pull requests.
 
 Ways to contribute
 ==================
 
-There are many ways to contribute to jax-sklearn, with the most common ones
+There are many ways to contribute to secret-learn, with the most common ones
 being contribution of code or documentation to the project. Improving the
 documentation is no less important than improving the library itself.  If you
 find a typo in the documentation, or have made improvements, do not hesitate to
@@ -69,7 +69,7 @@ link to it from your website, or simply star to say "I use it":
 
   <p>
     <object
-      data="https://img.shields.io/github/stars/jax-sklearn/jax-sklearn?style=for-the-badge&logo=github"
+      data="https://img.shields.io/github/stars/secret-learn/secret-learn?style=for-the-badge&logo=github"
       type="image/svg+xml">
     </object>
   </p>
@@ -77,8 +77,8 @@ link to it from your website, or simply star to say "I use it":
 In case a contribution/issue involves changes to the API principles
 or changes to dependencies or supported versions, it must be backed by a
 :ref:`slep`, where a SLEP must be submitted as a pull-request to
-`enhancement proposals <https://jax-sklearn-enhancement-proposals.readthedocs.io>`_
-using the `SLEP template <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_
+`enhancement proposals <https://secret-learn-enhancement-proposals.readthedocs.io>`_
+using the `SLEP template <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_
 and follows the decision-making process outlined in :ref:`governance`.
 
 .. dropdown:: Contributing to related projects
@@ -86,7 +86,7 @@ and follows the decision-making process outlined in :ref:`governance`.
   Scikit-learn thrives in an ecosystem of several related projects, which also
   may have relevant issues to work on, including smaller projects such as:
 
-  * `jax-sklearn-contrib <https://github.com/search?q=org%3Ajax-sklearn-contrib+is%3Aissue+is%3Aopen+sort%3Aupdated-desc&type=Issues>`__
+  * `secret-learn-contrib <https://github.com/search?q=org%3Asecret-learn-contrib+is%3Aissue+is%3Aopen+sort%3Aupdated-desc&type=Issues>`__
   * `joblib <https://github.com/joblib/joblib/issues>`__
   * `sphinx-gallery <https://github.com/sphinx-gallery/sphinx-gallery/issues>`__
   * `numpydoc <https://github.com/numpy/numpydoc/issues>`__
@@ -100,7 +100,7 @@ and follows the decision-making process outlined in :ref:`governance`.
   * and so on.
 
   Look for issues marked "help wanted" or similar. Helping these projects may help
-  jax-sklearn too. See also :ref:`related_projects`.
+  secret-learn too. See also :ref:`related_projects`.
 
 Automated Contributions Policy
 ==============================
@@ -120,20 +120,20 @@ an issue if you have found a bug or wish to see a feature implemented.
 
 In case you experience issues using this package, do not hesitate to submit a
 ticket to the
-`Bug Tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_. You are
+`Bug Tracker <https://github.com/chenxingqiang/secret-learn/issues>`_. You are
 also welcome to post feature requests or pull requests.
 
 It is recommended to check that your issue complies with the
 following rules before submitting:
 
 -  Verify that your issue is not being currently addressed by other
-   `issues <https://github.com/chenxingqiang/jax-sklearn/issues?q=>`_
-   or `pull requests <https://github.com/chenxingqiang/jax-sklearn/pulls?q=>`_.
+   `issues <https://github.com/chenxingqiang/secret-learn/issues?q=>`_
+   or `pull requests <https://github.com/chenxingqiang/secret-learn/pulls?q=>`_.
 
 -  If you are submitting an algorithm or feature request, please verify that
    the algorithm fulfills our
    `new algorithm requirements
-   <https://jax-sklearn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms>`_.
+   <https://secret-learn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms>`_.
 
 -  If you are submitting a bug report, we strongly encourage you to follow the guidelines in
    :ref:`filing_bugs`.
@@ -144,7 +144,7 @@ How to make a good bug report
 -----------------------------
 
 When you submit an issue to `GitHub
-<https://github.com/chenxingqiang/jax-sklearn/issues>`__, please do your best to
+<https://github.com/chenxingqiang/secret-learn/issues>`__, please do your best to
 follow these guidelines! This will make it a lot easier to provide you with good
 feedback:
 
@@ -159,7 +159,7 @@ feedback:
 - If an exception is raised, please **provide the full traceback**.
 
 - Please include your **operating system type and version number**, as well as
-  your **Python, jax-sklearn, numpy, and scipy versions**. This information
+  your **Python, secret-learn, numpy, and scipy versions**. This information
   can be found by running:
 
   .. prompt:: bash
@@ -179,11 +179,11 @@ Contributing code
 .. note::
 
   To avoid duplicating work, it is highly advised that you search through the
-  `issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_ and
-  the `PR list <https://github.com/chenxingqiang/jax-sklearn/pulls>`_.
+  `issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_ and
+  the `PR list <https://github.com/chenxingqiang/secret-learn/pulls>`_.
   If in doubt about duplicated work, or if you want to work on a non-trivial
   feature, it's recommended to first open an issue in
-  the `issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_
+  the `issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_
   to get some feedback from core developers.
 
   One easy way to find an issue to work on is by applying the "help wanted"
@@ -204,7 +204,7 @@ contribution must conform to the project's :ref:`coding guidelines
 Video resources
 ---------------
 These videos are step-by-step introductions on how to contribute to
-jax-sklearn, and are a great companion to the following text guidelines.
+secret-learn, and are a great companion to the following text guidelines.
 Please make sure to still check our guidelines below, since they describe our
 latest up-to-date workflow.
 
@@ -213,7 +213,7 @@ latest up-to-date workflow.
   `Transcript
   <https://github.com/data-umbrella/event-transcripts/blob/main/2020/05-andreas-mueller-contributing.md>`__
 
-- Example of Submitting a Pull Request to jax-sklearn:
+- Example of Submitting a Pull Request to secret-learn:
   `Video <https://youtu.be/PU1WyDPGePI>`__,
   `Transcript
   <https://github.com/data-umbrella/event-transcripts/blob/main/2020/06-reshama-shaikh-xlearn-pr.md>`__
@@ -221,7 +221,7 @@ latest up-to-date workflow.
 - Sprint-specific instructions and practical tips:
   `Video <https://youtu.be/p_2Uw2BxdhA>`__,
   `Transcript
-  <https://github.com/data-umbrella/data-umbrella-jax-sklearn-sprint/blob/master/3_transcript_ACM_video_vol2.md>`__
+  <https://github.com/data-umbrella/data-umbrella-secret-learn-sprint/blob/master/3_transcript_ACM_video_vol2.md>`__
 
 - 3 Components of Reviewing a Pull Request:
   `Video <https://youtu.be/dyxS9KKCNzA>`__,
@@ -230,7 +230,7 @@ latest up-to-date workflow.
 
 .. note::
   In January 2021, the default branch name changed from ``master`` to ``main``
-  for the jax-sklearn GitHub repository to use more inclusive terms.
+  for the secret-learn GitHub repository to use more inclusive terms.
   These videos were created prior to the renaming of the branch.
   For contributors who are viewing these videos to set up their
   working environment and submitting a PR, ``master`` should be replaced to ``main``.
@@ -238,31 +238,31 @@ latest up-to-date workflow.
 How to contribute
 -----------------
 
-The preferred way to contribute to jax-sklearn is to fork the `main
-repository <https://github.com/chenxingqiang/jax-sklearn/>`__ on GitHub,
+The preferred way to contribute to secret-learn is to fork the `main
+repository <https://github.com/chenxingqiang/secret-learn/>`__ on GitHub,
 then submit a "pull request" (PR).
 
-In the first few steps, we explain how to locally install jax-sklearn, and
+In the first few steps, we explain how to locally install secret-learn, and
 how to set up your git repository:
 
 1. `Create an account <https://github.com/join>`_ on
    GitHub if you do not already have one.
 
 2. Fork the `project repository
-   <https://github.com/chenxingqiang/jax-sklearn>`__: click on the 'Fork'
+   <https://github.com/chenxingqiang/secret-learn>`__: click on the 'Fork'
    button near the top of the page. This creates a copy of the code under your
    account on the GitHub user account. For more details on how to fork a
    repository see `this guide <https://help.github.com/articles/fork-a-repo/>`_.
 
-3. Clone your fork of the jax-sklearn repo from your GitHub account to your
+3. Clone your fork of the secret-learn repo from your GitHub account to your
    local disk:
 
    .. prompt:: bash
 
-      git clone git@github.com:YourLogin/jax-sklearn.git  # add --depth 1 if your connection is slow
-      cd jax-sklearn
+      git clone git@github.com:YourLogin/secret-learn.git  # add --depth 1 if your connection is slow
+      cd secret-learn
 
-4. Follow steps 2-6 in :ref:`install_bleeding_edge` to build jax-sklearn in
+4. Follow steps 2-6 in :ref:`install_bleeding_edge` to build secret-learn in
    development mode and return to this document.
 
 5. Install the development dependencies:
@@ -274,12 +274,12 @@ how to set up your git repository:
 .. _upstream:
 
 6. Add the ``upstream`` remote. This saves a reference to the main
-   jax-sklearn repository, which you can use to keep your repository
+   secret-learn repository, which you can use to keep your repository
    synchronized with the latest changes:
 
    .. prompt:: bash
 
-        git remote add upstream git@github.com:jax-sklearn/jax-sklearn.git
+        git remote add upstream git@github.com:secret-learn/secret-learn.git
 
 7. Check that the `upstream` and `origin` remote aliases are configured correctly
    by running:
@@ -292,12 +292,12 @@ how to set up your git repository:
 
    .. code-block:: text
 
-        origin    git@github.com:YourLogin/jax-sklearn.git (fetch)
-        origin    git@github.com:YourLogin/jax-sklearn.git (push)
-        upstream  git@github.com:jax-sklearn/jax-sklearn.git (fetch)
-        upstream  git@github.com:jax-sklearn/jax-sklearn.git (push)
+        origin    git@github.com:YourLogin/secret-learn.git (fetch)
+        origin    git@github.com:YourLogin/secret-learn.git (push)
+        upstream  git@github.com:secret-learn/secret-learn.git (fetch)
+        upstream  git@github.com:secret-learn/secret-learn.git (push)
 
-You should now have a working installation of jax-sklearn, and your git repository
+You should now have a working installation of secret-learn, and your git repository
 properly configured. It could be useful to run some test to verify your installation.
 Please refer to :ref:`pytest_tips` for examples.
 
@@ -357,7 +357,7 @@ The next steps now describe the process of modifying code and submitting a PR:
     a couple of days (instant replies are not guaranteed though).
 
 It is often helpful to keep your local feature branch synchronized with the
-latest changes of the main jax-sklearn repository:
+latest changes of the main secret-learn repository:
 
 .. prompt:: bash
 
@@ -441,7 +441,7 @@ complies with the following rules before marking a PR as "ready for review". The
 
 5. If your PR is likely to affect users, you need to add a changelog entry describing
    your PR changes. See the
-   `README <https://github.com/chenxingqiang/jax-sklearn/blob/main/doc/whats_new/upcoming_changes/README.md>`_
+   `README <https://github.com/chenxingqiang/secret-learn/blob/main/doc/whats_new/upcoming_changes/README.md>`_
    for more details.
 
 6. Follow the :ref:`coding-guidelines`.
@@ -464,10 +464,10 @@ complies with the following rules before marking a PR as "ready for review". The
    performance and efficiency (see :ref:`monitoring_performances`) or through
    examples of usage. Examples also illustrate the features and intricacies of
    the library to users. Have a look at other examples in the `examples/
-   <https://github.com/chenxingqiang/jax-sklearn/tree/main/examples>`_
+   <https://github.com/chenxingqiang/secret-learn/tree/main/examples>`_
    directory for reference. Examples should demonstrate why the new
    functionality is useful in practice and, if possible, compare it to other
-   methods available in jax-sklearn.
+   methods available in secret-learn.
 
 10. New features have some maintenance overhead. We expect PR authors
     to take part in the maintenance for the code they submit, at least
@@ -515,7 +515,7 @@ profiling and Cython optimizations.
 
 .. note::
 
-  The current state of the jax-sklearn code base is not compliant with
+  The current state of the secret-learn code base is not compliant with
   all of those guidelines, but we expect that enforcing those constraints
   on all new contributions will get the overall code base quality in the
   right direction.
@@ -532,7 +532,7 @@ profiling and Cython optimizations.
 Continuous Integration (CI)
 ---------------------------
 
-* Azure pipelines are used for testing jax-sklearn on Linux, Mac and Windows,
+* Azure pipelines are used for testing secret-learn on Linux, Mac and Windows,
   with different dependencies and settings.
 * CircleCI is used to build the docs for viewing.
 * Github Actions are used for various tasks, including building wheels and
@@ -632,7 +632,7 @@ Stalled and Unclaimed Issues
 ----------------------------
 
 Generally speaking, issues which are up for grabs will have a
-`"help wanted" <https://github.com/chenxingqiang/jax-sklearn/labels/help%20wanted>`_.
+`"help wanted" <https://github.com/chenxingqiang/secret-learn/labels/help%20wanted>`_.
 tag. However, not all issues which need contributors will have this tag,
 as the "help wanted" tag is not always up-to-date with the state
 of the issue. Contributors can find issues which are still up for grabs
@@ -670,18 +670,18 @@ underestimate how easy an issue is to solve!
 
 - **Good first issue tag**
 
-  A great way to start contributing to jax-sklearn is to pick an item from
+  A great way to start contributing to secret-learn is to pick an item from
   the list of `good first issues
-  <https://github.com/chenxingqiang/jax-sklearn/labels/good%20first%20issue>`_
+  <https://github.com/chenxingqiang/secret-learn/labels/good%20first%20issue>`_
   in the issue tracker. Resolving these issues allows you to start contributing
   to the project without much prior knowledge. If you have already contributed
-  to jax-sklearn, you should look at Easy issues instead.
+  to secret-learn, you should look at Easy issues instead.
 
 - **Easy tag**
 
-  If you have already contributed to jax-sklearn, another great way to contribute
-  to jax-sklearn is to pick an item from the list of `Easy issues
-  <https://github.com/chenxingqiang/jax-sklearn/labels/Easy>`_ in the issue
+  If you have already contributed to secret-learn, another great way to contribute
+  to secret-learn is to pick an item from the list of `Easy issues
+  <https://github.com/chenxingqiang/secret-learn/labels/Easy>`_ in the issue
   tracker. Your assistance in this area will be greatly appreciated by the
   more experienced developers as it helps free up their time to concentrate on
   other issues.
@@ -692,7 +692,7 @@ underestimate how easy an issue is to solve!
   Additionally, we use the help wanted tag to mark Pull Requests which have been
   abandoned by their original contributor and are available for someone to pick up where
   the original contributor left off. The list of issues with the help wanted tag can be
-  found `here <https://github.com/chenxingqiang/jax-sklearn/labels/help%20wanted>`_.
+  found `here <https://github.com/chenxingqiang/secret-learn/labels/help%20wanted>`_.
   Note that not all issues which need contributors will have this tag.
 
 .. _contribute_documentation:
@@ -705,23 +705,23 @@ We are glad to accept any sort of documentation:
 * **Function/method/class docstrings:** Also known as "API documentation", these
   describe what the object does and detail any parameters, attributes and
   methods. Docstrings live alongside the code in `xlearn/
-  <https://github.com/chenxingqiang/jax-sklearn/tree/main/xlearn>`_, and are
+  <https://github.com/chenxingqiang/secret-learn/tree/main/xlearn>`_, and are
   generated according to `doc/api_reference.py
-  <https://github.com/chenxingqiang/jax-sklearn/blob/main/doc/api_reference.py>`_. To
+  <https://github.com/chenxingqiang/secret-learn/blob/main/doc/api_reference.py>`_. To
   add, update, remove, or deprecate a public API that is listed in :ref:`api_ref`, this
   is the place to look at.
 * **User guide:** These provide more detailed information about the algorithms
-  implemented in jax-sklearn and generally live in the root
-  `doc/ <https://github.com/chenxingqiang/jax-sklearn/tree/main/doc>`_ directory
+  implemented in secret-learn and generally live in the root
+  `doc/ <https://github.com/chenxingqiang/secret-learn/tree/main/doc>`_ directory
   and
-  `doc/modules/ <https://github.com/chenxingqiang/jax-sklearn/tree/main/doc/modules>`_.
+  `doc/modules/ <https://github.com/chenxingqiang/secret-learn/tree/main/doc/modules>`_.
 * **Examples:** These provide full code examples that may demonstrate the use
-  of jax-sklearn modules, compare different algorithms or discuss their
+  of secret-learn modules, compare different algorithms or discuss their
   interpretation, etc. Examples live in
-  `examples/ <https://github.com/chenxingqiang/jax-sklearn/tree/main/examples>`_.
+  `examples/ <https://github.com/chenxingqiang/secret-learn/tree/main/examples>`_.
 * **Other reStructuredText documents:** These provide various other useful information
   (e.g., the :ref:`contributing` guide) and live in
-  `doc/ <https://github.com/chenxingqiang/jax-sklearn/tree/main/doc>`_.
+  `doc/ <https://github.com/chenxingqiang/secret-learn/tree/main/doc>`_.
 
 
 .. dropdown:: Guidelines for writing docstrings
@@ -841,7 +841,7 @@ We are glad to accept any sort of documentation:
   * When editing reStructuredText (``.rst``) files, try to keep line length under
     88 characters when possible (exceptions include links and tables).
 
-  * In jax-sklearn reStructuredText files both single and double backticks
+  * In secret-learn reStructuredText files both single and double backticks
     surrounding text will render as inline literal (often used for code, e.g.,
     `list`). This is due to specific configurations we have set. Single
     backticks should be used nowadays.
@@ -891,7 +891,7 @@ We are glad to accept any sort of documentation:
   * For the "References" section in docstrings, see
     :func:`xlearn.metrics.silhouette_score` as an example.
 
-  * To cross-reference to other pages in the jax-sklearn documentation use the
+  * To cross-reference to other pages in the secret-learn documentation use the
     reStructuredText cross-referencing syntax:
 
     * **Section:** to link to an arbitrary section in the documentation, use
@@ -912,7 +912,7 @@ We are glad to accept any sort of documentation:
 
       You should not modify existing sphinx reference labels as this would break
       existing cross references and external links pointing to specific sections
-      in the jax-sklearn documentation.
+      in the secret-learn documentation.
 
     * **Glossary:** linking to a term in the :ref:`glossary`:
 
@@ -1023,7 +1023,7 @@ an offline setting. To build the PDF manual, run:
    versions of Sphinx as possible, the different versions tend to
    behave slightly differently. To get the best results, you should
    use the same version as the one we used on CircleCI. Look at this
-   `GitHub search <https://github.com/search?q=repo%3Ajax-sklearn%2Fjax-sklearn+%2F%5C%2Fsphinx-%5B0-9.%5D%2B%2F+path%3Abuild_tools%2Fcircle%2Fdoc_linux-64_conda.lock&type=code>`_
+   `GitHub search <https://github.com/search?q=repo%3Asecret-learn%2Fsecret-learn+%2F%5C%2Fsphinx-%5B0-9.%5D%2B%2F+path%3Abuild_tools%2Fcircle%2Fdoc_linux-64_conda.lock&type=code>`_
    to know the exact version.
 
 
@@ -1046,7 +1046,7 @@ Testing and improving test coverage
 ===================================
 
 High-quality `unit testing <https://en.wikipedia.org/wiki/Unit_testing>`_
-is a corner-stone of the jax-sklearn development process. For this
+is a corner-stone of the secret-learn development process. For this
 purpose, we use the `pytest <https://docs.pytest.org>`_
 package. The tests are functions appropriately named, located in `tests`
 subdirectories, that check the validity of the algorithms and the
@@ -1061,7 +1061,7 @@ We expect code coverage of new features to be at least around 90%.
 .. dropdown:: Writing matplotlib-related tests
 
   Test fixtures ensure that a set of tests will be executing with the appropriate
-  initialization and cleanup. The jax-sklearn test suite implements a ``pyplot``
+  initialization and cleanup. The secret-learn test suite implements a ``pyplot``
   fixture which can be used with ``matplotlib``.
 
   The ``pyplot`` fixture should be used when a test function is dealing with
@@ -1101,8 +1101,8 @@ When proposing changes to the existing code base, it's important to make sure
 that they don't introduce performance regressions. Scikit-learn uses
 `asv benchmarks <https://github.com/airspeed-velocity/asv>`_ to monitor the
 performance of a selection of common estimators and functions. You can view
-these benchmarks on the `jax-sklearn benchmark page
-<https://jax-sklearn.org/jax-sklearn-benchmarks>`_.
+these benchmarks on the `secret-learn benchmark page
+<https://secret-learn.org/secret-learn-benchmarks>`_.
 The corresponding benchmark suite can be found in the `asv_benchmarks/` directory.
 
 To use all features of asv, you will need either `conda` or `virtualenv`. For
@@ -1122,14 +1122,14 @@ and change your directory to `asv_benchmarks/`:
   cd asv_benchmarks
 
 The benchmark suite is configured to run against your local clone of
-jax-sklearn. Make sure it is up to date:
+secret-learn. Make sure it is up to date:
 
 .. prompt:: bash
 
   git fetch upstream
 
 In the benchmark suite, the benchmarks are organized following the same
-structure as jax-sklearn. For example, you can compare the performance of a
+structure as secret-learn. For example, you can compare the performance of a
 specific estimator between ``upstream/main`` and the branch you are working on:
 
 .. prompt:: bash
@@ -1169,14 +1169,14 @@ command:
 
   asv run -b linear_model HEAD^!
 
-You can also run the benchmark suite using the version of jax-sklearn already
+You can also run the benchmark suite using the version of secret-learn already
 installed in your current Python environment:
 
 .. prompt:: bash
 
   asv run --python=same
 
-It's particularly useful when you installed jax-sklearn in editable mode to
+It's particularly useful when you installed secret-learn in editable mode to
 avoid creating a new environment each time you run the benchmarks. By default
 the results are not saved when using an existing installation. To save the
 results you must specify a commit hash:
@@ -1214,7 +1214,7 @@ Issue Tracker Tags
 ==================
 
 All issues and pull requests on the
-`GitHub issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_
+`GitHub issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_
 should have (at least) one of the following tags:
 
 :Bug:
@@ -1233,9 +1233,9 @@ should have (at least) one of the following tags:
 There are four other tags to help new contributors:
 
 :Good first issue:
-    This issue is ideal for a first contribution to jax-sklearn. Ask for help
+    This issue is ideal for a first contribution to secret-learn. Ask for help
     if the formulation is unclear. If you have already contributed to
-    jax-sklearn, look at Easy issues instead.
+    secret-learn, look at Easy issues instead.
 
 :Easy:
     This issue can be tackled without much prior experience.
@@ -1427,7 +1427,7 @@ Code Review Guidelines
 ======================
 
 Reviewing code contributed to the project as PRs is a crucial component of
-jax-sklearn development. We encourage anyone to start reviewing code of other
+secret-learn development. We encourage anyone to start reviewing code of other
 developers. The code review process is often highly educational for everybody
 involved. This is particularly appropriate if it is a feature you would like to
 use, and so can respond critically about whether the PR meets your needs. While
@@ -1449,15 +1449,15 @@ up this process by providing your feedback.
   from high-level questions to a more detailed check-list.
 
   - Do we want this in the library? Is it likely to be used? Do you, as
-    a jax-sklearn user, like the change and intend to use it? Is it in
-    the scope of jax-sklearn? Will the cost of maintaining a new
+    a secret-learn user, like the change and intend to use it? Is it in
+    the scope of secret-learn? Will the cost of maintaining a new
     feature be worth its benefits?
 
-  - Is the code consistent with the API of jax-sklearn? Are public
+  - Is the code consistent with the API of secret-learn? Are public
     functions/classes/parameters well named and intuitively designed?
 
   - Are all public functions/classes and their parameters, return types, and
-    stored attributes named according to jax-sklearn conventions and documented clearly?
+    stored attributes named according to secret-learn conventions and documented clearly?
 
   - Is any new functionality described in the user-guide and illustrated with examples?
 
@@ -1541,7 +1541,7 @@ make this task easier and faster (in no particular order).
   is doing. It may also help to stop a minute and think *how would I do this
   myself if I had to?*
 - The trickiest thing is often to identify which portions of the code are
-  relevant, and which are not. In jax-sklearn **a lot** of input checking
+  relevant, and which are not. In secret-learn **a lot** of input checking
   is performed, especially at the beginning of the :term:`fit` methods.
   Sometimes, only a very small portion of the code is doing the actual job.
   For example looking at the :meth:`~linear_model.LinearRegression.fit` method of

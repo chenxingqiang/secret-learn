@@ -2,7 +2,7 @@
 This module defines export functions for decision trees.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from collections.abc import Iterable
@@ -264,7 +264,7 @@ class _BaseTreeExporter:
                 # and -min(impurity) instead of max(-impurity) on purpose, in
                 # order to avoid what looks like an issue with SIMD on non
                 # memory aligned arrays on 32bit OS. For more details see
-                # https://github.com/chenxingqiang/jax-sklearn/issues/27506.
+                # https://github.com/chenxingqiang/secret-learn/issues/27506.
                 self.colors["bounds"] = (-np.max(tree.impurity), -np.min(tree.impurity))
             elif tree.n_classes[0] == 1 and len(np.unique(tree.value)) != 1:
                 # Find max and min values in leaf nodes for regression

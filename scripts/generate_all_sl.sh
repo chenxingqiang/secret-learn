@@ -11,7 +11,7 @@ total=0
 success=0
 
 # Read all SS algorithms and generate SL versions
-for ss_file in xlearn/_secretflow/generated/ss_*.py; do
+for ss_file in xlearn/secretflow/generated/ss_*.py; do
     algo_lower=$(basename "$ss_file" | sed 's/ss_//' | sed 's/.py//')
     
     # Extract sklearn import from SS file to get correct module
@@ -26,7 +26,7 @@ for ss_file in xlearn/_secretflow/generated/ss_*.py; do
         
         ((total++))
         
-        if python xlearn/_secretflow/algorithm_migrator_standalone.py \
+        if python xlearn/secretflow/algorithm_migrator_standalone.py \
             --algorithm "$full_path" --mode sl 2>&1 | grep -q "生成适配器"; then
             ((success++))
             echo "[$success/$total] ✅ $algo_lower"
@@ -43,10 +43,10 @@ echo "======================================================================"
 echo "✅ Success: $success/$total algorithms"
 echo ""
 echo "📊 Final totals:"
-echo "  SS algorithms: $(ls xlearn/_secretflow/generated/ss_*.py 2>/dev/null | wc -l)"
-echo "  FL algorithms: $(ls xlearn/_secretflow/generated/fl_*.py 2>/dev/null | wc -l)"
-echo "  SL algorithms: $(ls xlearn/_secretflow/generated/sl_*.py 2>/dev/null | wc -l)"
-total_algos=$(($(ls xlearn/_secretflow/generated/ss_*.py 2>/dev/null | wc -l) + $(ls xlearn/_secretflow/generated/fl_*.py 2>/dev/null | wc -l) + $(ls xlearn/_secretflow/generated/sl_*.py 2>/dev/null | wc -l)))
+echo "  SS algorithms: $(ls xlearn/secretflow/generated/ss_*.py 2>/dev/null | wc -l)"
+echo "  FL algorithms: $(ls xlearn/secretflow/generated/fl_*.py 2>/dev/null | wc -l)"
+echo "  SL algorithms: $(ls xlearn/secretflow/generated/sl_*.py 2>/dev/null | wc -l)"
+total_algos=$(($(ls xlearn/secretflow/generated/ss_*.py 2>/dev/null | wc -l) + $(ls xlearn/secretflow/generated/fl_*.py 2>/dev/null | wc -l) + $(ls xlearn/secretflow/generated/sl_*.py 2>/dev/null | wc -l)))
 echo "  Total: $total_algos implementations"
 echo ""
 

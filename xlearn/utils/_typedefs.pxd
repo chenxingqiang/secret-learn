@@ -20,7 +20,7 @@ ctypedef unsigned long long uint64_t
 #
 # Note that on most platforms Py_ssize_t is equivalent to C99's intptr_t,
 # but they can differ on architecture with segmented memory (none
-# supported by jax-sklearn at the time of writing).
+# supported by secret-learn at the time of writing).
 #
 # intp_t/np.intp should be used to index arrays in a platform dependent way.
 # Storing arrays with platform dependent dtypes as attribute on picklable
@@ -34,7 +34,7 @@ ctypedef double float64_t
 # Sparse matrices indices and indices' pointers arrays must use int32_t over
 # intp_t because intp_t is platform dependent.
 # When large sparse matrices are supported, indexing must use int64_t.
-# See https://github.com/chenxingqiang/jax-sklearn/issues/23653 which tracks the
+# See https://github.com/chenxingqiang/secret-learn/issues/23653 which tracks the
 # ongoing work to support large sparse matrices.
 ctypedef signed char int8_t
 ctypedef signed int int32_t

@@ -1,5 +1,5 @@
 ============================
-Computing with jax-sklearn
+Computing with secret-learn
 ============================
 
 .. toctree::

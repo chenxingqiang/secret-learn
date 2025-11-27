@@ -20,7 +20,7 @@ traditional (l2-penalised) logistic regression model.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import timeit

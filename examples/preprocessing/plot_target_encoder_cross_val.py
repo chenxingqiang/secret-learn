@@ -16,7 +16,7 @@ In this example, we demonstrate the importance of the cross
 fitting procedure to prevent overfitting.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

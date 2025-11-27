@@ -1,9 +1,9 @@
 """Support vector machine algorithms."""
 
-# See http://jax-sklearn.sourceforge.net/modules/svm.html for complete
+# See http://secret-learn.sourceforge.net/modules/svm.html for complete
 # documentation.
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ._bounds import l1_min_c

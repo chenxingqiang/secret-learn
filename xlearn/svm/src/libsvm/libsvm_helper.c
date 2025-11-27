@@ -17,7 +17,7 @@
  * but libsvm does not expose this structure, so we define it here
  * along some utilities to convert from numpy arrays.
  *
- * Authors: The jax-sklearn developers
+ * Authors: The secret-learn developers
  * SPDX-License-Identifier: BSD-3-Clause
  *
  */

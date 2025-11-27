@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import importlib
@@ -212,7 +212,7 @@ def _get_adapter_from_container(container):
     except KeyError as exc:
         available_adapters = list(ADAPTERS_MANAGER.adapters.keys())
         raise ValueError(
-            "The container does not have a registered adapter in jax-sklearn. "
+            "The container does not have a registered adapter in secret-learn. "
             f"Available adapters are: {available_adapters} while the container "
             f"provided is: {container!r}."
         ) from exc

@@ -492,7 +492,7 @@ def test_consistence_column_name_between_steps():
     `FunctionTransformer` and the feature names in of the next step in the pipeline.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27695
+    https://github.com/chenxingqiang/secret-learn/issues/27695
     """
     pd = pytest.importorskip("pandas")
 

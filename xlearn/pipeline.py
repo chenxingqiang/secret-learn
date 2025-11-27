@@ -1,6 +1,6 @@
 """Utilities to build a composite estimator as a chain of transforms and estimators."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -155,7 +155,7 @@ class Pipeline(_BaseComposition):
     ----------
     steps : list of tuples
         List of (name of step, estimator) tuples that are to be chained in
-        sequential order. To be compatible with the jax-sklearn API, all steps
+        sequential order. To be compatible with the secret-learn API, all steps
         must define `fit`. All non-last steps must also define `transform`. See
         :ref:`Combining Estimators <combining_estimators>` for more details.
 
@@ -1441,7 +1441,7 @@ def make_pipeline(*steps, memory=None, transform_input=None, verbose=False):
     Parameters
     ----------
     *steps : list of Estimator objects
-        List of the jax-sklearn estimators that are chained together.
+        List of the secret-learn estimators that are chained together.
 
     memory : str or object with the joblib.Memory interface, default=None
         Used to cache the fitted transformers of the pipeline. The last step
@@ -1471,7 +1471,7 @@ def make_pipeline(*steps, memory=None, transform_input=None, verbose=False):
     Returns
     -------
     p : Pipeline
-        Returns a jax-sklearn :class:`Pipeline` object.
+        Returns a secret-learn :class:`Pipeline` object.
 
     See Also
     --------

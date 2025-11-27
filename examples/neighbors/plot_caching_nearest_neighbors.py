@@ -18,7 +18,7 @@ larger, or when the grid of parameter to search is large.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from tempfile import TemporaryDirectory

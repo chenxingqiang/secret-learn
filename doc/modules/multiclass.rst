@@ -44,7 +44,7 @@ guide.
 | regression                   |                       |                         |                                                  |
 +------------------------------+-----------------------+-------------------------+--------------------------------------------------+
 
-Below is a summary of jax-sklearn estimators that have multi-learning support
+Below is a summary of secret-learn estimators that have multi-learning support
 built-in, grouped by strategy. You don't need the meta-estimators provided by
 this section if you're using one of these estimators. However, meta-estimators
 can provide additional strategies beyond what is built-in:
@@ -121,7 +121,7 @@ Multiclass classification
 =========================
 
 .. warning::
-    All classifiers in jax-sklearn do multiclass classification
+    All classifiers in secret-learn do multiclass classification
     out-of-the-box. You don't need to use the :mod:`xlearn.multiclass` module
     unless you want to experiment with different multiclass strategies.
 
@@ -135,7 +135,7 @@ Multiclass classification makes the assumption that each sample is assigned
 to one and only one label - one sample cannot, for example, be both a pear
 and an apple.
 
-While all jax-sklearn classifiers are capable of multiclass classification,
+While all secret-learn classifiers are capable of multiclass classification,
 the meta-estimators offered by :mod:`xlearn.multiclass`
 permit changing the way they handle more than two classes
 because this may have an effect on classifier performance

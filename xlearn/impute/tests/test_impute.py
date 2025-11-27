@@ -1073,7 +1073,7 @@ def test_iterative_imputer_min_max_array_like_imputation(min_max_1, min_max_2):
 def test_iterative_imputer_skip_non_missing(skip_complete):
     # check the imputing strategy when missing data are present in the
     # testing set only.
-    # taken from: https://github.com/chenxingqiang/jax-sklearn/issues/14383
+    # taken from: https://github.com/chenxingqiang/secret-learn/issues/14383
     rng = np.random.RandomState(0)
     X_train = np.array([[5, 2, 2, 1], [10, 1, 2, 7], [3, 1, 1, 1], [8, 4, 2, 2]])
     X_test = np.array([[np.nan, 2, 4, 5], [np.nan, 4, 1, 2], [np.nan, 1, 10, 1]])
@@ -1569,7 +1569,7 @@ def test_iterative_imputer_min_max_value_remove_empty():
     """Check that we properly apply the empty feature mask to `min_value` and
     `max_value`.
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/29355
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/29355
     """
     # Intentionally make column 2 as a missing column, then the bound of the imputed
     # value of column 3 should be (4, 5)
@@ -1834,7 +1834,7 @@ def test_simple_imputer_constant_fill_value_casting():
     to the input data type. Otherwise, check that the casting is done properly.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28309
+    https://github.com/chenxingqiang/secret-learn/issues/28309
     """
     # cannot cast fill_value at fit
     fill_value = 1.5
@@ -1876,7 +1876,7 @@ def test_iterative_imputer_no_empty_features(strategy):
     parameter `keep_empty_features`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/29375
+    https://github.com/chenxingqiang/secret-learn/issues/29375
     """
     X = np.array([[np.nan, 0, 1], [2, np.nan, 3], [4, 5, np.nan]])
 
@@ -1910,7 +1910,7 @@ def test_iterative_imputer_with_empty_features(strategy, X_test):
     defined by the initial imputation.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/29375
+    https://github.com/chenxingqiang/secret-learn/issues/29375
     """
     X_train = np.array(
         [[np.nan, np.nan, 0, 1], [np.nan, 2, np.nan, 3], [np.nan, 4, 5, np.nan]]

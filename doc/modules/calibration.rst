@@ -50,7 +50,7 @@ It plots the frequency of the positive label (to be more precise, an estimation 
 *conditional event probability* :math:`P(Y=1|\text{predict_proba})`) on the y-axis
 against the predicted probability :term:`predict_proba` of a model on the x-axis.
 The tricky part is to get values for the y-axis.
-In jax-sklearn, this is accomplished by binning the predictions such that the x-axis
+In secret-learn, this is accomplished by binning the predictions such that the x-axis
 represents the average predicted probability in each bin.
 The y-axis is then the *fraction of positives* given the predictions of that bin, i.e.
 the proportion of samples whose class is the positive class (in each bin).

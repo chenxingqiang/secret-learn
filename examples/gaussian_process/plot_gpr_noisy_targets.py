@@ -19,7 +19,7 @@ Note that `alpha` is a parameter to control the strength of the Tikhonov
 regularization on the assumed training points' covariance matrix.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

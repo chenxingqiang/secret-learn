@@ -13,7 +13,7 @@ Scikit-learn vendors pinned copies of
 and `array-api-extra <https://github.com/data-apis/array-api-extra>`__.
 
 Scikit-learn's support for the array API standard requires the environment variable
-`SCIPY_ARRAY_API` to be set to `1` before importing `scipy` and `jax-sklearn`:
+`SCIPY_ARRAY_API` to be set to `1` before importing `scipy` and `secret-learn`:
 
 .. prompt:: bash $
 
@@ -23,7 +23,7 @@ Please note that this environment variable is intended for temporary use.
 For more details, refer to SciPy's `Array API documentation
 <https://docs.scipy.org/doc/scipy/dev/api-dev/array_api.html#using-array-api-standard-support>`_.
 
-Some jax-sklearn estimators that primarily rely on NumPy (as opposed to using
+Some secret-learn estimators that primarily rely on NumPy (as opposed to using
 Cython) to implement the algorithmic logic of their `fit`, `predict` or
 `transform` methods can be configured to accept any Array API compatible input
 data structures and automatically dispatch operations to the underlying namespace
@@ -34,7 +34,7 @@ explicitly by the `array_api_dispatch` configuration. See below for details.
 
 .. note::
     Currently, only `array-api-strict`, `cupy`, and `PyTorch` are known to work
-    with jax-sklearn's estimators.
+    with secret-learn's estimators.
 
 The following video provides an overview of the standard's design principles
 and how it facilitates interoperability between array libraries:
@@ -107,7 +107,7 @@ PyTorch Tensors can also be passed directly::
 Support for `Array API`-compatible inputs
 =========================================
 
-Estimators and other tools in jax-sklearn that support Array API compatible inputs.
+Estimators and other tools in secret-learn that support Array API compatible inputs.
 
 Estimators
 ----------
@@ -181,14 +181,14 @@ Tools
 - :func:`utils.check_consistent_length`
 
 Coverage is expected to grow over time. Please follow the dedicated `meta-issue on GitHub
-<https://github.com/chenxingqiang/jax-sklearn/issues/22352>`_ to track progress.
+<https://github.com/chenxingqiang/secret-learn/issues/22352>`_ to track progress.
 
 Input and output array type handling
 ====================================
 
 Estimators and scoring functions are able to accept input arrays
 from different array libraries and/or devices. When a mixed set of input arrays is
-passed, jax-sklearn converts arrays as needed to make them all consistent.
+passed, secret-learn converts arrays as needed to make them all consistent.
 
 For estimators, the rule is **"everything follows `X`"** - mixed array inputs are
 converted so that they all match the array library and device of `X`.
@@ -210,7 +210,7 @@ on the GPU at any point within a pipeline.
 
 This allows estimators to accept mixed input types, enabling `X` to be moved
 to a different device within a pipeline, without explicitly moving `y`.
-Note that jax-sklearn pipelines do not allow transformation of `y` (to avoid
+Note that secret-learn pipelines do not allow transformation of `y` (to avoid
 :ref:`leakage <data_leakage>`).
 
 Take for example a pipeline where `X` and `y` both start on CPU, and go through
@@ -227,7 +227,7 @@ the following three steps:
 target encoded to numerical values in :class:`~xlearn.preprocessing.TargetEncoder`.
 `X` is then explicitly moved to GPU to improve the performance of
 :class:`~xlearn.linear_model.Ridge`. `y` cannot be transformed by the pipeline
-(recall jax-sklearn pipelines do not allow transformation of `y`) but as
+(recall secret-learn pipelines do not allow transformation of `y`) but as
 :class:`~xlearn.linear_model.Ridge` is able to accept mixed input types,
 this is not a problem and the pipeline is able to be run.
 
@@ -281,7 +281,7 @@ automatically skipped. Therefore it's important to run the tests with the
     pip install array-api-strict  # and other libraries as needed
     pytest -k "array_api" -v
 
-Running the jax-sklearn tests against `array-api-strict` should help reveal
+Running the secret-learn tests against `array-api-strict` should help reveal
 most code problems related to handling multiple device inputs via the use of
 simulated non-CPU devices. This allows for fast iterative development and debugging of
 array API related code.
@@ -312,7 +312,7 @@ To enable the MPS support in PyTorch, set the environment variable
 
     PYTORCH_ENABLE_MPS_FALLBACK=1 pytest -k "array_api" -v
 
-At the time of writing all jax-sklearn tests should pass, however, the
+At the time of writing all secret-learn tests should pass, however, the
 computational speed is not necessarily better than with the CPU device.
 
 .. _device_support_for_float64:
@@ -320,11 +320,11 @@ computational speed is not necessarily better than with the CPU device.
 Note on device support for ``float64``
 --------------------------------------
 
-Certain operations within jax-sklearn will automatically perform operations
+Certain operations within secret-learn will automatically perform operations
 on floating-point values with `float64` precision to prevent overflows and ensure
 correctness (e.g., :func:`metrics.pairwise.euclidean_distances`). However,
 certain combinations of array namespaces and devices, such as `PyTorch on MPS`
 (see :ref:`mps_support`) do not support the `float64` data type. In these cases,
-jax-sklearn will revert to using the `float32` data type instead. This can result in
+secret-learn will revert to using the `float32` data type instead. This can result in
 different behavior (typically numerically unstable results) compared to not using array
 API dispatching or using a device with `float64` support.

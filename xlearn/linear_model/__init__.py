@@ -1,10 +1,10 @@
 """A variety of linear models."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
-# See http://jax-sklearn.sourceforge.net/modules/sgd.html and
-# http://jax-sklearn.sourceforge.net/modules/linear_model.html for
+# See http://secret-learn.sourceforge.net/modules/sgd.html and
+# http://secret-learn.sourceforge.net/modules/linear_model.html for
 # complete documentation.
 
 from ._base import LinearRegression

@@ -10,7 +10,7 @@ K-Means++ is used as the default initialization for :ref:`k_means`.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

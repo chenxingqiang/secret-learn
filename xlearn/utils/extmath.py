@@ -1,6 +1,6 @@
-"""Utilities to perform optimal mathematical operations in jax-sklearn."""
+"""Utilities to perform optimal mathematical operations in secret-learn."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -582,7 +582,7 @@ def _randomized_svd(
     else:
         # When array_api_dispatch is disabled, rely on scipy.linalg
         # instead of numpy.linalg to avoid introducing a behavior change w.r.t.
-        # previous versions of jax-sklearn.
+        # previous versions of secret-learn.
         Uhat, s, Vt = linalg.svd(
             B, full_matrices=False, lapack_driver=svd_lapack_driver
         )

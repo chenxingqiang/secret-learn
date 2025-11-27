@@ -10,7 +10,7 @@ web page of Sam Roweis:
     https://cs.nyu.edu/~roweis/
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from numbers import Integral, Real
@@ -74,7 +74,7 @@ def fetch_olivetti_faces(
     ----------
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     shuffle : bool, default=False
         If True the order of the dataset is shuffled to avoid having

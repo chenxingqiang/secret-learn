@@ -4,7 +4,7 @@ Features in Histogram Gradient Boosting Trees
 ==============================================
 
 :ref:`histogram_based_gradient_boosting` (HGBT) models may be one of the most
-useful supervised learning models in jax-sklearn. They are based on a modern
+useful supervised learning models in secret-learn. They are based on a modern
 gradient boosting implementation comparable to LightGBM and XGBoost. As such,
 HGBT models are more feature rich than and often outperform alternative models
 like random forests, especially when the number of samples is larger than some
@@ -26,7 +26,7 @@ This example aims at showcasing all points except 2 and 6 in a real life
 setting.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -149,7 +149,7 @@ _ = ax.legend()
 # iterations, we are already able to do a good job.
 #
 # Setting `max_iter` too high might degrade the prediction quality and cost a lot of
-# avoidable computing resources. Therefore, the HGBT implementation in jax-sklearn
+# avoidable computing resources. Therefore, the HGBT implementation in secret-learn
 # provides an automatic **early stopping** strategy. With it, the model
 # uses a fraction of the training data as internal validation set
 # (`validation_fraction`) and stops training if the validation score does not

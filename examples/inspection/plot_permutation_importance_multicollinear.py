@@ -21,7 +21,7 @@ picking a threshold, and keeping a single feature from each cluster.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -41,7 +41,7 @@ def plot_permutation_importance(clf, X, y, ax):
 
     # `labels` argument in boxplot is deprecated in matplotlib 3.9 and has been
     # renamed to `tick_labels`. The following code handles this, but as a
-    # jax-sklearn user you probably can write simpler code by using `labels=...`
+    # secret-learn user you probably can write simpler code by using `labels=...`
     # (matplotlib < 3.9) or `tick_labels=...` (matplotlib >= 3.9).
     tick_labels_parameter_name = (
         "tick_labels"
@@ -91,7 +91,7 @@ _ = fig.tight_layout()
 
 # %%
 # The plot on the left shows the Gini importance of the model. As the
-# jax-sklearn implementation of
+# secret-learn implementation of
 # :class:`~xlearn.ensemble.RandomForestClassifier` uses a random subsets of
 # :math:`\sqrt{n_\text{features}}` features at each split, it is able to dilute
 # the dominance of any single correlated feature. As a result, the individual

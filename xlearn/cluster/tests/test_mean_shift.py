@@ -28,7 +28,7 @@ X, _ = make_blobs(
 def test_convergence_of_1d_constant_data():
     # Test convergence using 1D constant data
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/28926
+    # https://github.com/chenxingqiang/secret-learn/issues/28926
     model = MeanShift()
     n_iter = model.fit(np.ones(10).reshape(-1, 1)).n_iter_
     assert n_iter < model.max_iter

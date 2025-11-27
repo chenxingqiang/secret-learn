@@ -40,7 +40,7 @@ fi
 if [[ -n "$CI_PULL_REQUEST"  && -z "$CI_TARGET_BRANCH" ]]
 then
     # Get the target branch name when using CircleCI
-    CI_TARGET_BRANCH=$(curl -s "https://api.github.com/repos/jax-sklearn/jax-sklearn/pulls/$CIRCLE_PR_NUMBER" | jq -r .base.ref)
+    CI_TARGET_BRANCH=$(curl -s "https://api.github.com/repos/secret-learn/secret-learn/pulls/$CIRCLE_PR_NUMBER" | jq -r .base.ref)
 fi
 
 get_build_type() {
@@ -194,7 +194,7 @@ show_installed_libraries
 
 # Specify explicitly ninja -j argument because ninja does not handle cgroups v2 and
 # use the same default rule as ninja (-j3 since we have 2 cores on CircleCI), see
-# https://github.com/chenxingqiang/jax-sklearn/pull/30333
+# https://github.com/chenxingqiang/secret-learn/pull/30333
 pip install -e . --no-build-isolation --config-settings=compile-args="-j 3"
 
 echo "ccache build summary:"
@@ -235,7 +235,7 @@ affected_doc_paths() {
     xlearn_files=$(echo "$files" | grep '^xlearn/')
     if [ -n "$xlearn_files" ]
     then
-        grep -hlR -f<(echo "$xlearn_files" | sed 's/^/jax-sklearn\/blob\/[a-z0-9]*\//') doc/_build/html/stable/modules/generated | cut -d/ -f5-
+        grep -hlR -f<(echo "$xlearn_files" | sed 's/^/secret-learn\/blob\/[a-z0-9]*\//') doc/_build/html/stable/modules/generated | cut -d/ -f5-
     fi
 }
 
@@ -267,7 +267,7 @@ then
     echo "$affected"
     (
     echo '<html><body><ul>'
-    echo "$affected" | sed 's|.*|<li><a href="&">&</a> [<a href="https://jax-sklearn.org/dev/&">dev</a>, <a href="https://jax-sklearn.org/stable/&">stable</a>]</li>|'
+    echo "$affected" | sed 's|.*|<li><a href="&">&</a> [<a href="https://secret-learn.org/dev/&">dev</a>, <a href="https://secret-learn.org/stable/&">stable</a>]</li>|'
     echo '</ul><p>General: <a href="index.html">Home</a> | <a href="api/index.html">API Reference</a> | <a href="auto_examples/index.html">Examples</a></p>'
     echo '<strong>Sphinx Warnings in affected files</strong><ul>'
     echo "$warnings" | sed 's/\/home\/circleci\/project\//<li>/g'

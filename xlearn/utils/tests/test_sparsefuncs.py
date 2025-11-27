@@ -407,7 +407,7 @@ def test_incr_mean_variance_axis(csc_container, csr_container, lil_container):
 def test_incr_mean_variance_axis_dim_mismatch(sparse_constructor):
     """Check that we raise proper error when axis=1 and the dimension mismatch.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/18655
+    https://github.com/chenxingqiang/secret-learn/pull/18655
     """
     n_samples, n_features = 60, 4
     rng = np.random.RandomState(42)
@@ -454,7 +454,7 @@ def test_incr_mean_variance_axis_dim_mismatch(sparse_constructor):
 @pytest.mark.parametrize("csr_container", CSR_CONTAINERS)
 def test_incr_mean_variance_axis_equivalence_mean_variance(X1, X2, csr_container):
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16448
+    # https://github.com/chenxingqiang/secret-learn/issues/16448
     # check that computing the incremental mean and variance is equivalent to
     # computing the mean and variance on the stacked dataset.
     X1 = csr_container(X1)

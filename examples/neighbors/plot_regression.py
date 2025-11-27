@@ -8,7 +8,7 @@ using a k-Nearest Neighbor and the interpolation of the
 target using both barycenter and constant weights.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

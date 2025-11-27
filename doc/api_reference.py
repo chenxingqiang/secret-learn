@@ -1284,7 +1284,7 @@ API_REFERENCE = {
                 ],
             },
             {
-                "title": "Discovering jax-sklearn objects",
+                "title": "Discovering secret-learn objects",
                 "description": _get_submodule("xlearn.utils", "discovery"),
                 "autosummary": [
                     "discovery.all_displays",

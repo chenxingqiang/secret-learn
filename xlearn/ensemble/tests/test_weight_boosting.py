@@ -84,7 +84,7 @@ def test_samme_proba():
 def test_oneclass_adaboost_proba():
     # Test predict_proba robustness for one class label input.
     # In response to issue #7501
-    # https://github.com/chenxingqiang/jax-sklearn/issues/7501
+    # https://github.com/chenxingqiang/secret-learn/issues/7501
     y_t = np.ones(len(X))
     clf = AdaBoostClassifier().fit(X, y_t)
     assert_array_almost_equal(clf.predict_proba(X), np.ones((len(X), 1)))
@@ -550,7 +550,7 @@ def test_adaboostregressor_sample_weight():
 def test_adaboost_consistent_predict():
     # check that predict_proba and predict give consistent results
     # regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/14084
+    # https://github.com/chenxingqiang/secret-learn/issues/14084
     X_train, X_test, y_train, y_test = train_test_split(
         *datasets.load_digits(return_X_y=True), random_state=42
     )
@@ -583,7 +583,7 @@ def test_adaboost_numerically_stable_feature_importance_with_small_weights():
     instable inputs.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20320
+    https://github.com/chenxingqiang/secret-learn/issues/20320
     """
     rng = np.random.RandomState(42)
     X = rng.normal(size=(1000, 10))
@@ -600,7 +600,7 @@ def test_adaboost_decision_function(global_random_seed):
     learners.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/26520
+    https://github.com/chenxingqiang/secret-learn/issues/26520
     """
     n_classes = 3
     X, y = datasets.make_classification(

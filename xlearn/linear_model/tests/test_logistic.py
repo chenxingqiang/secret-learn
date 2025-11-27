@@ -518,7 +518,7 @@ def test_logistic_cv():
         # no need to test for micro averaging because it
         # is the same as accuracy for f1, precision,
         # and recall (see https://github.com/
-        # jax-sklearn/jax-sklearn/pull/
+        # secret-learn/secret-learn/pull/
         # 11578#discussion_r203250062)
         ("f1", ["_macro", "_weighted"]),
         ("neg_log_loss", [""]),
@@ -528,7 +528,7 @@ def test_logistic_cv():
 def test_logistic_cv_multinomial_score(scoring, multiclass_agg_list):
     # test that LogisticRegressionCV uses the right score to compute its
     # cross-validation scores when using a multinomial scoring
-    # see https://github.com/chenxingqiang/jax-sklearn/issues/8720
+    # see https://github.com/chenxingqiang/secret-learn/issues/8720
     X, y = make_classification(
         n_samples=100, random_state=0, n_classes=3, n_informative=6
     )
@@ -841,7 +841,7 @@ def test_logistic_regressioncv_class_weights(weight, class_weight, global_random
     # parameter of the solver does not help. However this lack of proper
     # convergence does not seem to prevent the assertion to pass, so we ignore
     # the warning for now.
-    # See: https://github.com/chenxingqiang/jax-sklearn/pull/27649
+    # See: https://github.com/chenxingqiang/secret-learn/pull/27649
     with ignore_warnings(category=ConvergenceWarning):
         clf_lbfgs.fit(X, y)
 
@@ -1131,8 +1131,8 @@ def test_liblinear_decision_function_zero():
     # Test negative prediction when decision_function values are zero.
     # Liblinear predicts the positive class when decision_function values
     # are zero. This is a test to verify that we do not do the same.
-    # See Issue: https://github.com/chenxingqiang/jax-sklearn/issues/3600
-    # and the PR https://github.com/chenxingqiang/jax-sklearn/pull/3623
+    # See Issue: https://github.com/chenxingqiang/secret-learn/issues/3600
+    # and the PR https://github.com/chenxingqiang/secret-learn/pull/3623
     X, y = make_classification(n_samples=5, n_features=5, random_state=0)
     clf = LogisticRegression(fit_intercept=False, solver="liblinear")
     clf.fit(X, y)
@@ -1539,7 +1539,7 @@ def test_dtype_match(solver, multi_class, fit_intercept, csr_container):
     # solver_tol bounds the norm of the loss gradient
     # dw ~= inv(H)*grad ==> |dw| ~= |inv(H)| * solver_tol, where H - hessian
     #
-    # See https://github.com/chenxingqiang/jax-sklearn/pull/13645
+    # See https://github.com/chenxingqiang/secret-learn/pull/13645
     #
     # with  Z = np.hstack((np.ones((3,1)), np.array(X)))
     # In [8]: np.linalg.norm(np.diag([0,2,2]) + np.linalg.inv((Z.T @ Z)/4))
@@ -2230,7 +2230,7 @@ def test_single_feature_newton_cg():
 
 
 def test_liblinear_not_stuck():
-    # Non-regression https://github.com/chenxingqiang/jax-sklearn/issues/18264
+    # Non-regression https://github.com/chenxingqiang/secret-learn/issues/18264
     X = iris.data.copy()
     y = iris.target.copy()
     X = X[y != 2]

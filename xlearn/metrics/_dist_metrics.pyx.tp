@@ -10,7 +10,7 @@ implementation_specific_values = [
 
 }}
 # By Jake Vanderplas (2013) <jakevdp@cs.washington.edu>
-# written for the jax-sklearn project
+# written for the secret-learn project
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -578,7 +578,7 @@ cdef class DistanceMetric{{name_suffix}}(DistanceMetric):
             )
 
         Yet, slicing on memoryview slows down execution as it takes the GIL.
-        See: https://github.com/chenxingqiang/jax-sklearn/issues/17299
+        See: https://github.com/chenxingqiang/secret-learn/issues/17299
 
         Hence, to avoid slicing the data and indices arrays of the sparse
         matrices containing respectively x1 and x2 (namely x{1,2}_{data,indices})

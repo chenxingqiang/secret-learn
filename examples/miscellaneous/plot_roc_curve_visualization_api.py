@@ -9,7 +9,7 @@ how to use the visualization API by comparing ROC curves.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

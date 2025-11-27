@@ -34,7 +34,7 @@ bike sharing dataset. The example is inspired by [1]_.
        Graphical Statistics, 24(1): 44-65 <1309.6392>`
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

@@ -18,7 +18,7 @@ LDA, in contrast to PCA, is a supervised method, using known class labels.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

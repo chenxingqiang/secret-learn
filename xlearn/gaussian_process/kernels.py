@@ -15,7 +15,7 @@
 # optimization.
 
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Note: this module is strongly inspired by the kernel module of the george
@@ -205,7 +205,7 @@ class Kernel(metaclass=ABCMeta):
 
         if len(varargs) != 0:
             raise RuntimeError(
-                "jax-sklearn kernels should always "
+                "secret-learn kernels should always "
                 "specify their parameters in the signature"
                 " of their __init__ (no varargs)."
                 " %s doesn't follow this convention." % (cls,)

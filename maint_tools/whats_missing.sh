@@ -25,7 +25,7 @@ mentioned_issues() {
 
 get_closed_issues() {
 	pr=$1
-	url=https://api.github.com/repos/jax-sklearn/jax-sklearn/pulls/$pr
+	url=https://api.github.com/repos/secret-learn/secret-learn/pulls/$pr
 	python - $url <<EOF
 import json
 import sys
@@ -36,7 +36,7 @@ from urllib import request
 req = request.Request(sys.argv[1], headers={"Authorization": "token %s" % os.environ['GITHUB_TOKEN']})
 body = json.loads(request.urlopen(req).read().decode('utf8'))['body']
 body = re.sub('<!--.*?-->', '', body, flags=re.DOTALL)
-matches = re.findall(r'(?i)\\b(?:fix|fixes|resolve|resolves|close|closes) +(?:https?://github.com/chenxingqiang/jax-sklearn/(?:pull|issues)/|#)?([0-9]+)',
+matches = re.findall(r'(?i)\\b(?:fix|fixes|resolve|resolves|close|closes) +(?:https?://github.com/chenxingqiang/secret-learn/(?:pull|issues)/|#)?([0-9]+)',
                           body)
 print(' '.join(matches))
 EOF

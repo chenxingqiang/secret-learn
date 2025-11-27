@@ -21,7 +21,7 @@ step before the final (global) clustering step that further reduces these
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import cycle

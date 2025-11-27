@@ -47,7 +47,7 @@ algorithms+=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Generating FL: $algo"
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode fl 2>&1 | grep -q "生成适配器"; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode fl 2>&1 | grep -q "生成适配器"; then
         ((success++))
     fi
 done
@@ -59,8 +59,8 @@ echo "======================================================================"
 echo "✅ Success: $success/$total algorithms"
 echo ""
 echo "📊 Current totals:"
-echo "  SS algorithms: $(ls xlearn/_secretflow/generated/ss_*.py 2>/dev/null | wc -l)"
-echo "  FL algorithms: $(ls xlearn/_secretflow/generated/fl_*.py 2>/dev/null | wc -l)"
-echo "  Total: $(($(ls xlearn/_secretflow/generated/ss_*.py 2>/dev/null | wc -l) + $(ls xlearn/_secretflow/generated/fl_*.py 2>/dev/null | wc -l)))"
+echo "  SS algorithms: $(ls xlearn/secretflow/generated/ss_*.py 2>/dev/null | wc -l)"
+echo "  FL algorithms: $(ls xlearn/secretflow/generated/fl_*.py 2>/dev/null | wc -l)"
+echo "  Total: $(($(ls xlearn/secretflow/generated/ss_*.py 2>/dev/null | wc -l) + $(ls xlearn/secretflow/generated/fl_*.py 2>/dev/null | wc -l)))"
 echo ""
 

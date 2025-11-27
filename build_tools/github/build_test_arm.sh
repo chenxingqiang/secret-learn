@@ -35,7 +35,7 @@ ccache -s --verbose
 
 micromamba list
 
-# Changing directory not to have module resolution use jax-sklearn source
+# Changing directory not to have module resolution use secret-learn source
 # directory but to the installed package.
 cd /tmp
 python -c "import xlearn; xlearn.show_versions()"

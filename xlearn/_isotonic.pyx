@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Uses the pool adjacent violators algorithm (PAVA), with the

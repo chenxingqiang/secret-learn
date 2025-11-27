@@ -5,14 +5,14 @@ Common pitfalls and recommended practices
 =========================================
 
 The purpose of this chapter is to illustrate some common pitfalls and
-anti-patterns that occur when using jax-sklearn. It provides
+anti-patterns that occur when using secret-learn. It provides
 examples of what **not** to do, along with a corresponding correct
 example.
 
 Inconsistent preprocessing
 ==========================
 
-jax-sklearn provides a library of :ref:`data-transforms`, which
+secret-learn provides a library of :ref:`data-transforms`, which
 may clean (see :ref:`preprocessing`), reduce
 (see :ref:`data_reduction`), expand (see :ref:`kernel_approximation`)
 or generate (see :ref:`feature_extraction`) feature representations.
@@ -113,7 +113,7 @@ Below are some tips on avoiding data leakage:
   subsets as the same preprocessing should be applied to all the data.
   This can be achieved by using `fit_transform` on the train subset and
   `transform` on the test subset.
-* The jax-sklearn :ref:`pipeline <pipeline>` is a great way to prevent data
+* The secret-learn :ref:`pipeline <pipeline>` is a great way to prevent data
   leakage as it ensures that the appropriate method is performed on the
   correct data subset. The pipeline is ideal for use in cross-validation
   and hyper-parameter tuning functions.
@@ -126,12 +126,12 @@ Data leakage during pre-processing
 .. note::
     We here choose to illustrate data leakage with a feature selection step.
     This risk of leakage is however relevant with almost all transformations
-    in jax-sklearn, including (but not limited to)
+    in secret-learn, including (but not limited to)
     :class:`~xlearn.preprocessing.StandardScaler`,
     :class:`~xlearn.impute.SimpleImputer`, and
     :class:`~xlearn.decomposition.PCA`.
 
-A number of :ref:`feature_selection` functions are available in jax-sklearn.
+A number of :ref:`feature_selection` functions are available in secret-learn.
 They can help remove irrelevant, redundant and noisy features as well as
 improve your model build time and performance. As with any other type of
 preprocessing, feature selection should **only** use the training data.
@@ -233,7 +233,7 @@ method is used during fitting and predicting::
 Controlling randomness
 ======================
 
-Some jax-sklearn objects are inherently random. These are usually estimators
+Some secret-learn objects are inherently random. These are usually estimators
 (e.g. :class:`~xlearn.ensemble.RandomForestClassifier`) and cross-validation
 splitters (e.g. :class:`~xlearn.model_selection.KFold`). The randomness of
 these objects is controlled via their `random_state` parameter, as described
@@ -435,7 +435,7 @@ it will allow the estimator RNG to vary for each fold.
 
     .. warning::
         Even though :func:`~xlearn.base.clone` is rarely used in user code, it is
-        called pervasively throughout jax-sklearn codebase: in particular, most
+        called pervasively throughout secret-learn codebase: in particular, most
         meta-estimators that accept non-fitted estimators call
         :func:`~xlearn.base.clone` internally
         (:class:`~xlearn.model_selection.GridSearchCV`,

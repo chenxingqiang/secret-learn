@@ -7,7 +7,7 @@ In this example, we discuss the problem of classification when the target
 variable is composed of more than two classes. This is called multiclass
 classification.
 
-In jax-sklearn, all estimators support multiclass classification out of the
+In secret-learn, all estimators support multiclass classification out of the
 box: the most sensible strategy was implemented for the end-user. The
 :mod:`xlearn.multiclass` module implements various strategies that one can use
 for experimenting or developing third-party estimators that only support binary
@@ -20,7 +20,7 @@ multiclass classifier by fitting a set of binary classifiers (the
 will review them.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -67,7 +67,7 @@ y.value_counts().sort_index()
 # * :class:`~xlearn.multiclass.OutputCodeClassifier`: trains a set of binary
 #   classifiers where each classifier is trained to distinguish between
 #   a set of classes from the rest of the classes. The set of classes is
-#   defined by a codebook, which is randomly generated in jax-sklearn. This
+#   defined by a codebook, which is randomly generated in secret-learn. This
 #   method exposes a parameter `code_size` to control the size of the codebook.
 #   We set it above one since we are not interested in compressing the class
 #   representation.
@@ -180,7 +180,7 @@ plt.show()
 # should be regularly explored when developing predictive models even if
 # techniques such as ensembling help at reducing this impact.
 #
-# Finally, it is important to recall that the estimators in jax-sklearn
+# Finally, it is important to recall that the estimators in secret-learn
 # are developed with a specific strategy to handle multiclass classification
 # out of the box. So for these estimators, it means that there is no need to
 # use different strategies. These strategies are mainly useful for third-party

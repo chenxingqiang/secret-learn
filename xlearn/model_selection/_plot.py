@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -232,7 +232,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
             Whether or not to negate the scores obtained through
             :func:`~xlearn.model_selection.learning_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
-            `jax-sklearn`.
+            `secret-learn`.
 
         score_name : str, default=None
             The name of the score used to decorate the y-axis of the plot. It will
@@ -419,7 +419,7 @@ class LearningCurveDisplay(_BaseCurveDisplay):
             Whether or not to negate the scores obtained through
             :func:`~xlearn.model_selection.learning_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
-            `jax-sklearn`.
+            `secret-learn`.
 
         score_name : str, default=None
             The name of the score used to decorate the y-axis of the plot. It will
@@ -626,7 +626,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
             Whether or not to negate the scores obtained through
             :func:`~xlearn.model_selection.validation_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
-            `jax-sklearn`.
+            `secret-learn`.
 
         score_name : str, default=None
             The name of the score used to decorate the y-axis of the plot. It will
@@ -793,7 +793,7 @@ class ValidationCurveDisplay(_BaseCurveDisplay):
             Whether or not to negate the scores obtained through
             :func:`~xlearn.model_selection.validation_curve`. This is
             particularly useful when using the error denoted by `neg_*` in
-            `jax-sklearn`.
+            `secret-learn`.
 
         score_name : str, default=None
             The name of the score used to decorate the y-axis of the plot. It will

@@ -15,7 +15,7 @@ Let's take a straightforward example related to weather forecasting: the first p
 related to answering "what is the chance that it will rain tomorrow?" while the second
 point is related to answering "should I take an umbrella tomorrow?".
 
-When it comes to the jax-sklearn API, the first point is addressed by providing scores
+When it comes to the secret-learn API, the first point is addressed by providing scores
 using :term:`predict_proba` or :term:`decision_function`. The former returns conditional
 probability estimates :math:`P(y|X)` for each class, while the latter returns a decision
 score for each class.
@@ -23,7 +23,7 @@ score for each class.
 The decision corresponding to the labels is obtained with :term:`predict`. In binary
 classification, a decision rule or action is then defined by thresholding the scores,
 leading to the prediction of a single class label for each sample. For binary
-classification in jax-sklearn, class labels predictions are obtained by hard-coded
+classification in secret-learn, class labels predictions are obtained by hard-coded
 cut-off rules: a positive class is predicted when the conditional probability
 :math:`P(y|X)` is greater than 0.5 (obtained with :term:`predict_proba`) or if the
 decision score is greater than 0 (obtained with :term:`decision_function`).
@@ -86,7 +86,7 @@ Options to tune the decision threshold
 The decision threshold can be tuned through different strategies controlled by the
 parameter `scoring`.
 
-One way to tune the threshold is by maximizing a pre-defined jax-sklearn metric. These
+One way to tune the threshold is by maximizing a pre-defined secret-learn metric. These
 metrics can be found by calling the function :func:`~xlearn.metrics.get_scorer_names`.
 By default, the balanced accuracy is the metric used but be aware that one should choose
 a meaningful metric for their use case.

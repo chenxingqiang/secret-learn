@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from math import log
@@ -99,7 +99,7 @@ def test_bayesian_ridge_parameter():
 def test_bayesian_covariance_matrix(n_samples, n_features, global_random_seed):
     """Check the posterior covariance matrix sigma_
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/31093
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/31093
     """
     X, y = datasets.make_regression(
         n_samples, n_features, random_state=global_random_seed

@@ -8,7 +8,7 @@ trained and evaluated using :class:`~xlearn.model_selection.GridSearchCV`.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

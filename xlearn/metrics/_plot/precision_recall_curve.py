@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from collections import Counter
@@ -20,7 +20,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
     a :class:`~xlearn.metrics.PrecisionRecallDisplay`. All parameters are
     stored as attributes.
 
-    For general information regarding `jax-sklearn` visualization tools, see
+    For general information regarding `secret-learn` visualization tools, see
     the :ref:`Visualization Guide <visualizations>`.
     For guidance on interpreting these plots, refer to the :ref:`Model
     Evaluation Guide <precision_recall_f_measure_metrics>`.
@@ -80,7 +80,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
     Notes
     -----
     The average precision (cf. :func:`~xlearn.metrics.average_precision_score`) in
-    jax-sklearn is computed without any interpolation. To be consistent with
+    secret-learn is computed without any interpolation. To be consistent with
     this metric, the precision-recall curve is plotted without any
     interpolation as well (step-wise style).
 
@@ -181,7 +181,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
         Notes
         -----
         The average precision (cf. :func:`~xlearn.metrics.average_precision_score`)
-        in jax-sklearn is computed without any interpolation. To be consistent
+        in secret-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).
 
@@ -279,7 +279,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
     ):
         """Plot precision-recall curve given an estimator and some data.
 
-        For general information regarding `jax-sklearn` visualization tools, see
+        For general information regarding `secret-learn` visualization tools, see
         the :ref:`Visualization Guide <visualizations>`.
         For guidance on interpreting these plots, refer to the :ref:`Model
         Evaluation Guide <precision_recall_f_measure_metrics>`.
@@ -357,7 +357,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
         Notes
         -----
         The average precision (cf. :func:`~xlearn.metrics.average_precision_score`)
-        in jax-sklearn is computed without any interpolation. To be consistent
+        in secret-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).
 
@@ -424,7 +424,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
     ):
         """Plot precision-recall curve given binary class predictions.
 
-        For general information regarding `jax-sklearn` visualization tools, see
+        For general information regarding `secret-learn` visualization tools, see
         the :ref:`Visualization Guide <visualizations>`.
         For guidance on interpreting these plots, refer to the :ref:`Model
         Evaluation Guide <precision_recall_f_measure_metrics>`.
@@ -491,7 +491,7 @@ class PrecisionRecallDisplay(_BinaryClassifierCurveDisplayMixin):
         Notes
         -----
         The average precision (cf. :func:`~xlearn.metrics.average_precision_score`)
-        in jax-sklearn is computed without any interpolation. To be consistent
+        in secret-learn is computed without any interpolation. To be consistent
         with this metric, the precision-recall curve is plotted without any
         interpolation as well (step-wise style).
 

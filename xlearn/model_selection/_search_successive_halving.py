@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from abc import abstractmethod
@@ -127,7 +127,7 @@ class BaseSuccessiveHalving(BaseSearchCV):
 
     def _check_input_parameters(self, X, y, split_params):
         # We need to enforce that successive calls to cv.split() yield the same
-        # splits: see https://github.com/chenxingqiang/jax-sklearn/issues/15149
+        # splits: see https://github.com/chenxingqiang/secret-learn/issues/15149
         if not _yields_constant_splits(self._checked_cv_orig):
             raise ValueError(
                 "The cv parameter must yield consistent folds across "
@@ -394,7 +394,7 @@ class HalvingGridSearchCV(BaseSuccessiveHalving):
     Parameters
     ----------
     estimator : estimator object
-        This is assumed to implement the jax-sklearn estimator interface.
+        This is assumed to implement the secret-learn estimator interface.
         Either estimator needs to provide a ``score`` function,
         or ``scoring`` must be passed.
 
@@ -474,7 +474,7 @@ class HalvingGridSearchCV(BaseSuccessiveHalving):
         .. note::
             Due to implementation details, the folds produced by `cv` must be
             the same across multiple calls to `cv.split()`. For
-            built-in `jax-sklearn` iterators, this can be achieved by
+            built-in `secret-learn` iterators, this can be achieved by
             deactivating shuffling (`shuffle=False`), or by setting the
             `cv`'s `random_state` parameter to an integer.
 
@@ -743,7 +743,7 @@ class HalvingRandomSearchCV(BaseSuccessiveHalving):
     Parameters
     ----------
     estimator : estimator object
-        This is assumed to implement the jax-sklearn estimator interface.
+        This is assumed to implement the secret-learn estimator interface.
         Either estimator needs to provide a ``score`` function,
         or ``scoring`` must be passed.
 
@@ -831,7 +831,7 @@ class HalvingRandomSearchCV(BaseSuccessiveHalving):
         .. note::
             Due to implementation details, the folds produced by `cv` must be
             the same across multiple calls to `cv.split()`. For
-            built-in `jax-sklearn` iterators, this can be achieved by
+            built-in `secret-learn` iterators, this can be achieved by
             deactivating shuffling (`shuffle=False`), or by setting the
             `cv`'s `random_state` parameter to an integer.
 

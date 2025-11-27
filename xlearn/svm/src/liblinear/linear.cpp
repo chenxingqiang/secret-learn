@@ -6,9 +6,9 @@
    Modified 2012:
 
    - Changes roles of +1 and -1 to match scikit API, Andreas Mueller
-        See issue 546: https://github.com/chenxingqiang/jax-sklearn/pull/546
+        See issue 546: https://github.com/chenxingqiang/secret-learn/pull/546
    - Also changed roles for pairwise class weights, Andreas Mueller
-        See issue 1491: https://github.com/chenxingqiang/jax-sklearn/pull/1491
+        See issue 1491: https://github.com/chenxingqiang/secret-learn/pull/1491
 
    Modified 2014:
 
@@ -16,18 +16,18 @@
      to be passed as a parameter from the classes LogisticRegression and
      LinearSVC, Manoj Kumar
    - Added function get_n_iter that exposes the number of iterations.
-        See issue 3499: https://github.com/chenxingqiang/jax-sklearn/issues/3499
-        See pull 3501: https://github.com/chenxingqiang/jax-sklearn/pull/3501
+        See issue 3499: https://github.com/chenxingqiang/secret-learn/issues/3499
+        See pull 3501: https://github.com/chenxingqiang/secret-learn/pull/3501
 
    Modified 2015:
    - Patched liblinear for sample_weights - Manoj Kumar
-     See https://github.com/chenxingqiang/jax-sklearn/pull/5274
+     See https://github.com/chenxingqiang/secret-learn/pull/5274
 
    Modified 2020:
    - Improved random number generator by using a mersenne twister + tweaked
      lemire postprocessor. This fixed a convergence issue on windows targets.
      Sylvain Marie, Schneider Electric
-     See <https://github.com/chenxingqiang/jax-sklearn/pull/13511#issuecomment-481729756>
+     See <https://github.com/chenxingqiang/secret-learn/pull/13511#issuecomment-481729756>
 
  */
 

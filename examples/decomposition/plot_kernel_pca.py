@@ -16,7 +16,7 @@ Finally, we show that inverting this projection is an approximation with
 :class:`~xlearn.decomposition.PCA`.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

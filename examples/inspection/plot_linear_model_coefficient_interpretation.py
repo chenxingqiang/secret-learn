@@ -5,7 +5,7 @@ Common pitfalls in the interpretation of coefficients of linear models
 
 In linear models, the target value is modeled as a linear combination of the
 features (see the :ref:`linear_model` User Guide section for a description of a
-set of linear models available in jax-sklearn). Coefficients in multiple linear
+set of linear models available in secret-learn). Coefficients in multiple linear
 models represent the relationship between the given feature, :math:`X_i` and the
 target, :math:`y`, assuming that all the other features remain constant
 (`conditional dependence
@@ -34,7 +34,7 @@ We will use data from the `"Current Population Survey"
 various features such as experience, age, or education.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

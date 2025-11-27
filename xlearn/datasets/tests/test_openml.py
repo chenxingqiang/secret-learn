@@ -1554,7 +1554,7 @@ def test_open_openml_url_retry_on_network_error(monkeypatch):
 def test_fetch_openml_with_ignored_feature(monkeypatch, gzip_response, parser):
     """Check that we can load the "zoo" dataset.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/14340
+    https://github.com/chenxingqiang/secret-learn/issues/14340
     """
     if parser == "pandas":
         pytest.importorskip("pandas")
@@ -1575,7 +1575,7 @@ def test_fetch_openml_strip_quotes(monkeypatch):
     """Check that we strip the single quotes when used as a string delimiter.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/23381
+    https://github.com/chenxingqiang/secret-learn/issues/23381
     """
     pd = pytest.importorskip("pandas")
     data_id = 40966
@@ -1604,7 +1604,7 @@ def test_fetch_openml_leading_whitespace(monkeypatch):
     """Check that we can strip leading whitespace in pandas parser.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/25311
+    https://github.com/chenxingqiang/secret-learn/issues/25311
     """
     pd = pytest.importorskip("pandas")
     data_id = 1590
@@ -1622,7 +1622,7 @@ def test_fetch_openml_quotechar_escapechar(monkeypatch):
     """Check that we can handle escapechar and single/double quotechar.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/25478
+    https://github.com/chenxingqiang/secret-learn/issues/25478
     """
     pd = pytest.importorskip("pandas")
     data_id = 42074

@@ -13,7 +13,7 @@ criterion, namely AIC or BIC.
 In what follows, we will discuss in details the different strategies.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -140,7 +140,7 @@ _ = ax.set_title(
 # descent and least angle regression. They differ with regards to their
 # execution speed and sources of numerical errors.
 #
-# In jax-sklearn, two different estimators are available with integrated
+# In secret-learn, two different estimators are available with integrated
 # cross-validation: :class:`~xlearn.linear_model.LassoCV` and
 # :class:`~xlearn.linear_model.LassoLarsCV` that respectively solve the
 # problem with coordinate descent and least angle regression.

@@ -7,7 +7,7 @@ Toy example of 1D regression using linear, polynomial and RBF kernels.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

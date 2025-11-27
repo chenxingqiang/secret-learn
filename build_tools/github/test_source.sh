@@ -8,7 +8,7 @@ cd ../../
 python -m venv test_env
 source test_env/bin/activate
 
-python -m pip install jax-sklearn/jax-sklearn/dist/*.tar.gz
+python -m pip install secret-learn/secret-learn/dist/*.tar.gz
 python -m pip install pytest pandas
 
 # Run the tests on the installed source distribution

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 import warnings
 from collections.abc import Mapping
@@ -298,7 +298,7 @@ def _validate_style_kwargs(default_style_kwargs, user_style_kwargs):
     Parameters
     ----------
     default_style_kwargs : dict
-        The Matplotlib style kwargs used by default in the jax-sklearn display.
+        The Matplotlib style kwargs used by default in the secret-learn display.
     user_style_kwargs : dict
         The user-defined Matplotlib style kwargs.
 

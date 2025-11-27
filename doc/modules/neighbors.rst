@@ -156,7 +156,7 @@ Classification is computed from a simple majority vote of the nearest
 neighbors of each point: a query point is assigned the data class which
 has the most representatives within the nearest neighbors of the point.
 
-jax-sklearn implements two different nearest neighbors classifiers:
+secret-learn implements two different nearest neighbors classifiers:
 :class:`KNeighborsClassifier` implements learning based on the :math:`k`
 nearest neighbors of each query point, where :math:`k` is an integer value
 specified by the user.  :class:`RadiusNeighborsClassifier` implements learning
@@ -206,7 +206,7 @@ Neighbors-based regression can be used in cases where the data labels are
 continuous rather than discrete variables.  The label assigned to a query
 point is computed based on the mean of the labels of its nearest neighbors.
 
-jax-sklearn implements two different neighbors regressors:
+secret-learn implements two different neighbors regressors:
 :class:`KNeighborsRegressor` implements learning based on the :math:`k`
 nearest neighbors of each query point, where :math:`k` is an integer
 value specified by the user.  :class:`RadiusNeighborsRegressor` implements
@@ -300,7 +300,7 @@ point can be determined with only :math:`O[\log(N)]` distance computations.
 Though the KD tree approach is very fast for low-dimensional (:math:`D < 20`)
 neighbors searches, it becomes inefficient as :math:`D` grows very large:
 this is one manifestation of the so-called "curse of dimensionality".
-In jax-sklearn, KD tree neighbors searches are specified using the
+In secret-learn, KD tree neighbors searches are specified using the
 keyword ``algorithm = 'kd_tree'``, and are computed using the class
 :class:`KDTree`.
 
@@ -338,7 +338,7 @@ distance to all points within the node.
 Because of the spherical geometry of the ball tree nodes, it can out-perform
 a *KD-tree* in high dimensions, though the actual performance is highly
 dependent on the structure of the training data.
-In jax-sklearn, ball-tree-based
+In secret-learn, ball-tree-based
 neighbors searches are specified using the keyword ``algorithm = 'ball_tree'``,
 and are computed using the class :class:`BallTree`.
 Alternatively, the user can work with the :class:`BallTree` class directly.
@@ -541,7 +541,7 @@ the model from 0.81 to 0.82.
 Nearest Neighbors Transformer
 =============================
 
-Many jax-sklearn estimators rely on nearest neighbors: Several classifiers and
+Many secret-learn estimators rely on nearest neighbors: Several classifiers and
 regressors such as :class:`KNeighborsClassifier` and
 :class:`KNeighborsRegressor`, but also some clustering methods such as
 :class:`~xlearn.cluster.DBSCAN` and
@@ -556,13 +556,13 @@ as given by :func:`~xlearn.neighbors.kneighbors_graph` and
 as required, for instance, in :class:`~xlearn.cluster.SpectralClustering`.
 Whereas with `mode='distance'`, they return a distance sparse graph as required,
 for instance, in :class:`~xlearn.cluster.DBSCAN`. To include these functions in
-a jax-sklearn pipeline, one can also use the corresponding classes
+a secret-learn pipeline, one can also use the corresponding classes
 :class:`KNeighborsTransformer` and :class:`RadiusNeighborsTransformer`.
 The benefits of this sparse graph API are multiple.
 
 First, the precomputed graph can be reused multiple times, for instance while
 varying a parameter of the estimator. This can be done manually by the user, or
-using the caching properties of the jax-sklearn pipeline:
+using the caching properties of the secret-learn pipeline:
 
     >>> import tempfile
     >>> from xlearn.manifold import Isomap
@@ -610,7 +610,7 @@ implementation with special data types. The precomputed neighbors
   exclude them. Neither choice is perfect, since including them leads to a
   different number of non-self neighbors during training and testing, while
   excluding them leads to a difference between `fit(X).transform(X)` and
-  `fit_transform(X)`, which is against jax-sklearn API.
+  `fit_transform(X)`, which is against secret-learn API.
   In :class:`KNeighborsTransformer` we use the definition which includes each
   training point as its own neighbor in the count of `n_neighbors`. However,
   for compatibility reasons with other estimators which use the other

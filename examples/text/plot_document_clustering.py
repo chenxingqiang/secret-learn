@@ -3,7 +3,7 @@
 Clustering text documents using k-means
 =======================================
 
-This is an example showing how the jax-sklearn API can be used to cluster
+This is an example showing how the secret-learn API can be used to cluster
 documents by topics using a `Bag of Words approach
 <https://en.wikipedia.org/wiki/Bag-of-words_model>`_.
 
@@ -23,7 +23,7 @@ For document analysis via a supervised learning approach, see the example script
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

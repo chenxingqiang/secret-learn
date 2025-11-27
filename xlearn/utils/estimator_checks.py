@@ -1,6 +1,6 @@
-"""Various utilities to check the compatibility of estimators with jax-sklearn API."""
+"""Various utilities to check the compatibility of estimators with secret-learn API."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 from __future__ import annotations
 
@@ -567,9 +567,9 @@ def parametrize_with_checks(
 
     Checks are categorised into the following groups:
 
-    - API checks: a set of checks to ensure API compatibility with jax-sklearn.
-      Refer to https://jax-sklearn.org/dev/developers/develop.html a requirement of
-      jax-sklearn estimators.
+    - API checks: a set of checks to ensure API compatibility with secret-learn.
+      Refer to https://secret-learn.org/dev/developers/develop.html a requirement of
+      secret-learn estimators.
     - legacy: a set of checks which gradually will be grouped into other categories.
 
     The `id` of each check is set to be a pprint version of the estimator
@@ -616,7 +616,7 @@ def parametrize_with_checks(
 
     See Also
     --------
-    check_estimator : Check if estimator adheres to jax-sklearn conventions.
+    check_estimator : Check if estimator adheres to secret-learn conventions.
 
     Examples
     --------
@@ -675,24 +675,24 @@ def check_estimator(
     on_fail: Literal["raise", "warn"] | None = "raise",
     callback: Callable | None = None,
 ):
-    """Check if estimator adheres to jax-sklearn conventions.
+    """Check if estimator adheres to secret-learn conventions.
 
     This function will run an extensive test-suite for input validation,
-    shapes, etc, making sure that the estimator complies with `jax-sklearn`
+    shapes, etc, making sure that the estimator complies with `secret-learn`
     conventions as detailed in :ref:`rolling_your_own_estimator`.
     Additional tests for classifiers, regressors, clustering or transformers
     will be run if the Estimator class inherits from the corresponding mixin
     from xlearn.base.
 
-    jax-sklearn also provides a pytest specific decorator,
+    secret-learn also provides a pytest specific decorator,
     :func:`~xlearn.utils.estimator_checks.parametrize_with_checks`, making it
     easier to test multiple estimators.
 
     Checks are categorised into the following groups:
 
-    - API checks: a set of checks to ensure API compatibility with jax-sklearn.
-      Refer to https://jax-sklearn.org/dev/developers/develop.html a requirement of
-      jax-sklearn estimators.
+    - API checks: a set of checks to ensure API compatibility with secret-learn.
+      Refer to https://secret-learn.org/dev/developers/develop.html a requirement of
+      secret-learn estimators.
     - legacy: a set of checks which gradually will be grouped into other categories.
 
     Parameters
@@ -1022,7 +1022,7 @@ def check_supervised_y_no_nan(name, estimator_orig):
         if module_name.startswith("xlearn.") and not (
             "test_" in module_name or module_name.endswith("_testing")
         ):
-            # In jax-sklearn we want the error message to mention the input
+            # In secret-learn we want the error message to mention the input
             # name and be specific about the kind of unexpected value.
             if np.isinf(value):
                 match = (
@@ -1353,8 +1353,8 @@ def check_estimator_sparse_array(name, estimator_orig):
 
 def check_f_contiguous_array_estimator(name, estimator_orig):
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/23988
-    # https://github.com/chenxingqiang/jax-sklearn/issues/24013
+    # https://github.com/chenxingqiang/secret-learn/issues/23988
+    # https://github.com/chenxingqiang/secret-learn/issues/24013
     estimator = clone(estimator_orig)
 
     rng = np.random.RandomState(0)
@@ -3229,9 +3229,9 @@ def check_estimators_unfitted(name, estimator_orig):
         "Estimator should raise a NotFittedError when calling `{method}` before fit. "
         "Either call `check_is_fitted(self)` at the beginning of `{method}` or "
         "set `tags.requires_fit=False` on estimator tags to disable this check.\n"
-        "- `check_is_fitted`: https://jax-sklearn.org/dev/modules/generated/xlearn."
+        "- `check_is_fitted`: https://secret-learn.org/dev/modules/generated/xlearn."
         "utils.validation.check_is_fitted.html\n"
-        "- Estimator Tags: https://jax-sklearn.org/dev/developers/develop."
+        "- Estimator Tags: https://secret-learn.org/dev/developers/develop."
         "html#estimator-tags"
     )
     # Common test for Regressors, Classifiers and Outlier detection estimators
@@ -4566,7 +4566,7 @@ def check_valid_tag_types(name, estimator):
 def check_estimator_tags_renamed(name, estimator_orig):
     help = """{tags_func}() was removed in 1.6. Please use __xlearn_tags__ instead.
 You can implement both __xlearn_tags__() and {tags_func}() to support multiple
-jax-sklearn versions.
+secret-learn versions.
 """
 
     for klass in type(estimator_orig).mro():
@@ -4579,9 +4579,9 @@ jax-sklearn versions.
             raise TypeError(
                 f"Estimator {name} has defined either `_more_tags` or `_get_tags`,"
                 " but not `__xlearn_tags__`. If you're customizing tags, and need to"
-                " support multiple jax-sklearn versions, you can implement both"
+                " support multiple secret-learn versions, you can implement both"
                 " `__xlearn_tags__` and `_more_tags` or `_get_tags`. This change was"
-                " introduced in jax-sklearn=1.6"
+                " introduced in secret-learn=1.6"
             )
 
 

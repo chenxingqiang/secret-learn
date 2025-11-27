@@ -339,7 +339,7 @@ def test_optimization_minimizes_kl_divergence():
 @pytest.mark.parametrize("csr_container", CSR_CONTAINERS)
 def test_fit_transform_csr_matrix(method, csr_container):
     # TODO: compare results on dense and sparse data as proposed in:
-    # https://github.com/chenxingqiang/jax-sklearn/pull/23585#discussion_r968388186
+    # https://github.com/chenxingqiang/secret-learn/pull/23585#discussion_r968388186
     # X can be a sparse matrix.
     rng = check_random_state(0)
     X = rng.randn(50, 2)
@@ -1068,7 +1068,7 @@ def test_tsne_with_different_distance_metrics(metric, dist_func, method):
         # TODO: re-enable this test if/when `manhattan_distances` is refactored to
         # reuse the same underlying Cython code NearestNeighbors.
         # For reference, see:
-        # https://github.com/chenxingqiang/jax-sklearn/pull/23865/files#r925721573
+        # https://github.com/chenxingqiang/secret-learn/pull/23865/files#r925721573
         pytest.xfail(
             "Distance computations are different for method == 'barnes_hut' and metric"
             " == 'manhattan', but this is expected."

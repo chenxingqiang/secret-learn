@@ -3,7 +3,7 @@
 set -e
 
 # Do not upload to codecov on forks
-if [[ "$BUILD_REPOSITORY_NAME" != "jax-sklearn/jax-sklearn" ]]; then
+if [[ "$BUILD_REPOSITORY_NAME" != "secret-learn/secret-learn" ]]; then
     exit 0
 fi
 

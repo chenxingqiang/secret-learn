@@ -1,4 +1,4 @@
---find-links https://pypi.anaconda.org/scientific-python-nightly-wheels/simple/jax-sklearn
+--find-links https://pypi.anaconda.org/scientific-python-nightly-wheels/simple/secret-learn
 --pre
 matplotlib
 scikit-image
@@ -6,5 +6,5 @@ pandas
 seaborn
 Pillow
 sphinx-gallery
-jax-sklearn
+secret-learn
 polars

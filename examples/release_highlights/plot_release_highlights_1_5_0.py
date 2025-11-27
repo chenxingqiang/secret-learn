@@ -1,30 +1,30 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.5
+Release Highlights for secret-learn 1.5
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.5! Many bug fixes
+We are pleased to announce the release of secret-learn 1.5! Many bug fixes
 and improvements were added, as well as some key new features. Below we
 detail the highlights of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_5>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
 # %%
 # FixedThresholdClassifier: Setting the decision threshold of a binary classifier
 # -------------------------------------------------------------------------------
-# All binary classifiers of jax-sklearn use a fixed decision threshold of 0.5
+# All binary classifiers of secret-learn use a fixed decision threshold of 0.5
 # to convert probability estimates (i.e. output of `predict_proba`) into class
 # predictions. However, 0.5 is almost never the desired threshold for a given
 # problem. :class:`~model_selection.FixedThresholdClassifier` allows wrapping any

@@ -20,7 +20,7 @@ the clusters form a nice parcellation of the swiss roll.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import time as time

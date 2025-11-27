@@ -2,7 +2,7 @@
 Loss functions for linear models with raw_prediction = X @ coef
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -795,7 +795,7 @@ class LinearModelLoss:
             #   = sum_{i, m} (X')_{ji} * p_i_k
             #                * (X_{im} * s_k_m - sum_l p_i_l * X_{im} * s_l_m)
             #
-            # See also https://github.com/chenxingqiang/jax-sklearn/pull/3646#discussion_r17461411
+            # See also https://github.com/chenxingqiang/secret-learn/pull/3646#discussion_r17461411
             def hessp(s):
                 s = s.reshape((n_classes, -1), order="F")  # shape = (n_classes, n_dof)
                 if self.fit_intercept:

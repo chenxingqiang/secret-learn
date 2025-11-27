@@ -18,13 +18,13 @@ try:
         )
     )
 except StopIteration as e:
-    raise RuntimeError("Unable to find jax-sklearn's dist-info") from e
+    raise RuntimeError("Unable to find secret-learn's dist-info") from e
 
 license_text = (distinfo_path / "licenses" / "COPYING").read_text()
 
 assert "Copyright (c)" in license_text
 
 assert (
-    "This binary distribution of jax-sklearn also bundles the following software"
+    "This binary distribution of secret-learn also bundles the following software"
     in license_text
 ), f"Unable to find bundled license for {platform.system()}"

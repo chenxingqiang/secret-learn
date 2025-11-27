@@ -52,7 +52,7 @@ Learning (2006), pp. 193-216
 Non-Parametric Function Induction in Semi-Supervised Learning. AISTAT 2005
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -186,7 +186,7 @@ class BaseLabelPropagation(ClassifierMixin, BaseEstimator, metaclass=ABCMeta):
         # Note: since `predict` does not accept semi-supervised labels as input,
         # `fit(X, y).predict(X) != fit(X, y).transduction_`.
         # Hence, `fit_predict` is not implemented.
-        # See https://github.com/chenxingqiang/jax-sklearn/pull/24898
+        # See https://github.com/chenxingqiang/secret-learn/pull/24898
         probas = self.predict_proba(X)
         return self.classes_[np.argmax(probas, axis=1)].ravel()
 

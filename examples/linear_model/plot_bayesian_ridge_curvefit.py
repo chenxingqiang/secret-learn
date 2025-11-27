@@ -26,7 +26,7 @@ It can be concluded that the model with larger L is more likely.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

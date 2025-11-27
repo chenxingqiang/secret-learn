@@ -3,7 +3,7 @@ HDBSCAN: Hierarchical Density-Based Spatial Clustering
          of Applications with Noise
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Redistribution and use in source and binary forms, with or without
@@ -587,10 +587,10 @@ class HDBSCAN(ClusterMixin, BaseEstimator):
     Notes
     -----
     The `min_samples` parameter includes the point itself, whereas the implementation in
-    `jax-sklearn-contrib/hdbscan <https://github.com/jax-sklearn-contrib/hdbscan>`_
+    `secret-learn-contrib/hdbscan <https://github.com/secret-learn-contrib/hdbscan>`_
     does not. To get the same results in both versions, the value of `min_samples` here
-    must be 1 greater than the value used in `jax-sklearn-contrib/hdbscan
-    <https://github.com/jax-sklearn-contrib/hdbscan>`_.
+    must be 1 greater than the value used in `secret-learn-contrib/hdbscan
+    <https://github.com/secret-learn-contrib/hdbscan>`_.
 
     References
     ----------

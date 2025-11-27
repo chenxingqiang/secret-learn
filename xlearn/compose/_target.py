@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -112,7 +112,7 @@ class TransformedTargetRegressor(RegressorMixin, BaseEstimator):
     Notes
     -----
     Internally, the target `y` is always converted into a 2-dimensional array
-    to be used by jax-sklearn transformers. At the time of prediction, the
+    to be used by secret-learn transformers. At the time of prediction, the
     output will be reshaped to a have the same number of dimensions as `y`.
 
     Examples

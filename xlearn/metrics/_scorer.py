@@ -13,7 +13,7 @@ is the model to be evaluated, ``X`` is the test data and ``y`` is the
 ground truth labeling (or ``None`` in the case of unsupervised models).
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import copy
@@ -573,7 +573,7 @@ def _check_multimetric_scoring(estimator, scoring):
     err_msg_generic = (
         f"scoring is invalid (got {scoring!r}). Refer to the "
         "scoring glossary for details: "
-        "https://jax-sklearn.org/stable/glossary.html#term-scoring"
+        "https://secret-learn.org/stable/glossary.html#term-scoring"
     )
 
     if isinstance(scoring, (list, tuple, set)):
@@ -658,7 +658,7 @@ def make_scorer(
     A scorer is a wrapper around an arbitrary metric or loss function that is called
     with the signature `scorer(estimator, X, y_true, **kwargs)`.
 
-    It is accepted in all jax-sklearn estimators or functions allowing a `scoring`
+    It is accepted in all secret-learn estimators or functions allowing a `scoring`
     parameter.
 
     The parameter `response_method` allows to specify which method of the estimator

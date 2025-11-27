@@ -1,17 +1,17 @@
 .. _develop:
 
 ==================================
-Developing jax-sklearn estimators
+Developing secret-learn estimators
 ==================================
 
-Whether you are proposing an estimator for inclusion in jax-sklearn,
-developing a separate package compatible with jax-sklearn, or
+Whether you are proposing an estimator for inclusion in secret-learn,
+developing a separate package compatible with secret-learn, or
 implementing custom components for your own projects, this chapter
-details how to develop objects that safely interact with jax-sklearn
+details how to develop objects that safely interact with secret-learn
 pipelines and model selection tools.
 
-This section details the public API you should use and implement for a jax-sklearn
-compatible estimator. Inside jax-sklearn itself, we experiment and use some private
+This section details the public API you should use and implement for a secret-learn
+compatible estimator. Inside secret-learn itself, we experiment and use some private
 tools and our goal is always to make them public once they are stable enough, so that
 you can also use them in your own projects.
 
@@ -19,7 +19,7 @@ you can also use them in your own projects.
 
 .. _api_overview:
 
-APIs of jax-sklearn objects
+APIs of secret-learn objects
 ============================
 
 There are two major types of estimators. You can think of the first group as simple
@@ -33,13 +33,13 @@ are two examples of meta-estimators.
 Here we start with a few vocabulary terms, and then we illustrate how you can implement
 your own estimators.
 
-Elements of the jax-sklearn API are described more definitively in the
+Elements of the secret-learn API are described more definitively in the
 :ref:`glossary`.
 
 Different objects
 -----------------
 
-The main objects in jax-sklearn are (one class can implement multiple interfaces):
+The main objects in secret-learn are (one class can implement multiple interfaces):
 
 :Estimator:
 
@@ -112,7 +112,7 @@ the actual training data as an argument, as this is left to the ``fit()`` method
 Ideally, the arguments accepted by ``__init__`` should all be keyword arguments with a
 default value. In other words, a user should be able to instantiate an estimator without
 passing any arguments to it. In some cases, where there are no sane defaults for an
-argument, they can be left without a default value. In jax-sklearn itself, we have
+argument, they can be left without a default value. In secret-learn itself, we have
 very few places, only in some meta-estimators, where the sub-estimator(s) argument is
 a required argument.
 
@@ -222,7 +222,7 @@ default initialization strategy.
 Estimated Attributes
 ^^^^^^^^^^^^^^^^^^^^
 
-According to jax-sklearn conventions, attributes which you'd want to expose to your
+According to secret-learn conventions, attributes which you'd want to expose to your
 users as public attributes and have been estimated or learned from the data must always
 have a name ending with trailing underscore, for example the coefficients of some
 regression estimator would be stored in a ``coef_`` attribute after ``fit`` has been
@@ -241,13 +241,13 @@ Estimators that expect tabular input should set a `n_features_in_`
 attribute at `fit` time to indicate the number of features that the estimator
 expects for subsequent calls to :term:`predict` or :term:`transform`.
 See `SLEP010
-<https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep010/proposal.html>`__
+<https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep010/proposal.html>`__
 for details.
 
 Similarly, if estimators are given dataframes such as pandas or polars, they should
 set a ``feature_names_in_`` attribute to indicate the features names of the input data,
 detailed in `SLEP007
-<https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
+<https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
 Using :func:`~xlearn.utils.validation.validate_data` would automatically set these
 attributes for you.
 
@@ -255,10 +255,10 @@ attributes for you.
 
 Rolling your own estimator
 ==========================
-If you want to implement a new estimator that is jax-sklearn compatible, there are
-several internals of jax-sklearn that you should be aware of in addition to
-the jax-sklearn API outlined above. You can check whether your estimator
-adheres to the jax-sklearn interface and standards by running
+If you want to implement a new estimator that is secret-learn compatible, there are
+several internals of secret-learn that you should be aware of in addition to
+the secret-learn API outlined above. You can check whether your estimator
+adheres to the secret-learn interface and standards by running
 :func:`~xlearn.utils.estimator_checks.check_estimator` on an instance. The
 :func:`~xlearn.utils.estimator_checks.parametrize_with_checks` pytest
 decorator can also be used (see its docstring for details and possible
@@ -269,7 +269,7 @@ interactions with `pytest`)::
   >>> check_estimator(DecisionTreeClassifier())  # passes
   [...]
 
-The main motivation to make a class compatible to the jax-sklearn estimator
+The main motivation to make a class compatible to the secret-learn estimator
 interface might be that you want to use it together with model evaluation and
 selection tools such as :class:`~model_selection.GridSearchCV` and
 :class:`~pipeline.Pipeline`.
@@ -280,12 +280,12 @@ the correct interface more easily.
 .. topic:: Project template:
 
     We provide a `project template
-    <https://github.com/jax-sklearn-contrib/project-template/>`_ which helps in the
-    creation of Python packages containing jax-sklearn compatible estimators. It
+    <https://github.com/secret-learn-contrib/project-template/>`_ which helps in the
+    creation of Python packages containing secret-learn compatible estimators. It
     provides:
 
     * an initial git repository with Python package directory structure
-    * a template of a jax-sklearn estimator
+    * a template of a secret-learn estimator
     * an initial test suite including use of :func:`~utils.parametrize_with_checks`
     * directory structures and scripts to compile documentation and example
       galleries
@@ -296,16 +296,16 @@ the correct interface more easily.
 
     We tend to use "duck typing" instead of checking for :func:`isinstance`, which means
     it's technically possible to implement an estimator without inheriting from
-    jax-sklearn classes. However, if you don't inherit from the right mixins, either
+    secret-learn classes. However, if you don't inherit from the right mixins, either
     there will be a large amount of boilerplate code for you to implement and keep in
-    sync with jax-sklearn development, or your estimator might not function the same
-    way as a jax-sklearn estimator. Here we only document how to develop an estimator
+    sync with secret-learn development, or your estimator might not function the same
+    way as a secret-learn estimator. Here we only document how to develop an estimator
     using our mixins. If you're interested in implementing your estimator without
-    inheriting from jax-sklearn mixins, you'd need to check our implementations.
+    inheriting from secret-learn mixins, you'd need to check our implementations.
 
     For example, below is a custom classifier, with more examples included in the
-    jax-sklearn-contrib `project template
-    <https://github.com/jax-sklearn-contrib/project-template/blob/master/skltemplate/_template.py>`__.
+    secret-learn-contrib `project template
+    <https://github.com/secret-learn-contrib/project-template/blob/master/skltemplate/_template.py>`__.
 
     It is particularly important to notice that mixins should be "on the left" while
     the ``BaseEstimator`` should be "on the right" in the inheritance list for proper
@@ -352,7 +352,7 @@ And you can check that the above estimator passes all common checks::
 
 get_params and set_params
 -------------------------
-All jax-sklearn estimators have ``get_params`` and ``set_params`` functions.
+All secret-learn estimators have ``get_params`` and ``set_params`` functions.
 
 The ``get_params`` function takes no arguments and returns a dict of the
 ``__init__`` parameters of the estimator, together with their values.
@@ -420,7 +420,7 @@ copied before modifying them. This also applies to constructor arguments which a
 estimators. That's why meta-estimators such as :class:`~model_selection.GridSearchCV`
 create a copy of the given estimator before modifying it.
 
-However, in jax-sklearn, when we copy an estimator, we get an unfitted estimator
+However, in secret-learn, when we copy an estimator, we get an unfitted estimator
 where only the constructor arguments are copied (with some exceptions, e.g. attributes
 related to certain internal machinery such as metadata routing).
 
@@ -548,8 +548,8 @@ Developer API for `set_output`
 ==============================
 
 With
-`SLEP018 <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep018/proposal.html>`__,
-jax-sklearn introduces the `set_output` API for configuring transformers to
+`SLEP018 <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep018/proposal.html>`__,
+secret-learn introduces the `set_output` API for configuring transformers to
 output pandas DataFrames. The `set_output` API is automatically defined if the
 transformer defines :term:`get_feature_names_out` and subclasses
 :class:`base.TransformerMixin`. :term:`get_feature_names_out` is used to get the
@@ -625,7 +625,7 @@ To customize the URL linking to an estimator's documentation (i.e. when clicking
 addition, you can provide a `_doc_link_url_param_generator` method. Set
 `_doc_link_module` to the name of the (top level) module that contains your estimator.
 If the value does not match the top level module name, the HTML representation will not
-contain a link to the documentation. For jax-sklearn estimators this is set to
+contain a link to the documentation. For secret-learn estimators this is set to
 `"xlearn"`.
 
 The `_doc_link_template` is used to construct the final URL. By default, it can contain
@@ -641,13 +641,13 @@ Coding guidelines
 =================
 
 The following are some guidelines on how new code should be written for
-inclusion in jax-sklearn, and which may be appropriate to adopt in external
+inclusion in secret-learn, and which may be appropriate to adopt in external
 projects. Of course, there are special cases and there will be exceptions to
 these rules. However, following these rules when submitting new code makes
 the review easier so new code can be integrated in less time.
 
 Uniformly formatted code makes it easier to share code ownership. The
-jax-sklearn project tries to closely follow the official Python guidelines
+secret-learn project tries to closely follow the official Python guidelines
 detailed in `PEP8 <https://www.python.org/dev/peps/pep-0008>`_ that
 detail how code should be formatted and indented. Please read it and
 follow it.
@@ -660,7 +660,7 @@ In addition, we add the following guidelines:
 * Avoid multiple statements on one line. Prefer a line return after
   a control flow statement (``if``/``for``).
 
-* Use relative imports for references inside jax-sklearn.
+* Use relative imports for references inside secret-learn.
 
 * Unit tests are an exception to the previous rule;
   they should use absolute imports, exactly as client code would.
@@ -675,7 +675,7 @@ In addition, we add the following guidelines:
   longer explicitly referenced, but most important, it prevents
   using a static analysis tool like `pyflakes
   <https://divmod.readthedocs.io/en/latest/products/pyflakes.html>`_ to automatically
-  find bugs in jax-sklearn.
+  find bugs in secret-learn.
 
 * Use the `numpy docstring standard
   <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`_
@@ -698,7 +698,7 @@ do *not* use ``np.asanyarray`` or ``np.atleast_2d``, since those let NumPy's
 but Hadamard product on ``np.ndarray``).
 
 In other cases, be sure to call :func:`check_array` on any array-like argument
-passed to a jax-sklearn API function. The exact parameters to use depends
+passed to a secret-learn API function. The exact parameters to use depends
 mainly on whether and which ``scipy.sparse`` matrices must be accepted.
 
 For more information, refer to the :ref:`developers-utils` page.
@@ -756,7 +756,7 @@ The following example should make this clear::
     class GaussianNoise(BaseEstimator, TransformerMixin):
         """This estimator ignores its input and returns random Gaussian noise.
 
-        It also does not adhere to all jax-sklearn conventions,
+        It also does not adhere to all secret-learn conventions,
         but showcases how to handle randomness.
         """
 

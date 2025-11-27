@@ -1198,13 +1198,13 @@ def test_svc_invalid_break_ties_param(SVCClass):
 @pytest.mark.parametrize("SVCClass", [svm.SVC, svm.NuSVC])
 def test_svc_ovr_tie_breaking(SVCClass):
     """Test if predict breaks ties in OVR mode.
-    Related issue: https://github.com/chenxingqiang/jax-sklearn/issues/8277
+    Related issue: https://github.com/chenxingqiang/secret-learn/issues/8277
     """
     if SVCClass.__name__ == "NuSVC" and _IS_32BIT:
         # XXX: known failure to be investigated. Either the code needs to be
         # fixed or the test itself might need to be made less sensitive to
         # random changes in test data and rounding errors more generally.
-        # https://github.com/chenxingqiang/jax-sklearn/issues/29633
+        # https://github.com/chenxingqiang/secret-learn/issues/29633
         pytest.xfail("Failing test on 32bit OS")
 
     X, y = make_blobs(random_state=0, n_samples=20, n_features=2)
@@ -1431,7 +1431,7 @@ def test_svm_with_infinite_C(Estimator, make_dataset, C_inf, global_random_seed)
     """Check that we can pass `C=inf` that is equivalent to a very large C value.
 
     Non-regression test for
-    https://github.com/chenxingqiang/jax-sklearn/issues/29772
+    https://github.com/chenxingqiang/secret-learn/issues/29772
     """
     X, y = make_dataset(random_state=global_random_seed)
     estimator_C_inf = Estimator(C=C_inf).fit(X, y)

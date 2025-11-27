@@ -5,11 +5,11 @@
 Release History
 ===============
 
-Changelogs and release notes for all jax-sklearn releases are linked in this page.
+Changelogs and release notes for all secret-learn releases are linked in this page.
 
 .. tip::
 
-   `Subscribe to jax-sklearn releases <https://libraries.io/pypi/jax-sklearn>`__
+   `Subscribe to secret-learn releases <https://libraries.io/pypi/secret-learn>`__
    on libraries.io to be notified when new versions are released.
 
 .. toctree::

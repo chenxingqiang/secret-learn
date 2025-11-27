@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import pickle
@@ -119,7 +119,7 @@ class NoEstimator:
 
 
 class VargEstimator(BaseEstimator):
-    """jax-sklearn estimators shouldn't have vargs."""
+    """secret-learn estimators shouldn't have vargs."""
 
     def __init__(self, *vargs):
         pass
@@ -234,7 +234,7 @@ def test_clone_estimator_types():
 def test_clone_class_rather_than_instance():
     # Check that clone raises expected error message when
     # cloning class rather than instance
-    msg = "You should provide an instance of jax-sklearn estimator"
+    msg = "You should provide an instance of secret-learn estimator"
     with pytest.raises(TypeError, match=msg):
         clone(MyEstimator)
 
@@ -1044,7 +1044,7 @@ def test_param_is_non_default(default_value, test_value):
     """Check that we detect non-default parameters with various types.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/31525
+    https://github.com/chenxingqiang/secret-learn/issues/31525
     """
     estimator = make_estimator_with_param(default_value)(param=test_value)
     non_default = estimator._get_params_html().non_default
@@ -1074,7 +1074,7 @@ def test_param_is_default(default_value, test_value):
     be reported as default as well.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/31525
+    https://github.com/chenxingqiang/secret-learn/issues/31525
     """
     estimator = make_estimator_with_param(default_value)(param=test_value)
     non_default = estimator._get_params_html().non_default

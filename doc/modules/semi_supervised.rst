@@ -85,7 +85,7 @@ A few features available in this model:
   * Used for classification tasks
   * Kernel methods to project data into alternate dimensional spaces
 
-`jax-sklearn` provides two label propagation models:
+`secret-learn` provides two label propagation models:
 :class:`LabelPropagation` and :class:`LabelSpreading`. Both work by
 constructing a similarity graph over all items in the input dataset.
 

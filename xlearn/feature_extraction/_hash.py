@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import chain
@@ -134,7 +134,7 @@ class FeatureHasher(TransformerMixin, BaseEstimator):
         """Only validates estimator's parameters.
 
         This method allows to: (i) validate the estimator's parameters and
-        (ii) be consistent with the jax-sklearn transformer API.
+        (ii) be consistent with the secret-learn transformer API.
 
         Parameters
         ----------

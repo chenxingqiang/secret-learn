@@ -75,7 +75,7 @@ def test_cdist(metric_param_grid, X, Y, csr_container):
         rtol_dict = {}
         if metric == "mahalanobis" and X.dtype == np.float32:
             # Computation of mahalanobis differs between
-            # the scipy and jax-sklearn implementation.
+            # the scipy and secret-learn implementation.
             # Hence, we increase the relative tolerance.
             # TODO: Inspect slight numerical discrepancy
             # with scipy
@@ -114,7 +114,7 @@ def test_cdist_bool_metric(metric, X_bool, Y_bool, csr_container):
         with ignore_warnings(category=DeprecationWarning):
             # Some metrics can be deprecated depending on the scipy version.
             # But if they are present, we still want to test whether
-            # jax-sklearn gives the same result, whether or not they are
+            # secret-learn gives the same result, whether or not they are
             # deprecated.
             D_scipy_cdist = cdist(X_bool, Y_bool, metric)
     else:
@@ -159,7 +159,7 @@ def test_pdist(metric_param_grid, X, csr_container):
         rtol_dict = {}
         if metric == "mahalanobis" and X.dtype == np.float32:
             # Computation of mahalanobis differs between
-            # the scipy and jax-sklearn implementation.
+            # the scipy and secret-learn implementation.
             # Hence, we increase the relative tolerance.
             # TODO: Inspect slight numerical discrepancy
             # with scipy
@@ -223,7 +223,7 @@ def test_pdist_bool_metrics(metric, X_bool, csr_container):
         with ignore_warnings(category=DeprecationWarning):
             # Some metrics can be deprecated depending on the scipy version.
             # But if they are present, we still want to test whether
-            # jax-sklearn gives the same result, whether or not they are
+            # secret-learn gives the same result, whether or not they are
             # deprecated.
             D_scipy_pdist = cdist(X_bool, X_bool, metric)
     else:
@@ -354,7 +354,7 @@ def test_input_data_size():
 
 def test_readonly_kwargs():
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/21685
+    # https://github.com/chenxingqiang/secret-learn/issues/21685
 
     rng = check_random_state(0)
 

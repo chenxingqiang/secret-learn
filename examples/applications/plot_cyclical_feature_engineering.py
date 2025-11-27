@@ -13,7 +13,7 @@ the :class:`xlearn.preprocessing.SplineTransformer` class and its
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

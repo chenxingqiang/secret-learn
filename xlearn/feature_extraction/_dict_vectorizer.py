@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from array import array
@@ -21,7 +21,7 @@ class DictVectorizer(TransformerMixin, BaseEstimator):
 
     This transformer turns lists of mappings (dict-like objects) of feature
     names to feature values into Numpy arrays or scipy.sparse matrices for use
-    with jax-sklearn estimators.
+    with secret-learn estimators.
 
     When feature values are strings, this transformer will do a binary one-hot
     (aka one-of-K) coding: one boolean-valued feature is constructed for each
@@ -201,7 +201,7 @@ class DictVectorizer(TransformerMixin, BaseEstimator):
         # smaller integers than 32-bit ones, np.frombuffer screws up.
         assert array("i").itemsize == 4, (
             "sizeof(int) != 4 on your platform; please report this at"
-            " https://github.com/chenxingqiang/jax-sklearn/issues and"
+            " https://github.com/chenxingqiang/secret-learn/issues and"
             " include the output from platform.platform() in your bug report"
         )
 

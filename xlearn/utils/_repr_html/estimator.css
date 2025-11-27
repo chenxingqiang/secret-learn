@@ -61,8 +61,8 @@
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered jax-sklearn.org.
-     See: https://github.com/chenxingqiang/jax-sklearn/issues/21755 */
+     default hidden behavior on the sphinx rendered secret-learn.org.
+     See: https://github.com/chenxingqiang/secret-learn/issues/21755 */
   display: inline-block !important;
   position: relative;
 }

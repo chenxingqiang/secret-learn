@@ -10,7 +10,7 @@ The quantity that we use is the daily variation in quote price: quotes
 that are linked tend to fluctuate in relation to each other during a day.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -95,7 +95,7 @@ quotes = []
 for symbol in symbols:
     print("Fetching quote history for %r" % symbol, file=sys.stderr)
     url = (
-        "https://raw.githubusercontent.com/jax-sklearn/examples-data/"
+        "https://raw.githubusercontent.com/secret-learn/examples-data/"
         "master/financial-data/{}.csv"
     )
     quotes.append(pd.read_csv(url.format(symbol)))
@@ -135,7 +135,7 @@ edge_model.fit(X)
 #
 # We use clustering to group together quotes that behave similarly. Here,
 # amongst the :ref:`various clustering techniques <clustering>` available
-# in the jax-sklearn, we use :ref:`affinity_propagation` as it does
+# in the secret-learn, we use :ref:`affinity_propagation` as it does
 # not enforce equal-size clusters, and it can choose automatically the
 # number of clusters from the data.
 #

@@ -11,7 +11,7 @@ multiclass classifier. It is also possible to use these estimators with
 multiclass estimators in the hope that their accuracy or runtime performance
 improves.
 
-All classifiers in jax-sklearn implement multiclass classification; you
+All classifiers in secret-learn implement multiclass classification; you
 only need to use this module if you want to experiment with custom multiclass
 strategies.
 
@@ -25,7 +25,7 @@ for a given sample *will not* sum to unity, as they do in the single label
 case.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import array
@@ -580,7 +580,7 @@ class OneVsRestClassifier(
 
             .. versionchanged:: 0.19
                 output shape changed to ``(n_samples,)`` to conform to
-                jax-sklearn conventions for binary classification.
+                secret-learn conventions for binary classification.
         """
         check_is_fitted(self)
         if len(self.estimators_) == 1:
@@ -970,7 +970,7 @@ class OneVsOneClassifier(MetaEstimatorMixin, ClassifierMixin, BaseEstimator):
 
             .. versionchanged:: 0.19
                 output shape changed to ``(n_samples,)`` to conform to
-                jax-sklearn conventions for binary classification.
+                secret-learn conventions for binary classification.
         """
         check_is_fitted(self)
         X = validate_data(

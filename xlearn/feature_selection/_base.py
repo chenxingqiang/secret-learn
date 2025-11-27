@@ -1,6 +1,6 @@
 """Generic feature selection mixin"""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -204,7 +204,7 @@ def _get_feature_importances(estimator, getter, transform_func=None, norm_order=
     Parameters
     ----------
     estimator : estimator
-        A jax-sklearn estimator from which we want to get the feature
+        A secret-learn estimator from which we want to get the feature
         importances.
 
     getter : "auto", str or callable

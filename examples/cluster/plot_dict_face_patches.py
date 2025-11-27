@@ -6,7 +6,7 @@ This example uses a large dataset of faces to learn a set of 20 x 20
 images patches that constitute faces.
 
 From the programming standpoint, it is interesting because it shows how
-to use the online API of the jax-sklearn to process a very large
+to use the online API of the secret-learn to process a very large
 dataset by chunks. The way we proceed is that we load an image at a time
 and extract randomly 50 patches from this image. Once we have accumulated
 500 of these patches (using 10 images), we run the
@@ -21,7 +21,7 @@ cluster.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

@@ -21,7 +21,7 @@ We will use USPS digits dataset to reproduce presented in Sect. 4 of [1]_.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

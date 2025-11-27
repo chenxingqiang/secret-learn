@@ -3,7 +3,7 @@ The :mod:`xlearn.model_selection._validation` module includes classes and
 functions to validate the model.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -843,7 +843,7 @@ def _fit_and_score(
         # here we clone the parameters, since sometimes the parameters
         # themselves might be estimators, e.g. when we search over different
         # estimators in a pipeline.
-        # ref: https://github.com/chenxingqiang/jax-sklearn/pull/26786
+        # ref: https://github.com/chenxingqiang/secret-learn/pull/26786
         estimator = estimator.set_params(**clone(parameters, safe=False))
 
     start_time = time.time()

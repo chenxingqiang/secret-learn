@@ -9,7 +9,7 @@ on:
 jobs:
   check-sdist:
     # Don't run on forks
-    if: github.repository == 'jax-sklearn/jax-sklearn'
+    if: github.repository == 'secret-learn/secret-learn'
 
     runs-on: ubuntu-latest
     steps:

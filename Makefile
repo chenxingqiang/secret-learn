@@ -5,8 +5,8 @@ DEFAULT_MESON_BUILD_DIR = build/cp$(shell python -c 'import sys; print(f"{sys.ve
 
 all:
 	@echo "Please use 'make <target>' where <target> is one of"
-	@echo "  dev                  build jax-sklearn with Meson"
-	@echo "  clean                clean jax-sklearn Meson build. Very rarely needed,"
+	@echo "  dev                  build secret-learn with Meson"
+	@echo "  clean                clean secret-learn Meson build. Very rarely needed,"
 	@echo "                       since meson-python recompiles on import."
 
 .PHONY: all
@@ -19,7 +19,7 @@ dev-meson:
 clean: clean-meson
 
 clean-meson:
-	pip uninstall -y jax-sklearn
+	pip uninstall -y secret-learn
 	# It seems in some cases removing the folder avoids weird compilation
 	# errors (e.g. when switching from numpy>=2 to numpy<2). For some
 	# reason ninja clean -C $(DEFAULT_MESON_BUILD_DIR) is not

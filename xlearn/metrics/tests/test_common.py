@@ -1008,7 +1008,7 @@ def test_regression_thresholded_inf_nan_input(metric, y_true, y_score):
     +
     # Add an additional case for classification only
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/6809
+    # https://github.com/chenxingqiang/secret-learn/issues/6809
     [
         ([np.nan, 1, 2], [1, 2, 3]),
         ([np.inf, 1, 2], [1, 2, 3]),

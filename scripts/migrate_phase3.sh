@@ -30,7 +30,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -52,7 +52,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -74,7 +74,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -95,7 +95,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -115,7 +115,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -138,7 +138,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -159,7 +159,7 @@ algorithms=(
 for algo in "${algorithms[@]}"; do
     ((total++))
     echo "[$total] Migrating $algo..."
-    if python xlearn/_secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
+    if python xlearn/secretflow/algorithm_migrator_standalone.py --algorithm "$algo" --mode ss; then
         ((success++))
     fi
     echo ""
@@ -171,7 +171,7 @@ echo "======================================================================"
 echo " Phase 3 完成!"
 echo "======================================================================"
 echo "✅ 成功: $success/$total 个算法"
-echo "📁 输出目录: xlearn/_secretflow/generated/"
+echo "📁 输出目录: xlearn/secretflow/generated/"
 echo ""
 echo "📊 累计统计:"
 echo "  Phase 1: 12 个算法"

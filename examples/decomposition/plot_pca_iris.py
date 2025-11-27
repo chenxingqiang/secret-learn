@@ -11,14 +11,14 @@ This dataset is made of 4 features: sepal length, sepal width, petal length, pet
 width. We use PCA to project this 4 feature space into a 3-dimensional space.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
 # Loading the Iris dataset
 # ------------------------
 #
-# The Iris dataset is directly available as part of jax-sklearn. It can be loaded
+# The Iris dataset is directly available as part of secret-learn. It can be loaded
 # using the :func:`~xlearn.datasets.load_iris` function. With the default parameters,
 # a :class:`~xlearn.utils.Bunch` object is returned, containing the data, the
 # target values, the feature names, and the target names.

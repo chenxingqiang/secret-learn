@@ -1,6 +1,6 @@
-"""Custom warnings and errors used across jax-sklearn."""
+"""Custom warnings and errors used across secret-learn."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 __all__ = [
@@ -166,10 +166,10 @@ class InconsistentVersionWarning(UserWarning):
         Estimator name.
 
     current_xlearn_version : str
-        Current jax-sklearn version.
+        Current secret-learn version.
 
     original_xlearn_version : str
-        Original jax-sklearn version.
+        Original secret-learn version.
     """
 
     def __init__(
@@ -187,7 +187,7 @@ class InconsistentVersionWarning(UserWarning):
             " code or "
             "invalid results. Use at your own risk. "
             "For more info please refer to:\n"
-            "https://jax-sklearn.org/stable/model_persistence.html"
+            "https://secret-learn.org/stable/model_persistence.html"
             "#security-maintainability-limitations"
         )
 

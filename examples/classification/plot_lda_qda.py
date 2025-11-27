@@ -11,7 +11,7 @@ deviation is the same for all the classes, while each class has its own standard
 deviation with QDA.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

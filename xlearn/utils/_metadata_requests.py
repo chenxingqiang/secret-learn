@@ -18,7 +18,7 @@ routing method (such as `fit` in a meta-estimator) can now provide the metadata 
 relevant consuming method (such as `fit` in a sub-estimator).
 
 The ``MetadataRequest`` and ``MetadataRouter`` objects are constructed via a
-``get_metadata_routing`` method, which all jax-sklearn estimators provide.
+``get_metadata_routing`` method, which all secret-learn estimators provide.
 This method is automatically implemented via ``BaseEstimator`` for all simple
 estimators, but needs a custom implementation for meta-estimators.
 
@@ -95,7 +95,7 @@ This mixin also implements the ``get_metadata_routing``, which meta-estimators
 need to override, but it works for simple consumers as is.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import inspect
@@ -187,7 +187,7 @@ def _raise_for_params(params, owner, method, allow=None):
             f"Passing extra keyword arguments to {caller} is only supported if"
             " enable_metadata_routing=True, which you can set using"
             " `xlearn.set_config`. See the User Guide"
-            " <https://jax-sklearn.org/stable/metadata_routing.html> for more"
+            " <https://secret-learn.org/stable/metadata_routing.html> for more"
             f" details. Extra parameters passed are: {set(params)}"
         )
 
@@ -490,7 +490,7 @@ class MethodMetadataRequest:
                 + set_requests_on
                 + "` for each metadata you want to request/ignore. See the"
                 " Metadata Routing User guide"
-                " <https://jax-sklearn.org/stable/metadata_routing.html> for more"
+                " <https://secret-learn.org/stable/metadata_routing.html> for more"
                 " information."
             )
             raise UnsetMetadataPassedError(
@@ -558,7 +558,7 @@ class MetadataRequest:
 
     # this is here for us to use this attribute's value instead of doing
     # `isinstance` in our checks, so that we avoid issues when people vendor
-    # this file instead of using it directly from jax-sklearn.
+    # this file instead of using it directly from secret-learn.
     _type = "metadata_request"
 
     def __init__(self, owner):
@@ -821,7 +821,7 @@ class MetadataRouter:
 
     # this is here for us to use this attribute's value instead of doing
     # `isinstance`` in our checks, so that we avoid issues when people vendor
-    # this file instead of using it directly from jax-sklearn.
+    # this file instead of using it directly from secret-learn.
     _type = "metadata_router"
 
     def __init__(self, owner):
@@ -1304,7 +1304,7 @@ class RequestMethod:
 
             # This makes it possible to use the decorated method as an unbound method,
             # for instance when monkeypatching.
-            # https://github.com/chenxingqiang/jax-sklearn/issues/28632
+            # https://github.com/chenxingqiang/secret-learn/issues/28632
             if instance is None:
                 _instance = args[0]
                 args = args[1:]

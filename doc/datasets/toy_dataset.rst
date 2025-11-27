@@ -5,7 +5,7 @@ Toy datasets
 
 .. currentmodule:: xlearn.datasets
 
-jax-sklearn comes with a few small standard datasets that do not require to
+secret-learn comes with a few small standard datasets that do not require to
 download any file from some external website.
 
 They can be loaded using the following functions:
@@ -20,7 +20,7 @@ They can be loaded using the following functions:
    load_breast_cancer
 
 These datasets are useful to quickly illustrate the behavior of the
-various algorithms implemented in jax-sklearn. They are however often too
+various algorithms implemented in secret-learn. They are however often too
 small to be representative of real world machine learning tasks.
 
 .. include:: ../../xlearn/datasets/descr/iris.rst

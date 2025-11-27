@@ -6,7 +6,7 @@ over the internet, all details are available on the official website:
     http://vis-www.cs.umass.edu/lfw/
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import logging
@@ -291,7 +291,7 @@ def fetch_lfw_people(
     ----------
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     funneled : bool, default=True
         Download and use the funneled variant of the dataset.
@@ -533,7 +533,7 @@ def fetch_lfw_pairs(
 
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By
-        default all jax-sklearn data is stored in '~/scikit_learn_data'
+        default all secret-learn data is stored in '~/scikit_learn_data'
         subfolders.
 
     funneled : bool, default=True

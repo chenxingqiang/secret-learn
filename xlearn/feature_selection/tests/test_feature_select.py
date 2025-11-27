@@ -211,7 +211,7 @@ def test_r_regression_force_finite(X, y, expected_corr_coef, force_finite):
     """Check the behaviour of `force_finite` for some corner cases with `r_regression`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/15672
+    https://github.com/chenxingqiang/secret-learn/issues/15672
     """
     with warnings.catch_warnings():
         warnings.simplefilter("error", RuntimeWarning)
@@ -294,7 +294,7 @@ def test_f_regression_corner_case(
     """Check the behaviour of `force_finite` for some corner cases with `f_regression`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/15672
+    https://github.com/chenxingqiang/secret-learn/issues/15672
     """
     with warnings.catch_warnings():
         warnings.simplefilter("error", RuntimeWarning)
@@ -447,7 +447,7 @@ def test_select_kbest_all():
     X_r = univariate_filter.fit(X, y).transform(X)
     assert_array_equal(X, X_r)
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/24949
+    # https://github.com/chenxingqiang/secret-learn/issues/24949
     X_r2 = (
         GenericUnivariateSelect(f_classif, mode="k_best", param="all")
         .fit(X, y)

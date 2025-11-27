@@ -15,7 +15,7 @@ this question is crucial to policy makers, `Omitted-Variable Biases
 identifying that causal effect.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

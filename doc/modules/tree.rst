@@ -33,7 +33,7 @@ Some advantages of decision trees are:
 - The cost of using the tree (i.e., predicting data) is logarithmic in the
   number of data points used to train the tree.
 
-- Able to handle both numerical and categorical data. However, the jax-sklearn
+- Able to handle both numerical and categorical data. However, the secret-learn
   implementation does not support categorical variables for now. Other
   techniques are usually specialized in analyzing datasets that have only one type
   of variable. See :ref:`algorithms <tree_algorithms>` for more
@@ -401,7 +401,7 @@ Tree algorithms: ID3, C4.5, C5.0 and CART
 ==========================================
 
 What are all the various decision tree algorithms and how do they differ
-from each other? Which one is implemented in jax-sklearn?
+from each other? Which one is implemented in secret-learn?
 
 .. dropdown:: Various decision tree algorithms
 
@@ -430,8 +430,8 @@ from each other? Which one is implemented in jax-sklearn?
   does not compute rule sets. CART constructs binary trees using the feature
   and threshold that yield the largest information gain at each node.
 
-jax-sklearn uses an optimized version of the CART algorithm; however, the
-jax-sklearn implementation does not support categorical variables for now.
+secret-learn uses an optimized version of the CART algorithm; however, the
+secret-learn implementation does not support categorical variables for now.
 
 .. _ID3: https://en.wikipedia.org/wiki/ID3_algorithm
 
@@ -677,7 +677,7 @@ a given tree :math:`T`:
 
 where :math:`|\widetilde{T}|` is the number of terminal nodes in :math:`T` and :math:`R(T)`
 is traditionally defined as the total misclassification rate of the terminal
-nodes. Alternatively, jax-sklearn uses the total sample weighted impurity of
+nodes. Alternatively, secret-learn uses the total sample weighted impurity of
 the terminal nodes for :math:`R(T)`. As shown above, the impurity of a node
 depends on the criterion. Minimal cost-complexity pruning finds the subtree of
 :math:`T` that minimizes :math:`R_\alpha(T)`.

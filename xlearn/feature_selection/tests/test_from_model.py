@@ -612,7 +612,7 @@ def test_select_from_model_pls(PLSEstimator):
     """Check the behaviour of SelectFromModel with PLS estimators.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/12410
+    https://github.com/chenxingqiang/secret-learn/issues/12410
     """
     X, y = make_friedman1(n_samples=50, n_features=10, random_state=0)
     estimator = PLSEstimator(n_components=1)
@@ -690,7 +690,7 @@ def test_from_model_estimator_attribute_error():
     `available_if`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28108
+    https://github.com/chenxingqiang/secret-learn/issues/28108
     """
     # `LinearRegression` does not implement 'partial_fit' and should raise an
     # AttributeError

@@ -18,7 +18,7 @@ of RBMs often give good results when fed into a linear classifier such as a
 linear SVM or a perceptron.
 
 The model makes assumptions regarding the distribution of inputs. At the moment,
-jax-sklearn only provides :class:`BernoulliRBM`, which assumes the inputs are
+secret-learn only provides :class:`BernoulliRBM`, which assumes the inputs are
 either binary values or values between 0 and 1, each encoding the probability
 that the specific feature would be turned on.
 

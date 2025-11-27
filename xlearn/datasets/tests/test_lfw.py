@@ -210,7 +210,7 @@ def test_fetch_lfw_people_internal_cropping(mock_data_home):
     """Check that we properly crop the images.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/24942
+    https://github.com/chenxingqiang/secret-learn/issues/24942
     """
     # If cropping was not done properly and we don't resize the images, the images would
     # have their original size (250x250) and the image would not fit in the NumPy array

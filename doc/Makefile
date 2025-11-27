@@ -62,8 +62,8 @@ clean:
 # Default to SPHINX_NUMJOBS=1 for full documentation build. Using
 # SPHINX_NUMJOBS!=1 may actually slow down the build, or cause weird issues in
 # the CI (job stalling or EOFError), see
-# https://github.com/chenxingqiang/jax-sklearn/pull/25836 or
-# https://github.com/chenxingqiang/jax-sklearn/pull/25809
+# https://github.com/chenxingqiang/secret-learn/pull/25836 or
+# https://github.com/chenxingqiang/secret-learn/pull/25809
 html: SPHINX_NUMJOBS ?= 1
 html:
 	@echo $(ALLSPHINXOPTS)
@@ -98,7 +98,7 @@ ziphtml:
 	# Exclude the output directory to avoid infinity recursion
 	cd $(BUILDDIR)/html/stable; \
 	zip -q -x _downloads \
-	       -r _downloads/jax-sklearn-docs.zip .
+	       -r _downloads/secret-learn-docs.zip .
 	@echo
 	@echo "Build finished. The ZIP of the HTML is in $(BUILDDIR)/html/stable/_downloads."
 

@@ -18,4 +18,4 @@ updates:
       - "Build / CI"
       - "dependencies"
     reviewers:
-      - "jax-sklearn/core-devs"
+      - "secret-learn/core-devs"

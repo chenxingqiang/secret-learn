@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -59,12 +59,12 @@ class Bunch(dict):
             raise AttributeError(key)
 
     def __setstate__(self, state):
-        # Bunch pickles generated with jax-sklearn 0.16.* have an non
+        # Bunch pickles generated with secret-learn 0.16.* have an non
         # empty __dict__. This causes a surprising behaviour when
-        # loading these pickles jax-sklearn 0.17: reading bunch.key
+        # loading these pickles secret-learn 0.17: reading bunch.key
         # uses __dict__ but assigning to bunch.key use __setattr__ and
         # only changes bunch['key']. More details can be found at:
-        # https://github.com/chenxingqiang/jax-sklearn/issues/6196.
+        # https://github.com/chenxingqiang/secret-learn/issues/6196.
         # Overriding __setstate__ to be a noop has the effect of
         # ignoring the pickled __dict__
         pass

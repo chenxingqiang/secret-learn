@@ -638,7 +638,7 @@ def test_ovr_decision_function():
 def test_labels_in_bytes_format_error(input_type):
     # check that we raise an error with bytes encoded labels
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16980
+    # https://github.com/chenxingqiang/secret-learn/issues/16980
     target = _convert_container([b"a", b"b"], input_type)
     err_msg = "Support for labels represented as bytes is not supported"
     with pytest.raises(TypeError, match=err_msg):

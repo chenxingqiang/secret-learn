@@ -3,7 +3,7 @@ from __future__ import annotations
 import warnings
 from dataclasses import dataclass, field
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 
@@ -143,7 +143,7 @@ class ClassifierTags:
         Whether the estimator fails to provide a "reasonable" test-set
         score, which currently for classification is an accuracy of
         0.83 on ``make_blobs(n_samples=300, random_state=0)``. The
-        datasets and values are based on current estimators in jax-sklearn
+        datasets and values are based on current estimators in secret-learn
         and might be replaced by something more systematic.
 
     multi_class : bool, default=True
@@ -177,7 +177,7 @@ class RegressorTags:
         score, which currently for regression is an R2 of 0.5 on
         ``make_regression(n_samples=200, n_features=10,
         n_informative=1, bias=5.0, noise=20, random_state=42)``. The
-        dataset and values are based on current estimators in jax-sklearn
+        dataset and values are based on current estimators in secret-learn
         and might be replaced by something more systematic.
     """
 
@@ -302,7 +302,7 @@ def get_tags(estimator) -> Tags:
     However, if an estimator does not inherit from this base class, we should
     fall-back to the default tags.
 
-    For jax-sklearn built-in estimators, we should still rely on
+    For secret-learn built-in estimators, we should still rely on
     `self.__xlearn_tags__()`. `get_tags(est)` should be used when we
     are not sure where `est` comes from: typically
     `get_tags(self.estimator)` where `self` is a meta-estimator, or in
@@ -329,7 +329,7 @@ def get_tags(estimator) -> Tags:
             # Fall back to the default tags if the estimator does not
             # implement __xlearn_tags__.
             # In particular, workaround the regression reported in
-            # https://github.com/chenxingqiang/jax-sklearn/issues/30479
+            # https://github.com/chenxingqiang/secret-learn/issues/30479
             # `__xlearn_tags__` is implemented by calling
             # `super().__xlearn_tags__()` but there is no `__xlearn_tags__`
             # method in the base class. Typically happens when only inheriting

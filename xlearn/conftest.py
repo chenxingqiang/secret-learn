@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import builtins
@@ -186,7 +186,7 @@ def pytest_collection_modifyitems(config, items):
             marker = pytest.mark.xfail(
                 reason=(
                     "know failure. See "
-                    "https://github.com/chenxingqiang/jax-sklearn/issues/17797"
+                    "https://github.com/chenxingqiang/secret-learn/issues/17797"
                 )
             )
             item.add_marker(marker)
@@ -284,7 +284,7 @@ def pytest_generate_tests(metafunc):
     See the documentation for the XLEARN_TESTS_GLOBAL_RANDOM_SEED
     variable for instructions on how to use this fixture.
 
-    https://jax-sklearn.org/dev/computing/parallelism.html#xlearn-tests-global-random-seed
+    https://secret-learn.org/dev/computing/parallelism.html#xlearn-tests-global-random-seed
 
     """
     # When using pytest-xdist this function is called in the xdist workers.

@@ -13,7 +13,7 @@ HDBSCAN's sensitivity to certain hyperparameters.
 We first define a couple utility functions for convenience.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

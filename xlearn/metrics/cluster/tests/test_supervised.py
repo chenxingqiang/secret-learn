@@ -102,7 +102,7 @@ def test_perfect_matches_with_changing_means(score_func, average_method):
     assert score_func(
         [0, 1, 2], [42, 7, 2], average_method=average_method
     ) == pytest.approx(1.0)
-    # Non-regression tests for: https://github.com/chenxingqiang/jax-sklearn/issues/30950
+    # Non-regression tests for: https://github.com/chenxingqiang/secret-learn/issues/30950
     assert score_func([0, 1], [0, 1], average_method=average_method) == pytest.approx(
         1.0
     )
@@ -482,7 +482,7 @@ def test_adjusted_rand_score_overflow():
     """Check that large amount of data will not lead to overflow in
     `adjusted_rand_score`.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20305
+    https://github.com/chenxingqiang/secret-learn/issues/20305
     """
     rng = np.random.RandomState(0)
     y_true = rng.randint(0, 2, 100_000, dtype=np.int8)

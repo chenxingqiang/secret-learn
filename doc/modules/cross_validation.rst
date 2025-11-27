@@ -29,7 +29,7 @@ The best parameters can be determined by
    :alt: Grid Search Workflow
    :align: center
 
-In jax-sklearn a random split into training and test sets
+In secret-learn a random split into training and test sets
 can be quickly computed with the :func:`train_test_split` helper function.
 Let's load the iris data set to fit a linear support vector machine on it::
 
@@ -538,7 +538,7 @@ relative class frequencies are approximately preserved in each fold.
 
 .. note::
 
-  Stratified sampling was introduced in jax-sklearn to workaround the
+  Stratified sampling was introduced in secret-learn to workaround the
   aforementioned engineering problems rather than solve a statistical one.
 
   Stratification makes cross-validation folds more homogeneous, and as a result

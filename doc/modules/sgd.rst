@@ -25,7 +25,7 @@ Strictly speaking, SGD is merely an optimization technique and does not
 correspond to a specific family of machine learning models. It is only a
 *way* to train a model. Often, an instance of :class:`SGDClassifier` or
 :class:`SGDRegressor` will have an equivalent estimator in
-the jax-sklearn API, potentially using a different optimization technique.
+the secret-learn API, potentially using a different optimization technique.
 For example, using `SGDClassifier(loss='log_loss')` results in logistic regression,
 i.e. a model equivalent to :class:`~xlearn.linear_model.LogisticRegression`
 which is fitted via SGD instead of being fitted by one of the other solvers

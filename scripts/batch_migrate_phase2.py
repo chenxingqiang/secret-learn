@@ -10,7 +10,7 @@ from pathlib import Path
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from xlearn._secretflow.algorithm_migrator_standalone import StandaloneAlgorithmMigrator
+from xlearn.secretflow.algorithm_migrator_standalone import StandaloneAlgorithmMigrator
 
 # Import algorithms to migrate
 from sklearn.preprocessing import (
@@ -128,7 +128,7 @@ def main():
     print(f" Phase 2 完成!")
     print("="*70)
     print(f"✅ 成功: {success_count}/{total_count} 个算法")
-    print(f"📁 输出目录: xlearn/_secretflow/generated/")
+    print(f"📁 输出目录: xlearn/secretflow/generated/")
     print()
     
     # 显示新增算法总数

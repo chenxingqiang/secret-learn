@@ -26,7 +26,7 @@ separating the objects one from the other, and not from the background.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

@@ -145,7 +145,7 @@ def test_estimator_html_repr_an_empty_pipeline():
     """Check that the representation of an empty Pipeline does not fail.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/30197
+    https://github.com/chenxingqiang/secret-learn/issues/30197
     """
     empty_pipeline = Pipeline([])
     estimator_html_repr(empty_pipeline)
@@ -426,7 +426,7 @@ def test_estimator_html_repr_fitted_icon(estimator):
 
 @pytest.mark.parametrize("mock_version", ["1.3.0.dev0", "1.3.0"])
 def test_html_documentation_link_mixin_xlearn(mock_version):
-    """Check the behaviour of the `_HTMLDocumentationLinkMixin` class for jax-sklearn
+    """Check the behaviour of the `_HTMLDocumentationLinkMixin` class for secret-learn
     default.
     """
 
@@ -444,12 +444,12 @@ def test_html_documentation_link_mixin_xlearn(mock_version):
             version = "dev"
         assert (
             mixin._doc_link_template
-            == f"https://jax-sklearn.org/{version}/modules/generated/"
+            == f"https://secret-learn.org/{version}/modules/generated/"
             "{estimator_module}.{estimator_name}.html"
         )
         assert (
             mixin._get_doc_link()
-            == f"https://jax-sklearn.org/{version}/modules/generated/"
+            == f"https://secret-learn.org/{version}/modules/generated/"
             "xlearn.utils._HTMLDocumentationLinkMixin.html"
         )
 
@@ -581,7 +581,7 @@ def set_non_utf8_locale():
 def test_non_utf8_locale(set_non_utf8_locale):
     """Checks that utf8 encoding is used when reading the CSS file.
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/27725
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/27725
     """
     _get_css_style()
 

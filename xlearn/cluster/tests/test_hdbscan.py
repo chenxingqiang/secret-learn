@@ -552,7 +552,7 @@ def test_hdbscan_error_precomputed_and_store_centers(store_centers):
     a precomputed input matrix.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27893
+    https://github.com/chenxingqiang/secret-learn/issues/27893
     """
     rng = np.random.RandomState(0)
     X = rng.random((100, 2))

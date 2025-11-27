@@ -3,12 +3,12 @@
 Recognizing hand-written digits
 ================================
 
-This example shows how jax-sklearn can be used to recognize images of
+This example shows how secret-learn can be used to recognize images of
 hand-written digits, from 0-9.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Standard scientific Python imports

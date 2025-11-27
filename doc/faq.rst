@@ -47,7 +47,7 @@ About the project
 
 What is the project name (a lot of people get it wrong)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-jax-sklearn, but not scikit or SciKit nor sci-kit learn.
+secret-learn, but not scikit or SciKit nor sci-kit learn.
 Also not scikits.learn or scikits-learn, which were previously used.
 
 How do you pronounce the project name?
@@ -57,26 +57,26 @@ sy-kit learn. sci stands for science!
 Why scikit?
 ^^^^^^^^^^^
 There are multiple scikits, which are scientific toolboxes built around SciPy.
-Apart from jax-sklearn, another popular one is `scikit-image <https://scikit-image.org/>`_.
+Apart from secret-learn, another popular one is `scikit-image <https://scikit-image.org/>`_.
 
 Do you support PyPy?
 ^^^^^^^^^^^^^^^^^^^^
 
 Due to limited maintainer resources and small number of users, using
-jax-sklearn with `PyPy <https://pypy.org/>`_ (an alternative Python
+secret-learn with `PyPy <https://pypy.org/>`_ (an alternative Python
 implementation with a built-in just-in-time compiler) is not officially
 supported.
 
-How can I obtain permission to use the images in jax-sklearn for my work?
+How can I obtain permission to use the images in secret-learn for my work?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The images contained in the `jax-sklearn repository
-<https://github.com/chenxingqiang/jax-sklearn>`_ and the images generated within
-the `jax-sklearn documentation <https://jax-sklearn.org/stable/index.html>`_
+The images contained in the `secret-learn repository
+<https://github.com/chenxingqiang/secret-learn>`_ and the images generated within
+the `secret-learn documentation <https://secret-learn.org/stable/index.html>`_
 can be used via the `BSD 3-Clause License
-<https://github.com/chenxingqiang/jax-sklearn?tab=BSD-3-Clause-1-ov-file>`_ for
-your work. Citations of jax-sklearn are highly encouraged and appreciated. See
-:ref:`citing jax-sklearn <citing-jax-sklearn>`.
+<https://github.com/chenxingqiang/secret-learn?tab=BSD-3-Clause-1-ov-file>`_ for
+your work. Citations of secret-learn are highly encouraged and appreciated. See
+:ref:`citing secret-learn <citing-secret-learn>`.
 
 Implementation decisions
 ------------------------
@@ -87,14 +87,14 @@ Why is there no support for deep or reinforcement learning? Will there be such s
 Deep learning and reinforcement learning both require a rich vocabulary to
 define an architecture, with deep learning additionally requiring
 GPUs for efficient computing. However, neither of these fit within
-the design constraints of jax-sklearn. As a result, deep learning
+the design constraints of secret-learn. As a result, deep learning
 and reinforcement learning are currently out of scope for what
-jax-sklearn seeks to achieve.
+secret-learn seeks to achieve.
 
 You can find more information about the addition of GPU support at
 `Will you add GPU support?`_.
 
-Note that jax-sklearn currently implements a simple multilayer perceptron
+Note that secret-learn currently implements a simple multilayer perceptron
 in :mod:`xlearn.neural_network`. We will only accept bug fixes for this module.
 If you want to implement more complex deep learning models, please turn to
 popular deep learning frameworks such as
@@ -104,19 +104,19 @@ and `pytorch <https://pytorch.org/>`_.
 
 .. _adding_graphical_models:
 
-Will you add graphical models or sequence prediction to jax-sklearn?
+Will you add graphical models or sequence prediction to secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Not in the foreseeable future.
-jax-sklearn tries to provide a unified API for the basic tasks in machine
+secret-learn tries to provide a unified API for the basic tasks in machine
 learning, with pipelines and meta-algorithms like grid search to tie
 everything together. The required concepts, APIs, algorithms and
 expertise required for structured learning are different from what
-jax-sklearn has to offer. If we started doing arbitrary structured
+secret-learn has to offer. If we started doing arbitrary structured
 learning, we'd need to redesign the whole package and the project
 would likely collapse under its own weight.
 
-There are two projects with API similar to jax-sklearn that
+There are two projects with API similar to secret-learn that
 do structured prediction:
 
 * `pystruct <https://pystruct.github.io/>`_ handles general structured
@@ -129,7 +129,7 @@ do structured prediction:
   completeness; treats a feature vector as a sample and uses an offset encoding
   for the dependencies between feature vectors).
 
-Why did you remove HMMs from jax-sklearn?
+Why did you remove HMMs from secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 See :ref:`adding_graphical_models`.
 
@@ -139,22 +139,22 @@ Will you add GPU support?
 
 Adding GPU support by default would introduce heavy hardware-specific software
 dependencies and existing algorithms would need to be reimplemented. This would
-make it both harder for the average user to install jax-sklearn and harder for
+make it both harder for the average user to install secret-learn and harder for
 the developers to maintain the code.
 
-However, since 2023, a limited but growing :ref:`list of jax-sklearn
+However, since 2023, a limited but growing :ref:`list of secret-learn
 estimators <array_api_supported>` can already run on GPUs if the input data is
-provided as a PyTorch or CuPy array and if jax-sklearn has been configured to
+provided as a PyTorch or CuPy array and if secret-learn has been configured to
 accept such inputs as explained in :ref:`array_api`. This Array API support
-allows jax-sklearn to run on GPUs without introducing heavy and
+allows secret-learn to run on GPUs without introducing heavy and
 hardware-specific software dependencies to the main package.
 
 Most estimators that rely on NumPy for their computationally intensive operations
 can be considered for Array API support and therefore GPU support.
 
-However, not all jax-sklearn estimators are amenable to efficiently running
+However, not all secret-learn estimators are amenable to efficiently running
 on GPUs via the Array API for fundamental algorithmic reasons. For instance,
-tree-based models currently implemented with Cython in jax-sklearn are
+tree-based models currently implemented with Cython in secret-learn are
 fundamentally not array-based algorithms. Other algorithms such as k-means or
 k-nearest neighbors rely on array-based algorithms but are also implemented in
 Cython. Cython is used to manually interleave consecutive array operations to
@@ -164,16 +164,16 @@ be expressed via the Array API for the foreseeable future.
 
 Adding efficient GPU support to estimators that cannot be efficiently
 implemented with the Array API would require designing and adopting a more
-flexible extension system for jax-sklearn. This possibility is being
+flexible extension system for secret-learn. This possibility is being
 considered in the following GitHub issue (under discussion):
 
-- https://github.com/chenxingqiang/jax-sklearn/issues/22438
+- https://github.com/chenxingqiang/secret-learn/issues/22438
 
 
-Why do categorical variables need preprocessing in jax-sklearn, compared to other tools?
+Why do categorical variables need preprocessing in secret-learn, compared to other tools?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Most of jax-sklearn assumes data is in NumPy arrays or SciPy sparse matrices
+Most of secret-learn assumes data is in NumPy arrays or SciPy sparse matrices
 of a single numeric dtype. These do not explicitly represent categorical
 variables at present. Thus, unlike R's ``data.frames`` or :class:`pandas.DataFrame`,
 we require explicit conversion of categorical features to numeric values, as
@@ -187,26 +187,26 @@ categorical features through the option `categorical_features="from_dtype"`. Thi
 option relies on inferring which columns of the data are categorical based on the
 :class:`pandas.CategoricalDtype` and :class:`polars.datatypes.Categorical` dtypes.
 
-Does jax-sklearn work natively with various types of dataframes?
+Does secret-learn work natively with various types of dataframes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Scikit-learn has limited support for :class:`pandas.DataFrame` and
 :class:`polars.DataFrame`. Scikit-learn estimators can accept both these dataframe types
-as input, and jax-sklearn transformers can output dataframes using the `set_output`
+as input, and secret-learn transformers can output dataframes using the `set_output`
 API. For more details, refer to
 :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`.
 
-However, the internal computations in jax-sklearn estimators rely on numerical
+However, the internal computations in secret-learn estimators rely on numerical
 operations that are more efficiently performed on homogeneous data structures such as
-NumPy arrays or SciPy sparse matrices. As a result, most jax-sklearn estimators will
+NumPy arrays or SciPy sparse matrices. As a result, most secret-learn estimators will
 internally convert dataframe inputs into these homogeneous data structures. Similarly,
 dataframe outputs are generated from these homogeneous data structures.
 
 Also note that :class:`~xlearn.compose.ColumnTransformer` makes it convenient to handle
 heterogeneous pandas dataframes by mapping homogeneous subsets of dataframe columns
-selected by name or dtype to dedicated jax-sklearn transformers. Therefore
+selected by name or dtype to dedicated secret-learn transformers. Therefore
 :class:`~xlearn.compose.ColumnTransformer` are often used in the first step of
-jax-sklearn pipelines when dealing with heterogeneous dataframes (see :ref:`pipeline`
+secret-learn pipelines when dealing with heterogeneous dataframes (see :ref:`pipeline`
 for more details).
 
 See also :ref:`sphx_glr_auto_examples_compose_plot_column_transformer_mixed_types.py`
@@ -219,13 +219,13 @@ long-standing discussion about not being able to transform ``y`` in a pipeline.
 Follow on GitHub issue :issue:`4143`. Meanwhile, you can check out
 :class:`~compose.TransformedTargetRegressor`,
 `pipegraph <https://github.com/mcasl/PipeGraph>`_,
-and `imbalanced-learn <https://github.com/jax-sklearn-contrib/imbalanced-learn>`_.
-Note that jax-sklearn solved for the case where ``y``
+and `imbalanced-learn <https://github.com/secret-learn-contrib/imbalanced-learn>`_.
+Note that secret-learn solved for the case where ``y``
 has an invertible transformation applied before training
-and inverted after prediction. jax-sklearn intends to solve for
+and inverted after prediction. secret-learn intends to solve for
 use cases where ``y`` should be transformed at training time
 and not at test time, for resampling and similar uses, like at
-`imbalanced-learn <https://github.com/jax-sklearn-contrib/imbalanced-learn>`_.
+`imbalanced-learn <https://github.com/secret-learn-contrib/imbalanced-learn>`_.
 In general, these use cases can be solved
 with a custom meta estimator rather than a :class:`~pipeline.Pipeline`.
 
@@ -275,17 +275,17 @@ chosen values of the penalty parameters ``alpha`` and ``l1_ratio``.
 Contributing
 ------------
 
-How can I contribute to jax-sklearn?
+How can I contribute to secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 See :ref:`contributing`. Before wanting to add a new algorithm, which is
 usually a major and lengthy undertaking, it is recommended to start with
 :ref:`known issues <new_contributors>`. Please do not contact the contributors
-of jax-sklearn directly regarding contributing to jax-sklearn.
+of secret-learn directly regarding contributing to secret-learn.
 
 Why is my pull request not getting any attention?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The jax-sklearn review process takes a significant amount of time, and
+The secret-learn review process takes a significant amount of time, and
 contributors should not be discouraged by a lack of activity or review on
 their pull request. We care a lot about getting things right
 the first time, as maintenance and later change comes at a high cost.
@@ -293,8 +293,8 @@ We rarely release any "experimental" code, so all of our contributions
 will be subject to high use immediately and should be of the highest
 quality possible initially.
 
-Beyond that, jax-sklearn is limited in its reviewing bandwidth; many of the
-reviewers and core developers are working on jax-sklearn on their own time.
+Beyond that, secret-learn is limited in its reviewing bandwidth; many of the
+reviewers and core developers are working on secret-learn on their own time.
 If a review of your pull request comes slowly, it is likely because the
 reviewers are busy. We ask for your understanding and request that you
 not close your pull request or discontinue your work solely because of
@@ -312,7 +312,7 @@ enhanced data structure or a more efficient approximation technique) on
 a widely-used method will also be considered for inclusion.
 
 From the algorithms or techniques that meet the above criteria, only those
-which fit well within the current API of jax-sklearn, that is a ``fit``,
+which fit well within the current API of secret-learn, that is a ``fit``,
 ``predict/transform`` interface and ordinarily having input/output that is a
 numpy array or sparse matrix, are accepted.
 
@@ -321,7 +321,7 @@ research papers and/or implementations in other similar packages, demonstrate
 its usefulness via common use-cases/applications and corroborate performance
 improvements, if any, with benchmarks and/or plots. It is expected that the
 proposed algorithm should outperform the methods that are already implemented
-in jax-sklearn at least in some areas.
+in secret-learn at least in some areas.
 
 Inclusion of a new algorithm speeding up an existing model is easier if:
 
@@ -332,17 +332,17 @@ Inclusion of a new algorithm speeding up an existing model is easier if:
   n_samples``",
 - benchmarks clearly show a speed up.
 
-Also, note that your implementation need not be in jax-sklearn to be used
-together with jax-sklearn tools. You can implement your favorite algorithm
-in a jax-sklearn compatible way, upload it to GitHub and let us know. We
+Also, note that your implementation need not be in secret-learn to be used
+together with secret-learn tools. You can implement your favorite algorithm
+in a secret-learn compatible way, upload it to GitHub and let us know. We
 will be happy to list it under :ref:`related_projects`. If you already have
-a package on GitHub following the jax-sklearn API, you may also be
-interested to look at `jax-sklearn-contrib
-<https://jax-sklearn-contrib.github.io>`_.
+a package on GitHub following the secret-learn API, you may also be
+interested to look at `secret-learn-contrib
+<https://secret-learn-contrib.github.io>`_.
 
 .. _selectiveness:
 
-Why are you so selective on what algorithms you include in jax-sklearn?
+Why are you so selective on what algorithms you include in secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Code comes with maintenance cost, and we need to balance the amount of
 code we have with the size of the team (and add to this the fact that
@@ -357,28 +357,28 @@ long-term maintenance issues in open-source software, look at
 <https://www.fordfoundation.org/media/2976/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure.pdf#page=8>`_.
 
 
-Using jax-sklearn
+Using secret-learn
 ------------------
 
-How do I get started with jax-sklearn?
+How do I get started with secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are new to jax-sklearn, or looking to strengthen your understanding,
-we highly recommend the **jax-sklearn MOOC (Massive Open Online Course)**.
+If you are new to secret-learn, or looking to strengthen your understanding,
+we highly recommend the **secret-learn MOOC (Massive Open Online Course)**.
 
 See our :ref:`External Resources, Videos and Talks page <external_resources>`
 for more details.
 
-What's the best way to get help on jax-sklearn usage?
+What's the best way to get help on secret-learn usage?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * General machine learning questions: use `Cross Validated
   <https://stats.stackexchange.com/>`_ with the ``[machine-learning]`` tag.
 
-* jax-sklearn usage questions: use `Stack Overflow
-  <https://stackoverflow.com/questions/tagged/jax-sklearn>`_ with the
-  ``[jax-sklearn]`` and ``[python]`` tags. You can alternatively use the `mailing list
-  <https://mail.python.org/mailman/listinfo/jax-sklearn>`_.
+* secret-learn usage questions: use `Stack Overflow
+  <https://stackoverflow.com/questions/tagged/secret-learn>`_ with the
+  ``[secret-learn]`` and ``[python]`` tags. You can alternatively use the `mailing list
+  <https://mail.python.org/mailman/listinfo/secret-learn>`_.
 
 Please make sure to include a minimal reproduction code snippet (ideally shorter
 than 10 lines) that highlights your problem on a toy dataset (for instance from
@@ -387,7 +387,7 @@ a fixed random seed). Please remove any line of code that is not necessary to
 reproduce your problem.
 
 The problem should be reproducible by simply copy-pasting your code snippet in a Python
-shell with jax-sklearn installed. Do not forget to include the import statements.
+shell with secret-learn installed. Do not forget to include the import statements.
 More guidance to write good reproduction code snippets can be found at:
 https://stackoverflow.com/help/mcve.
 
@@ -396,11 +396,11 @@ please make sure to include the full traceback that you obtain when running the
 reproduction script.
 
 For bug reports or feature requests, please make use of the
-`issue tracker on GitHub <https://github.com/chenxingqiang/jax-sklearn/issues>`_.
+`issue tracker on GitHub <https://github.com/chenxingqiang/secret-learn/issues>`_.
 
 .. warning::
   Please do not email any authors directly to ask for assistance, report bugs,
-  or for any other issue related to jax-sklearn.
+  or for any other issue related to secret-learn.
 
 How should I save, export or deploy estimators for production?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -415,12 +415,12 @@ extend dictionaries by enabling values to be accessed by key,
 `bunch["value_key"]`, or by an attribute, `bunch.value_key`.
 
 They should not be used as an input. Therefore you almost never need to create
-a :class:`~utils.Bunch` object, unless you are extending jax-sklearn's API.
+a :class:`~utils.Bunch` object, unless you are extending secret-learn's API.
 
-How can I load my own datasets into a format usable by jax-sklearn?
+How can I load my own datasets into a format usable by secret-learn?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Generally, jax-sklearn works on any numeric data stored as numpy arrays
+Generally, secret-learn works on any numeric data stored as numpy arrays
 or scipy sparse matrices. Other types that are convertible to numeric
 arrays such as :class:`pandas.DataFrame` are also acceptable.
 
@@ -430,7 +430,7 @@ structures, please refer to :ref:`loading external datasets <external_datasets>`
 How do I deal with string data (or trees, graphs...)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-jax-sklearn estimators assume you'll feed them real-valued feature vectors.
+secret-learn estimators assume you'll feed them real-valued feature vectors.
 This assumption is hard-coded in pretty much all of the library.
 However, you can feed non-numerical inputs to estimators in several ways.
 
@@ -477,7 +477,7 @@ with some care, for tree kernels, graph kernels, etc.
 Why do I sometimes get a crash/freeze with ``n_jobs > 1`` under OSX or Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Several jax-sklearn tools such as :class:`~model_selection.GridSearchCV` and
+Several secret-learn tools such as :class:`~model_selection.GridSearchCV` and
 :class:`~model_selection.cross_val_score` rely internally on Python's
 :mod:`multiprocessing` module to parallelize execution
 onto several Python processes by passing ``n_jobs > 1`` as an argument.
@@ -504,7 +504,7 @@ consider the lack of fork-safety in Accelerate and vecLib as a bug.
 In Python 3.4+ it is now possible to configure :mod:`multiprocessing` to
 use the ``"forkserver"`` or ``"spawn"`` start methods (instead of the default
 ``"fork"``) to manage the process pools. To work around this issue when
-using jax-sklearn, you can set the ``JOBLIB_START_METHOD`` environment
+using secret-learn, you can set the ``JOBLIB_START_METHOD`` environment
 variable to ``"forkserver"``. However the user should be aware that using
 the ``"forkserver"`` method prevents :class:`joblib.Parallel` to call function
 interactively defined in a shell session.
@@ -520,7 +520,7 @@ program. Insert the following instructions in your main script::
     if __name__ == "__main__":
         multiprocessing.set_start_method("forkserver")
 
-        # call jax-sklearn utils with n_jobs > 1 here
+        # call secret-learn utils with n_jobs > 1 here
 
 You can find more details on the new start methods in the `multiprocessing
 documentation <https://docs.python.org/3/library/multiprocessing.html#contexts-and-start-methods>`_.
@@ -536,7 +536,7 @@ from other sources:
 
 - some routines may be parallelized with OpenMP (for code written in C or
   Cython),
-- jax-sklearn relies a lot on numpy, which in turn may rely on numerical
+- secret-learn relies a lot on numpy, which in turn may rely on numerical
   libraries like MKL, OpenBLAS or BLIS which can provide parallel
   implementations.
 

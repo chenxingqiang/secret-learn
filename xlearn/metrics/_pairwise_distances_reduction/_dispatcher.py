@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from abc import abstractmethod
@@ -108,7 +108,7 @@ class BaseDistancesReductionDispatcher:
 
         # FIXME: the current Cython implementation is too slow for a large number of
         # features. We temporarily disable it to fallback on SciPy's implementation.
-        # See: https://github.com/chenxingqiang/jax-sklearn/issues/28191
+        # See: https://github.com/chenxingqiang/secret-learn/issues/28191
         if (
             issparse(X)
             and issparse(Y)
@@ -129,7 +129,7 @@ class BaseDistancesReductionDispatcher:
                 X.nnz > 0
                 and
                 # TODO: support CSR matrices with int64 indices and indptr
-                # See: https://github.com/chenxingqiang/jax-sklearn/issues/23653
+                # See: https://github.com/chenxingqiang/secret-learn/issues/23653
                 X.indices.dtype == X.indptr.dtype == np.int32
             )
 
@@ -217,7 +217,7 @@ class ArgKmin(BaseDistancesReductionDispatcher):
 
         chunk_size : int, default=None,
             The number of vectors per chunk. If None (default) looks-up in
-            jax-sklearn configuration for `pairwise_dist_chunk_size`,
+            secret-learn configuration for `pairwise_dist_chunk_size`,
             and use 256 if it is not set.
 
         metric_kwargs : dict, default=None
@@ -248,7 +248,7 @@ class ArgKmin(BaseDistancesReductionDispatcher):
                 When `X.shape[0]` is small but `Y.shape[0]` is large, 'parallel_on_Y'
                 brings more opportunity for parallelism and is therefore more efficient
 
-              - None (default) looks-up in jax-sklearn configuration for
+              - None (default) looks-up in secret-learn configuration for
                 `pairwise_dist_parallel_strategy`, and use 'auto' if it is not set.
 
         return_distance : boolean, default=False
@@ -356,7 +356,7 @@ class RadiusNeighbors(BaseDistancesReductionDispatcher):
 
         chunk_size : int, default=None,
             The number of vectors per chunk. If None (default) looks-up in
-            jax-sklearn configuration for `pairwise_dist_chunk_size`,
+            secret-learn configuration for `pairwise_dist_chunk_size`,
             and use 256 if it is not set.
 
         metric_kwargs : dict, default=None
@@ -389,7 +389,7 @@ class RadiusNeighbors(BaseDistancesReductionDispatcher):
                 despite the synchronization step at each iteration of the outer loop
                 on chunks of `X`.
 
-              - None (default) looks-up in jax-sklearn configuration for
+              - None (default) looks-up in secret-learn configuration for
                 `pairwise_dist_parallel_strategy`, and use 'auto' if it is not set.
 
         return_distance : boolean, default=False
@@ -526,7 +526,7 @@ class ArgKminClassMode(BaseDistancesReductionDispatcher):
 
         chunk_size : int, default=None,
             The number of vectors per chunk. If None (default) looks-up in
-            jax-sklearn configuration for `pairwise_dist_chunk_size`,
+            secret-learn configuration for `pairwise_dist_chunk_size`,
             and use 256 if it is not set.
 
         metric_kwargs : dict, default=None
@@ -559,7 +559,7 @@ class ArgKminClassMode(BaseDistancesReductionDispatcher):
                 despite the synchronization step at each iteration of the outer loop
                 on chunks of `X`.
 
-              - None (default) looks-up in jax-sklearn configuration for
+              - None (default) looks-up in secret-learn configuration for
                 `pairwise_dist_parallel_strategy`, and use 'auto' if it is not set.
 
         Returns
@@ -693,7 +693,7 @@ class RadiusNeighborsClassMode(BaseDistancesReductionDispatcher):
             Currently does not support `'precomputed'`.
         chunk_size : int, default=None,
             The number of vectors per chunk. If None (default) looks-up in
-            jax-sklearn configuration for `pairwise_dist_chunk_size`,
+            secret-learn configuration for `pairwise_dist_chunk_size`,
             and use 256 if it is not set.
         metric_kwargs : dict, default=None
             Keyword arguments to pass to specified metric function.
@@ -719,7 +719,7 @@ class RadiusNeighborsClassMode(BaseDistancesReductionDispatcher):
                 brings more opportunity for parallelism and is therefore more efficient
                 despite the synchronization step at each iteration of the outer loop
                 on chunks of `X`.
-              - None (default) looks-up in jax-sklearn configuration for
+              - None (default) looks-up in secret-learn configuration for
                 `pairwise_dist_parallel_strategy`, and use 'auto' if it is not set.
         Returns
         -------

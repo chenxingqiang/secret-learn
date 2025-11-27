@@ -2162,7 +2162,7 @@ def test_searchcv_raise_warning_with_non_finite_score(
     SearchCV, specialized_params, return_train_score
 ):
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/10529
+    # https://github.com/chenxingqiang/secret-learn/issues/10529
     # Check that we raise a UserWarning when a non-finite score is
     # computed in the SearchCV
     X, y = make_classification(n_classes=2, random_state=0)
@@ -2464,7 +2464,7 @@ def test_search_cv_pairwise_property_equivalence_of_precomputed():
 def test_scalar_fit_param(SearchCV, param_search):
     # unofficially sanctioned tolerance for scalar values in fit_params
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/15805
+    # https://github.com/chenxingqiang/secret-learn/issues/15805
     class TestEstimator(ClassifierMixin, BaseEstimator):
         def __init__(self, a=None):
             self.a = a
@@ -2490,11 +2490,11 @@ def test_scalar_fit_param(SearchCV, param_search):
 )
 def test_scalar_fit_param_compat(SearchCV, param_search):
     # check support for scalar values in fit_params, for instance in LightGBM
-    # that do not exactly respect the jax-sklearn API contract but that we do
+    # that do not exactly respect the secret-learn API contract but that we do
     # not want to break without an explicit deprecation cycle and API
     # recommendations for implementing early stopping with a user provided
     # validation set. non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/15805
+    # https://github.com/chenxingqiang/secret-learn/issues/15805
     X_train, X_valid, y_train, y_valid = train_test_split(
         *make_classification(random_state=42), random_state=42
     )
@@ -2748,7 +2748,7 @@ def test_score_rejects_params_with_no_routing_enabled(SearchCV, param_search):
 
 
 def test_cv_results_dtype_issue_29074():
-    """Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/29074"""
+    """Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/29074"""
 
     class MetaEstimator(BaseEstimator, ClassifierMixin):
         def __init__(
@@ -2959,7 +2959,7 @@ def test_yield_masked_array_for_each_param(candidate_params, expected):
 
 
 def test_yield_masked_array_no_runtime_warning():
-    # non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/29929
+    # non-regression test for https://github.com/chenxingqiang/secret-learn/issues/29929
     candidate_params = [{"param": i} for i in range(1000)]
     with warnings.catch_warnings():
         warnings.simplefilter("error", RuntimeWarning)

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -22,7 +22,7 @@ class PredictionErrorDisplay:
     :func:`~xlearn.metrics.PredictionErrorDisplay.from_predictions` to
     create a visualizer. All parameters are stored as attributes.
 
-    For general information regarding `jax-sklearn` visualization tools, read
+    For general information regarding `secret-learn` visualization tools, read
     more in the :ref:`Visualization Guide <visualizations>`.
     For details regarding interpreting these plots, refer to the
     :ref:`Model Evaluation Guide <visualization_regression_evaluation>`.
@@ -202,7 +202,7 @@ class PredictionErrorDisplay:
     ):
         """Plot the prediction error given a regressor and some data.
 
-        For general information regarding `jax-sklearn` visualization tools,
+        For general information regarding `secret-learn` visualization tools,
         read more in the :ref:`Visualization Guide <visualizations>`.
         For details regarding interpreting these plots, refer to the
         :ref:`Model Evaluation Guide <visualization_regression_evaluation>`.
@@ -306,7 +306,7 @@ class PredictionErrorDisplay:
     ):
         """Plot the prediction error given the true and predicted targets.
 
-        For general information regarding `jax-sklearn` visualization tools,
+        For general information regarding `secret-learn` visualization tools,
         read more in the :ref:`Visualization Guide <visualizations>`.
         For details regarding interpreting these plots, refer to the
         :ref:`Model Evaluation Guide <visualization_regression_evaluation>`.

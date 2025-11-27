@@ -4,7 +4,7 @@ If you add content to this file, please give the version of the package
 at which the fix is no longer needed.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import platform
@@ -140,7 +140,7 @@ if sp_base_version >= parse_version("1.11.0"):
 
 else:
     # This code is mostly taken from scipy 0.14 and extended to handle nans, see
-    # https://github.com/chenxingqiang/jax-sklearn/pull/11196
+    # https://github.com/chenxingqiang/secret-learn/pull/11196
     def _minor_reduce(X, ufunc):
         major_index = np.flatnonzero(np.diff(X.indptr))
 

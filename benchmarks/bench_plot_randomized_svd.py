@@ -63,7 +63,7 @@ References
     A. Szlam et al. 2014
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import gc

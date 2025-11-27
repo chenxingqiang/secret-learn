@@ -14,8 +14,8 @@
 #
 # See for reference:
 #  - https://en.cppreference.com/w/cpp/algorithm/nth_element.
-#  - https://github.com/chenxingqiang/jax-sklearn/pull/11103
-#  - https://github.com/chenxingqiang/jax-sklearn/pull/19473
+#  - https://github.com/chenxingqiang/secret-learn/pull/11103
+#  - https://github.com/chenxingqiang/secret-learn/pull/19473
 from cython cimport floating
 
 

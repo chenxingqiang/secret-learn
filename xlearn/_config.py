@@ -1,6 +1,6 @@
 """Global configuration state and functions for management"""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import os
@@ -33,7 +33,7 @@ def _get_threadlocal_config():
 
 
 def get_config():
-    """Retrieve the current jax-sklearn configuration.
+    """Retrieve the current secret-learn configuration.
 
     This reflects the effective global configurations as established by default upon
     library import, or modified via :func:`set_config` or :func:`config_context`.
@@ -45,8 +45,8 @@ def get_config():
 
     See Also
     --------
-    config_context : Context manager for global jax-sklearn configuration.
-    set_config : Set global jax-sklearn configuration.
+    config_context : Context manager for global secret-learn configuration.
+    set_config : Set global secret-learn configuration.
 
     Examples
     --------
@@ -72,13 +72,13 @@ def set_config(
     enable_metadata_routing=None,
     skip_parameter_validation=None,
 ):
-    """Set global jax-sklearn configuration.
+    """Set global secret-learn configuration.
 
-    These settings control the behaviour of jax-sklearn functions during a library
+    These settings control the behaviour of secret-learn functions during a library
     usage session. Global configuration defaults (as described in the parameter list
-    below) take effect when jax-sklearn is imported.
+    below) take effect when secret-learn is imported.
 
-    This function can be used to modify the global jax-sklearn configuration at
+    This function can be used to modify the global secret-learn configuration at
     runtime. Passing `None` as an argument (the default) leaves the corresponding
     setting unchanged. This allows users to selectively update the global configuration
     values without affecting the others.
@@ -96,7 +96,7 @@ def set_config(
         .. versionadded:: 0.19
 
     working_memory : int, default=None
-        If set, jax-sklearn will attempt to limit the size of temporary arrays
+        If set, secret-learn will attempt to limit the size of temporary arrays
         to this number of MiB (per job when parallelised), often saving both
         computation time and memory on expensive operations that can be
         performed in chunks. Global default: 1024.
@@ -126,7 +126,7 @@ def set_config(
         distances reduction backend. Global default: 256 (suitable for most of
         modern laptops' caches and architectures).
 
-        Intended for easier benchmarking and testing of jax-sklearn internals.
+        Intended for easier benchmarking and testing of secret-learn internals.
         End users are not expected to benefit from customizing this configuration
         setting.
 
@@ -136,7 +136,7 @@ def set_config(
         Use the accelerated pairwise-distances reduction backend when
         possible. Global default: True.
 
-        Intended for easier benchmarking and testing of jax-sklearn internals.
+        Intended for easier benchmarking and testing of secret-learn internals.
         End users are not expected to benefit from customizing this configuration
         setting.
 
@@ -195,7 +195,7 @@ def set_config(
 
     See Also
     --------
-    config_context : Context manager for global jax-sklearn configuration.
+    config_context : Context manager for global secret-learn configuration.
     get_config : Retrieve current values of the global configuration.
 
     Examples
@@ -244,13 +244,13 @@ def config_context(
     enable_metadata_routing=None,
     skip_parameter_validation=None,
 ):
-    """Context manager to temporarily change the global jax-sklearn configuration.
+    """Context manager to temporarily change the global secret-learn configuration.
 
-    This context manager can be used to apply jax-sklearn configuration changes within
+    This context manager can be used to apply secret-learn configuration changes within
     the scope of the with statement. Once the context exits, the global configuration is
     restored again.
 
-    The default global configurations (which take effect when jax-sklearn is imported)
+    The default global configurations (which take effect when secret-learn is imported)
     are defined below in the parameter list.
 
     Parameters
@@ -263,7 +263,7 @@ def config_context(
         Global default: False.
 
     working_memory : int, default=None
-        If set, jax-sklearn will attempt to limit the size of temporary arrays
+        If set, secret-learn will attempt to limit the size of temporary arrays
         to this number of MiB (per job when parallelised), often saving both
         computation time and memory on expensive operations that can be
         performed in chunks. If None, the existing configuration won't change.
@@ -293,7 +293,7 @@ def config_context(
         distances reduction backend. Global default: 256 (suitable for most of
         modern laptops' caches and architectures).
 
-        Intended for easier benchmarking and testing of jax-sklearn internals.
+        Intended for easier benchmarking and testing of secret-learn internals.
         End users are not expected to benefit from customizing this configuration
         setting.
 
@@ -303,7 +303,7 @@ def config_context(
         Use the accelerated pairwise-distances reduction backend when
         possible. Global default: True.
 
-        Intended for easier benchmarking and testing of jax-sklearn internals.
+        Intended for easier benchmarking and testing of secret-learn internals.
         End users are not expected to benefit from customizing this configuration
         setting.
 
@@ -366,7 +366,7 @@ def config_context(
 
     See Also
     --------
-    set_config : Set global jax-sklearn configuration.
+    set_config : Set global secret-learn configuration.
     get_config : Retrieve current values of the global configuration.
 
     Notes

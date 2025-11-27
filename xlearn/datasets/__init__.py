@@ -1,6 +1,6 @@
 """Utilities to load popular datasets and artificial data generators."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import textwrap
@@ -110,7 +110,7 @@ def __getattr__(name):
     if name == "load_boston":
         msg = textwrap.dedent(
             """
-            `load_boston` has been removed from jax-sklearn since version 1.2.
+            `load_boston` has been removed from secret-learn since version 1.2.
 
             The Boston housing prices dataset has an ethical problem: as
             investigated in [1], the authors of this dataset engineered a
@@ -120,7 +120,7 @@ def __getattr__(name):
             impact of air quality but it did not give adequate demonstration of the
             validity of this assumption.
 
-            The jax-sklearn maintainers therefore strongly discourage the use of
+            The secret-learn maintainers therefore strongly discourage the use of
             this dataset unless the purpose of the code is to study and educate
             about ethical issues in data science and machine learning.
 

@@ -5,7 +5,7 @@ The dataset page is available at
     http://jmlr.csail.mit.edu/papers/volume5/lewis04a/
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import logging
@@ -118,7 +118,7 @@ def fetch_rcv1(
     ----------
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     subset : {'train', 'test', 'all'}, default='all'
         Select the dataset to load: 'train' for the training set

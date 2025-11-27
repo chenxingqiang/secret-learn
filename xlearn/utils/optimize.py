@@ -9,7 +9,7 @@ regression with large design matrix), this approach gives very
 significant speedups.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # This is a modified file from scipy.optimize
@@ -350,7 +350,7 @@ def _check_optimize_result(solver, result, max_iter=None, extra_warning_msg=None
     n_iter : int
        Number of iterations.
     """
-    # handle both scipy and jax-sklearn solver names
+    # handle both scipy and secret-learn solver names
     if solver == "lbfgs":
         if max_iter is not None:
             # In scipy <= 1.0.0, nit may exceed maxiter for lbfgs.
@@ -376,7 +376,7 @@ def _check_optimize_result(solver, result, max_iter=None, extra_warning_msg=None
                 )
             warning_msg += (
                 "\nYou might also want to scale the data as shown in:\n"
-                "    https://jax-sklearn.org/stable/modules/"
+                "    https://secret-learn.org/stable/modules/"
                 "preprocessing.html"
             )
             if extra_warning_msg is not None:

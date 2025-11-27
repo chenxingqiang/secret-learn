@@ -32,7 +32,7 @@ Usually, the response variable :math:`Y` is a random variable, in the sense that
 is *no deterministic* function :math:`Y = g(X)` of the features :math:`X`.
 Instead, there is a probability distribution :math:`F` of :math:`Y`.
 One can aim to predict the whole distribution, known as *probabilistic prediction*,
-or---more the focus of jax-sklearn---issue a *point prediction* (or point forecast)
+or---more the focus of secret-learn---issue a *point prediction* (or point forecast)
 by choosing a property or functional of that distribution :math:`F`.
 Typical examples are the mean (expected value), the median or a quantile of the
 response variable :math:`Y` (conditionally on :math:`X`).
@@ -2687,7 +2687,7 @@ relative percentage error with respect to actual output.
     percentage in the range [0, 100] is converted to a relative value in the range [0,
     1] by dividing by 100. Thus, an error of 200% corresponds to a relative error of 2.
     The motivation here is to have a range of values that is more consistent with other
-    error metrics in jax-sklearn, such as `accuracy_score`.
+    error metrics in secret-learn, such as `accuracy_score`.
 
     To obtain the mean absolute percentage error as per the Wikipedia formula,
     multiply the `mean_absolute_percentage_error` computed here by 100.
@@ -3050,7 +3050,7 @@ of 0.0.
 Visual evaluation of regression models
 --------------------------------------
 
-Among methods to assess the quality of regression models, jax-sklearn provides
+Among methods to assess the quality of regression models, secret-learn provides
 the :class:`~xlearn.metrics.PredictionErrorDisplay` class. It allows to
 visually inspect the prediction errors of a model in two different manners.
 

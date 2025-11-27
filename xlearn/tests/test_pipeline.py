@@ -939,7 +939,7 @@ def test_pipeline_estimator_type(pipeline, check_estimator_type):
     """Check that the estimator type returned by the pipeline is correct.
 
     Non-regression test as part of:
-    https://github.com/chenxingqiang/jax-sklearn/issues/30197
+    https://github.com/chenxingqiang/secret-learn/issues/30197
     """
     # Smoke test the repr
     repr(pipeline)
@@ -950,7 +950,7 @@ def test_xlearn_tags_with_empty_pipeline():
     """Check that we propagate properly the tags in a Pipeline.
 
     Non-regression test as part of:
-    https://github.com/chenxingqiang/jax-sklearn/issues/30197
+    https://github.com/chenxingqiang/secret-learn/issues/30197
     """
     empty_pipeline = Pipeline(steps=[])
     be = BaseEstimator()
@@ -1343,7 +1343,7 @@ def test_step_name_validation():
     bad_steps1 = [("a__q", Mult(2)), ("b", Mult(3))]
     bad_steps2 = [("a", Mult(2)), ("a", Mult(3))]
     for cls, param in [(Pipeline, "steps"), (FeatureUnion, "transformer_list")]:
-        # we validate in construction (despite jax-sklearn convention)
+        # we validate in construction (despite secret-learn convention)
         bad_steps3 = [("a", Mult(2)), (param, Mult(3))]
         for bad_steps, message in [
             (bad_steps1, error_message_1),
@@ -1720,7 +1720,7 @@ def test_pipeline_get_tags_none(passthrough):
     # Checks that tags are set correctly when the first transformer is None or
     # 'passthrough'
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/18815
+    # https://github.com/chenxingqiang/secret-learn/issues/18815
     pipe = make_pipeline(passthrough, SVC())
     assert not pipe.__xlearn_tags__().input_tags.pairwise
 

@@ -1,23 +1,23 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.7
+Release Highlights for secret-learn 1.7
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.7! Many bug fixes
+We are pleased to announce the release of secret-learn 1.7! Many bug fixes
 and improvements were added, as well as some key new features. Below we
 detail the highlights of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_7>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
@@ -92,10 +92,10 @@ _ = RocCurveDisplay.from_cv_results(cv_results, X, y)
 # version 1.6, especially metrics from the :mod:`xlearn.metrics` module.
 #
 # In addition, it is no longer required to install the `array-api-compat` package to use
-# the experimental array API support in jax-sklearn.
+# the experimental array API support in secret-learn.
 #
 # Please refer to the :ref:`array API support<array_api>` page for instructions to use
-# jax-sklearn with array API compatible libraries such as PyTorch or CuPy.
+# secret-learn with array API compatible libraries such as PyTorch or CuPy.
 
 # %%
 # Improved API consistency of Multi-layer Perceptron
@@ -105,11 +105,11 @@ _ = RocCurveDisplay.from_cv_results(cv_results, X, y)
 # Moreover, the :class:`neural_network.MLPClassifier` and
 # :class:`neural_network.MLPRegressor` estimators now support sample weights.
 # These improvements have been made to improve the consistency of these estimators
-# with regard to the other estimators in jax-sklearn.
+# with regard to the other estimators in secret-learn.
 
 # %%
 # Migration toward sparse arrays
 # ------------------------------
 # In order to prepare `SciPy migration from sparse matrices to sparse arrays <https://docs.scipy.org/doc/scipy/reference/sparse.migration_to_sparray.html>`_,
-# all jax-sklearn estimators that accept sparse matrices as input now also accept
+# all secret-learn estimators that accept sparse matrices as input now also accept
 # sparse arrays.

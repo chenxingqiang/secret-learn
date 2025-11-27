@@ -6,7 +6,7 @@ Parallelism, resource management, and configuration
 Parallelism
 -----------
 
-Some jax-sklearn estimators and utilities parallelize costly operations
+Some secret-learn estimators and utilities parallelize costly operations
 using multiple CPU cores.
 
 Depending on the type of estimator and sometimes the values of the
@@ -19,8 +19,8 @@ constructor parameters, this is either done:
 
 The `n_jobs` parameters of estimators always controls the amount of parallelism
 managed by joblib (processes or threads depending on the joblib backend).
-The thread-level parallelism managed by OpenMP in jax-sklearn's own Cython code
-or by BLAS & LAPACK libraries used by NumPy and SciPy operations used in jax-sklearn
+The thread-level parallelism managed by OpenMP in secret-learn's own Cython code
+or by BLAS & LAPACK libraries used by NumPy and SciPy operations used in secret-learn
 is always controlled by environment variables or `threadpoolctl` as explained below.
 Note that some estimators can leverage all three kinds of parallelism at different
 points of their training and prediction methods.
@@ -39,13 +39,13 @@ When the underlying implementation uses joblib, the number of workers
     Where (and how) parallelization happens in the estimators using joblib by
     specifying `n_jobs` is currently poorly documented.
     Please help us by improving our docs and tackle `issue 14228
-    <https://github.com/chenxingqiang/jax-sklearn/issues/14228>`_!
+    <https://github.com/chenxingqiang/secret-learn/issues/14228>`_!
 
 Joblib is able to support both multi-processing and multi-threading. Whether
 joblib chooses to spawn a thread or a process depends on the **backend**
 that it's using.
 
-jax-sklearn generally relies on the ``loky`` backend, which is joblib's
+secret-learn generally relies on the ``loky`` backend, which is joblib's
 default backend. Loky is a multi-processing backend. When doing
 multi-processing, in order to avoid duplicating the memory in each process
 (which isn't reasonable with big datasets), joblib will create a `memmap
@@ -53,16 +53,16 @@ multi-processing, in order to avoid duplicating the memory in each process
 that all processes can share, when the data is bigger than 1MB.
 
 In some specific cases (when the code that is run in parallel releases the
-GIL), jax-sklearn will indicate to ``joblib`` that a multi-threading
+GIL), secret-learn will indicate to ``joblib`` that a multi-threading
 backend is preferable.
 
 As a user, you may control the backend that joblib will use (regardless of
-what jax-sklearn recommends) by using a context manager::
+what secret-learn recommends) by using a context manager::
 
     from joblib import parallel_backend
 
     with parallel_backend('threading', n_jobs=2):
-        # Your jax-sklearn code here
+        # Your secret-learn code here
 
 Please refer to the `joblib's docs
 <https://joblib.readthedocs.io/en/latest/parallel.html#thread-based-parallelism-vs-process-based-parallelism>`_
@@ -96,7 +96,7 @@ You can control the exact number of threads that are used either:
 Parallel NumPy and SciPy routines from numerical libraries
 ..........................................................
 
-jax-sklearn relies heavily on NumPy and SciPy, which internally call
+secret-learn relies heavily on NumPy and SciPy, which internally call
 multi-threaded linear algebra routines (BLAS & LAPACK) implemented in libraries
 such as MKL, OpenBLAS or BLIS.
 
@@ -172,7 +172,7 @@ Note that:
 - When joblib is configured to use the ``threading`` backend, there is no
   mechanism to avoid oversubscriptions when calling into parallel native
   libraries in the joblib-managed threads.
-- All jax-sklearn estimators that explicitly rely on OpenMP in their Cython code
+- All secret-learn estimators that explicitly rely on OpenMP in their Cython code
   always use `threadpoolctl` internally to automatically adapt the numbers of
   threads used by OpenMP and potentially nested BLAS calls so as to avoid
   oversubscription.
@@ -198,7 +198,7 @@ parameters of the configuration which control aspect of parallelism.
 Environment variables
 .....................
 
-These environment variables should be set before importing jax-sklearn.
+These environment variables should be set before importing secret-learn.
 
 `XLEARN_ASSUME_FINITE`
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -218,7 +218,7 @@ Sets the default value for the `working_memory` argument of
 Sets the seed of the global random generator when running the tests, for
 reproducibility.
 
-Note that jax-sklearn tests are expected to run deterministically with
+Note that secret-learn tests are expected to run deterministically with
 explicit seeding of their own independent RNG instances instead of relying on
 the numpy or Python standard library RNG singletons to make sure that test
 results are independent of the test execution order. However some tests might
@@ -255,12 +255,12 @@ Valid values for `XLEARN_TESTS_GLOBAL_RANDOM_SEED`:
   tests, not the full test suite!
 
 If the variable is not set, then 42 is used as the global seed in a
-deterministic manner. This ensures that, by default, the jax-sklearn test
+deterministic manner. This ensures that, by default, the secret-learn test
 suite is as deterministic as possible to avoid disrupting our friendly
 third-party package maintainers. Similarly, this variable should not be set in
 the CI config of pull-requests to make sure that our friendly contributors are
 not the first people to encounter a seed-sensitivity regression in a test
-unrelated to the changes of their own PR. Only the jax-sklearn maintainers who
+unrelated to the changes of their own PR. Only the secret-learn maintainers who
 watch the results of the nightly builds are expected to be annoyed by this.
 
 When writing a new test function that uses this fixture, please use the

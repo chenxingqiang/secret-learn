@@ -440,7 +440,7 @@ def test_nystroem_component_indices():
     """Check that `component_indices_` corresponds to the subset of
     training points used to construct the feature map.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20474
+    https://github.com/chenxingqiang/secret-learn/issues/20474
     """
     X, _ = make_classification(n_samples=100, n_features=20)
     feature_map_nystroem = Nystroem(

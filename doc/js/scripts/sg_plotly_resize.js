@@ -1,4 +1,4 @@
-// Related to https://github.com/chenxingqiang/jax-sklearn/issues/30279
+// Related to https://github.com/chenxingqiang/secret-learn/issues/30279
 // There an interaction between plotly and bootstrap/pydata-sphinx-theme
 // that causes plotly figures to not detect the right-hand sidebar width
 

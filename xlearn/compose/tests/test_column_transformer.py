@@ -546,7 +546,7 @@ def test_column_transformer_mixed_cols_sparse():
     )
 
     # this shouldn't fail, since boolean can be coerced into a numeric
-    # See: https://github.com/chenxingqiang/jax-sklearn/issues/11912
+    # See: https://github.com/chenxingqiang/secret-learn/issues/11912
     X_trans = ct.fit_transform(df)
     assert X_trans.format == "csr"
     assert_array_equal(X_trans.toarray(), np.array([[1, 0, 1, 1], [0, 1, 2, 0]]))
@@ -2502,7 +2502,7 @@ def test_column_transformer_remainder_passthrough_naming_consistency(transform_o
     correctly by the underlying `FunctionTransformer`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28232
+    https://github.com/chenxingqiang/secret-learn/issues/28232
     """
     pd = pytest.importorskip("pandas")
     X = pd.DataFrame(np.random.randn(10, 4))
@@ -2531,7 +2531,7 @@ def test_column_transformer_column_renaming(dataframe_lib):
     selected columns are redundant between transformers.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28260
+    https://github.com/chenxingqiang/secret-learn/issues/28260
     """
     lib = pytest.importorskip(dataframe_lib)
 
@@ -2757,7 +2757,7 @@ def test_metadata_routing_error_for_column_transformer(method):
 
 @config_context(enable_metadata_routing=True)
 def test_get_metadata_routing_works_without_fit():
-    # Regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28186
+    # Regression test for https://github.com/chenxingqiang/secret-learn/issues/28186
     # Make sure ct.get_metadata_routing() works w/o having called fit.
     ct = ColumnTransformer([("trans", ConsumingTransformer(), [0])])
     ct.get_metadata_routing()

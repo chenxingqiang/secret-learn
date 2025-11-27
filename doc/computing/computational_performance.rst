@@ -11,7 +11,7 @@ consider the training throughput but this is often less important in a
 production setup (where it often takes place offline).
 
 We will review here the orders of magnitude you can expect from a number of
-jax-sklearn estimators in different contexts and provide some tips and
+secret-learn estimators in different contexts and provide some tips and
 tricks for overcoming performance bottlenecks.
 
 Prediction latency is measured as the elapsed time necessary to make a
@@ -79,7 +79,7 @@ features are finite (not NaN or infinite) involves a full pass over the
 data. If you ensure that your data is acceptable, you may suppress
 checking for finiteness by setting the environment variable
 ``XLEARN_ASSUME_FINITE`` to a non-empty string before importing
-jax-sklearn, or configure it in Python with :func:`set_config`.
+secret-learn, or configure it in Python with :func:`set_config`.
 For more control than these global settings, a :func:`config_context`
 allows you to set this configuration within a specified context::
 
@@ -211,7 +211,7 @@ the process.
 Feature Extraction Latency
 ..........................
 
-Most jax-sklearn models are usually pretty fast as they are implemented
+Most secret-learn models are usually pretty fast as they are implemented
 either with compiled Cython extensions or optimized computing libraries.
 On the other hand, in many real world applications the feature extraction
 process (i.e. turning raw data like database rows or network packets into
@@ -260,7 +260,7 @@ Tips and Tricks
 Linear algebra libraries
 .........................
 
-As jax-sklearn relies heavily on Numpy/Scipy and linear algebra in general it
+As secret-learn relies heavily on Numpy/Scipy and linear algebra in general it
 makes sense to take explicit care of the versions of these libraries.
 Basically, you ought to make sure that Numpy is built using an optimized `BLAS
 <https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms>`_ /
@@ -275,7 +275,7 @@ BLAS implementation and lead to orders of magnitude speedup over a
 non-optimized BLAS.
 
 You can display the BLAS / LAPACK implementation used by your NumPy / SciPy /
-jax-sklearn install with the following command::
+secret-learn install with the following command::
 
     python -c "import xlearn; xlearn.show_versions()"
 
@@ -316,7 +316,7 @@ row-wise reductions of a pairwise distance matrix.
 Model Compression
 ..................
 
-Model compression in jax-sklearn only concerns linear models for the moment.
+Model compression in secret-learn only concerns linear models for the moment.
 In this context it means that we want to control the model sparsity (i.e. the
 number of non-zero coordinates in the model vectors). It is generally a good
 idea to combine model sparsity with sparse input data representation.
@@ -332,7 +332,7 @@ compromise between model compactness and prediction power. One can also
 further tune the ``l1_ratio`` parameter (in combination with the
 regularization strength ``alpha``) to control this tradeoff.
 
-A typical `benchmark <https://github.com/chenxingqiang/jax-sklearn/blob/main/benchmarks/bench_sparsify.py>`_
+A typical `benchmark <https://github.com/chenxingqiang/secret-learn/blob/main/benchmarks/bench_sparsify.py>`_
 on synthetic data yields a >30% decrease in latency when both the model and
 input are sparse (with 0.000024 and 0.027400 non-zero coefficients ratio
 respectively). Your mileage may vary depending on the sparsity and size of
@@ -355,12 +355,12 @@ collecting and building features that are discarded by the model. For instance
 if the raw data come from a database, it is possible to write simpler
 and faster queries or reduce I/O usage by making the queries return lighter
 records.
-At the moment, reshaping needs to be performed manually in jax-sklearn.
+At the moment, reshaping needs to be performed manually in secret-learn.
 In the case of sparse input (particularly in ``CSR`` format), it is generally
 sufficient to not generate the relevant features, leaving their columns empty.
 
 Links
 ......
 
-- :ref:`jax-sklearn developer performance documentation <performance-howto>`
+- :ref:`secret-learn developer performance documentation <performance-howto>`
 - `Scipy sparse matrix formats documentation <https://docs.scipy.org/doc/scipy/reference/sparse.html>`_

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 
@@ -82,7 +82,7 @@ def _is_constant_feature(var, mean, n_samples):
     See "Algorithms for computing the sample variance: analysis and
     recommendations", by Chan, Golub, and LeVeque.
     """
-    # In jax-sklearn, variance is always computed using float64 accumulators.
+    # In secret-learn, variance is always computed using float64 accumulators.
     eps = np.finfo(np.float64).eps
 
     upper_bound = n_samples * eps * var + (n_samples * mean * eps) ** 2
@@ -998,7 +998,7 @@ class StandardScaler(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
                         weights=sample_weight,
                     )
                 # We force the mean and variance to float64 for large arrays
-                # See https://github.com/chenxingqiang/jax-sklearn/pull/12338
+                # See https://github.com/chenxingqiang/secret-learn/pull/12338
                 self.mean_ = self.mean_.astype(np.float64, copy=False)
                 self.var_ = self.var_.astype(np.float64, copy=False)
             else:
@@ -2110,7 +2110,7 @@ class Normalizer(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
         """Only validates estimator's parameters.
 
         This method allows to: (i) validate the estimator's parameters and
-        (ii) be consistent with the jax-sklearn transformer API.
+        (ii) be consistent with the secret-learn transformer API.
 
         Parameters
         ----------
@@ -2311,7 +2311,7 @@ class Binarizer(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
         """Only validates estimator's parameters.
 
         This method allows to: (i) validate the estimator's parameters and
-        (ii) be consistent with the jax-sklearn transformer API.
+        (ii) be consistent with the secret-learn transformer API.
 
         Parameters
         ----------

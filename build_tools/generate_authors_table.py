@@ -1,6 +1,6 @@
 """
 This script generates an html table of contributors, with names and avatars.
-The list is generated from jax-sklearn's teams on GitHub, plus a small number
+The list is generated from secret-learn's teams on GitHub, plus a small number
 of hard-coded contributors.
 
 The table should be updated for each new inclusion in the teams.
@@ -52,7 +52,7 @@ def get_contributors():
     comm_team_slug = "communication-team"
     documentation_team_slug = "documentation-team"
 
-    entry_point = "https://api.github.com/orgs/jax-sklearn/"
+    entry_point = "https://api.github.com/orgs/secret-learn/"
 
     for team_slug, lst in zip(
         (
@@ -68,7 +68,7 @@ def get_contributors():
             reply = get(f"{entry_point}teams/{team_slug}/members?page={page}")
             lst.extend(reply.json())
 
-    # get members of jax-sklearn on GitHub
+    # get members of secret-learn on GitHub
     print("Retrieving members\n")
     members = []
     for page in [1, 2, 3]:  # 30 per page

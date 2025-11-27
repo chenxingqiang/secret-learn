@@ -27,7 +27,7 @@ class EstimatorProxy:
         Parameters
         ----------
         original_class : type
-            The original jax-sklearn estimator class.
+            The original secret-learn estimator class.
         *args, **kwargs
             Arguments to pass to the estimator constructor.
         """
@@ -268,7 +268,7 @@ def monkey_patch_estimator(original_class: Type) -> None:
     Parameters
     ----------
     original_class : type
-        The original jax-sklearn estimator class to patch.
+        The original secret-learn estimator class to patch.
     """
     # Store the original class
     original_class._original_xlearn_class = original_class

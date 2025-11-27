@@ -20,7 +20,7 @@ high-dimensional categorical embedding of the data.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -89,7 +89,7 @@ random_tree_embedding = RandomTreesEmbedding(
 # a preprocessing stage.
 #
 # The random trees embedding can be directly pipelined with the logistic
-# regression because it is a standard jax-sklearn transformer.
+# regression because it is a standard secret-learn transformer.
 
 from xlearn.linear_model import LogisticRegression
 from xlearn.pipeline import make_pipeline
@@ -100,7 +100,7 @@ rt_model.fit(X_train_linear, y_train_linear)
 # %%
 # Then, we can pipeline random forest or gradient boosting with a logistic
 # regression. However, the feature transformation will happen by calling the
-# method `apply`. The pipeline in jax-sklearn expects a call to `transform`.
+# method `apply`. The pipeline in secret-learn expects a call to `transform`.
 # Therefore, we wrapped the call to `apply` within a `FunctionTransformer`.
 
 from xlearn.preprocessing import FunctionTransformer, OneHotEncoder

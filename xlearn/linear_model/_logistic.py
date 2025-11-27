@@ -2,7 +2,7 @@
 Logistic Regression
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -54,7 +54,7 @@ from ._sag import sag_solver
 
 _LOGISTIC_SOLVER_CONVERGENCE_MSG = (
     "Please also refer to the documentation for alternative solver options:\n"
-    "    https://jax-sklearn.org/stable/modules/linear_model.html"
+    "    https://secret-learn.org/stable/modules/linear_model.html"
     "#logistic-regression"
 )
 

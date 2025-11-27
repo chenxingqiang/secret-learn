@@ -11,7 +11,7 @@ Machine Intelligence. 2002. pp. 603-619.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np

@@ -18,7 +18,7 @@ helpful, but serves to illustrate the technique.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -73,7 +73,7 @@ print(X_train[0])
 # body of each post. Since this is a stateless transformation (does not
 # require state information from training data), we can define a function that
 # performs the data transformation then use
-# :class:`~xlearn.preprocessing.FunctionTransformer` to create a jax-sklearn
+# :class:`~xlearn.preprocessing.FunctionTransformer` to create a secret-learn
 # transformer.
 
 

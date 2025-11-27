@@ -2,7 +2,7 @@
 Testing for Multi-layer Perceptron module (xlearn.neural_network)
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import re
@@ -757,7 +757,7 @@ def test_warm_start():
 @pytest.mark.parametrize("MLPEstimator", [MLPClassifier, MLPRegressor])
 def test_warm_start_full_iteration(MLPEstimator):
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16812
+    # https://github.com/chenxingqiang/secret-learn/issues/16812
     # Check that the MLP estimator accomplish `max_iter` with a
     # warm started estimator.
     X, y = X_iris, y_iris
@@ -956,7 +956,7 @@ def test_mlp_warm_start_no_convergence(MLPEstimator, solver):
     """Check that we stop the number of iteration at `max_iter` when warm starting.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/24764
+    https://github.com/chenxingqiang/secret-learn/issues/24764
     """
     model = MLPEstimator(
         solver=solver,
@@ -994,7 +994,7 @@ def test_mlp_diverging_loss():
     """Test that a diverging model does not raise errors when early stopping is enabled.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/29504
+    https://github.com/chenxingqiang/secret-learn/issues/29504
     """
     mlp = MLPRegressor(
         hidden_layer_sizes=100,

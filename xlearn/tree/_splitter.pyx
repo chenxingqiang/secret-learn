@@ -17,7 +17,7 @@ of splitting strategies:
   from a subset of the best splits. This method is faster but does
   not guarantee the optimal split.
 """
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from libc.string cimport memcpy

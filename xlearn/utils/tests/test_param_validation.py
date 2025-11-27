@@ -685,7 +685,7 @@ def test_cv_objects():
 
 
 def test_third_party_estimator():
-    """Check that the validation from a jax-sklearn estimator inherited by a third
+    """Check that the validation from a secret-learn estimator inherited by a third
     party estimator does not impose a match between the dict of constraints and the
     parameters of the estimator.
     """

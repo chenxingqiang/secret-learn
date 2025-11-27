@@ -2,7 +2,7 @@
 Testing for the bagging ensemble module (xlearn.ensemble.bagging).
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import cycle, product
@@ -803,7 +803,7 @@ def test_max_samples_consistency():
 
 def test_set_oob_score_label_encoding():
     # Make sure the oob_score doesn't change when the labels change
-    # See: https://github.com/chenxingqiang/jax-sklearn/issues/8933
+    # See: https://github.com/chenxingqiang/secret-learn/issues/8933
     random_state = 5
     X = [[-1], [0], [1]] * 5
     Y1 = ["A", "B", "C"] * 5
@@ -919,7 +919,7 @@ def test_bagging_small_max_features():
 def test_bagging_get_estimators_indices(global_random_seed):
     # Check that Bagging estimator can generate sample indices properly
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16436
+    # https://github.com/chenxingqiang/secret-learn/issues/16436
 
     rng = np.random.RandomState(global_random_seed)
     X = rng.randn(13, 4)

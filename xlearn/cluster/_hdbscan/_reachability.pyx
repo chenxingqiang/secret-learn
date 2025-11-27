@@ -1,6 +1,6 @@
 # mutual reachability distance computations
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Redistribution and use in source and binary forms, with or without

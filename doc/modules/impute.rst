@@ -8,7 +8,7 @@ Imputation of missing values
 
 For various reasons, many real world datasets contain missing values, often
 encoded as blanks, NaNs or other placeholders. Such datasets however are
-incompatible with jax-sklearn estimators which assume that all values in an
+incompatible with secret-learn estimators which assume that all values in an
 array are numerical, and that all have and hold meaning. A basic strategy to
 use incomplete datasets is to discard entire rows and/or columns containing
 missing values. However, this comes at the price of losing data which may be
@@ -234,7 +234,7 @@ For another example on usage, see :ref:`sphx_glr_auto_examples_impute_plot_missi
 Keeping the number of features constant
 =======================================
 
-By default, the jax-sklearn imputers will drop fully empty features, i.e.
+By default, the secret-learn imputers will drop fully empty features, i.e.
 columns containing only missing values. For instance::
 
   >>> imputer = SimpleImputer()

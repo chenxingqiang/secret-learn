@@ -1416,7 +1416,7 @@ def test_get_scorer_multilabel_indicator():
     """Check that our scorer deal with multi-label indicator matrices.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/26817
+    https://github.com/chenxingqiang/secret-learn/issues/26817
     """
     X, Y = make_multilabel_classification(n_samples=72, n_classes=3, random_state=0)
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=0)
@@ -1552,7 +1552,7 @@ def test_metadata_routing_multimetric_metadata_routing(enable_metadata_routing):
     """Test multimetric scorer works with and without metadata routing enabled when
     there is no actual metadata to pass.
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28256
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/28256
     """
     X, y = make_classification(n_samples=50, n_features=10, random_state=0)
     estimator = EstimatorWithFitAndPredict().fit(X, y)

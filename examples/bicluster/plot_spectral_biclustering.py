@@ -18,7 +18,7 @@ algorithm. The rows and columns of the shuffled matrix are then rearranged to
 plot the biclusters found.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

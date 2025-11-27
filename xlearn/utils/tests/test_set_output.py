@@ -466,6 +466,6 @@ def test_get_adapter_from_container():
     X = pd.DataFrame({"a": [1, 2, 3], "b": [10, 20, 100]})
     adapter = _get_adapter_from_container(X)
     assert adapter.container_lib == "pandas"
-    err_msg = "The container does not have a registered adapter in jax-sklearn."
+    err_msg = "The container does not have a registered adapter in secret-learn."
     with pytest.raises(ValueError, match=err_msg):
         _get_adapter_from_container(X.to_numpy())

@@ -11,7 +11,7 @@ set -x
 #
 # XXX: setting those environment variables is not enough. See the following
 # issue for more details on what remains to do:
-# https://github.com/chenxingqiang/jax-sklearn/issues/28151
+# https://github.com/chenxingqiang/secret-learn/issues/28151
 export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
 export PYTHONHASHSEED=0
 
@@ -19,7 +19,7 @@ export PYTHONHASHSEED=0
 if [[ $(uname) == "Darwin" ]]; then
     # Make sure to use a libomp version binary compatible with the oldest
     # supported version of the macos SDK as libomp will be vendored into the
-    # jax-sklearn wheels for macos.
+    # secret-learn wheels for macos.
 
     if [[ "$CIBW_BUILD" == *-macosx_arm64 ]]; then
         if [[ $(uname -m) == "x86_64" ]]; then

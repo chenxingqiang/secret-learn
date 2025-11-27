@@ -21,7 +21,7 @@ Chen et al., IEEE Trans. on Sign. Proc., Volume 58, Issue 10, October 2010.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

@@ -10,9 +10,9 @@ All the following functions and classes are in the module :mod:`xlearn.utils`.
 
 .. warning ::
 
-   These utilities are meant to be used internally within the jax-sklearn
+   These utilities are meant to be used internally within the secret-learn
    package.  They are not guaranteed to be stable between versions of
-   jax-sklearn.  Backports, in particular, will be removed as the jax-sklearn
+   secret-learn.  Backports, in particular, will be removed as the secret-learn
    dependencies evolve.
 
 
@@ -74,7 +74,7 @@ For example::
     >>> random_state.rand(4)
     array([0.5488135 , 0.71518937, 0.60276338, 0.54488318])
 
-When developing your own jax-sklearn compatible estimator, the following
+When developing your own secret-learn compatible estimator, the following
 helpers are available.
 
 - :func:`validation.check_is_fitted`: check that the estimator has been fitted
@@ -163,7 +163,7 @@ Graph Routines
 ==============
 
 - :func:`graph.single_source_shortest_path_length`:
-  (not currently used in jax-sklearn)
+  (not currently used in secret-learn)
   Return the shortest path from a single source
   to all connected nodes on a graph.  Code is adapted from `networkx
   <https://networkx.github.io/>`_.
@@ -175,13 +175,13 @@ Testing Functions
 =================
 
 - :func:`discovery.all_estimators` : returns a list of all estimators in
-  jax-sklearn to test for consistent behavior and interfaces.
+  secret-learn to test for consistent behavior and interfaces.
 
 - :func:`discovery.all_displays` : returns a list of all displays (related to
-  plotting API) in jax-sklearn to test for consistent behavior and interfaces.
+  plotting API) in secret-learn to test for consistent behavior and interfaces.
 
 - :func:`discovery.all_functions` : returns a list of all functions in
-  jax-sklearn to test for consistent behavior and interfaces.
+  secret-learn to test for consistent behavior and interfaces.
 
 Multiclass and multilabel utility function
 ==========================================

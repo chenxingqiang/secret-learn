@@ -15,7 +15,7 @@ engineering.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -434,5 +434,5 @@ plt.show()
 # methods and estimates both aleatoric and epistemic uncertainty at the same time.
 # Furthermore, functionalities provided
 # by `sktime <https://www.sktime.net/en/latest/users.html>`_
-# can be used to extend jax-sklearn estimators by making use of recursive time
+# can be used to extend secret-learn estimators by making use of recursive time
 # series forecasting, that enables dynamic predictions of future values.

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -683,7 +683,7 @@ class IterativeImputer(_BaseImputer):
                 # the column for consistency.
                 # TODO (1.8): remove this `if` branch once the following issue is
                 # addressed:
-                # https://github.com/chenxingqiang/jax-sklearn/issues/29827
+                # https://github.com/chenxingqiang/secret-learn/issues/29827
                 X_filled = X_filled[:, ~self._is_empty_feature]
 
         else:

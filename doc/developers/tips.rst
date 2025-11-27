@@ -115,9 +115,9 @@ Issue: Usage questions
 
 ::
 
-    You are asking a usage question. The issue tracker is for bugs and new features. For usage questions, it is recommended to try [Stack Overflow](https://stackoverflow.com/questions/tagged/jax-sklearn) or [the Mailing List](https://mail.python.org/mailman/listinfo/jax-sklearn).
+    You are asking a usage question. The issue tracker is for bugs and new features. For usage questions, it is recommended to try [Stack Overflow](https://stackoverflow.com/questions/tagged/secret-learn) or [the Mailing List](https://mail.python.org/mailman/listinfo/secret-learn).
 
-    Unfortunately, we need to close this issue as this issue tracker is a communication tool used for the development of jax-sklearn. The additional activity created by usage questions crowds it too much and impedes this development. The conversation can continue here, however there is no guarantee that it will receive attention from core developers.
+    Unfortunately, we need to close this issue as this issue tracker is a communication tool used for the development of secret-learn. The additional activity created by usage questions crowds it too much and impedes this development. The conversation can continue here, however there is no guarantee that it will receive attention from core developers.
 
 
 Issue: You're welcome to update the docs
@@ -130,7 +130,7 @@ Issue: Self-contained example for bug
 
 ::
 
-    Please provide [self-contained example code](https://jax-sklearn.org/dev/developers/minimal_reproducer.html), including imports and data (if possible), so that other contributors can just run it and reproduce your issue. Ideally your example code should be minimal.
+    Please provide [self-contained example code](https://secret-learn.org/dev/developers/minimal_reproducer.html), including imports and data (if possible), so that other contributors can just run it and reproduce your issue. Ideally your example code should be minimal.
 
 Issue: Software versions
 
@@ -192,7 +192,7 @@ PR-NEW: Better description and title
 
 ::
 
-    Thanks for the pull request! Please make the title of the PR more descriptive. The title will become the commit message when this is merged. You should state what issue (or PR) it fixes/resolves in the description using the syntax described [here](https://jax-sklearn.org/dev/developers/contributing.html#contributing-pull-requests).
+    Thanks for the pull request! Please make the title of the PR more descriptive. The title will become the commit message when this is merged. You should state what issue (or PR) it fixes/resolves in the description using the syntax described [here](https://secret-learn.org/dev/developers/contributing.html#contributing-pull-requests).
 
 PR-NEW: Fix #
 
@@ -204,7 +204,7 @@ PR-NEW or Issue: Maintenance cost
 
 ::
 
-    Every feature we include has a [maintenance cost](https://jax-sklearn.org/dev/faq.html#why-are-you-so-selective-on-what-algorithms-you-include-in-jax-sklearn). Our maintainers are mostly volunteers. For a new feature to be included, we need evidence that it is often useful and, ideally, [well-established](https://jax-sklearn.org/dev/faq.html#what-are-the-inclusion-criteria-for-new-algorithms) in the literature or in practice. Also, we expect PR authors to take part in the maintenance for the code they submit, at least initially. That doesn't stop you implementing it for yourself and publishing it in a separate repository, or even [jax-sklearn-contrib](https://jax-sklearn-contrib.github.io).
+    Every feature we include has a [maintenance cost](https://secret-learn.org/dev/faq.html#why-are-you-so-selective-on-what-algorithms-you-include-in-secret-learn). Our maintainers are mostly volunteers. For a new feature to be included, we need evidence that it is often useful and, ideally, [well-established](https://secret-learn.org/dev/faq.html#what-are-the-inclusion-criteria-for-new-algorithms) in the literature or in practice. Also, we expect PR authors to take part in the maintenance for the code they submit, at least initially. That doesn't stop you implementing it for yourself and publishing it in a separate repository, or even [secret-learn-contrib](https://secret-learn-contrib.github.io).
 
 PR-WIP: What's needed before merge?
 
@@ -222,13 +222,13 @@ PR-MRG: Patience
 
 ::
 
-    Before merging, we generally require two core developers to agree that your pull request is desirable and ready. [Please be patient](https://jax-sklearn.org/dev/faq.html#why-is-my-pull-request-not-getting-any-attention), as we mostly rely on volunteered time from busy core developers. (You are also welcome to help us out with [reviewing other PRs](https://jax-sklearn.org/dev/developers/contributing.html#code-review-guidelines).)
+    Before merging, we generally require two core developers to agree that your pull request is desirable and ready. [Please be patient](https://secret-learn.org/dev/faq.html#why-is-my-pull-request-not-getting-any-attention), as we mostly rely on volunteered time from busy core developers. (You are also welcome to help us out with [reviewing other PRs](https://secret-learn.org/dev/developers/contributing.html#code-review-guidelines).)
 
 PR-MRG: Add to what's new
 
 ::
 
-    Please add an entry to the future changelog by adding an RST fragment into the module associated with your change located in `doc/whats_new/upcoming_changes`. Refer to the following [README](https://github.com/chenxingqiang/jax-sklearn/blob/main/doc/whats_new/upcoming_changes/README.md) for full instructions.
+    Please add an entry to the future changelog by adding an RST fragment into the module associated with your change located in `doc/whats_new/upcoming_changes`. Refer to the following [README](https://github.com/chenxingqiang/secret-learn/blob/main/doc/whats_new/upcoming_changes/README.md) for full instructions.
 
 PR: Don't change unrelated
 
@@ -249,11 +249,11 @@ Using a lock-file to get an environment close to the CI
 
 `conda-lock` can be used to create a conda environment with the exact same
 conda and pip packages as on the CI. For example, the following command will
-create a conda environment named `jax-sklearn-doc` that is similar to the CI:
+create a conda environment named `secret-learn-doc` that is similar to the CI:
 
 .. prompt:: bash $
 
-    conda-lock install -n jax-sklearn-doc build_tools/circle/doc_linux-64_conda.lock
+    conda-lock install -n secret-learn-doc build_tools/circle/doc_linux-64_conda.lock
 
 .. note::
 
@@ -270,7 +270,7 @@ doc build:
 
 .. prompt:: bash $
 
-    conda env create -n jax-sklearn-doc -f build_tools/circle/doc_environment.yml -y
+    conda env create -n secret-learn-doc -f build_tools/circle/doc_environment.yml -y
 
 This may not give you exactly the same package versions as in the CI for a
 variety of reasons, for example:
@@ -294,7 +294,7 @@ Debugging memory errors in Cython with valgrind
 
 While python/numpy's built-in memory management is relatively robust, it can
 lead to performance penalties for some routines. For this reason, much of
-the high-performance code in jax-sklearn is written in cython. This
+the high-performance code in secret-learn is written in cython. This
 performance gain comes with a tradeoff, however: it is very easy for memory
 bugs to crop up in cython code, especially in situations where that code
 relies heavily on pointer arithmetic.
@@ -363,7 +363,7 @@ source code:
     mkdir arm64
     pushd arm64
     wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh
-    git clone https://github.com/chenxingqiang/jax-sklearn.git
+    git clone https://github.com/chenxingqiang/secret-learn.git
 
 Use docker to install QEMU user mode and run an ARM64v8 container with access
 to your shared folder under the `/io` mount point:
@@ -392,10 +392,10 @@ previously installed under `/io/miniforge3`:
 as the `/root` home folder is part of the ephemeral docker container. Every
 file or directory stored under `/io` is persistent on the other hand.
 
-You can then build jax-sklearn as usual (you will need to install compiler
-tools and dependencies using apt or conda as usual). Building jax-sklearn
+You can then build secret-learn as usual (you will need to install compiler
+tools and dependencies using apt or conda as usual). Building secret-learn
 takes a lot of time because of the emulation layer, however it needs to be
-done only once if you put the jax-sklearn folder under the `/io` mount
+done only once if you put the secret-learn folder under the `/io` mount
 point.
 
 Then use pytest to run only the tests of the module you are interested in
@@ -406,8 +406,8 @@ debugging.
 The Meson Build Backend
 =======================
 
-Since jax-sklearn 1.5.0 we use meson-python as the build tool. Meson is
-a new tool for jax-sklearn and the PyData ecosystem. It is used by several
+Since secret-learn 1.5.0 we use meson-python as the build tool. Meson is
+a new tool for secret-learn and the PyData ecosystem. It is used by several
 other packages that have written good guides about what it is and how it works.
 
 - `pandas setup doc

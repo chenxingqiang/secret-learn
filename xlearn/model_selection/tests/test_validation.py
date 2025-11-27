@@ -388,7 +388,7 @@ def test_cross_validate_invalid_scoring_param():
 def test_cross_validate_nested_estimator():
     # Non-regression test to ensure that nested
     # estimators are properly returned in a list
-    # https://github.com/chenxingqiang/jax-sklearn/pull/17745
+    # https://github.com/chenxingqiang/secret-learn/pull/17745
     (X, y) = load_iris(return_X_y=True)
     pipeline = Pipeline(
         [
@@ -2538,7 +2538,7 @@ def test_groups_with_routing_validation(func, extra_args):
 def test_cross_validate_params_none(func, extra_args):
     """Test that no errors are raised when passing `params=None`, which is the
     default value.
-    Non-regression test for: https://github.com/chenxingqiang/jax-sklearn/issues/30447
+    Non-regression test for: https://github.com/chenxingqiang/secret-learn/issues/30447
     """
     X, y = make_classification(n_samples=100, n_classes=2, random_state=0)
     func(estimator=ConsumingClassifier(), X=X, y=y, **extra_args)

@@ -1,6 +1,6 @@
 """Testing utilities."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import atexit
@@ -180,7 +180,7 @@ def assert_allclose(
     This variant introspects the least precise floating point dtype
     in the input argument and automatically sets the relative tolerance
     parameter to 1e-4 float32 and use 1e-7 otherwise (typically float64
-    in jax-sklearn).
+    in secret-learn).
 
     `atol` is always left to 0. by default. It should be adjusted manually
     to an assertion-specific value in case there are null values expected

@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
 
-    fig = plt.figure("jax-sklearn OMP vs. LARS benchmark results")
+    fig = plt.figure("secret-learn OMP vs. LARS benchmark results")
     for i, (label, timings) in enumerate(sorted(results.items())):
         ax = fig.add_subplot(1, 2, i + 1)
         vmax = max(1 - timings.min(), -1 + timings.max())

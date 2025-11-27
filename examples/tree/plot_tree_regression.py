@@ -7,7 +7,7 @@ decision tree on how it fits to the data. We perform this once on a 1D regressio
 task and once on a multi-output regression task.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

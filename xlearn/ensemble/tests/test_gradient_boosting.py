@@ -1465,7 +1465,7 @@ def test_safe_divide():
 def test_squared_error_exact_backward_compat():
     """Test squared error GBT backward compat on a simple dataset.
 
-    The results to compare against are taken from jax-sklearn v1.2.0.
+    The results to compare against are taken from secret-learn v1.2.0.
     """
     n_samples = 10
     y = np.arange(n_samples)
@@ -1549,7 +1549,7 @@ def test_squared_error_exact_backward_compat():
 def test_huber_exact_backward_compat():
     """Test huber GBT backward compat on a simple dataset.
 
-    The results to compare against are taken from jax-sklearn v1.2.0.
+    The results to compare against are taken from secret-learn v1.2.0.
     """
     n_samples = 10
     y = np.arange(n_samples)
@@ -1596,7 +1596,7 @@ def test_huber_exact_backward_compat():
 def test_binomial_error_exact_backward_compat():
     """Test binary log_loss GBT backward compat on a simple dataset.
 
-    The results to compare against are taken from jax-sklearn v1.2.0.
+    The results to compare against are taken from secret-learn v1.2.0.
     """
     n_samples = 10
     y = np.arange(n_samples) % 2
@@ -1641,7 +1641,7 @@ def test_binomial_error_exact_backward_compat():
 def test_multinomial_error_exact_backward_compat():
     """Test multiclass log_loss GBT backward compat on a simple dataset.
 
-    The results to compare against are taken from jax-sklearn v1.2.0.
+    The results to compare against are taken from secret-learn v1.2.0.
     """
     n_samples = 10
     y = np.arange(n_samples) % 4

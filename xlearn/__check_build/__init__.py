@@ -1,14 +1,14 @@
 """Module to give helpful messages to the user that did not
-compile jax-sklearn properly.
+compile secret-learn properly.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import os
 
 INPLACE_MSG = """
-It appears that you are importing a local jax-sklearn source tree. For
+It appears that you are importing a local secret-learn source tree. For
 this, you need to have an inplace install. Maybe you are in the source
 directory and you need to try from another location."""
 
@@ -38,11 +38,11 @@ ___________________________________________________________________________
 Contents of %s:
 %s
 ___________________________________________________________________________
-It seems that jax-sklearn has not been built correctly.
+It seems that secret-learn has not been built correctly.
 
-If you have installed jax-sklearn from source, please do not forget
+If you have installed secret-learn from source, please do not forget
 to build the package before using it. For detailed instructions, see:
-https://jax-sklearn.org/dev/developers/advanced_installation.html#building-from-source
+https://secret-learn.org/dev/developers/advanced_installation.html#building-from-source
 %s"""
         % (e, local_dir, "".join(dir_content).strip(), msg)
     )

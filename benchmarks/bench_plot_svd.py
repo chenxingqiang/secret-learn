@@ -37,16 +37,16 @@ def compute_bench(samples_range, features_range, n_iter=3, rank=50):
             results["scipy svd"].append(time() - tstart)
 
             gc.collect()
-            print("benchmarking jax-sklearn randomized_svd: n_iter=0")
+            print("benchmarking secret-learn randomized_svd: n_iter=0")
             tstart = time()
             randomized_svd(X, rank, n_iter=0)
-            results["jax-sklearn randomized_svd (n_iter=0)"].append(time() - tstart)
+            results["secret-learn randomized_svd (n_iter=0)"].append(time() - tstart)
 
             gc.collect()
-            print("benchmarking jax-sklearn randomized_svd: n_iter=%d " % n_iter)
+            print("benchmarking secret-learn randomized_svd: n_iter=%d " % n_iter)
             tstart = time()
             randomized_svd(X, rank, n_iter=n_iter)
-            results["jax-sklearn randomized_svd (n_iter=%d)" % n_iter].append(
+            results["secret-learn randomized_svd (n_iter=%d)" % n_iter].append(
                 time() - tstart
             )
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     features_range = np.linspace(2, 1000, 4).astype(int)
     results = compute_bench(samples_range, features_range)
 
-    label = "jax-sklearn singular value decomposition benchmark results"
+    label = "secret-learn singular value decomposition benchmark results"
     fig = plt.figure(label)
     ax = fig.gca(projection="3d")
     for c, (label, timings) in zip("rbg", sorted(results.items())):

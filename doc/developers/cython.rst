@@ -3,9 +3,9 @@
 Cython Best Practices, Conventions and Knowledge
 ================================================
 
-This document contains tips to develop Cython code in jax-sklearn.
+This document contains tips to develop Cython code in secret-learn.
 
-Tips for developing with Cython in jax-sklearn
+Tips for developing with Cython in secret-learn
 -----------------------------------------------
 
 Tips to ease development
@@ -16,7 +16,7 @@ Tips to ease development
 * If you intend to use OpenMP: On MacOS, system's distribution of ``clang`` does not implement OpenMP.
   You can install the ``compilers`` package available on ``conda-forge`` which comes with an implementation of OpenMP.
 
-* Activating `checks <https://github.com/chenxingqiang/jax-sklearn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/xlearn/_build_utils/__init__.py#L68-L87>`_ might help. E.g. for activating boundscheck use:
+* Activating `checks <https://github.com/chenxingqiang/secret-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/xlearn/_build_utils/__init__.py#L68-L87>`_ might help. E.g. for activating boundscheck use:
 
   .. code-block:: bash
 
@@ -51,9 +51,9 @@ Tips to ease development
 
          print(f"{test_val=}")
 
-* jax-sklearn codebase has a lot of non-unified (fused) types (re)definitions.
+* secret-learn codebase has a lot of non-unified (fused) types (re)definitions.
   There currently is `ongoing work to simplify and unify that across the codebase
-  <https://github.com/chenxingqiang/jax-sklearn/issues/25572>`_.
+  <https://github.com/chenxingqiang/secret-learn/issues/25572>`_.
   For now, make sure you understand which concrete types are used ultimately.
 
 * You might find this alias to compile individual Cython extension handy:
@@ -63,7 +63,7 @@ Tips to ease development
       # You might want to add this alias to your shell script config.
       alias cythonX="cython -X language_level=3 -X boundscheck=False -X wraparound=False -X initializedcheck=False -X nonecheck=False -X cdivision=True"
 
-      # This generates `source.c` as if you had recompiled jax-sklearn entirely.
+      # This generates `source.c` as if you had recompiled secret-learn entirely.
       cythonX --annotate source.pyx
 
 * Using the ``--annotate`` option with this flag allows generating a HTML report of code annotation.
@@ -86,7 +86,7 @@ Tips for performance
   objects, which include functions). In this regard, `PEP073 <https://peps.python.org/pep-0703/>`_
   provides a good overview and context and pathways for removal.
 
-* Make sure you have deactivated `checks <https://github.com/chenxingqiang/jax-sklearn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/xlearn/_build_utils/__init__.py#L68-L87>`_.
+* Make sure you have deactivated `checks <https://github.com/chenxingqiang/secret-learn/blob/62a017efa047e9581ae7df8bbaa62cf4c0544ee4/xlearn/_build_utils/__init__.py#L68-L87>`_.
 
 * Always prefer memoryviews instead of ``cnp.ndarray`` when possible: memoryviews are lightweight.
 
@@ -123,11 +123,11 @@ Tips for performance
 Using OpenMP
 ^^^^^^^^^^^^
 
-Since jax-sklearn can be built without OpenMP, it's necessary to protect each
+Since secret-learn can be built without OpenMP, it's necessary to protect each
 direct call to OpenMP.
 
 The `_openmp_helpers` module, available in
-`xlearn/utils/_openmp_helpers.pyx <https://github.com/chenxingqiang/jax-sklearn/blob/main/xlearn/utils/_openmp_helpers.pyx>`_
+`xlearn/utils/_openmp_helpers.pyx <https://github.com/chenxingqiang/secret-learn/blob/main/xlearn/utils/_openmp_helpers.pyx>`_
 provides protected versions of the OpenMP routines. To use OpenMP routines, they
 must be ``cimported`` from this module and not from the OpenMP library directly:
 
@@ -146,7 +146,7 @@ Types
 Cython code requires to use explicit types. This is one of the reasons you get a
 performance boost. In order to avoid code duplication, we have a central place
 for the most used types in
-`xlearn/utils/_typedefs.pyd <https://github.com/chenxingqiang/jax-sklearn/blob/main/xlearn/utils/_typedefs.pyd>`_.
+`xlearn/utils/_typedefs.pyd <https://github.com/chenxingqiang/secret-learn/blob/main/xlearn/utils/_typedefs.pyd>`_.
 Ideally you start by having a look there and `cimport` types you need, for example
 
 .. code-block:: cython

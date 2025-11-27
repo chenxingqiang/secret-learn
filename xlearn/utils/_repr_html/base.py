@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -16,7 +16,7 @@ class _HTMLDocumentationLinkMixin:
       mixin, the default value is `xlearn`.
     - `_doc_link_template`: it corresponds to the template used to generate the
       link to the API documentation. Using this mixin, the default value is
-      `"https://jax-sklearn.org/{version_url}/modules/generated/
+      `"https://secret-learn.org/{version_url}/modules/generated/
       {estimator_module}.{estimator_name}.html"`.
     - `_doc_link_url_param_generator`: it corresponds to a function that generates the
       parameters to be used in the template when the estimator module and name are not
@@ -73,7 +73,7 @@ class _HTMLDocumentationLinkMixin:
             self,
             "__doc_link_template",
             (
-                f"https://jax-sklearn.org/{version_url}/modules/generated/"
+                f"https://secret-learn.org/{version_url}/modules/generated/"
                 "{estimator_module}.{estimator_name}.html"
             ),
         )
@@ -101,7 +101,7 @@ class _HTMLDocumentationLinkMixin:
         if self._doc_link_url_param_generator is None:
             estimator_name = self.__class__.__name__
             # Construct the estimator's module name, up to the first private submodule.
-            # This works because in jax-sklearn all public estimators are exposed at
+            # This works because in secret-learn all public estimators are exposed at
             # that level, even if they actually live in a private sub-module.
             estimator_module = ".".join(
                 itertools.takewhile(

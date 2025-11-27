@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from random import Random
@@ -173,7 +173,7 @@ def test_n_features_in():
 def test_dictvectorizer_dense_sparse_equivalence():
     """Check the equivalence between between sparse and dense DictVectorizer.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19978
+    https://github.com/chenxingqiang/secret-learn/issues/19978
     """
     movie_entry_fit = [
         {"category": ["thriller", "drama"], "year": 2003},
@@ -215,7 +215,7 @@ def test_dict_vectorizer_unsupported_value_type():
     is not supported.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/19489
+    https://github.com/chenxingqiang/secret-learn/issues/19489
     """
 
     class A:

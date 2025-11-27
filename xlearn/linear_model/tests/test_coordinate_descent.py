@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -793,8 +793,8 @@ def test_elasticnet_precompute_gram_weighted_samples():
 
 def test_elasticnet_precompute_gram():
     # Check the dtype-aware check for a precomputed Gram matrix
-    # (see https://github.com/chenxingqiang/jax-sklearn/pull/22059
-    # and https://github.com/chenxingqiang/jax-sklearn/issues/21997).
+    # (see https://github.com/chenxingqiang/secret-learn/pull/22059
+    # and https://github.com/chenxingqiang/secret-learn/issues/21997).
     # Here: (X_c.T, X_c)[2, 3] is not equal to np.dot(X_c[:, 2], X_c[:, 3])
     # but within tolerance for np.float32
 
@@ -1495,7 +1495,7 @@ def test_linear_models_cv_fit_with_loky(estimator):
     # behavior of fancy indexing of read-only memmaps (cf. numpy#14132).
 
     # Create a problem sufficiently large to cause memmapping (1MB).
-    # Unfortunately the jax-sklearn and joblib APIs do not make it possible to
+    # Unfortunately the secret-learn and joblib APIs do not make it possible to
     # change the max_nbyte of the inner Parallel call.
     X, y = make_regression(int(1e6) // 8 + 1, 1)
     assert X.nbytes > 1e6  # 1 MB

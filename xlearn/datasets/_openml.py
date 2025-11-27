@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import gzip
@@ -824,14 +824,14 @@ def fetch_openml(
 
     data_home : str or path-like, default=None
         Specify another download and cache folder for the data sets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     target_column : str, list or None, default='default-target'
         Specify the column name in the data to use as target. If
         'default-target', the standard target column a stored on the server
         is used. If ``None``, all columns are returned as data and the
         target is ``None``. If list (of strings), all columns with these names
-        are returned as multi-target (Note: not all jax-sklearn classifiers
+        are returned as multi-target (Note: not all secret-learn classifiers
         can handle all types of multi-output combinations).
 
     cache : bool, default=True

@@ -21,7 +21,7 @@ score, the fitting time and the sparsity of the estimated coefficients when
 compared with the ground-truth.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

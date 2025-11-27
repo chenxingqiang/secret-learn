@@ -31,7 +31,7 @@ def test_compute_class_weight():
             np.arange(4),
             "classes should have valid labels that are in y",
         ),
-        # Non-regression for https://github.com/chenxingqiang/jax-sklearn/issues/8312
+        # Non-regression for https://github.com/chenxingqiang/secret-learn/issues/8312
         (
             "numeric",
             {"label_not_present": 1.0},

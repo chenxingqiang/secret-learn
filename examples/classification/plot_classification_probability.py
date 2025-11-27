@@ -18,7 +18,7 @@ markers show the test data and are colored by their true label.
 """
 
 # %%
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib as mpl

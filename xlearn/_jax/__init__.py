@@ -1,6 +1,6 @@
-"""JAX acceleration module for jax-sklearn.
+"""JAX acceleration module for secret-learn.
 
-This module provides JAX-accelerated implementations of jax-sklearn algorithms
+This module provides JAX-accelerated implementations of secret-learn algorithms
 while maintaining full API compatibility.
 
 Usage:

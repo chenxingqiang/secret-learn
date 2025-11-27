@@ -8,7 +8,7 @@ https://archive.ics.uci.edu/ml/machine-learning-databases/kddcup99-mld/kddcup.da
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import errno
@@ -102,7 +102,7 @@ def fetch_kddcup99(
 
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
         .. versionadded:: 0.19
 
@@ -272,7 +272,7 @@ def _fetch_brute_kddcup99(
     ----------
     data_home : str, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     download_if_missing : bool, default=True
         If False, raise an OSError if the data is not locally available

@@ -1,5 +1,5 @@
 """
-Visualizing cross-validation behavior in jax-sklearn
+Visualizing cross-validation behavior in secret-learn
 =====================================================
 
 Choosing the right cross-validation object is a crucial part of fitting a
@@ -7,12 +7,12 @@ model properly. There are many ways to split data into training and test
 sets in order to avoid model overfitting, to standardize the number of
 groups in test sets, etc.
 
-This example visualizes the behavior of several common jax-sklearn objects
+This example visualizes the behavior of several common secret-learn objects
 for comparison.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt
@@ -185,7 +185,7 @@ for cv in cvs:
 # ------------------------------------------------------
 #
 # Let's visually compare the cross validation behavior for many
-# jax-sklearn cross-validation objects. Below we will loop through several
+# secret-learn cross-validation objects. Below we will loop through several
 # common cross-validation objects, visualizing the behavior of each.
 #
 # Note how some use the group/class information while others do not.

@@ -2,7 +2,7 @@
 Base IO code for all datasets
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import csv
@@ -46,7 +46,7 @@ RemoteFileMetadata = namedtuple("RemoteFileMetadata", ["filename", "url", "check
     prefer_skip_nested_validation=True,
 )
 def get_data_home(data_home=None) -> str:
-    """Return the path of the jax-sklearn data directory.
+    """Return the path of the secret-learn data directory.
 
     This folder is used by some large dataset loaders to avoid downloading the
     data several times.
@@ -63,13 +63,13 @@ def get_data_home(data_home=None) -> str:
     Parameters
     ----------
     data_home : str or path-like, default=None
-        The path to jax-sklearn data directory. If `None`, the default path
+        The path to secret-learn data directory. If `None`, the default path
         is `~/scikit_learn_data`.
 
     Returns
     -------
     data_home: str
-        The path to jax-sklearn data directory.
+        The path to secret-learn data directory.
 
     Examples
     --------
@@ -98,7 +98,7 @@ def clear_data_home(data_home=None):
     Parameters
     ----------
     data_home : str or path-like, default=None
-        The path to jax-sklearn data directory. If `None`, the default path
+        The path to secret-learn data directory. If `None`, the default path
         is `~/scikit_learn_data`.
 
     Examples
@@ -179,7 +179,7 @@ def load_files(
     sparse matrix. In addition, if load_content is false it does not try to
     load the files in memory.
 
-    To use text files in a jax-sklearn classification or clustering algorithm,
+    To use text files in a secret-learn classification or clustering algorithm,
     you will need to use the :mod:`~xlearn.feature_extraction.text` module to
     build a feature extraction transformer that suits your problem.
 
@@ -1404,7 +1404,7 @@ def _pkl_filepath(*args, **kwargs):
     """Return filename for Python 3 pickles
 
     args[-1] is expected to be the ".pkl" filename. For compatibility with
-    older jax-sklearn versions, a suffix is inserted before the extension.
+    older secret-learn versions, a suffix is inserted before the extension.
 
     _pkl_filepath('/path/to/folder', 'filename.pkl') returns
     '/path/to/folder/filename_py3.pkl'
@@ -1599,7 +1599,7 @@ def fetch_file(
     folder : str or Path, default=None
         Directory to save the file to. If None, the file is downloaded in a
         folder with a name derived from the URL host name and path under
-        jax-sklearn data home folder.
+        secret-learn data home folder.
 
     local_filename : str, default=None
         Name of the file to save. If None, the filename is inferred from the

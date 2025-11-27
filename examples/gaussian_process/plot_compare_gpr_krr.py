@@ -25,7 +25,7 @@ We will illustrate these differences with an example and we will also focus on
 tuning the kernel hyperparameters.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

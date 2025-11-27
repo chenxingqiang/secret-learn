@@ -15,7 +15,7 @@ and the fitted line is determined only by the identified inliers.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np

@@ -14,7 +14,7 @@ compatibility reasons, one extra neighbor is computed when `mode == 'distance'`.
 Please note that we do the same in the proposed `nmslib` wrapper.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -35,7 +35,7 @@ except ImportError:
     sys.exit()
 
 # %%
-# We define a wrapper class for implementing the jax-sklearn API to the
+# We define a wrapper class for implementing the secret-learn API to the
 # `nmslib`, as well as a loading function.
 import joblib
 import numpy as np
@@ -301,7 +301,7 @@ plt.show()
 #
 # Notice however that not all approximate search methods are guaranteed to
 # improve the speed of the default exact search method: indeed the exact search
-# implementation significantly improved since jax-sklearn 1.1. Furthermore, the
+# implementation significantly improved since secret-learn 1.1. Furthermore, the
 # brute-force exact search method does not require building an index at `fit`
 # time. So, to get an overall performance improvement in the context of the
 # :class:`~xlearn.manifold.TSNE` pipeline, the gains of the approximate search

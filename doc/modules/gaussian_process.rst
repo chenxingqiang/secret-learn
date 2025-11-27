@@ -77,7 +77,7 @@ the parameter `alpha`.
    :align: center
 
 The implementation is based on Algorithm 2.1 of [RW2006]_. In addition to
-the API of standard jax-sklearn estimators, :class:`GaussianProcessRegressor`:
+the API of standard secret-learn estimators, :class:`GaussianProcessRegressor`:
 
 * allows prediction without prior fitting (based on the GP prior)
 

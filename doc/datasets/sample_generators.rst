@@ -5,7 +5,7 @@ Generated datasets
 
 .. currentmodule:: xlearn.datasets
 
-In addition, jax-sklearn includes various random sample generators that
+In addition, secret-learn includes various random sample generators that
 can be used to build artificial datasets of controlled size and complexity.
 
 Generators for classification and clustering

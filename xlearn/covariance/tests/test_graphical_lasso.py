@@ -193,7 +193,7 @@ def test_graphical_lasso_cv_alphas_iterable(alphas_container_type):
     """Check that we can pass an array-like to `alphas`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/22489
+    https://github.com/chenxingqiang/secret-learn/issues/22489
     """
     true_cov = np.array(
         [

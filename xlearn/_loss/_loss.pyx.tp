@@ -213,7 +213,7 @@ class_list = [
 }}
 
 # Design:
-# See https://github.com/chenxingqiang/jax-sklearn/issues/15123 for reasons.
+# See https://github.com/chenxingqiang/secret-learn/issues/15123 for reasons.
 # a) Merge link functions into loss functions for speed and numerical
 #    stability, i.e. use raw_prediction instead of y_pred in signature.
 # b) Pure C functions (nogil) calculate single points (single sample)
@@ -281,7 +281,7 @@ cdef inline double_pair sum_exp_minus_max(
     # - We return the max value and sum of exps (stored in p) as a double_pair.
     # - i needs to be passed (and stays constant) because otherwise Cython does
     #   not generate optimal code, see
-    #   https://github.com/chenxingqiang/jax-sklearn/issues/17299
+    #   https://github.com/chenxingqiang/secret-learn/issues/17299
     # - We do not normalize p by calculating p[k] = p[k] / sum_exps.
     #   This helps to save one loop over k.
     cdef:

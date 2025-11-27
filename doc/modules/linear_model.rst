@@ -282,7 +282,7 @@ computes the coefficients along the full path of possible values.
 .. dropdown:: References
 
   The following two references explain the iterations
-  used in the coordinate descent solver of jax-sklearn, as well as
+  used in the coordinate descent solver of secret-learn, as well as
   the duality gap computation used for convergence control.
 
   * "Regularization Path For Generalized linear Models by Coordinate Descent",
@@ -302,7 +302,7 @@ coefficients.
 Using cross-validation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-jax-sklearn exposes objects that set the Lasso ``alpha`` parameter by
+secret-learn exposes objects that set the Lasso ``alpha`` parameter by
 cross-validation: :class:`LassoCV` and :class:`LassoLarsCV`.
 :class:`LassoLarsCV` is based on the :ref:`least_angle_regression` algorithm
 explained below.
@@ -360,7 +360,7 @@ AIC and BIC criteria
 
 The definition of AIC (and thus BIC) might differ in the literature. In this
 section, we give more information regarding the criterion computed in
-jax-sklearn.
+secret-learn.
 
 .. dropdown:: Mathematical details
 
@@ -527,7 +527,7 @@ The class :class:`ElasticNetCV` can be used to set the parameters
 .. dropdown:: References
 
   The following two references explain the iterations
-  used in the coordinate descent solver of jax-sklearn, as well as
+  used in the coordinate descent solver of secret-learn, as well as
   the duality gap computation used for convergence control.
 
   * "Regularization Path For Generalized linear Models by Coordinate Descent",
@@ -764,7 +764,7 @@ called *Bayesian Ridge Regression*, and is similar to the classical
 The parameters :math:`w`, :math:`\alpha` and :math:`\lambda` are estimated
 jointly during the fit of the model, the regularization parameters
 :math:`\alpha` and :math:`\lambda` being estimated by maximizing the
-*log marginal likelihood*. The jax-sklearn implementation
+*log marginal likelihood*. The secret-learn implementation
 is based on the algorithm described in Appendix A of (Tipping, 2001)
 where the update of the parameters :math:`\alpha` and :math:`\lambda` is done
 as suggested in (MacKay, 1992). The initial value of the maximization procedure
@@ -860,7 +860,7 @@ Logistic regression
 
 The logistic regression is implemented in :class:`LogisticRegression`. Despite
 its name, it is implemented as a linear model for classification rather than
-regression in terms of the jax-sklearn/ML nomenclature. The logistic
+regression in terms of the secret-learn/ML nomenclature. The logistic
 regression is also known in the literature as logit regression,
 maximum-entropy classification (MaxEnt) or the log-linear classifier. In this
 model, the probabilities describing the possible outcomes of a single trial
@@ -885,7 +885,7 @@ regularization.
     distribution and a Logit link. The numerical output of the logistic
     regression, which is the predicted probability, can be used as a classifier
     by applying a threshold (by default 0.5) to it. This is how it is
-    implemented in jax-sklearn, so it expects a categorical target, making
+    implemented in secret-learn, so it expects a categorical target, making
     the Logistic Regression a classifier.
 
 .. rubric:: Examples
@@ -1070,7 +1070,7 @@ zero, is likely to be an underfit, bad model and you are advised to set
   * The solver "liblinear" uses a coordinate descent (CD) algorithm, and relies
     on the excellent C++ `LIBLINEAR library
     <https://www.csie.ntu.edu.tw/~cjlin/liblinear/>`_, which is shipped with
-    jax-sklearn. However, the CD algorithm implemented in liblinear cannot learn
+    secret-learn. However, the CD algorithm implemented in liblinear cannot learn
     a true multinomial (multiclass) model; instead, the optimization problem is
     decomposed in a "one-vs-rest" fashion so separate binary classifiers are
     trained for all classes. This happens under the hood, so
@@ -1562,7 +1562,7 @@ better than an ordinary least squares in high dimension.
     :align: center
     :scale: 50%
 
-  The implementation of :class:`TheilSenRegressor` in jax-sklearn follows a
+  The implementation of :class:`TheilSenRegressor` in secret-learn follows a
   generalization to a multivariate linear regression model [#f1]_ using the
   spatial median which is a generalization of the median to multiple
   dimensions [#f2]_.

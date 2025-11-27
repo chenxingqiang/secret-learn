@@ -29,7 +29,7 @@ X, _ = make_blobs(
 
 # TODO: AffinityPropagation must preserve dtype for its fitted attributes
 # and test must be created accordingly to this new behavior.
-# For more details, see: https://github.com/chenxingqiang/jax-sklearn/issues/11000
+# For more details, see: https://github.com/chenxingqiang/secret-learn/issues/11000
 
 
 def test_affinity_propagation(global_random_seed, global_dtype):
@@ -314,7 +314,7 @@ def test_affinity_propagation_equal_points():
     """Make sure we do not assign multiple clusters to equal points.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/20043
+    https://github.com/chenxingqiang/secret-learn/pull/20043
     """
     X = np.zeros((8, 1))
     af = AffinityPropagation(affinity="euclidean", damping=0.5, random_state=42).fit(X)

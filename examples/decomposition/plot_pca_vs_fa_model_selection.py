@@ -25,7 +25,7 @@ by Thomas P. Minka is also compared.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

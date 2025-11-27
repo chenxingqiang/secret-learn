@@ -11,7 +11,7 @@ implementation_specific_values = [
     ('32', 'float32_t', 'np.float32')
 ]
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 }}

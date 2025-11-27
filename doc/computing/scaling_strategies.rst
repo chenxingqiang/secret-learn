@@ -5,7 +5,7 @@ Strategies to scale computationally: bigger data
 
 For some applications the amount of examples, features (or both) and/or the
 speed at which they need to be processed are challenging for traditional
-approaches. In these cases jax-sklearn has a number of options you can
+approaches. In these cases secret-learn has a number of options you can
 consider to make your system scale.
 
 Scaling with instances using out-of-core learning
@@ -32,7 +32,7 @@ Extracting features
 
 \2. could be any relevant way to extract features among the
 different :ref:`feature extraction <feature_extraction>` methods supported by
-jax-sklearn. However, when working with data that needs vectorization and
+secret-learn. However, when working with data that needs vectorization and
 where the set of features or values is not known in advance one should take
 explicit care. A good example is text classification where unknown terms are
 likely to be found during training. It is possible to use a stateful
@@ -47,7 +47,7 @@ variables represented as list of Python dicts or
 Incremental learning
 .....................
 
-Finally, for 3. we have a number of options inside jax-sklearn. Although not
+Finally, for 3. we have a number of options inside secret-learn. Although not
 all algorithms can learn incrementally (i.e. without seeing all the instances
 at once), all estimators implementing the ``partial_fit`` API are candidates.
 Actually, the ability to learn incrementally from a mini-batch of instances

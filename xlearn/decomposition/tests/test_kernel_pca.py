@@ -504,7 +504,7 @@ def test_32_64_decomposition_shape():
     """Test that the decomposition is similar for 32 and 64 bits data
 
     Non regression test for
-    https://github.com/chenxingqiang/jax-sklearn/issues/18146
+    https://github.com/chenxingqiang/secret-learn/issues/18146
     """
     X, y = make_blobs(
         n_samples=30, centers=[[0, 0, 0], [1, 1, 1]], random_state=0, cluster_std=0.1
@@ -558,7 +558,7 @@ def test_kernel_pca_pandas_output():
     """Check that KernelPCA works with pandas output when the solver is arpack.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27579
+    https://github.com/chenxingqiang/secret-learn/issues/27579
     """
     pytest.importorskip("pandas")
     X, _ = load_iris(as_frame=True, return_X_y=True)

@@ -13,7 +13,7 @@ We use the Diabetes dataset, which consists of 10 features collected from 442
 diabetes patients.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -21,7 +21,7 @@ diabetes patients.
 # ----------------
 #
 # We first load the diabetes dataset which is available from within
-# jax-sklearn, and print its description:
+# secret-learn, and print its description:
 from xlearn.datasets import load_diabetes
 
 diabetes = load_diabetes()

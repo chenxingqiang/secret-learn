@@ -61,7 +61,7 @@ jobs:
       - name: Install miniforge
         if: ${{ steps.cache-conda.outputs.cache-hit != 'true' }}
         run: bash build_tools/github/create_gpu_environment.sh
-      - name: Install jax-sklearn
+      - name: Install secret-learn
         run: |
           source "${HOME}/conda/etc/profile.d/conda.sh"
           conda activate xlearn

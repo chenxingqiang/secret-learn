@@ -1,9 +1,9 @@
-"""Utilities to route metadata within jax-sklearn estimators."""
+"""Utilities to route metadata within secret-learn estimators."""
 
 # This module is not a separate sub-folder since that would result in a circular
 # import issue.
 #
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ._metadata_requests import (  # noqa: F401

@@ -2,7 +2,7 @@
 
 To run this benchmark, you will need,
 
- * jax-sklearn
+ * secret-learn
  * pandas
  * memory_profiler
  * psutil (optional, but recommended)

@@ -13,7 +13,7 @@ models by looking at their computational cost and not only at their statistical
 accuracy.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

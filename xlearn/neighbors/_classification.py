@@ -1,6 +1,6 @@
 """Nearest Neighbor Classification"""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -359,7 +359,7 @@ class KNeighborsClassifier(KNeighborsMixin, ClassifierMixin, NeighborsBase):
                     # on many combination of datasets.
                     # Hence, we choose to enforce it here.
                     # For more information, see:
-                    # https://github.com/chenxingqiang/jax-sklearn/pull/24076#issuecomment-1445258342
+                    # https://github.com/chenxingqiang/secret-learn/pull/24076#issuecomment-1445258342
                     # TODO: adapt the heuristic for `strategy="auto"` for
                     # `ArgKminClassMode` and use `strategy="auto"`.
                     strategy="parallel_on_X",
@@ -807,7 +807,7 @@ class RadiusNeighborsClassifier(RadiusNeighborsMixin, ClassifierMixin, Neighbors
                 # on many combination of datasets.
                 # Hence, we choose to enforce it here.
                 # For more information, see:
-                # https://github.com/chenxingqiang/jax-sklearn/pull/26828/files#r1282398471
+                # https://github.com/chenxingqiang/secret-learn/pull/26828/files#r1282398471
             )
             return probabilities
 

@@ -11,7 +11,7 @@ Each class is duplicated for all dtypes (float and double). The keywords
 between double braces are substituted during the build.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # name_suffix, c_type, np_type
@@ -542,7 +542,7 @@ cdef int lagged_update{{name_suffix}}(
                     # In this case, we can perform all the gradient steps and
                     # all the proximal steps in this order, which is more
                     # efficient than unrolling all the lagged updates.
-                    # Idea taken from jax-sklearn-contrib/lightning.
+                    # Idea taken from secret-learn-contrib/lightning.
                     weights[idx] -= cum_sum * sum_gradient[idx]
                     weights[idx] = _soft_thresholding{{name_suffix}}(weights[idx],
                                                       cum_sum_prox)

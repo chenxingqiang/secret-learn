@@ -34,7 +34,7 @@ Features            real, between 0 and 255
 
 .. dropdown:: Usage
 
-  ``jax-sklearn`` provides two loaders that will automatically download,
+  ``secret-learn`` provides two loaders that will automatically download,
   cache, parse the metadata files, decode the jpeg and convert the
   interesting slices into memmapped numpy arrays. This dataset size is more
   than 200 MB. The first load typically takes more than a couple of minutes

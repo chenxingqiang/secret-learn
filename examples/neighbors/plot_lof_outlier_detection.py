@@ -8,7 +8,7 @@ method which computes the local density deviation of a given data point with
 respect to its neighbors. It considers as outliers the samples that have a
 substantially lower density than their neighbors. This example shows how to use
 LOF for outlier detection which is the default use case of this estimator in
-jax-sklearn. Note that when LOF is used for outlier detection it has no
+secret-learn. Note that when LOF is used for outlier detection it has no
 `predict`, `decision_function` and `score_samples` methods. See the :ref:`User
 Guide <outlier_detection>` for details on the difference between outlier
 detection and novelty detection and how to use LOF for novelty detection.
@@ -22,7 +22,7 @@ outliers. In practice, such information is generally not available, and taking
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

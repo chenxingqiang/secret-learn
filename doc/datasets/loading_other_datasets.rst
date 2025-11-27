@@ -47,7 +47,7 @@ and pipelines on 2D data.
 Datasets in svmlight / libsvm format
 ------------------------------------
 
-jax-sklearn includes utility functions for loading
+secret-learn includes utility functions for loading
 datasets in the svmlight / libsvm format. In this format, each line
 takes the form ``<label> <feature-id>:<feature-value>
 <feature-id>:<feature-value> ...``. This format is especially suitable for sparse datasets.
@@ -230,7 +230,7 @@ identifies the dataset::
 ARFF parser
 ~~~~~~~~~~~
 
-From version 1.2, jax-sklearn provides a new keyword argument `parser` that
+From version 1.2, secret-learn provides a new keyword argument `parser` that
 provides several options to parse the ARFF files provided by OpenML. The legacy
 parser (i.e. `parser="liac-arff"`) is based on the project
 `LIAC-ARFF <https://github.com/renatopp/liac-arff>`_. This parser is however
@@ -273,26 +273,26 @@ preprocess the categorical columns explicitly. See for instance: :ref:`sphx_glr_
 Loading from external datasets
 ------------------------------
 
-jax-sklearn works on any numeric data stored as numpy arrays or scipy sparse
+secret-learn works on any numeric data stored as numpy arrays or scipy sparse
 matrices. Other types that are convertible to numeric arrays such as pandas
 DataFrame are also acceptable.
 
 Here are some recommended ways to load standard columnar data into a
-format usable by jax-sklearn:
+format usable by secret-learn:
 
 * `pandas.io <https://pandas.pydata.org/pandas-docs/stable/io.html>`_
   provides tools to read data from common formats including CSV, Excel, JSON
   and SQL. DataFrames may also be constructed from lists of tuples or dicts.
   Pandas handles heterogeneous data smoothly and provides tools for
-  manipulation and conversion into a numeric array suitable for jax-sklearn.
+  manipulation and conversion into a numeric array suitable for secret-learn.
 * `scipy.io <https://docs.scipy.org/doc/scipy/reference/io.html>`_
   specializes in binary formats often used in scientific computing
   contexts such as .mat and .arff
 * `numpy/routines.io <https://docs.scipy.org/doc/numpy/reference/routines.io.html>`_
   for standard loading of columnar data into numpy arrays
-* jax-sklearn's :func:`load_svmlight_file` for the svmlight or libSVM
+* secret-learn's :func:`load_svmlight_file` for the svmlight or libSVM
   sparse format
-* jax-sklearn's :func:`load_files` for directories of text files where
+* secret-learn's :func:`load_files` for directories of text files where
   the name of each directory is the name of each category and each file inside
   of each directory corresponds to one sample from that category
 

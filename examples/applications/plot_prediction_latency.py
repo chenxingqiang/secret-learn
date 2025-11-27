@@ -3,7 +3,7 @@
 Prediction Latency
 ==================
 
-This is an example showing the prediction latency of various jax-sklearn
+This is an example showing the prediction latency of various secret-learn
 estimators.
 
 The goal is to measure the latency one can expect when doing predictions
@@ -13,7 +13,7 @@ The plots represent the distribution of the prediction latency as a boxplot.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import gc

@@ -1,5 +1,5 @@
 """
-Benchmark jax-sklearn's Ward implement compared to SciPy's
+Benchmark secret-learn's Ward implement compared to SciPy's
 """
 
 import time
@@ -30,7 +30,7 @@ for i, n in enumerate(n_samples):
 
 ratio = scikits_time / scipy_time
 
-plt.figure("jax-sklearn Ward's method benchmark results")
+plt.figure("secret-learn Ward's method benchmark results")
 plt.imshow(np.log(ratio), aspect="auto", origin="lower")
 plt.colorbar()
 plt.contour(

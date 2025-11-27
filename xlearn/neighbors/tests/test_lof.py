@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import re
@@ -250,7 +250,7 @@ def test_predicted_outlier_number(expected_outliers):
 def test_sparse(csr_container):
     # LocalOutlierFactor must support CSR inputs
     # TODO: compare results on dense and sparse data as proposed in:
-    # https://github.com/chenxingqiang/jax-sklearn/pull/23585#discussion_r968388186
+    # https://github.com/chenxingqiang/secret-learn/pull/23585#discussion_r968388186
     X = csr_container(iris.data)
 
     lof = neighbors.LocalOutlierFactor(novelty=True)
@@ -267,7 +267,7 @@ def test_lof_error_n_neighbors_too_large():
     """Check that we raise a proper error message when n_neighbors == n_samples.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/17207
+    https://github.com/chenxingqiang/secret-learn/issues/17207
     """
     X = np.ones((7, 7))
 
@@ -366,7 +366,7 @@ def test_lof_duplicate_samples():
     in the training data cause inaccurate results.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27839
+    https://github.com/chenxingqiang/secret-learn/issues/27839
     """
 
     rng = np.random.default_rng(0)

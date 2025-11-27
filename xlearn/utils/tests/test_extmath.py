@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -571,7 +571,7 @@ def test_randomized_svd_sign_flip():
 def test_randomized_svd_sign_flip_with_transpose():
     # Check if the randomized_svd sign flipping is always done based on u
     # irrespective of transpose.
-    # See https://github.com/chenxingqiang/jax-sklearn/issues/5608
+    # See https://github.com/chenxingqiang/secret-learn/issues/5608
     # for more details.
     def max_loading_is_positive(u, v):
         """
@@ -1060,7 +1060,7 @@ def test_approximate_mode():
     to overflow 32-bit signed integer.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/20774
+    https://github.com/chenxingqiang/secret-learn/issues/20774
     """
     X = np.array([99000, 1000], dtype=np.int32)
     ret = _approximate_mode(class_counts=X, n_draws=25000, rng=0)

@@ -3,7 +3,7 @@
 It allows to make uniform checks and validation.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -133,7 +133,7 @@ def _get_response_values(
     If `estimator` is a binary classifier, also return the label for the
     effective positive class.
 
-    This utility is used primarily in the displays and the jax-sklearn scorers.
+    This utility is used primarily in the displays and the secret-learn scorers.
 
     .. versionadded:: 1.3
 

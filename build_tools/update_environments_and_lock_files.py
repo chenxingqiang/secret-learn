@@ -1,6 +1,6 @@
 """Script to update CI environment files and associated lock files.
 
-To run it you need to be in the root folder of the jax-sklearn repo:
+To run it you need to be in the root folder of the secret-learn repo:
 python build_tools/update_environments_and_lock_files.py
 
 Two scenarios where this script can be useful:

@@ -24,7 +24,7 @@ Standardization, or mean removal and variance scaling
 =====================================================
 
 **Standardization** of datasets is a **common requirement for many
-machine learning estimators** implemented in jax-sklearn; they might behave
+machine learning estimators** implemented in secret-learn; they might behave
 badly if the individual features do not more or less look like standard
 normally distributed data: Gaussian with **zero mean and unit variance**.
 
@@ -536,7 +536,7 @@ new feature of integers (0 to n_categories - 1)::
     array([[0., 1., 1.]])
 
 Such integer representation can, however, not be used directly with all
-jax-sklearn estimators, as these expect continuous input, and would interpret
+secret-learn estimators, as these expect continuous input, and would interpret
 the categories as being ordered, which is often not desired (i.e. the set of
 browsers was ordered arbitrarily).
 
@@ -578,7 +578,7 @@ The above processing is equivalent to the following pipeline::
            [ 0.]])
 
 Another possibility to convert categorical features to features that can be used
-with jax-sklearn estimators is to use a one-of-K, also known as one-hot or
+with secret-learn estimators is to use a one-of-K, also known as one-hot or
 dummy encoding.
 This type of encoding can be obtained with the :class:`OneHotEncoder`,
 which transforms each categorical feature with

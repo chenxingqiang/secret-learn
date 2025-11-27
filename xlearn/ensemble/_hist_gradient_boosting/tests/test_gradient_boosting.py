@@ -828,7 +828,7 @@ def test_sum_hessians_are_sample_weight(Loss):
 
 def test_max_depth_max_leaf_nodes():
     # Non regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/16179
+    # https://github.com/chenxingqiang/secret-learn/issues/16179
     # there was a bug when the max_depth and the max_leaf_nodes criteria were
     # met at the same time, which would lead to max_leaf_nodes not being
     # respected.
@@ -1270,7 +1270,7 @@ def test_categorical_bad_encoding_errors(Est, use_pandas, feature_name):
 )
 def test_uint8_predict(Est):
     # Non regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/18408
+    # https://github.com/chenxingqiang/secret-learn/issues/18408
     # Make sure X can be of dtype uint8 (i.e. X_BINNED_DTYPE) in predict. It
     # will be converted to X_DTYPE.
 
@@ -1749,7 +1749,7 @@ def test_different_bitness_joblib_pickle():
 
 
 def test_pandas_nullable_dtype():
-    # Non regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28317
+    # Non regression test for https://github.com/chenxingqiang/secret-learn/issues/28317
     pd = pytest.importorskip("pandas")
 
     rng = np.random.default_rng(0)

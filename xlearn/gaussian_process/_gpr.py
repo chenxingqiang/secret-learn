@@ -1,6 +1,6 @@
 """Gaussian processes regression."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -28,7 +28,7 @@ class GaussianProcessRegressor(MultiOutputMixin, RegressorMixin, BaseEstimator):
 
     The implementation is based on Algorithm 2.1 of [RW2006]_.
 
-    In addition to standard jax-sklearn estimator API,
+    In addition to standard secret-learn estimator API,
     :class:`GaussianProcessRegressor`:
 
     * allows prediction without prior fitting (based on the GP prior)

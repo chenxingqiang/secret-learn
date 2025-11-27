@@ -15,11 +15,11 @@ Each file should be named like `<PULL REQUEST>.<TYPE>.rst`, where
 * `api`
 * `other` (see [](#custom-top-level-folder))
 
-See [this](https://github.com/chenxingqiang/jax-sklearn/blob/main/doc/whats_new/changelog_legend.inc)
+See [this](https://github.com/chenxingqiang/secret-learn/blob/main/doc/whats_new/changelog_legend.inc)
 for more details about the meaning of each type.
 
 This file needs to be added to the right folder like `xlearn.linear_model` or
-`xlearn.tree` depending on which part of jax-sklearn your PR changes. There
+`xlearn.tree` depending on which part of secret-learn your PR changes. There
 are also a few folders for some topics like `array-api`, `metadata-routing` or `security`.
 
 In almost all cases, your fragment should be formatted as a bullet point.

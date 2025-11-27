@@ -127,7 +127,7 @@ def test_regression_metrics(n_samples=50):
 
 def test_root_mean_squared_error_multioutput_raw_value():
     # non-regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/pull/16323
+    # https://github.com/chenxingqiang/secret-learn/pull/16323
     mse = mean_squared_error([[1]], [[10]], multioutput="raw_values")
     rmse = root_mean_squared_error([[1]], [[10]], multioutput="raw_values")
     assert np.sqrt(mse) == pytest.approx(rmse)
@@ -600,7 +600,7 @@ def test_mean_pinball_loss_on_constant_predictions(
 def test_dummy_quantile_parameter_tuning(global_random_seed):
     # Integration test to check that it is possible to use the pinball loss to
     # tune the hyperparameter of a quantile regressor. This is conceptually
-    # similar to the previous test but using the jax-sklearn estimator and
+    # similar to the previous test but using the secret-learn estimator and
     # scoring API instead.
     n_samples = 1000
     rng = np.random.RandomState(global_random_seed)

@@ -3,7 +3,7 @@ The :mod:`xlearn.model_selection._split` module includes classes and
 functions to split the data based on a preset strategy.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -445,7 +445,7 @@ class KFold(_UnsupportedGroupCVMixin, _BaseKFold):
     Read more in the :ref:`User Guide <k_fold>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     Parameters
@@ -541,7 +541,7 @@ class GroupKFold(GroupsConsumerMixin, _BaseKFold):
     Read more in the :ref:`User Guide <group_k_fold>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     Parameters
@@ -696,7 +696,7 @@ class StratifiedKFold(_BaseKFold):
     Read more in the :ref:`User Guide <stratified_k_fold>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     .. note::
@@ -910,7 +910,7 @@ class StratifiedGroupKFold(GroupsConsumerMixin, _BaseKFold):
     Read more in the :ref:`User Guide <stratified_group_k_fold>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     .. note::
@@ -1002,13 +1002,13 @@ class StratifiedGroupKFold(GroupsConsumerMixin, _BaseKFold):
         # and is a subject to Apache 2.0 License. You may obtain a copy of the
         # License at http://www.apache.org/licenses/LICENSE-2.0
         # Changelist:
-        # - Refactored function to a class following jax-sklearn KFold
+        # - Refactored function to a class following secret-learn KFold
         #   interface.
         # - Added heuristic for assigning group to the least populated fold in
         #   cases when all other criteria are equal
         # - Swtch from using python ``Counter`` to ``np.unique`` to get class
         #   distribution
-        # - Added jax-sklearn checks for input: checking that target is binary
+        # - Added secret-learn checks for input: checking that target is binary
         #   or multiclass, checking passed random state, checking that number
         #   of splits is less than number of members in each class, checking
         #   that least populated class has more members than there are splits.
@@ -1119,7 +1119,7 @@ class TimeSeriesSplit(_BaseKFold):
     Read more in the :ref:`User Guide <time_series_split>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     .. versionadded:: 0.18
@@ -1983,7 +1983,7 @@ class ShuffleSplit(_UnsupportedGroupCVMixin, BaseShuffleSplit):
     Read more in the :ref:`User Guide <ShuffleSplit>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     Parameters
@@ -2105,7 +2105,7 @@ class GroupShuffleSplit(GroupsConsumerMixin, BaseShuffleSplit):
     Read more in the :ref:`User Guide <group_shuffle_split>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     Parameters
@@ -2239,7 +2239,7 @@ class StratifiedShuffleSplit(BaseShuffleSplit):
     Read more in the :ref:`User Guide <stratified_shuffle_split>`.
 
     For visualisation of cross-validation behaviour and
-    comparison between common jax-sklearn split methods
+    comparison between common secret-learn split methods
     refer to :ref:`sphx_glr_auto_examples_model_selection_plot_cv_indices.py`
 
     .. note::

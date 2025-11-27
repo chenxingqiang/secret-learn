@@ -7,7 +7,7 @@ splitting algorithm in `_splitter.pyx`.
 Partitioning is done in a way that is efficient for both dense data,
 and sparse data stored in a Compressed Sparse Column (CSC) format.
 """
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from cython cimport final

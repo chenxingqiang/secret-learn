@@ -26,7 +26,7 @@ Example of output :
     dummy                         0.00s       0.01s       0.8973
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import argparse

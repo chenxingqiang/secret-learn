@@ -10,15 +10,15 @@ activate_environment
 if [[ "$BUILD_REASON" == "Schedule" ]]; then
     # Enable global random seed randomization to discover seed-sensitive tests
     # only on nightly builds.
-    # https://jax-sklearn.org/stable/computing/parallelism.html#environment-variables
+    # https://secret-learn.org/stable/computing/parallelism.html#environment-variables
     export XLEARN_TESTS_GLOBAL_RANDOM_SEED=$(($RANDOM % 100))
     echo "To reproduce this test run, set the following environment variable:"
     echo "    XLEARN_TESTS_GLOBAL_RANDOM_SEED=$XLEARN_TESTS_GLOBAL_RANDOM_SEED",
-    echo "See: https://jax-sklearn.org/dev/computing/parallelism.html#xlearn-tests-global-random-seed"
+    echo "See: https://secret-learn.org/dev/computing/parallelism.html#xlearn-tests-global-random-seed"
 
     # Enable global dtype fixture for all nightly builds to discover
     # numerical-sensitive tests.
-    # https://jax-sklearn.org/stable/computing/parallelism.html#environment-variables
+    # https://secret-learn.org/stable/computing/parallelism.html#environment-variables
     export XLEARN_RUN_FLOAT32_TESTS=1
 fi
 
@@ -78,7 +78,7 @@ fi
 if [[ "$DISTRIB" == "conda-free-threaded" ]]; then
     # Make sure that GIL is disabled even when importing extensions that have
     # not declared free-threaded compatibility. This can be removed when numpy,
-    # scipy and jax-sklearn extensions all have declared free-threaded
+    # scipy and secret-learn extensions all have declared free-threaded
     # compatibility.
     export PYTHON_GIL=0
 fi

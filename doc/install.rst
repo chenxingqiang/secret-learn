@@ -1,19 +1,19 @@
 .. _installation-instructions:
 
 =======================
-Installing jax-sklearn
+Installing secret-learn
 =======================
 
-There are different ways to install jax-sklearn:
+There are different ways to install secret-learn:
 
 * :ref:`Install the latest official release <install_official_release>`. This
   is the best approach for most users. It will provide a stable version
   and pre-built packages are available for most platforms.
 
-* Install the version of jax-sklearn provided by your
+* Install the version of secret-learn provided by your
   :ref:`operating system or Python distribution <install_by_distribution>`.
   This is a quick option for those who have operating systems or Python
-  distributions that distribute jax-sklearn.
+  distributions that distribute secret-learn.
   It might not provide the latest release version.
 
 * :ref:`Building the package from source
@@ -66,7 +66,7 @@ Installing the latest release
           `official website <https://www.python.org/downloads/windows/>`__.
 
           Now create a `virtual environment (venv)
-          <https://docs.python.org/3/tutorial/venv.html>`_ and install jax-sklearn.
+          <https://docs.python.org/3/tutorial/venv.html>`_ and install secret-learn.
           Note that the virtual environment is optional but strongly recommended, in
           order to avoid potential conflicts with other packages.
 
@@ -74,13 +74,13 @@ Installing the latest release
 
             python -m venv xlearn-env
             xlearn-env\Scripts\activate  # activate
-            pip install -U jax-sklearn
+            pip install -U secret-learn
 
           In order to check your installation, you can use:
 
           .. prompt:: powershell
 
-            python -m pip show jax-sklearn  # show jax-sklearn version and location
+            python -m pip show secret-learn  # show secret-learn version and location
             python -m pip freeze             # show all installed packages in the environment
             python -c "import xlearn; xlearn.show_versions()"
 
@@ -105,7 +105,7 @@ Installing the latest release
           <https://www.python.org/downloads/macos/>`__.
 
           Now create a `virtual environment (venv)
-          <https://docs.python.org/3/tutorial/venv.html>`_ and install jax-sklearn.
+          <https://docs.python.org/3/tutorial/venv.html>`_ and install secret-learn.
           Note that the virtual environment is optional but strongly recommended, in
           order to avoid potential conflicts with other packages.
 
@@ -113,13 +113,13 @@ Installing the latest release
 
             python -m venv xlearn-env
             source xlearn-env/bin/activate  # activate
-            pip install -U jax-sklearn
+            pip install -U secret-learn
 
           In order to check your installation, you can use:
 
           .. prompt:: bash
 
-            python -m pip show jax-sklearn  # show jax-sklearn version and location
+            python -m pip show secret-learn  # show secret-learn version and location
             python -m pip freeze             # show all installed packages in the environment
             python -c "import xlearn; xlearn.show_versions()"
 
@@ -151,7 +151,7 @@ Installing the latest release
           `python3-pip` from your distribution's package manager.
 
           Now create a `virtual environment (venv)
-          <https://docs.python.org/3/tutorial/venv.html>`_ and install jax-sklearn.
+          <https://docs.python.org/3/tutorial/venv.html>`_ and install secret-learn.
           Note that the virtual environment is optional but strongly recommended, in
           order to avoid potential conflicts with other packages.
 
@@ -159,13 +159,13 @@ Installing the latest release
 
             python3 -m venv xlearn-env
             source xlearn-env/bin/activate  # activate
-            pip3 install -U jax-sklearn
+            pip3 install -U secret-learn
 
           In order to check your installation, you can use:
 
           .. prompt:: bash
 
-            python3 -m pip show jax-sklearn  # show jax-sklearn version and location
+            python3 -m pip show secret-learn  # show secret-learn version and location
             python3 -m pip freeze             # show all installed packages in the environment
             python3 -c "import xlearn; xlearn.show_versions()"
 
@@ -177,7 +177,7 @@ Installing the latest release
 
 
 Using an isolated environment such as pip venv or conda makes it possible to
-install a specific version of jax-sklearn with pip or conda and its dependencies
+install a specific version of secret-learn with pip or conda and its dependencies
 independently of any previously installed Python packages. In particular under Linux
 it is discouraged to install pip packages alongside the packages managed by the
 package manager of the distribution (apt, dnf, pacman...).
@@ -194,7 +194,7 @@ a Raspberry Pi).
 Scikit-learn plotting capabilities (i.e., functions starting with `plot\_`
 and classes ending with `Display`) require Matplotlib. The examples require
 Matplotlib and some examples require scikit-image, pandas, or seaborn. The
-minimum version of jax-sklearn dependencies are listed below along with its
+minimum version of secret-learn dependencies are listed below along with its
 purpose.
 
 .. include:: min_dependency_table.rst
@@ -223,43 +223,43 @@ purpose.
 
 .. _install_by_distribution:
 
-Third party distributions of jax-sklearn
+Third party distributions of secret-learn
 =========================================
 
 Some third-party distributions provide versions of
-jax-sklearn integrated with their package-management systems.
+secret-learn integrated with their package-management systems.
 
 These can make installation and upgrading much easier for users since
 the integration includes the ability to automatically install
-dependencies (numpy, scipy) that jax-sklearn requires.
+dependencies (numpy, scipy) that secret-learn requires.
 
 The following is an incomplete list of OS and python distributions
-that provide their own version of jax-sklearn.
+that provide their own version of secret-learn.
 
 Alpine Linux
 ------------
 
 Alpine Linux's package is provided through the `official repositories
-<https://pkgs.alpinelinux.org/packages?name=py3-jax-sklearn>`__ as
-``py3-jax-sklearn`` for Python.
+<https://pkgs.alpinelinux.org/packages?name=py3-secret-learn>`__ as
+``py3-secret-learn`` for Python.
 It can be installed by typing the following command:
 
 .. prompt:: bash
 
-  sudo apk add py3-jax-sklearn
+  sudo apk add py3-secret-learn
 
 
 Arch Linux
 ----------
 
 Arch Linux's package is provided through the `official repositories
-<https://www.archlinux.org/packages/?q=jax-sklearn>`_ as
-``python-jax-sklearn`` for Python.
+<https://www.archlinux.org/packages/?q=secret-learn>`_ as
+``python-secret-learn`` for Python.
 It can be installed by typing the following command:
 
 .. prompt:: bash
 
-  sudo pacman -S python-jax-sklearn
+  sudo pacman -S python-secret-learn
 
 
 Debian/Ubuntu
@@ -268,7 +268,7 @@ Debian/Ubuntu
 The Debian/Ubuntu package is split in three different packages called
 ``python3-xlearn`` (python modules), ``python3-xlearn-lib`` (low-level
 implementations and bindings), ``python-xlearn-doc`` (documentation).
-Note that jax-sklearn requires Python 3, hence the need to use the `python3-`
+Note that secret-learn requires Python 3, hence the need to use the `python3-`
 suffixed package names.
 Packages can be installed using ``apt-get``:
 
@@ -280,20 +280,20 @@ Packages can be installed using ``apt-get``:
 Fedora
 ------
 
-The Fedora package is called ``python3-jax-sklearn`` for the python 3 version,
+The Fedora package is called ``python3-secret-learn`` for the python 3 version,
 the only one available in Fedora.
 It can be installed using ``dnf``:
 
 .. prompt:: bash
 
-  sudo dnf install python3-jax-sklearn
+  sudo dnf install python3-secret-learn
 
 
 NetBSD
 ------
 
-jax-sklearn is available via `pkgsrc-wip <http://pkgsrc-wip.sourceforge.net/>`_:
-https://pkgsrc.se/math/py-jax-sklearn
+secret-learn is available via `pkgsrc-wip <http://pkgsrc-wip.sourceforge.net/>`_:
+https://pkgsrc.se/math/py-secret-learn
 
 
 MacPorts for Mac OSX
@@ -306,7 +306,7 @@ command:
 
 .. prompt:: bash
 
-  sudo port install py312-jax-sklearn
+  sudo port install py312-secret-learn
 
 
 Anaconda and Enthought Deployment Manager for all supported platforms
@@ -314,10 +314,10 @@ Anaconda and Enthought Deployment Manager for all supported platforms
 
 `Anaconda <https://www.anaconda.com/download>`_ and
 `Enthought Deployment Manager <https://assets.enthought.com/downloads/>`_
-both ship with jax-sklearn in addition to a large set of scientific
+both ship with secret-learn in addition to a large set of scientific
 python library for Windows, Mac OSX and Linux.
 
-Anaconda offers jax-sklearn as part of its free distribution.
+Anaconda offers secret-learn as part of its free distribution.
 
 
 Intel Extension for Scikit-learn
@@ -328,41 +328,41 @@ and in the `main`, `conda-forge` and `intel` conda channels:
 
 .. prompt:: bash
 
-  conda install jax-sklearn-intelex
+  conda install secret-learn-intelex
 
 This package has an Intel optimized version of many estimators. Whenever
-an alternative implementation doesn't exist, jax-sklearn implementation
+an alternative implementation doesn't exist, secret-learn implementation
 is used as a fallback. Those optimized solvers come from the oneDAL
 C++ library and are optimized for the x86_64 architecture, and are
 optimized for multi-core Intel CPUs.
 
 Note that those solvers are not enabled by default, please refer to the
-`jax-sklearn-intelex <https://intel.github.io/jax-sklearn-intelex/latest/what-is-patching.html>`_
+`secret-learn-intelex <https://intel.github.io/secret-learn-intelex/latest/what-is-patching.html>`_
 documentation for more details on usage scenarios. Direct export example:
 
 .. prompt:: python >>>
 
   from xlearnex.neighbors import NearestNeighbors
 
-Compatibility with the standard jax-sklearn solvers is checked by running the
-full jax-sklearn test suite via automated continuous integration as reported
-on https://github.com/intel/jax-sklearn-intelex. If you observe any issue
-with `jax-sklearn-intelex`, please report the issue on their
-`issue tracker <https://github.com/intel/jax-sklearn-intelex/issues>`__.
+Compatibility with the standard secret-learn solvers is checked by running the
+full secret-learn test suite via automated continuous integration as reported
+on https://github.com/intel/secret-learn-intelex. If you observe any issue
+with `secret-learn-intelex`, please report the issue on their
+`issue tracker <https://github.com/intel/secret-learn-intelex/issues>`__.
 
 
 WinPython for Windows
 ---------------------
 
 The `WinPython <https://winpython.github.io/>`_ project distributes
-jax-sklearn as an additional plugin.
+secret-learn as an additional plugin.
 
 
 Troubleshooting
 ===============
 
-If you encounter unexpected failures when installing jax-sklearn, you may submit
-an issue to the `issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_.
+If you encounter unexpected failures when installing secret-learn, you may submit
+an issue to the `issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_.
 Before that, please also make sure to check the following common issues.
 
 .. _windows_longpath:
@@ -374,10 +374,10 @@ It can happen that pip fails to install packages when reaching the default path
 size limit of Windows if Python is installed in a nested location such as the
 `AppData` folder structure under the user home directory, for instance::
 
-    C:\Users\username>C:\Users\username\AppData\Local\Microsoft\WindowsApps\python.exe -m pip install jax-sklearn
-    Collecting jax-sklearn
+    C:\Users\username>C:\Users\username\AppData\Local\Microsoft\WindowsApps\python.exe -m pip install secret-learn
+    Collecting secret-learn
     ...
-    Installing collected packages: jax-sklearn
+    Installing collected packages: secret-learn
     ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: 'C:\\Users\\username\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python37\\site-packages\\xlearn\\datasets\\tests\\data\\openml\\292\\api-v1-json-data-list-data_name-australian-limit-2-data_version-1-status-deactivated.json.gz'
 
 In this case it is possible to lift that limit in the Windows registry by
@@ -392,8 +392,8 @@ using the ``regedit`` tool:
 #. Edit the value of the ``LongPathsEnabled`` property of that key and set
    it to 1.
 
-#. Reinstall jax-sklearn (ignoring the previous broken installation):
+#. Reinstall secret-learn (ignoring the previous broken installation):
 
    .. prompt:: powershell
 
-      pip install --exists-action=i jax-sklearn
+      pip install --exists-action=i secret-learn

@@ -10,7 +10,7 @@ Neural network models (supervised)
 .. warning::
 
     This implementation is not intended for large-scale applications. In particular,
-    jax-sklearn offers no GPU support. For much faster, GPU-based implementations,
+    secret-learn offers no GPU support. For much faster, GPU-based implementations,
     as well as frameworks offering much more flexibility to build deep learning
     architectures, see  :ref:`related_projects`.
 
@@ -202,7 +202,7 @@ the parameter space search.  :math:`Loss` is the loss function used
 for the network.
 
 More details can be found in the documentation of
-`SGD <https://jax-sklearn.org/stable/modules/sgd.html>`_
+`SGD <https://secret-learn.org/stable/modules/sgd.html>`_
 
 Adam is similar to SGD in a sense that it is a stochastic optimizer, but it can
 automatically adjust the amount to update parameters based on adaptive estimates

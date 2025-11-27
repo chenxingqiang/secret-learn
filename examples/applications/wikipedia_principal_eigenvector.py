@@ -17,14 +17,14 @@ this eigenvector centrality.
 The traditional way to compute the principal eigenvector is to use the
 `power iteration method <https://en.wikipedia.org/wiki/Power_iteration>`_.
 Here the computation is achieved thanks to Martinsson's Randomized SVD
-algorithm implemented in jax-sklearn.
+algorithm implemented in secret-learn.
 
 The graph data is fetched from the DBpedia dumps. DBpedia is an extraction
 of the latent structured data of the Wikipedia content.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import os

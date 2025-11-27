@@ -14,7 +14,7 @@ Roadmap
 Purpose of this document
 ------------------------
 This document lists general directions that core contributors are interested
-to see developed in jax-sklearn. The fact that an item is listed here is in
+to see developed in secret-learn. The fact that an item is listed here is in
 no way a promise that it will happen, as resources are limited. Rather, it
 is an indication that help is welcomed on this topic.
 
@@ -55,7 +55,7 @@ external to the core library.
   and infrastructures (e.g. distributed processing)
 
 Many of the more fine-grained goals can be found under the `API tag
-<https://github.com/chenxingqiang/jax-sklearn/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3AAPI>`_
+<https://github.com/chenxingqiang/secret-learn/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3AAPI>`_
 on the issue tracker.
 
 Architectural / general goals
@@ -85,7 +85,7 @@ the document up to date as we work on these issues.
 
 #. More didactic documentation
 
-   * More and more options have been added to jax-sklearn. As a result, the
+   * More and more options have been added to secret-learn. As a result, the
      documentation is crowded which makes it hard for beginners to get the big
      picture. Some work could be done in prioritizing the information.
 
@@ -104,7 +104,7 @@ the document up to date as we work on these issues.
 #. Make it easier for external users to write Scikit-learn-compatible
    components
 
-   * More self-sufficient running of jax-sklearn-contrib or a similar resource
+   * More self-sufficient running of secret-learn-contrib or a similar resource
 
 #. Support resampling and sample reduction
 
@@ -161,12 +161,12 @@ the document up to date as we work on these issues.
 #. Documentation and tooling for model lifecycle management
 
    * Document good practices for model deployments and lifecycle: before
-     deploying a model: snapshot the code versions (numpy, scipy, jax-sklearn,
+     deploying a model: snapshot the code versions (numpy, scipy, secret-learn,
      custom code repo), the training script and an alias on how to retrieve
      historical training data + snapshot a copy of a small validation set +
      snapshot of the predictions (predicted probabilities for classifiers)
      on that validation set.
-   * Document and tools to make it easy to manage upgrade of jax-sklearn
+   * Document and tools to make it easy to manage upgrade of secret-learn
      versions:
 
      * Try to load the old pickle, if it works, use the validation set
@@ -176,9 +176,9 @@ the document up to date as we work on these issues.
        training script + historical training set to retrain the model and use
        the validation set prediction snapshot to assert that it is possible to
        recover the previous predictive performance: if this is not the case
-       there is probably a bug in jax-sklearn that needs to be reported.
+       there is probably a bug in secret-learn that needs to be reported.
 
-#. Everything in jax-sklearn should probably conform to our API contract.
+#. Everything in secret-learn should probably conform to our API contract.
    We are still in the process of making decisions on some of these related
    issues.
 
@@ -187,14 +187,14 @@ the document up to date as we work on these issues.
      grasp of their use cases to make sure all current functionality is
      maintained. :issue:`8157` :issue:`7382`
 
-#. (Optional) Improve jax-sklearn common tests suite to make sure that (at
+#. (Optional) Improve secret-learn common tests suite to make sure that (at
    least for frequently used) models have stable predictions across-versions
    (to be discussed);
 
    * Extend documentation to mention how to deploy models in Python-free
      environments for instance `ONNX <https://github.com/onnx/xlearn-onnx>`_.
      and use the above best practices to assess predictive consistency between
-     jax-sklearn and ONNX prediction functions on validation set.
+     secret-learn and ONNX prediction functions on validation set.
    * Document good practices to detect temporal distribution drift for deployed
      model and good practices for re-training on fresh data without causing
      catastrophic predictive performance regressions.

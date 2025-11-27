@@ -560,7 +560,7 @@ def test_subclassing_displays(pyplot, data, Display, params):
     """Check that named constructors return the correct type when subclassed.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/27675
+    https://github.com/chenxingqiang/secret-learn/pull/27675
     """
     X, y = data
     estimator = DecisionTreeClassifier(random_state=0)

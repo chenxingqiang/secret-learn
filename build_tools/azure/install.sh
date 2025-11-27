@@ -105,12 +105,12 @@ scikit_learn_install() {
 
     if [[ "$UNAMESTR" == "Linux" ]]; then
         # FIXME: temporary fix to link against system libraries on linux
-        # https://github.com/chenxingqiang/jax-sklearn/issues/20640
+        # https://github.com/chenxingqiang/secret-learn/issues/20640
         export LDFLAGS="$LDFLAGS -Wl,--sysroot=/"
     fi
 
     if [[ "$PIP_BUILD_ISOLATION" == "true" ]]; then
-        # Check that pip can automatically build jax-sklearn with the build
+        # Check that pip can automatically build secret-learn with the build
         # dependencies specified in pyproject.toml using an isolated build
         # environment:
         pip install --verbose .

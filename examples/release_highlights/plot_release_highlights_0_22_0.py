@@ -1,26 +1,26 @@
 """
 ========================================
-Release Highlights for jax-sklearn 0.22
+Release Highlights for secret-learn 0.22
 ========================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 0.22, which comes
+We are pleased to announce the release of secret-learn 0.22, which comes
 with many bug fixes and new features! We detail below a few of the major
 features of this release. For an exhaustive list of all the changes, please
 refer to the :ref:`release notes <release_notes_0_22>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -125,7 +125,7 @@ sorted_idx = result.importances_mean.argsort()
 
 # `labels` argument in boxplot is deprecated in matplotlib 3.9 and has been
 # renamed to `tick_labels`. The following code handles this, but as a
-# jax-sklearn user you probably can write simpler code by using `labels=...`
+# secret-learn user you probably can write simpler code by using `labels=...`
 # (matplotlib < 3.9) or `tick_labels=...` (matplotlib >= 3.9).
 tick_labels_parameter_name = (
     "tick_labels"
@@ -248,9 +248,9 @@ titanic = fetch_openml("titanic", version=1, as_frame=True, parser="pandas")
 print(titanic.data.head()[["pclass", "embarked"]])
 
 # %%
-# Checking jax-sklearn compatibility of an estimator
+# Checking secret-learn compatibility of an estimator
 # ---------------------------------------------------
-# Developers can check the compatibility of their jax-sklearn compatible
+# Developers can check the compatibility of their secret-learn compatible
 # estimators using :func:`~utils.estimator_checks.check_estimator`. For
 # instance, the ``check_estimator(LinearSVC())`` passes.
 #

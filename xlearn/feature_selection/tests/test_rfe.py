@@ -467,7 +467,7 @@ def test_rfe_cv_groups():
 @pytest.mark.parametrize("selector, expected_n_features", [(RFE, 5), (RFECV, 4)])
 def test_rfe_wrapped_estimator(importance_getter, selector, expected_n_features):
     # Non-regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/15312
+    # https://github.com/chenxingqiang/secret-learn/issues/15312
     X, y = make_friedman1(n_samples=50, n_features=10, random_state=0)
     estimator = LinearSVR(random_state=0)
 
@@ -630,7 +630,7 @@ def test_rfe_pls(ClsRFE, PLSEstimator):
     """Check the behaviour of RFE with PLS estimators.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/12410
+    https://github.com/chenxingqiang/secret-learn/issues/12410
     """
     X, y = make_friedman1(n_samples=50, n_features=10, random_state=0)
     estimator = PLSEstimator(n_components=1)
@@ -644,7 +644,7 @@ def test_rfe_estimator_attribute_error():
     `available_if`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28108
+    https://github.com/chenxingqiang/secret-learn/issues/28108
     """
     iris = load_iris()
 

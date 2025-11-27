@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -340,7 +340,7 @@ def _safe_indexing(X, indices, *, axis=0):
         # https://github.com/data-apis/dataframe-api/issues/85.
         raise warnings.warn(
             message="A data object with support for the dataframe interchange protocol"
-            "was passed, but jax-sklearn does currently not know how to handle this "
+            "was passed, but secret-learn does currently not know how to handle this "
             "kind of data. Some array/list indexing will be tried.",
             category=UserWarning,
         )

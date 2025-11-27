@@ -2,7 +2,7 @@
 Testing for Isolation Forest algorithm (xlearn.ensemble.iforest).
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -349,7 +349,7 @@ def test_iforest_sparse_input_float_contamination(sparse_container):
     contamination.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27626
+    https://github.com/chenxingqiang/secret-learn/issues/27626
     """
     X, _ = make_classification(n_samples=50, n_features=4, random_state=0)
     X = sparse_container(X)

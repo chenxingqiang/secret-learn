@@ -177,7 +177,7 @@ jobs:
         # Enable debug Cython directives to capture IndexError exceptions in
         # combination with the -Werror::pytest.PytestUnraisableExceptionWarning
         # flag for pytest.
-        # https://github.com/chenxingqiang/jax-sklearn/pull/24438
+        # https://github.com/chenxingqiang/secret-learn/pull/24438
         XLEARN_ENABLE_DEBUG_CYTHON_DIRECTIVES: '1'
         XLEARN_RUN_FLOAT32_TESTS: '1'
         XLEARN_TESTS_GLOBAL_RANDOM_SEED: '2'  # non-default seed
@@ -266,6 +266,6 @@ jobs:
         # Enable debug Cython directives to capture IndexError exceptions in
         # combination with the -Werror::pytest.PytestUnraisableExceptionWarning
         # flag for pytest.
-        # https://github.com/chenxingqiang/jax-sklearn/pull/24438
+        # https://github.com/chenxingqiang/secret-learn/pull/24438
         XLEARN_ENABLE_DEBUG_CYTHON_DIRECTIVES: '1'
         XLEARN_TESTS_GLOBAL_RANDOM_SEED: '7'  # non-default seed

@@ -118,7 +118,7 @@ from the data itself, without the use of predetermined classifications.
 * See :ref:`sphx_glr_auto_examples_manifold_plot_swissroll.py` for an example of using 
   manifold learning techniques on a Swiss Roll dataset.
 
-The manifold learning implementations available in jax-sklearn are
+The manifold learning implementations available in secret-learn are
 summarized below
 
 .. _isomap:
@@ -431,7 +431,7 @@ objects, interaction frequencies of molecules, or trade indices between
 countries.
 
 There exist two types of MDS algorithm: metric and non-metric. In
-jax-sklearn, the class :class:`MDS` implements both. In metric MDS,
+secret-learn, the class :class:`MDS` implements both. In metric MDS,
 the distances in the embedding space are set as
 close as possible to the dissimilarity data. In the non-metric
 version, the algorithm will try to preserve the order of the distances, and

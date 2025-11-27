@@ -128,7 +128,7 @@ xlearn_est.set_params(loss=loss)
 
 
 if args.print_params:
-    print("jax-sklearn")
+    print("secret-learn")
     pprint(xlearn_est.get_params())
 
     for libname in ["lightgbm", "xgboost", "catboost"]:

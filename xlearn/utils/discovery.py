@@ -1,6 +1,6 @@
-"""Utilities to discover jax-sklearn objects."""
+"""Utilities to discover secret-learn objects."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import inspect

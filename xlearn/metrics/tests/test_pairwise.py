@@ -117,7 +117,7 @@ def test_pairwise_distances_for_dense_data(global_dtype):
     S2 = haversine_distances(X, Y)
     assert_allclose(S, S2)
 
-    # "cityblock" uses jax-sklearn metric, cityblock (function) is
+    # "cityblock" uses secret-learn metric, cityblock (function) is
     # scipy.spatial.
     # The metric functions from scipy converts to float64 so we don't check the dtypes.
     S = pairwise_distances(X, metric="cityblock")
@@ -501,7 +501,7 @@ def test_pairwise_distances_argmin_min(dok_container, csr_container, global_dtyp
     assert_allclose(idx3, expected_idx)
     assert_allclose(idx4, expected_idx)
 
-    # Non-euclidean jax-sklearn metric
+    # Non-euclidean secret-learn metric
     idx, vals = pairwise_distances_argmin_min(X, Y, metric="manhattan")
     idx2 = pairwise_distances_argmin(X, Y, metric="manhattan")
     assert_allclose(idx, expected_idx)
@@ -737,7 +737,7 @@ def test_pairwise_distances_chunked(global_dtype):
     )
     # absurdly large working_memory
     check_pairwise_distances_chunked(X, Y, working_memory=10000, metric="euclidean")
-    # "cityblock" uses jax-sklearn metric, cityblock (function) is
+    # "cityblock" uses secret-learn metric, cityblock (function) is
     # scipy.spatial.
     check_pairwise_distances_chunked(X, Y, working_memory=1, metric="cityblock")
 
@@ -1659,7 +1659,7 @@ def test_pairwise_dist_custom_metric_for_bool():
 
 @pytest.mark.parametrize("csr_container", CSR_CONTAINERS)
 def test_sparse_manhattan_readonly_dataset(csr_container):
-    # Non-regression test for: https://github.com/chenxingqiang/jax-sklearn/issues/7981
+    # Non-regression test for: https://github.com/chenxingqiang/secret-learn/issues/7981
     matrices1 = [csr_container(np.ones((5, 5)))]
     matrices2 = [csr_container(np.ones((5, 5)))]
     # Joblib memory maps datasets which makes them read-only.

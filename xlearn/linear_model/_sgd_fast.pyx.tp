@@ -10,7 +10,7 @@ Each relevant function is duplicated for the dtypes float and double.
 The keywords between double braces are substituted during the build.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # The dtypes are defined as follows (name_suffix, c_type, np_type)

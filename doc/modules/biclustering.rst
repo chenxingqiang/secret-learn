@@ -257,7 +257,7 @@ Biclustering evaluation
 There are two ways of evaluating a biclustering result: internal and
 external. Internal measures, such as cluster stability, rely only on
 the data and the result themselves. Currently there are no internal
-bicluster measures in jax-sklearn. External measures refer to an
+bicluster measures in secret-learn. External measures refer to an
 external source of information, such as the true solution. When
 working with real data the true solution is usually unknown, but
 biclustering artificial data may be useful for evaluating algorithms

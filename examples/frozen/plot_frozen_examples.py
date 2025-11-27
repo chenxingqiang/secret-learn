@@ -11,13 +11,13 @@ to a meta-estimator, such as :class:`~xlearn.model_selection.FixedThresholdClass
 without letting the meta-estimator refit the estimator.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
 # Setting a decision threshold for a pre-fitted classifier
 # --------------------------------------------------------
-# Fitted classifiers in jax-sklearn use an arbitrary decision threshold to decide
+# Fitted classifiers in secret-learn use an arbitrary decision threshold to decide
 # which class the given sample belongs to. The decision threshold is either `0.0` on the
 # value returned by :term:`decision_function`, or `0.5` on the probability returned by
 # :term:`predict_proba`.

@@ -296,7 +296,7 @@ def test_confusion_matrix_with_unknown_labels(pyplot, constructor_name):
     """Check that when labels=None, the unique values in `y_pred` and `y_true`
     will be used.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/18405
+    https://github.com/chenxingqiang/secret-learn/pull/18405
     """
     n_classes = 5
     X, y = make_classification(

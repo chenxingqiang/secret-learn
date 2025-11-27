@@ -218,7 +218,7 @@ def test_mutual_information_symmetry_classif_regression(correlated, global_rando
     versa.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/23720
+    https://github.com/chenxingqiang/secret-learn/issues/23720
     """
     rng = np.random.RandomState(global_random_seed)
     n = 100

@@ -25,7 +25,7 @@ n_neighbors=20 appears to work well in general.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib

@@ -783,7 +783,7 @@ def test_setting_request_on_sub_estimator_removes_error(metaestimator):
 def test_non_consuming_estimator_works(metaestimator):
     # Test that when a non-consuming estimator is given, the meta-estimator
     # works w/o setting any requests.
-    # Regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28239
+    # Regression test for https://github.com/chenxingqiang/secret-learn/issues/28239
     if "estimator" not in metaestimator:
         # This test only makes sense for metaestimators which have a
         # sub-estimator, e.g. MyMetaEstimator(estimator=MySubEstimator())

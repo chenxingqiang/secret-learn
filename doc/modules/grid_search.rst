@@ -9,7 +9,7 @@ Tuning the hyper-parameters of an estimator
 ===========================================
 
 Hyper-parameters are parameters that are not directly learnt within estimators.
-In jax-sklearn they are passed as arguments to the constructor of the
+In secret-learn they are passed as arguments to the constructor of the
 estimator classes. Typical examples include ``C``, ``kernel`` and ``gamma``
 for Support Vector Classifier, ``alpha`` for Lasso, etc.
 
@@ -31,7 +31,7 @@ A search consists of:
 - a :ref:`score function <gridsearch_scoring>`.
 
 Two generic approaches to parameter search are provided in
-jax-sklearn: for given values, :class:`GridSearchCV` exhaustively considers
+secret-learn: for given values, :class:`GridSearchCV` exhaustively considers
 all parameter combinations, while :class:`RandomizedSearchCV` can sample a
 given number of candidates from a parameter space with a specified
 distribution. Both these tools have successive halving counterparts
@@ -146,7 +146,7 @@ consecutive calls.
     The distributions in ``scipy.stats`` prior to version scipy 0.16
     do not allow specifying a random state. Instead, they use the global
     numpy random state, that can be seeded via ``np.random.seed`` or set
-    using ``np.random.set_state``. However, beginning jax-sklearn 0.18,
+    using ``np.random.set_state``. However, beginning secret-learn 0.18,
     the :mod:`xlearn.model_selection` module sets the random state provided
     by the user if scipy >= 0.16 is also available.
 

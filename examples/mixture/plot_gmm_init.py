@@ -33,7 +33,7 @@ more iterations to converge. Here *k-means++* does a good job of both low
 time to initialize and low number of GaussianMixture iterations to converge.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from timeit import default_timer as timer

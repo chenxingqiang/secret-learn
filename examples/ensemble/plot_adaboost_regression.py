@@ -23,7 +23,7 @@ as :class:`~ensemble.HistGradientBoostingRegressor`.
 # ------------------
 # First, we prepare dummy data with a sinusoidal relationship and some gaussian noise.
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np

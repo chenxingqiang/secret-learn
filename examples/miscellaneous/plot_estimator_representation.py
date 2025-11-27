@@ -7,7 +7,7 @@ This example illustrates different ways estimators and pipelines can be
 displayed.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from xlearn.compose import make_column_transformer

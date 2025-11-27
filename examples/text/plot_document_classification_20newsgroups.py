@@ -3,7 +3,7 @@
 Classification of text documents using sparse features
 ======================================================
 
-This is an example showing how jax-sklearn can be used to classify documents by
+This is an example showing how secret-learn can be used to classify documents by
 topics using a `Bag of Words approach
 <https://en.wikipedia.org/wiki/Bag-of-words_model>`_. This example uses a
 Tf-idf-weighted document-term sparse matrix to encode the features and
@@ -14,7 +14,7 @@ script :ref:`sphx_glr_auto_examples_text_plot_document_clustering.py`.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 
@@ -262,7 +262,7 @@ for doc in data_train.data:
 # Model with metadata stripping
 # -----------------------------
 #
-# The `remove` option of the 20 newsgroups dataset loader in jax-sklearn allows
+# The `remove` option of the 20 newsgroups dataset loader in secret-learn allows
 # to heuristically attempt to filter out some of this unwanted metadata that
 # makes the classification problem artificially easier. Be aware that such
 # filtering of the text contents is far from perfect.

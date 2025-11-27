@@ -2,7 +2,7 @@
 Metadata Routing Utility Tests
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import re
@@ -244,7 +244,7 @@ def test_default_requests():
 def test_default_request_override():
     """Test that default requests are correctly overridden regardless of the ASCII order
     of the class names, hence testing small and capital letter class name starts.
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28430
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/28430
     """
 
     class Base(BaseEstimator):
@@ -1004,7 +1004,7 @@ def test_composite_methods():
     # Test the behavior and the values of methods (composite methods) whose
     # request values are a union of requests by other methods (simple methods).
     # fit_transform and fit_predict are the only composite methods we have in
-    # jax-sklearn.
+    # secret-learn.
     class SimpleEstimator(BaseEstimator):
         # This class should have every set_{method}_request
         def fit(self, X, y, foo=None, bar=None):
@@ -1071,7 +1071,7 @@ def test_no_metadata_always_works():
     """Test that when no metadata is passed, having a meta-estimator which does
     not yet support metadata routing works.
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28246
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/28246
     """
 
     class Estimator(_RoutingNotSupportedMixin, BaseEstimator):
@@ -1130,7 +1130,7 @@ def test_unbound_set_methods_work():
     Also test that passing positional arguments to the set_{method}_request fails
     with the right TypeError message.
 
-    Non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/28632
+    Non-regression test for https://github.com/chenxingqiang/secret-learn/issues/28632
     """
 
     class A(BaseEstimator):

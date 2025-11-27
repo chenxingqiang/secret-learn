@@ -5,7 +5,7 @@ Real world datasets
 
 .. currentmodule:: xlearn.datasets
 
-jax-sklearn provides tools to load larger datasets, downloading them if
+secret-learn provides tools to load larger datasets, downloading them if
 necessary.
 
 They can be loaded using the following functions:

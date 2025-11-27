@@ -17,14 +17,14 @@ def test_openmp_parallelism_enabled():
     base_url = "dev" if __version__.endswith(".dev0") else "stable"
     err_msg = textwrap.dedent(
         """
-        This test fails because jax-sklearn has been built without OpenMP.
+        This test fails because secret-learn has been built without OpenMP.
         This is not recommended since some estimators will run in sequential
         mode instead of leveraging thread-based parallelism.
 
-        You can find instructions to build jax-sklearn with OpenMP at this
+        You can find instructions to build secret-learn with OpenMP at this
         address:
 
-            https://jax-sklearn.org/{}/developers/advanced_installation.html
+            https://secret-learn.org/{}/developers/advanced_installation.html
 
         You can skip this test by setting the environment variable
         XLEARN_SKIP_OPENMP_TEST to any value.

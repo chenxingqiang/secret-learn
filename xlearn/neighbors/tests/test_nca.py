@@ -2,7 +2,7 @@
 Testing for Neighborhood Component Analysis module (xlearn.neighbors.nca)
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import re
@@ -539,7 +539,7 @@ def test_nca_feature_names_out(n_components):
     """Check `get_feature_names_out` for `NeighborhoodComponentsAnalysis`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28293
+    https://github.com/chenxingqiang/secret-learn/issues/28293
     """
 
     X = iris_data

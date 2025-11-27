@@ -9,7 +9,7 @@ level in the data. Moreover, we show the importance of kernel hyperparameters
 initialization.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

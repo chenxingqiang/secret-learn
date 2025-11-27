@@ -34,7 +34,7 @@ This is not easily possible for the case of the kernelized SVM.
 # ---------------------------------------------------
 
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Standard scientific Python imports

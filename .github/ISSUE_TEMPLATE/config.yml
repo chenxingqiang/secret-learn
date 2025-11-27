@@ -1,17 +1,17 @@
 blank_issues_enabled: false
 contact_links:
   - name: Discussions
-    url: https://github.com/chenxingqiang/jax-sklearn/discussions/new
-    about: Ask questions and discuss with other jax-sklearn community members
+    url: https://github.com/chenxingqiang/secret-learn/discussions/new
+    about: Ask questions and discuss with other secret-learn community members
   - name: Stack Overflow
-    url: https://stackoverflow.com/questions/tagged/jax-sklearn
+    url: https://stackoverflow.com/questions/tagged/secret-learn
     about: Please ask and answer usage questions on Stack Overflow
   - name: Mailing list
-    url: https://mail.python.org/mailman/listinfo/jax-sklearn
+    url: https://mail.python.org/mailman/listinfo/secret-learn
     about: General discussions and announcements on the mailing list
   - name: Discord server
     url: https://discord.gg/h9qyrK8Jc8
     about: Developers and users can be found on the Discord server
   - name: Blank issue
-    url: https://github.com/chenxingqiang/jax-sklearn/issues/new?template=BLANK_ISSUE
+    url: https://github.com/chenxingqiang/secret-learn/issues/new?template=BLANK_ISSUE
     about: Please note that GitHub Discussions should be used in most cases instead

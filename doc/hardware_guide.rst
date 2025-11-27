@@ -33,7 +33,7 @@ JAX-sklearn supports multiple hardware backends with automatic selection:
 .. code-block:: bash
 
    pip install jax jaxlib  # CPU version
-   pip install jax-sklearn
+   pip install secret-learn
 
 **Optimization**
 
@@ -64,7 +64,7 @@ JAX-sklearn supports multiple hardware backends with automatic selection:
 
    # Install CUDA-enabled JAX
    pip install jax[gpu]
-   pip install jax-sklearn
+   pip install secret-learn
    
    # Verify GPU detection
    python -c "import jax; print('GPUs:', jax.devices('gpu'))"
@@ -143,7 +143,7 @@ JAX-sklearn supports multiple hardware backends with automatic selection:
 
    # Install TPU-enabled JAX
    pip install jax[tpu] -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
-   pip install jax-sklearn
+   pip install secret-learn
 
 **TPU Configuration**
 
@@ -179,14 +179,14 @@ JAX-sklearn supports multiple hardware backends with automatic selection:
 .. code-block:: bash
 
    # Create TPU VM
-   gcloud compute tpus tpu-vm create jax-sklearn-tpu \
+   gcloud compute tpus tpu-vm create secret-learn-tpu \
      --zone=us-central1-a \
      --accelerator-type=v3-8 \
      --version=tpu-vm-base
    
    # SSH and install
-   gcloud compute tpus tpu-vm ssh jax-sklearn-tpu --zone=us-central1-a
-   pip install jax[tpu] jax-sklearn
+   gcloud compute tpus tpu-vm ssh secret-learn-tpu --zone=us-central1-a
+   pip install jax[tpu] secret-learn
 
 🍎 Apple Silicon Setup (M1/M2/M3)
 ---------------------------------
@@ -203,7 +203,7 @@ JAX-sklearn supports multiple hardware backends with automatic selection:
    # Install Metal-enabled JAX (experimental)
    pip install jax-metal
    pip install jax jaxlib
-   pip install jax-sklearn
+   pip install secret-learn
 
 **Apple Silicon Configuration**
 

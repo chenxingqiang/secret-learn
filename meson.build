@@ -1,5 +1,5 @@
 project(
-  'jax-sklearn',
+  'secret-learn',
   'c', 'cpp', 'cython',
   version: run_command('xlearn/_build_utils/version.py', check: true).stdout().strip(),
   license: 'BSD-3',
@@ -17,11 +17,11 @@ cython = meson.get_compiler('cython')
 # Check compiler is recent enough (see "Toolchain Roadmap" for details)
 if cc.get_id() == 'gcc'
   if not cc.version().version_compare('>=8.0')
-    error('jax-sklearn requires GCC >= 8.0')
+    error('secret-learn requires GCC >= 8.0')
   endif
 elif cc.get_id() == 'msvc'
   if not cc.version().version_compare('>=19.20')
-    error('jax-sklearn requires at least vc142 (default with Visual Studio 2019) ' + \
+    error('secret-learn requires at least vc142 (default with Visual Studio 2019) ' + \
           'when building with MSVC')
   endif
 endif
@@ -35,7 +35,7 @@ _global_c_args = cc.get_supported_arguments(
 add_project_arguments(_global_c_args, language : 'c')
 
 # We need -lm for all C code (assuming it uses math functions, which is safe to
-# assume for jax-sklearn). For C++ it isn't needed, because libstdc++/libc++ is
+# assume for secret-learn). For C++ it isn't needed, because libstdc++/libc++ is
 # guaranteed to depend on it.
 m_dep = cc.find_library('m', required : false)
 if m_dep.found()

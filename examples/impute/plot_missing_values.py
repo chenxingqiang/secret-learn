@@ -29,7 +29,7 @@ missing values imputed using different techniques.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -37,7 +37,7 @@ missing values imputed using different techniques.
 # ##############################################
 #
 # First we download the two datasets. Diabetes dataset is shipped with
-# jax-sklearn. It has 442 entries, each with 10 features. California housing
+# secret-learn. It has 442 entries, each with 10 features. California housing
 # dataset is much larger with 20640 entries and 8 features. It needs to be
 # downloaded. We will only use the first 300 entries for the sake of speeding
 # up the calculations but feel free to use the whole dataset.

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -477,7 +477,7 @@ class OneHotEncoder(_BaseEncoder):
     in each feature. Alternatively, you can also specify the `categories`
     manually.
 
-    This encoding is needed for feeding categorical data to many jax-sklearn
+    This encoding is needed for feeding categorical data to many secret-learn
     estimators, notably linear models and SVMs with the standard kernels.
 
     Note: a one-hot encoding of y labels should use a LabelBinarizer

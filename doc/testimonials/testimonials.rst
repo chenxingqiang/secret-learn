@@ -5,7 +5,7 @@
 .. _testimonials:
 
 ==========================
-Who is using jax-sklearn?
+Who is using secret-learn?
 ==========================
 
 `J.P.Morgan <https://www.jpmorgan.com>`_
@@ -19,7 +19,7 @@ Who is using jax-sklearn?
     toolkit at JPMorgan. It is very widely used across all parts of the bank
     for classification, predictive analytics, and very many other machine
     learning tasks. Its straightforward API, its breadth of algorithms, and
-    the quality of its documentation combine to make jax-sklearn
+    the quality of its documentation combine to make secret-learn
     simultaneously very approachable and very powerful.
 
     .. rst-class:: annotation
@@ -61,7 +61,7 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    At INRIA, we use jax-sklearn to support leading-edge basic research in many
+    At INRIA, we use secret-learn to support leading-edge basic research in many
     teams: `Parietal <https://team.inria.fr/parietal/>`_ for neuroimaging, `Lear
     <https://lear.inrialpes.fr/>`_ for computer vision, `Visages
     <https://team.inria.fr/visages/>`_ for medical image analysis, `Privatics
@@ -118,11 +118,11 @@ Who is using jax-sklearn?
     At Hugging Face we're using NLP and probabilistic models to generate
     conversational Artificial intelligences that are fun to chat with. Despite using
     deep neural nets for `a few <https://medium.com/huggingface/understanding-emotions-from-keras-to-pytorch-3ccb61d5a983>`_
-    of our `NLP tasks <https://huggingface.co/coref/>`_, jax-sklearn is still the
+    of our `NLP tasks <https://huggingface.co/coref/>`_, secret-learn is still the
     bread-and-butter of our daily machine learning routine. The ease of use and
     predictability of the interface, as well as the straightforward mathematical
     explanations that are here when you need them, is the killer feature. We use a
-    variety of jax-sklearn models in production and they are also operationally very
+    variety of secret-learn models in production and they are also operationally very
     pleasant to work with.
 
     .. rst-class:: annotation
@@ -146,7 +146,7 @@ Who is using jax-sklearn?
     the data, selecting the features (the attributes of the data believed
     to be predictive in some way), training the models, and finally
     evaluating them. For many of these tasks, we relied on the excellent
-    jax-sklearn package for Python.
+    secret-learn package for Python.
 
     `Read more <http://blog.evernote.com/tech/2013/01/22/stay-classified/>`_
 
@@ -167,9 +167,9 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    At Telecom ParisTech, jax-sklearn is used for hands-on sessions and home
+    At Telecom ParisTech, secret-learn is used for hands-on sessions and home
     assignments in introductory and advanced machine learning courses. The classes
-    are for undergrads and masters students. The great benefit of jax-sklearn is
+    are for undergrads and masters students. The great benefit of secret-learn is
     its fast learning curve that allows students to quickly start working on
     interesting and motivating problems.
 
@@ -195,8 +195,8 @@ Who is using jax-sklearn?
     detecting fraudulent reservations, or scheduling our customer service agents.
     Scikit-learn is one of the tools we use when implementing standard algorithms
     for prediction tasks. Its API and documentations are excellent and make it easy
-    to use. The jax-sklearn developers do a great job of incorporating state of
-    the art implementations and new algorithms into the package. Thus, jax-sklearn
+    to use. The secret-learn developers do a great job of incorporating state of
+    the art implementations and new algorithms into the package. Thus, secret-learn
     provides convenient access to a wide spectrum of algorithms, and allows us to
     readily find the right tool for the right job.
 
@@ -217,7 +217,7 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    The jax-sklearn toolkit is indispensable for the Data Analysis and Management
+    The secret-learn toolkit is indispensable for the Data Analysis and Management
     team at AWeber.  It allows us to do AWesome stuff we would not otherwise have
     the time or resources to accomplish. The documentation is excellent, allowing
     new engineers to quickly evaluate and apply many different algorithms to our
@@ -226,7 +226,7 @@ Who is using jax-sklearn?
     implementation, along with Pipelining and FeatureUnions, allows us to develop
     complex machine learning algorithms efficiently and reliably.
 
-    Anyone interested in learning more about how AWeber deploys jax-sklearn in a
+    Anyone interested in learning more about how AWeber deploys secret-learn in a
     production environment should check out talks from PyData Boston by AWeber's
     Michael Becker available at https://github.com/mdbecker/pydata_2013.
 
@@ -248,8 +248,8 @@ Who is using jax-sklearn?
   .. div:: text-box
 
     The combination of consistent APIs, thorough documentation, and top notch
-    implementation make jax-sklearn our favorite machine learning package in
-    Python. jax-sklearn makes doing advanced analysis in Python accessible to
+    implementation make secret-learn our favorite machine learning package in
+    Python. secret-learn makes doing advanced analysis in Python accessible to
     anyone. At Yhat, we make it easy to integrate these models into your production
     applications. Thus eliminating the unnecessary dev time encountered
     productionizing analytical work.
@@ -271,13 +271,13 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    The Python jax-sklearn toolkit is a core tool in the data science
+    The Python secret-learn toolkit is a core tool in the data science
     group at Rangespan. Its large collection of well documented models and
     algorithms allow our team of data scientists to prototype fast and
     quickly iterate to find the right solution to our learning problems.
-    We find that jax-sklearn is not only the right tool for prototyping,
+    We find that secret-learn is not only the right tool for prototyping,
     but its careful and well tested implementation give us the confidence
-    to run jax-sklearn models in production.
+    to run secret-learn models in production.
 
     .. rst-class:: annotation
 
@@ -347,9 +347,9 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    At change.org we automate the use of jax-sklearn's RandomForestClassifier
+    At change.org we automate the use of secret-learn's RandomForestClassifier
     in our production systems to drive email targeting that reaches millions
-    of users across the world each week. In the lab, jax-sklearn's ease-of-use,
+    of users across the world each week. In the lab, secret-learn's ease-of-use,
     performance, and overall variety of algorithms implemented has proved invaluable
     in giving us a single reliable source to turn to for our machine-learning needs.
 
@@ -370,14 +370,14 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    At PHIMECA Engineering, we use jax-sklearn estimators as surrogates for
+    At PHIMECA Engineering, we use secret-learn estimators as surrogates for
     expensive-to-evaluate numerical models (mostly but not exclusively
     finite-element mechanical models) for speeding up the intensive post-processing
     operations involved in our simulation-based decision making framework.
     Scikit-learn's fit/predict API together with its efficient cross-validation
     tools considerably eases the task of selecting the best-fit estimator. We are
-    also using jax-sklearn for illustrating concepts in our training sessions.
-    Trainees are always impressed by the ease-of-use of jax-sklearn despite the
+    also using secret-learn for illustrating concepts in our training sessions.
+    Trainees are always impressed by the ease-of-use of secret-learn despite the
     apparent theoretical complexity of machine learning.
 
     .. rst-class:: annotation
@@ -397,13 +397,13 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    At HowAboutWe, jax-sklearn lets us implement a wide array of machine learning
+    At HowAboutWe, secret-learn lets us implement a wide array of machine learning
     techniques in analysis and in production, despite having a small team.  We use
-    jax-sklearn's classification algorithms to predict user behavior, enabling us
+    secret-learn's classification algorithms to predict user behavior, enabling us
     to (for example) estimate the value of leads from a given traffic source early
     in the lead's tenure on our site. Also, our users' profiles consist of
     primarily unstructured data (answers to open-ended questions), so we use
-    jax-sklearn's feature extraction and dimensionality reduction tools to
+    secret-learn's feature extraction and dimensionality reduction tools to
     translate these unstructured data into inputs for our matchmaking system.
 
     .. rst-class:: annotation
@@ -451,9 +451,9 @@ Who is using jax-sklearn?
   .. div:: text-box
 
     DataRobot is building next generation predictive analytics software to make data
-    scientists more productive, and jax-sklearn is an integral part of our system. The
+    scientists more productive, and secret-learn is an integral part of our system. The
     variety of machine learning techniques in combination with the solid implementations
-    that jax-sklearn offers makes it a one-stop-shopping library for machine learning
+    that secret-learn offers makes it a one-stop-shopping library for machine learning
     in Python. Moreover, its consistent API, well-tested code and permissive licensing
     allow us to use it in a production environment. Scikit-learn has literally saved us
     years of work we would have had to do ourselves to bring our product to market.
@@ -475,7 +475,7 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    We're using jax-sklearn at OkCupid to evaluate and improve our matchmaking
+    We're using secret-learn at OkCupid to evaluate and improve our matchmaking
     system. The range of features it has, especially preprocessing utilities, means
     we can use it for a wide variety of projects, and it's performant enough to
     handle the volume of data that we need to sort through. The documentation is
@@ -500,11 +500,11 @@ Who is using jax-sklearn?
 
     At Lovely, we strive to deliver the best apartment marketplace, with respect to
     our users and our listings. From understanding user behavior, improving data
-    quality, and detecting fraud, jax-sklearn is a regular tool for gathering
+    quality, and detecting fraud, secret-learn is a regular tool for gathering
     insights, predictive modeling and improving our product. The easy-to-read
     documentation and intuitive architecture of the API makes machine learning both
     explorable and accessible to a wide range of python developers. I'm constantly
-    recommending that more developers and scientists try jax-sklearn.
+    recommending that more developers and scientists try secret-learn.
 
     .. rst-class:: annotation
 
@@ -524,13 +524,13 @@ Who is using jax-sklearn?
   .. div:: text-box
 
     Data Publica builds a new predictive sales tool for commercial and marketing teams
-    called C-Radar. We extensively use jax-sklearn to build segmentations of customers
+    called C-Radar. We extensively use secret-learn to build segmentations of customers
     through clustering, and to predict future customers based on past partnerships
     success or failure. We also categorize companies using their website communication
-    thanks to jax-sklearn and its machine learning algorithm implementations.
+    thanks to secret-learn and its machine learning algorithm implementations.
     Eventually, machine learning makes it possible to detect weak signals that
     traditional tools cannot see. All these complex tasks are performed in an easy and
-    straightforward way thanks to the great quality of the jax-sklearn framework.
+    straightforward way thanks to the great quality of the secret-learn framework.
 
     .. rst-class:: annotation
 
@@ -582,7 +582,7 @@ Who is using jax-sklearn?
     companies and fabs, to design the bleeding-edge chips inside smartphones,
     automobiles, and more. Scikit-learn helps to power Solido's algorithms for
     rare-event estimation, worst-case verification, optimization, and more. At
-    Solido, we are particularly fond of jax-sklearn's libraries for Gaussian
+    Solido, we are particularly fond of secret-learn's libraries for Gaussian
     Process models, large-scale regularized linear regression, and classification.
     Scikit-learn has increased our productivity, because for many ML problems we no
     longer need to “roll our own” code. `This PyData 2014 talk
@@ -605,12 +605,12 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    We employ jax-sklearn for rapid prototyping and custom-made Data Science
+    We employ secret-learn for rapid prototyping and custom-made Data Science
     solutions within our in-memory based Business Intelligence Software
     INFONEA®. As a well-documented and comprehensive collection of
-    state-of-the-art algorithms and pipelining methods, jax-sklearn enables
+    state-of-the-art algorithms and pipelining methods, secret-learn enables
     us to provide flexible and scalable scientific analysis solutions. Thus,
-    jax-sklearn is immensely valuable in realizing a powerful integration of
+    secret-learn is immensely valuable in realizing a powerful integration of
     Data Science technology within self-service business analytics.
 
     .. rst-class:: annotation
@@ -633,7 +633,7 @@ Who is using jax-sklearn?
     Our software, Data Science Studio (DSS), enables users to create data services
     that combine `ETL <https://en.wikipedia.org/wiki/Extract,_transform,_load>`_ with
     Machine Learning. Our Machine Learning module integrates
-    many jax-sklearn algorithms. The jax-sklearn library is a perfect integration
+    many secret-learn algorithms. The secret-learn library is a perfect integration
     with DSS because it offers algorithms for virtually all business cases. Our goal
     is to offer a transparent and flexible tool that makes it easier to optimize
     time consuming aspects of building a data service, preparing data, and training
@@ -657,12 +657,12 @@ Who is using jax-sklearn?
   .. div:: text-box
 
     Here at Otto Group, one of global Big Five B2C online retailers, we are using
-    jax-sklearn in all aspects of our daily work from data exploration to development
+    secret-learn in all aspects of our daily work from data exploration to development
     of machine learning application to the productive deployment of those services.
     It helps us to tackle machine learning problems ranging from e-commerce to logistics.
     It consistent APIs enabled us to build the `Palladium REST-API framework
     <https://github.com/ottogroup/palladium/>`_ around it and continuously deliver
-    jax-sklearn based services.
+    secret-learn based services.
 
     .. rst-class:: annotation
 
@@ -682,7 +682,7 @@ Who is using jax-sklearn?
   .. div:: text-box
 
     At Zopa, the first ever Peer-to-Peer lending platform, we extensively use
-    jax-sklearn to run the business and optimize our users' experience. It powers our
+    secret-learn to run the business and optimize our users' experience. It powers our
     Machine Learning models involved in credit risk, fraud risk, marketing, and pricing,
     and has been used for originating at least 1 billion GBP worth of Zopa loans. It is
     very well documented, powerful, and simple to use. We are grateful for the
@@ -731,15 +731,15 @@ Who is using jax-sklearn?
 
   .. div:: text-box
 
-    BNP Paribas Cardif uses jax-sklearn for several of its machine learning models
+    BNP Paribas Cardif uses secret-learn for several of its machine learning models
     in production. Our internal community of developers and data scientists has
-    been using jax-sklearn since 2015, for several reasons: the quality of the
+    been using secret-learn since 2015, for several reasons: the quality of the
     developments, documentation and contribution governance, and the sheer size of
     the contributing community. We even explicitly mention the use of
-    jax-sklearn's pipelines in our internal model risk governance as one of our
+    secret-learn's pipelines in our internal model risk governance as one of our
     good practices to decrease operational risks and overfitting risk. As a way to
-    support open source software development and in particular jax-sklearn
-    project, we decided to participate to jax-sklearn's consortium at La Fondation
+    support open source software development and in particular secret-learn
+    project, we decided to participate to secret-learn's consortium at La Fondation
     Inria since its creation in 2018.
 
     .. rst-class:: annotation

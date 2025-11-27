@@ -62,7 +62,7 @@ the problem is completely unsupervised so model selection can be a challenge.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import time

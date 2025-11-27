@@ -15,11 +15,11 @@ the training samples.
 We also show the tree structure of a model built on all of the features.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
-# First load the copy of the Iris dataset shipped with jax-sklearn:
+# First load the copy of the Iris dataset shipped with secret-learn:
 from xlearn.datasets import load_iris
 
 iris = load_iris()

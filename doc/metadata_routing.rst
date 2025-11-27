@@ -23,7 +23,7 @@ Metadata Routing
   anything.
 
 This guide demonstrates how :term:`metadata` can be routed and passed between objects in
-jax-sklearn. If you are developing a jax-sklearn compatible estimator or
+secret-learn. If you are developing a secret-learn compatible estimator or
 meta-estimator, you can check our related developer guide:
 :ref:`sphx_glr_auto_examples_miscellaneous_plot_metadata_routing.py`.
 
@@ -32,7 +32,7 @@ user explicitly passes it as a parameter. For instance, :class:`~cluster.KMeans`
 `sample_weight` in its `fit()` method and considers it to calculate its centroids.
 `classes` are consumed by some classifiers and `groups` are used in some splitters, but
 any data that is passed into an object's methods apart from X and y can be considered as
-metadata. Prior to jax-sklearn version 1.3, there was no single API for passing
+metadata. Prior to secret-learn version 1.3, there was no single API for passing
 metadata like that if these objects were used in conjunction with other objects, e.g. a
 scorer accepting `sample_weight` inside a :class:`~model_selection.GridSearchCV`.
 
@@ -247,7 +247,7 @@ should be passed to the estimator's scorer or not::
     requested for LogisticRegression.score, which is used within GridSearchCV.fit.
     Call `LogisticRegression.set_score_request({metadata}=True/False)` for each metadata
     you want to request/ignore. See the Metadata Routing User guide
-    <https://jax-sklearn.org/stable/metadata_routing.html> for more information.
+    <https://secret-learn.org/stable/metadata_routing.html> for more information.
 
 The issue can be fixed by explicitly setting the request value::
 

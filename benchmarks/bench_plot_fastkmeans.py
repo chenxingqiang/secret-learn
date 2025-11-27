@@ -114,7 +114,7 @@ if __name__ == "__main__":
         [max(i) for i in [t for (label, t) in results.items() if "speed" not in label]]
     )
 
-    fig = plt.figure("jax-sklearn K-Means benchmark results")
+    fig = plt.figure("secret-learn K-Means benchmark results")
     for c, (label, timings) in zip("brcy", sorted(results.items())):
         if "speed" in label:
             ax = fig.add_subplot(2, 2, 1, projection="3d")

@@ -9,10 +9,10 @@
 .. |PythonMinVersion| replace:: 3.10
 
 ==================================================
-Installing the development version of jax-sklearn
+Installing the development version of secret-learn
 ==================================================
 
-This section introduces how to install the **main branch** of jax-sklearn.
+This section introduces how to install the **main branch** of secret-learn.
 This can be done by either installing a nightly build or building from source.
 
 .. _install_nightly_builds:
@@ -20,7 +20,7 @@ This can be done by either installing a nightly build or building from source.
 Installing nightly builds
 =========================
 
-The continuous integration servers of the jax-sklearn project build, test
+The continuous integration servers of the secret-learn project build, test
 and upload wheel packages for the most recent Python version on a nightly
 basis.
 
@@ -31,15 +31,15 @@ Installing a nightly build is the quickest way to:
 
 - check whether a bug you encountered has been fixed since the last release.
 
-You can install the nightly build of jax-sklearn using the `scientific-python-nightly-wheels`
+You can install the nightly build of secret-learn using the `scientific-python-nightly-wheels`
 index from the PyPI registry of `anaconda.org`:
 
 .. prompt:: bash $
 
-  pip install --pre --extra-index https://pypi.anaconda.org/scientific-python-nightly-wheels/simple jax-sklearn
+  pip install --pre --extra-index https://pypi.anaconda.org/scientific-python-nightly-wheels/simple secret-learn
 
-Note that first uninstalling jax-sklearn might be required to be able to
-install nightly builds of jax-sklearn.
+Note that first uninstalling secret-learn might be required to be able to
+install nightly builds of secret-learn.
 
 .. _install_bleeding_edge:
 
@@ -52,13 +52,13 @@ feature, code or documentation improvement).
 .. _git_repo:
 
 #. Use `Git <https://git-scm.com/>`_ to check out the latest source from the
-   `jax-sklearn repository <https://github.com/chenxingqiang/jax-sklearn>`_ on
+   `secret-learn repository <https://github.com/chenxingqiang/secret-learn>`_ on
    Github.:
 
    .. prompt:: bash $
 
-     git clone git@github.com:jax-sklearn/jax-sklearn.git  # add --depth 1 if your connection is slow
-     cd jax-sklearn
+     git clone git@github.com:secret-learn/secret-learn.git  # add --depth 1 if your connection is slow
+     cd secret-learn
 
    If you plan on submitting a pull-request, you should clone from your fork
    instead.
@@ -68,7 +68,7 @@ feature, code or documentation improvement).
    Python and the most popular scientific libraries.
 
    If you installed Python with conda, we recommend to create a dedicated
-   `conda environment`_ with all the build dependencies of jax-sklearn
+   `conda environment`_ with all the build dependencies of secret-learn
    (namely NumPy_, SciPy_, Cython_, meson-python_ and Ninja_):
 
    .. prompt:: bash $
@@ -115,7 +115,7 @@ feature, code or documentation improvement).
         --verbose --no-build-isolation \
         --config-settings editable-verbose=true
 
-#. Check that the installed jax-sklearn has a version number ending with
+#. Check that the installed secret-learn has a version number ending with
    `.dev0`:
 
    .. prompt:: bash $
@@ -152,7 +152,7 @@ Platform-specific instructions
 ==============================
 
 Here are instructions to install a working C/C++ compiler with OpenMP support
-to build jax-sklearn Cython extensions for each supported platform.
+to build secret-learn Cython extensions for each supported platform.
 
 .. _compiler_windows:
 
@@ -168,7 +168,7 @@ screenshot:
 
 .. image:: ../images/visual-studio-build-tools-selection.png
 
-Build jax-sklearn by running the following command in your `xlearn-env` conda environment
+Build secret-learn by running the following command in your `xlearn-env` conda environment
 or virtualenv:
 
 .. prompt:: bash $
@@ -207,7 +207,7 @@ First install the macOS command line tools:
     xcode-select --install
 
 It is recommended to use a dedicated `conda environment`_ to build
-jax-sklearn from source:
+secret-learn from source:
 
 .. prompt:: bash $
 
@@ -291,7 +291,7 @@ Set the following environment variables:
     export CXXFLAGS="$CXXFLAGS -I/usr/local/opt/libomp/include"
     export LDFLAGS="$LDFLAGS -Wl,-rpath,/usr/local/opt/libomp/lib -L/usr/local/opt/libomp/lib -lomp"
 
-Finally, build jax-sklearn in verbose mode (to check for the presence of the
+Finally, build secret-learn in verbose mode (to check for the presence of the
 ``-fopenmp`` flag in the compiler commands):
 
 .. prompt:: bash $
@@ -309,8 +309,8 @@ Linux
 Linux compilers from the system
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Installing jax-sklearn from source without using conda requires you to have
-installed the jax-sklearn Python development headers and a working C/C++
+Installing secret-learn from source without using conda requires you to have
+installed the secret-learn Python development headers and a working C/C++
 compiler with OpenMP support (typically the GCC toolchain).
 
 Install build dependencies for Debian-based operating systems, e.g.

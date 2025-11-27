@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
@@ -643,7 +643,7 @@ print(pd.DataFrame(res).set_index("subset").T)
 #
 # Finally one should highlight that the Compound Poisson Gamma model that is
 # directly fit on the pure premium is operationally simpler to develop and
-# maintain as it consists of a single jax-sklearn estimator instead of a pair
+# maintain as it consists of a single secret-learn estimator instead of a pair
 # of models, each with its own set of hyperparameters.
 from xlearn.metrics import auc
 

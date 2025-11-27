@@ -14,7 +14,7 @@ candidates. Unlike Bayesian procedures, such inferences are prior-free.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

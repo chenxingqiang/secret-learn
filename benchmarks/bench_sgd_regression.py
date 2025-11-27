@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import gc
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     # Plot results
     i = 0
     m = len(list_n_features)
-    plt.figure("jax-sklearn SGD regression benchmark results", figsize=(5 * 2, 4 * m))
+    plt.figure("secret-learn SGD regression benchmark results", figsize=(5 * 2, 4 * m))
     for j in range(m):
         plt.subplot(m, 2, i + 1)
         plt.plot(list_n_samples, np.sqrt(elnet_results[:, j, 0]), label="ElasticNet")

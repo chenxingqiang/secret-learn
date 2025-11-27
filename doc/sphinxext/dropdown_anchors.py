@@ -10,7 +10,7 @@ class DropdownAnchorAdder(SphinxPostTransform):
 
     Some of the dropdowns were originally headers that had automatic anchors, so we
     need to make sure that the old anchors still work. See the original implementation
-    (in JS): https://github.com/chenxingqiang/jax-sklearn/pull/27409
+    (in JS): https://github.com/chenxingqiang/secret-learn/pull/27409
 
     The anchor links are inserted at the end of the node with class "sd-summary-text"
     which includes only the title text part of the dropdown (no icon, markers, etc).

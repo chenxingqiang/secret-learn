@@ -21,7 +21,7 @@ for years after 2001.
 
 print(__doc__)
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

@@ -11,7 +11,7 @@ to call the method `predict`. In addition, we plot the hyperplanes that correspo
 the line when the probability estimate for a class is of 0.5.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

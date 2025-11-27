@@ -1,1 +1,1 @@
-"""Benchmark suite for jax-sklearn using ASV"""
+"""Benchmark suite for secret-learn using ASV"""

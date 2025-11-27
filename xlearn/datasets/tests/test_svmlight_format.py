@@ -294,7 +294,7 @@ def test_dump(csr_container):
                     comment = f.readline()
                     comment = str(comment, "utf-8")
 
-                    assert "jax-sklearn %s" % xlearn.__version__ in comment
+                    assert "secret-learn %s" % xlearn.__version__ in comment
 
                     comment = f.readline()
                     comment = str(comment, "utf-8")
@@ -600,7 +600,7 @@ def test_dump_read_only(tmp_path):
     """Ensure that there is no ValueError when dumping a read-only `X`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28026
+    https://github.com/chenxingqiang/secret-learn/issues/28026
     """
     rng = np.random.RandomState(42)
     X = rng.randn(5, 2)

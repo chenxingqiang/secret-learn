@@ -2,7 +2,7 @@
 This module contains the TreePredictor class which is used for prediction.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -141,6 +141,6 @@ class TreePredictor:
         # estimator attributes. For this particular estimator, this would
         # mean replacing the intp field of PREDICTOR_RECORD_DTYPE by an int32
         # field. Ideally this should be done consistently throughout
-        # jax-sklearn along with a common test.
+        # secret-learn along with a common test.
         if self.nodes.dtype != PREDICTOR_RECORD_DTYPE:
             self.nodes = self.nodes.astype(PREDICTOR_RECORD_DTYPE, casting="same_kind")

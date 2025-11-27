@@ -15,7 +15,7 @@ from xlearn.svm import SVC
 from xlearn.tests.test_pipeline import SimpleEstimator
 from xlearn.tree import DecisionTreeClassifier
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # load the iris dataset and randomly permute it
@@ -286,7 +286,7 @@ def test_estimator_meta_estimator():
     # `predict_proba` will work even if it does not expose this method before being
     # fitted.
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/19119
+    # https://github.com/chenxingqiang/secret-learn/issues/19119
 
     estimator = StackingClassifier(
         estimators=[
@@ -323,7 +323,7 @@ def test_self_training_estimator_attribute_error():
     `fit`, or `decision_function`, which is decorated with `available_if`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28108
+    https://github.com/chenxingqiang/secret-learn/issues/28108
     """
     # `SVC` with `probability=False` does not implement 'predict_proba' that
     # is required internally in `fit` of `SelfTrainingClassifier`. We expect

@@ -29,7 +29,7 @@ stopping is a valuable tool to strike a balance between model performance and
 efficiency in gradient boosting.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

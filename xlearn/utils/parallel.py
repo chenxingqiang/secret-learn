@@ -1,8 +1,8 @@
-"""Customizations of :mod:`joblib` and :mod:`threadpoolctl` tools for jax-sklearn
+"""Customizations of :mod:`joblib` and :mod:`threadpoolctl` tools for secret-learn
 usage.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import functools
@@ -30,7 +30,7 @@ def _with_config_and_warning_filters(delayed_func, config, warning_filters):
             (
                 "`xlearn.utils.parallel.Parallel` needs to be used in "
                 "conjunction with `xlearn.utils.parallel.delayed` instead of "
-                "`joblib.delayed` to correctly propagate the jax-sklearn "
+                "`joblib.delayed` to correctly propagate the secret-learn "
                 "configuration to the joblib workers."
             ),
             UserWarning,
@@ -39,10 +39,10 @@ def _with_config_and_warning_filters(delayed_func, config, warning_filters):
 
 
 class Parallel(joblib.Parallel):
-    """Tweak of :class:`joblib.Parallel` that propagates the jax-sklearn configuration.
+    """Tweak of :class:`joblib.Parallel` that propagates the secret-learn configuration.
 
     This subclass of :class:`joblib.Parallel` ensures that the active configuration
-    (thread-local) of jax-sklearn is propagated to the parallel workers for the
+    (thread-local) of secret-learn is propagated to the parallel workers for the
     duration of the execution of the parallel tasks.
 
     The API does not change and you can refer to :class:`joblib.Parallel`
@@ -65,7 +65,7 @@ class Parallel(joblib.Parallel):
         results : list
             List of results of the tasks.
         """
-        # Capture the thread-local jax-sklearn configuration at the time
+        # Capture the thread-local secret-learn configuration at the time
         # Parallel.__call__ is issued since the tasks can be dispatched
         # in a different thread depending on the backend and on the value of
         # pre_dispatch and n_jobs.
@@ -95,7 +95,7 @@ def delayed(function):
 
     .. versionchanged:: 1.3
        `delayed` was moved from `xlearn.utils.fixes` to `xlearn.utils.parallel`
-       in jax-sklearn 1.3.
+       in secret-learn 1.3.
 
     Parameters
     ----------
@@ -136,7 +136,7 @@ class _FuncWrapper:
                 (
                     "`xlearn.utils.parallel.delayed` should be used with"
                     " `xlearn.utils.parallel.Parallel` to make it possible to"
-                    " propagate the jax-sklearn configuration of the current thread to"
+                    " propagate the secret-learn configuration of the current thread to"
                     " the joblib workers."
                 ),
                 UserWarning,

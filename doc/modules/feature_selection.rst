@@ -333,7 +333,7 @@ Feature selection as part of a pipeline
 =======================================
 
 Feature selection is usually used as a pre-processing step before doing
-the actual learning. The recommended way to do this in jax-sklearn is
+the actual learning. The recommended way to do this in secret-learn is
 to use a :class:`~pipeline.Pipeline`::
 
   clf = Pipeline([

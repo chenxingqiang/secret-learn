@@ -1,6 +1,6 @@
 """Static type stubs for `_compat.py`."""
 
-# https://github.com/chenxingqiang/jax-sklearn/pull/27910#issuecomment-2568023972
+# https://github.com/chenxingqiang/secret-learn/pull/27910#issuecomment-2568023972
 from __future__ import annotations
 
 from types import ModuleType

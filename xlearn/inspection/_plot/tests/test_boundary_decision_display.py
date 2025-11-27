@@ -471,8 +471,8 @@ def test_dataframe_support(pyplot, constructor_name):
     raise warnings.
 
     Non-regression test for:
-    * https://github.com/chenxingqiang/jax-sklearn/issues/23311
-    * https://github.com/chenxingqiang/jax-sklearn/issues/28717
+    * https://github.com/chenxingqiang/secret-learn/issues/23311
+    * https://github.com/chenxingqiang/secret-learn/issues/28717
     """
     df = _convert_container(
         X, constructor_name=constructor_name, columns_name=["col_x", "col_y"]
@@ -698,7 +698,7 @@ def test_subclass_named_constructors_return_type_is_subclass(pyplot):
     """Check that named constructors return the correct type when subclassed.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/27675
+    https://github.com/chenxingqiang/secret-learn/pull/27675
     """
     clf = LogisticRegression().fit(X, y)
 

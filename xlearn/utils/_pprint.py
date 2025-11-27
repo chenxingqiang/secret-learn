@@ -1,7 +1,7 @@
 """This module contains the _EstimatorPrettyPrinter class used in
 BaseEstimator.__repr__ for pretty-printing estimators"""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
@@ -9,7 +9,7 @@ BaseEstimator.__repr__ for pretty-printing estimators"""
 # All Rights Reserved
 
 # Authors: Fred L. Drake, Jr. <fdrake@acm.org> (built-in CPython pprint module)
-#          Nicolas Hug (jax-sklearn specific changes)
+#          Nicolas Hug (secret-learn specific changes)
 
 # License: PSF License version 2 (see below)
 

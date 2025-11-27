@@ -3,4 +3,4 @@
 Miscellaneous
 -------------
 
-Miscellaneous and introductory examples for jax-sklearn.
+Miscellaneous and introductory examples for secret-learn.

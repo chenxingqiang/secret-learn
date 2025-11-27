@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -236,7 +236,7 @@ def test_bad_reachability():
 def test_nowarn_if_metric_bool_data_bool():
     # make sure no warning is raised if metric and data are both boolean
     # non-regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/18996
+    # https://github.com/chenxingqiang/secret-learn/issues/18996
 
     pairwise_metric = "rogerstanimoto"
     X = np.random.randint(2, size=(5, 2), dtype=bool)
@@ -251,7 +251,7 @@ def test_warn_if_metric_bool_data_no_bool():
     # make sure a *single* conversion warning is raised if metric is boolean
     # but data isn't
     # non-regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/18996
+    # https://github.com/chenxingqiang/secret-learn/issues/18996
 
     pairwise_metric = "rogerstanimoto"
     X = np.random.randint(2, size=(5, 2), dtype=np.int32)
@@ -830,7 +830,7 @@ def test_optics_input_not_modified_precomputed_sparse_nodiag(
 ):
     """Check that we don't modify in-place the pre-computed sparse matrix.
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27508
+    https://github.com/chenxingqiang/secret-learn/issues/27508
     """
     X = np.random.RandomState(global_random_seed).rand(6, 6)
     # Add zeros on the diagonal that will be implicit when creating
@@ -856,7 +856,7 @@ def test_optics_predecessor_correction_ordering():
     This non-regression test check that reordering the data does not change the results.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/26324
+    https://github.com/chenxingqiang/secret-learn/issues/26324
     """
     X_1 = np.array([1, 2, 3, 1, 8, 8, 7, 100]).reshape(-1, 1)
     reorder = [0, 1, 2, 4, 5, 6, 7, 3]

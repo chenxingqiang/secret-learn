@@ -3,7 +3,7 @@
 Bug triaging and issue curation
 ===============================
 
-The `issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_
+The `issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_
 is important to the communication in the project: it helps
 developers identify major projects to work on, as well as to discuss
 priorities. For this reason, it is important to curate it, adding labels
@@ -58,7 +58,7 @@ can do the following important tasks:
 
 - Update :ref:`labels for issues and PRs <issue_tracker_tags>`: see the list of
   the `available github labels
-  <https://github.com/chenxingqiang/jax-sklearn/labels>`_.
+  <https://github.com/chenxingqiang/secret-learn/labels>`_.
 
 - :ref:`Determine if a PR must be relabeled as stalled <stalled_pull_request>`
   or needs help (this is typically very important in the context
@@ -102,7 +102,7 @@ The following workflow [1]_ is a good way to approach issue triaging:
 #. Thank the reporter for opening an issue
 
    The issue tracker is many people's first interaction with the
-   jax-sklearn project itself, beyond just using the library. As such,
+   secret-learn project itself, beyond just using the library. As such,
    we want it to be a welcoming, pleasant experience.
 
 #. Is this a usage question? If so close it with a polite message
@@ -110,7 +110,7 @@ The following workflow [1]_ is a good way to approach issue triaging:
 
 #. Is the necessary information provided?
 
-   If crucial information (like the version of jax-sklearn used), is
+   If crucial information (like the version of secret-learn used), is
    missing feel free to ask for that and label the issue with "Needs
    info".
 

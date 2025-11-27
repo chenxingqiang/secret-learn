@@ -1,6 +1,6 @@
 """Test the stacking classifier and regressor."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import re
@@ -875,7 +875,7 @@ def test_stacking_final_estimator_attribute_error():
     `available_if`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28108
+    https://github.com/chenxingqiang/secret-learn/issues/28108
     """
     X, y = make_classification(random_state=42)
 

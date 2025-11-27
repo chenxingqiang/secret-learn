@@ -18,7 +18,7 @@ and displayed using :class:`~xlearn.metrics.RocCurveDisplay`.
 2. The performance is assessed in terms of the ROC-AUC.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -100,7 +100,7 @@ def fit_predict(estimator, X):
 # On the rest of the example we process one dataset per section. After loading
 # the data, the targets are modified to consist of two classes: 0 representing
 # inliers and 1 representing outliers. Due to computational constraints of the
-# jax-sklearn documentation, the sample size of some datasets is reduced using
+# secret-learn documentation, the sample size of some datasets is reduced using
 # a stratified :class:`~xlearn.model_selection.train_test_split`.
 #
 # Furthermore, we set `n_neighbors` to match the expected number of anomalies

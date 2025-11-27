@@ -578,7 +578,7 @@ def test_cv_results(Est):
     sh.fit(X, y)
 
     # non-regression check for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/19203
+    # https://github.com/chenxingqiang/secret-learn/issues/19203
     assert isinstance(sh.cv_results_["iter"], np.ndarray)
     assert isinstance(sh.cv_results_["n_resources"], np.ndarray)
 

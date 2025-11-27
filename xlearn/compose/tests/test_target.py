@@ -130,7 +130,7 @@ def test_transform_target_regressor_functions_multioutput():
     "X,y", [friedman, (friedman[0], np.vstack((friedman[1], friedman[1] ** 2 + 1)).T)]
 )
 def test_transform_target_regressor_1d_transformer(X, y):
-    # All transformer in jax-sklearn expect 2D data. FunctionTransformer with
+    # All transformer in secret-learn expect 2D data. FunctionTransformer with
     # validate=False lift this constraint without checking that the input is a
     # 2D vector. We check the consistency of the data shape using a 1D and 2D y
     # array.
@@ -222,7 +222,7 @@ def test_transform_target_regressor_2d_transformer_multioutput():
 
 def test_transform_target_regressor_3d_target():
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/18866
+    # https://github.com/chenxingqiang/secret-learn/issues/18866
     # Check with a 3D target with a transformer that reshapes the target
     X = friedman[0]
     y = np.tile(friedman[1].reshape(-1, 1, 1), [1, 3, 2])

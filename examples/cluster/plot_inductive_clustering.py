@@ -20,7 +20,7 @@ extends clustering by inducing a classifier from the cluster labels.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

@@ -127,7 +127,7 @@ def test_dbscan_input_not_modified_precomputed_sparse_nodiag(csr_container):
     """Check that we don't modify in-place the pre-computed sparse matrix.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27508
+    https://github.com/chenxingqiang/secret-learn/issues/27508
     """
     X = np.random.RandomState(0).rand(10, 10)
     # Add zeros on the diagonal that will be implicit when creating
@@ -404,7 +404,7 @@ def test_dbscan_core_samples_toy(algorithm):
 
 
 def test_dbscan_precomputed_metric_with_degenerate_input_arrays():
-    # see https://github.com/chenxingqiang/jax-sklearn/issues/4641 for
+    # see https://github.com/chenxingqiang/secret-learn/issues/4641 for
     # more details
     X = np.eye(10)
     labels = DBSCAN(eps=0.5, metric="precomputed").fit(X).labels_

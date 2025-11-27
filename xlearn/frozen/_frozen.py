@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from copy import deepcopy
@@ -43,7 +43,7 @@ class FrozenEstimator(BaseEstimator):
 
     See Also
     --------
-    None: No similar entry in the jax-sklearn documentation.
+    None: No similar entry in the secret-learn documentation.
 
     Examples
     --------

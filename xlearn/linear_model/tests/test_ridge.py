@@ -2260,7 +2260,7 @@ def test_ridge_cv_results_predictions(with_sample_weight, fit_intercept, n_targe
     equivalent to a naive LOO-CV grid search with a `Ridge` estimator.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/13998
+    https://github.com/chenxingqiang/secret-learn/issues/13998
     """
     X, y = make_regression(
         n_samples=100, n_features=10, n_targets=n_targets, random_state=0

@@ -427,8 +427,8 @@ ColumnTransformer for heterogeneous data
 Many datasets contain features of different types, say text, floats, and dates,
 where each type of feature requires separate preprocessing or feature
 extraction steps.  Often it is easiest to preprocess data before applying
-jax-sklearn methods, for example using `pandas <https://pandas.pydata.org/>`__.
-Processing your data before passing it to jax-sklearn might be problematic for
+secret-learn methods, for example using `pandas <https://pandas.pydata.org/>`__.
+Processing your data before passing it to secret-learn might be problematic for
 one of the following reasons:
 
 1. Incorporating statistics from test data into the preprocessors makes

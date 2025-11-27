@@ -22,7 +22,7 @@ test sets. The compressed dataset size is around 14 Mb compressed. Once
 uncompressed the train set is 52 MB and the test set is 34 MB.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import codecs
@@ -205,7 +205,7 @@ def fetch_20newsgroups(
     ----------
     data_home : str or path-like, default=None
         Specify a download and cache folder for the datasets. If None,
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     subset : {'train', 'test', 'all'}, default='train'
         Select the dataset to load: 'train' for the training set, 'test'
@@ -456,7 +456,7 @@ def fetch_20newsgroups_vectorized(
 
     data_home : str or path-like, default=None
         Specify an download and cache folder for the datasets. If None,
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     download_if_missing : bool, default=True
         If False, raise an OSError if the data is not locally available
@@ -565,8 +565,8 @@ def fetch_20newsgroups_vectorized(
         except ValueError as e:
             raise ValueError(
                 f"The cached dataset located in {target_file} was fetched "
-                "with an older jax-sklearn version and it is not compatible "
-                "with the jax-sklearn version imported. You need to "
+                "with an older secret-learn version and it is not compatible "
+                "with the secret-learn version imported. You need to "
                 f"manually delete the file: {target_file}."
             ) from e
     else:

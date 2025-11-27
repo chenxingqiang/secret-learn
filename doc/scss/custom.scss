@@ -176,7 +176,7 @@ details.sd-dropdown {
   display: none;
 }
 
-/* jax-sklearn buttons */
+/* secret-learn buttons */
 
 a.btn {
   &.sk-btn-orange {
@@ -198,7 +198,7 @@ a.btn {
   }
 }
 
-/* jax-sklearn avatar grid, see build_tools/generate_authors_table.py */
+/* secret-learn avatar grid, see build_tools/generate_authors_table.py */
 
 div.sk-authors-container {
   display: flex;
@@ -212,7 +212,7 @@ div.sk-authors-container {
   }
 }
 
-/* jax-sklearn text-image grid, used in testimonials and sponsors pages */
+/* secret-learn text-image grid, used in testimonials and sponsors pages */
 
 @mixin sk-text-image-grid($img-max-height) {
   display: flex;

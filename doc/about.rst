@@ -22,21 +22,21 @@ time of the contribution.
 Governance
 ==========
 
-The decision making process and governance structure of jax-sklearn, like roles and responsibilities, is laid out in the :ref:`governance document <governance>`.
+The decision making process and governance structure of secret-learn, like roles and responsibilities, is laid out in the :ref:`governance document <governance>`.
 
 .. The "author" anchors below is there to ensure that old html links (in
    the form of "about.html#author" still work)
 
 .. _authors:
 
-The people behind jax-sklearn
+The people behind secret-learn
 ==============================
 
-jax-sklearn is a community project, developed by a large group of
+secret-learn is a community project, developed by a large group of
 people, all across the world. A few core contributor teams, listed below, have
 central roles, however a more complete list of contributors can be found `on
 GitHub
-<https://github.com/chenxingqiang/jax-sklearn/graphs/contributors>`__.
+<https://github.com/chenxingqiang/secret-learn/graphs/contributors>`__.
 
 Active Core Contributors
 ------------------------
@@ -45,15 +45,15 @@ Maintainers Team
 ................
 
 The following people are currently maintainers, in charge of
-consolidating jax-sklearn's development and maintenance:
+consolidating secret-learn's development and maintenance:
 
 .. include:: maintainers.rst
 
 .. note::
 
   Please do not email the authors directly to ask for assistance or report issues.
-  Instead, please see `What's the best way to ask questions about jax-sklearn
-  <https://jax-sklearn.org/stable/faq.html#what-s-the-best-way-to-get-help-on-jax-sklearn-usage>`_
+  Instead, please see `What's the best way to ask questions about secret-learn
+  <https://secret-learn.org/stable/faq.html#what-s-the-best-way-to-get-help-on-secret-learn-usage>`_
   in the FAQ.
 
 .. seealso::
@@ -79,7 +79,7 @@ maintenance:
 Communication Team
 ..................
 
-The following people help with :ref:`communication around jax-sklearn
+The following people help with :ref:`communication around secret-learn
 <communication_team>`.
 
 .. include:: communication_team.rst
@@ -112,12 +112,12 @@ past:
 
 .. include:: contributor_experience_team_emeritus.rst
 
-.. _citing-jax-sklearn:
+.. _citing-secret-learn:
 
-Citing jax-sklearn
+Citing secret-learn
 ===================
 
-If you use jax-sklearn in a scientific publication, we would appreciate
+If you use secret-learn in a scientific publication, we would appreciate
 citations to the following paper:
 
 `Scikit-learn: Machine Learning in Python
@@ -138,10 +138,10 @@ Bibtex entry::
     year={2011}
   }
 
-If you want to cite jax-sklearn for its API or design, you may also want to consider the
+If you want to cite secret-learn for its API or design, you may also want to consider the
 following paper:
 
-:arxiv:`API design for machine learning software: experiences from the jax-sklearn
+:arxiv:`API design for machine learning software: experiences from the secret-learn
 project <1309.0238>`, Buitinck *et al.*, 2013.
 
 Bibtex entry::
@@ -152,7 +152,7 @@ Bibtex entry::
                   Vlad Niculae and Peter Prettenhofer and Alexandre Gramfort
                   and Jaques Grobler and Robert Layton and Jake VanderPlas and
                   Arnaud Joly and Brian Holt and Ga{\"{e}}l Varoquaux},
-    title     = {{API} design for machine learning software: experiences from the jax-sklearn
+    title     = {{API} design for machine learning software: experiences from the secret-learn
                   project},
     booktitle = {ECML PKDD Workshop: Languages for Data Mining and Machine Learning},
     year      = {2013},
@@ -163,11 +163,11 @@ Branding & Logos
 ================
 
 High quality PNG and SVG logos are available in the `doc/logos
-<https://github.com/chenxingqiang/jax-sklearn/tree/main/doc/logos>`_
+<https://github.com/chenxingqiang/secret-learn/tree/main/doc/logos>`_
 source directory. The color palette is available in the
-`Branding Guide <https://github.com/jax-sklearn/blog?tab=readme-ov-file#brand-standards>`_.
+`Branding Guide <https://github.com/secret-learn/blog?tab=readme-ov-file#brand-standards>`_.
 
-.. image:: images/jax-sklearn-logo-notext.png
+.. image:: images/secret-learn-logo-notext.png
   :align: center
 
 Funding
@@ -236,9 +236,9 @@ The project would like to thank the following funders.
 
   .. div:: text-box
 
-    The `Members <https://jax-sklearn.fondation-inria.fr/en/home/#sponsors>`_ of
+    The `Members <https://secret-learn.fondation-inria.fr/en/home/#sponsors>`_ of
     the `Scikit-learn Consortium at Inria Foundation
-    <https://jax-sklearn.fondation-inria.fr/en/home/>`_ help at maintaining and
+    <https://secret-learn.fondation-inria.fr/en/home/>`_ help at maintaining and
     improving the project through their financial support.
 
   .. div:: image-box
@@ -265,7 +265,7 @@ The project would like to thank the following funders.
   .. div:: text-box
 
     `NVidia <https://nvidia.com>`_ funds Tim Head since 2022
-    and is part of the jax-sklearn consortium at Inria.
+    and is part of the secret-learn consortium at Inria.
 
   .. div:: image-box
 
@@ -311,7 +311,7 @@ The project would like to thank the following funders.
   .. div:: text-box
 
     `The Chan-Zuckerberg Initiative <https://chanzuckerberg.com/>`_ and
-    `Wellcome Trust <https://wellcome.org/>`_ fund jax-sklearn through the
+    `Wellcome Trust <https://wellcome.org/>`_ fund secret-learn through the
     `Essential Open Source Software for Science (EOSS) <https://chanzuckerberg.com/eoss/>`_
     cycle 6.
 
@@ -393,7 +393,7 @@ Past Sponsors
 
   .. div:: text-box
 
-    Andreas Müller received a grant to improve jax-sklearn from the
+    Andreas Müller received a grant to improve secret-learn from the
     `Alfred P. Sloan Foundation <https://sloan.org>`_ .
     This grant supported the position of Nicolas Hug and Thomas J. Fan.
 
@@ -458,7 +458,7 @@ Past Sponsors
 
     `Télécom Paristech <https://www.telecom-paristech.fr/>`_ funded Manoj Kumar
     (2014), Tom Dupré la Tour (2015), Raghav RV (2015-2017), Thierry Guillemot
-    (2016-2017) and Albert Thomas (2017) to work on jax-sklearn.
+    (2016-2017) and Albert Thomas (2017) to work on secret-learn.
 
   .. div:: image-box
 
@@ -473,8 +473,8 @@ Past Sponsors
 
     `The Labex DigiCosme <https://digicosme.lri.fr>`_ funded Nicolas Goix
     (2015-2016), Tom Dupré la Tour (2015-2016 and 2017-2018), Mathurin Massias
-    (2018-2019) to work part time on jax-sklearn during their PhDs. It also
-    funded a jax-sklearn coding sprint in 2015.
+    (2018-2019) to work part time on secret-learn during their PhDs. It also
+    funded a secret-learn coding sprint in 2015.
 
   .. div:: image-box
 
@@ -488,7 +488,7 @@ Past Sponsors
   .. div:: text-box
 
     `The Chan-Zuckerberg Initiative <https://chanzuckerberg.com/>`_ funded Nicolas
-    Hug to work full-time on jax-sklearn in 2020.
+    Hug to work full-time on secret-learn in 2020.
 
   .. div:: image-box
 
@@ -498,7 +498,7 @@ Past Sponsors
 ......................
 
 The following students were sponsored by `Google
-<https://opensource.google/>`_ to work on jax-sklearn through
+<https://opensource.google/>`_ to work on secret-learn through
 the `Google Summer of Code <https://en.wikipedia.org/wiki/Google_Summer_of_Code>`_
 program.
 
@@ -521,7 +521,7 @@ College <https://pbs.dartmouth.edu/>`_).
 
 ...................
 
-The following organizations funded the jax-sklearn consortium at Inria in
+The following organizations funded the secret-learn consortium at Inria in
 the past:
 
 .. |msn| image:: images/microsoft.png
@@ -586,7 +586,7 @@ the past:
 Donations in Kind
 -----------------
 The following organizations provide non-financial contributions to the
-jax-sklearn project.
+secret-learn project.
 
 .. raw:: html
 
@@ -620,27 +620,27 @@ jax-sklearn project.
 Coding Sprints
 --------------
 
-The jax-sklearn project has a long history of `open source coding sprints
-<https://blog.jax-sklearn.org/events/sprints-value/>`_ with over 50 sprint
+The secret-learn project has a long history of `open source coding sprints
+<https://blog.secret-learn.org/events/sprints-value/>`_ with over 50 sprint
 events from 2010 to present day. There are scores of sponsors who contributed
 to costs which include venue, food, travel, developer time and more. See
-`jax-sklearn sprints <https://blog.jax-sklearn.org/sprints/>`_ for a full
+`secret-learn sprints <https://blog.secret-learn.org/sprints/>`_ for a full
 list of events.
 
 Donating to the project
 =======================
 
-If you have found jax-sklearn to be useful in your work, research, or company, 
+If you have found secret-learn to be useful in your work, research, or company, 
 please consider making a donation to the project commensurate with your resources.
 There are several options for making donations:
 
 .. raw:: html
 
   <p class="text-center">
-    <a class="btn sk-btn-orange mb-1" href="https://numfocus.org/donate-to-jax-sklearn">
+    <a class="btn sk-btn-orange mb-1" href="https://numfocus.org/donate-to-secret-learn">
       Donate via NumFOCUS
     </a>
-    <a class="btn sk-btn-orange mb-1" href="https://github.com/sponsors/jax-sklearn">
+    <a class="btn sk-btn-orange mb-1" href="https://github.com/sponsors/secret-learn">
       Donate via GitHub Sponsors
     </a>
     <a class="btn sk-btn-orange mb-1" href="https://causes.benevity.org/projects/433725">
@@ -651,12 +651,12 @@ There are several options for making donations:
 **Donation Options:**
 
 * **NumFOCUS**: Donate via the `NumFOCUS Donations Page
-  <https://numfocus.org/donate-to-jax-sklearn>`_, jax-sklearn's fiscal sponsor.
+  <https://numfocus.org/donate-to-secret-learn>`_, secret-learn's fiscal sponsor.
 
 * **GitHub Sponsors**: Support the project directly through `GitHub Sponsors
-  <https://github.com/sponsors/jax-sklearn>`_.
+  <https://github.com/sponsors/secret-learn>`_.
 
-* **Benevity**: If your company uses jax-sklearn, you can also support the
+* **Benevity**: If your company uses secret-learn, you can also support the
   project through Benevity, a platform to manage employee donations. It is
   widely used by hundreds of Fortune 1000 companies to streamline and scale
   their social impact initiatives. If your company uses Benevity, you are
@@ -674,8 +674,8 @@ Contributions support the maintenance of the project, including development,
 documentation, infrastructure and coding sprints. 
 
 
-jax-sklearn Swag
+secret-learn Swag
 -----------------
-Official jax-sklearn swag is available for purchase at the `NumFOCUS online store
-<https://numfocus.myspreadshop.com/jax-sklearn+logo?idea=6335cad48f3f5268f5f42559>`_.
-A portion of the proceeds from each sale goes to support the jax-sklearn project.
+Official secret-learn swag is available for purchase at the `NumFOCUS online store
+<https://numfocus.myspreadshop.com/secret-learn+logo?idea=6335cad48f3f5268f5f42559>`_.
+A portion of the proceeds from each sale goes to support the secret-learn project.

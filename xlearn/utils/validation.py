@@ -1,6 +1,6 @@
-"""Functions to validate input and parameters within jax-sklearn estimators."""
+"""Functions to validate input and parameters within secret-learn estimators."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -151,7 +151,7 @@ def _assert_all_finite_element_wise(
         msg_err = f"Input {padded_input_name}contains {type_err}."
         if estimator_name and input_name == "X" and has_nan_error:
             # Improve the error message on how to handle missing values in
-            # jax-sklearn.
+            # secret-learn.
             msg_err += (
                 f"\n{estimator_name} does not accept missing values"
                 " encoded as NaN natively. For supervised learning, you might want"
@@ -160,10 +160,10 @@ def _assert_all_finite_element_wise(
                 " Alternatively, it is possible to preprocess the data, for"
                 " instance by using an imputer transformer in a pipeline or drop"
                 " samples with missing values. See"
-                " https://jax-sklearn.org/stable/modules/impute.html"
+                " https://secret-learn.org/stable/modules/impute.html"
                 " You can find a list of all estimators that handle NaN values"
                 " at the following page:"
-                " https://jax-sklearn.org/stable/modules/impute.html"
+                " https://secret-learn.org/stable/modules/impute.html"
                 "#estimators-that-handle-nan-values"
             )
         raise ValueError(msg_err)
@@ -320,7 +320,7 @@ def _use_interchange_protocol(X):
 
     Note: at this point we chose not to use the interchange API on pandas dataframe
     to ensure strict behavioral backward compatibility with older versions of
-    jax-sklearn.
+    secret-learn.
     """
     return not _is_pandas_df(X) and hasattr(X, "__dataframe__")
 
@@ -655,7 +655,7 @@ def _ensure_sparse_format(
     # With SciPy sparse arrays, conversion from DIA format to COO, CSR, or BSR
     # triggers the use of `np.int64` indices even if the data is such that it could
     # be more efficiently represented with `np.int32` indices.
-    # https://github.com/scipy/scipy/issues/19245 Since not all jax-sklearn
+    # https://github.com/scipy/scipy/issues/19245 Since not all secret-learn
     # algorithms support large indices, the following code downcasts to `np.int32`
     # indices when it's safe to do so.
     if changed_format:
@@ -1192,9 +1192,9 @@ def _check_large_sparse(X, accept_large_sparse=False):
                 raise ValueError(
                     "Only sparse matrices with 32-bit integer indices are accepted."
                     f" Got {indices_datatype} indices. Please do report a minimal"
-                    " reproducer on jax-sklearn issue tracker so that support for"
+                    " reproducer on secret-learn issue tracker so that support for"
                     " your use-case can be studied by maintainers. See:"
-                    " https://jax-sklearn.org/dev/developers/minimal_reproducer.html"
+                    " https://secret-learn.org/dev/developers/minimal_reproducer.html"
                 )
 
 
@@ -2319,7 +2319,7 @@ def _check_method_params(X, params, indices=None):
             not _is_arraylike(param_value) and not sp.issparse(param_value)
         ) or _num_samples(param_value) != _num_samples(X):
             # Non-indexable pass-through (for now for backward-compatibility).
-            # https://github.com/chenxingqiang/jax-sklearn/issues/15805
+            # https://github.com/chenxingqiang/secret-learn/issues/15805
             method_params_validated[param_key] = param_value
         else:
             # Any other method_params should support indexing

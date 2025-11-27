@@ -158,7 +158,7 @@ in [XGBoost]_):
 
   Notice that the original paper [XGBoost]_ introduces a term :math:`\gamma\sum_k
   T_k` that penalizes the number of leaves (making it a smooth version of
-  `max_leaf_nodes`) not presented here as it is not implemented in jax-sklearn;
+  `max_leaf_nodes`) not presented here as it is not implemented in secret-learn;
   whereas :math:`\lambda` penalizes the magnitude of the individual tree
   predictions before being rescaled by the learning rate, see
   :ref:`gradient_boosting_shrinkage`.
@@ -978,7 +978,7 @@ variance by combining diverse trees, sometimes at the cost of a slight increase
 in bias. In practice the variance reduction is often significant hence yielding
 an overall better model.
 
-In contrast to the original publication [B2001]_, the jax-sklearn
+In contrast to the original publication [B2001]_, the secret-learn
 implementation combines classifiers by averaging their probabilistic
 prediction, instead of letting each classifier vote for a single class.
 
@@ -1001,7 +1001,7 @@ A competitive alternative to random forests are
 -  Efficient binning: HGBT uses an efficient binning algorithm that can handle
    large datasets with a high number of features. The binning algorithm can
    pre-process the data to speed up the subsequent tree construction (see
-   :ref:`Why it's faster <Why_it's_faster>`). In contrast, the jax-sklearn
+   :ref:`Why it's faster <Why_it's_faster>`). In contrast, the secret-learn
    implementation of random forests does not use binning and relies on exact
    splitting, which can be computationally expensive.
 
@@ -1134,7 +1134,7 @@ respect to the predictability of the target variable. Features used at
 the top of the tree contribute to the final prediction decision of a
 larger fraction of the input samples. The **expected fraction of the
 samples** they contribute to can thus be used as an estimate of the
-**relative importance of the features**. In jax-sklearn, the fraction of
+**relative importance of the features**. In secret-learn, the fraction of
 samples a feature contributes to is combined with the decrease in impurity
 from splitting them to create a normalized estimate of the predictive power
 of that feature.
@@ -1281,7 +1281,7 @@ way they draw random subsets of the training set:
 * Finally, when base estimators are built on subsets of both samples and
   features, then the method is known as Random Patches [LG2012]_.
 
-In jax-sklearn, bagging methods are offered as a unified
+In secret-learn, bagging methods are offered as a unified
 :class:`BaggingClassifier` meta-estimator  (resp. :class:`BaggingRegressor`),
 taking as input a user-specified estimator along with parameters
 specifying the strategy to draw random subsets. In particular, ``max_samples``
@@ -1434,7 +1434,7 @@ Usage
 -----
 
 In order to predict the class labels based on the predicted
-class-probabilities (jax-sklearn estimators in the VotingClassifier
+class-probabilities (secret-learn estimators in the VotingClassifier
 must support ``predict_proba`` method)::
 
    >>> eclf = VotingClassifier(

@@ -737,7 +737,7 @@ def test_sgd_predict_proba_method_access(klass):
     # Checks that SGDClassifier predict_proba and predict_log_proba methods
     # can either be accessed or raise an appropriate error message
     # otherwise. See
-    # https://github.com/chenxingqiang/jax-sklearn/issues/10938 for more
+    # https://github.com/chenxingqiang/secret-learn/issues/10938 for more
     # details.
     for loss in linear_model.SGDClassifier.loss_functions:
         clf = SGDClassifier(loss=loss)

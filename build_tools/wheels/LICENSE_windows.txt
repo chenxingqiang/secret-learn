@@ -1,4 +1,4 @@
-This binary distribution of jax-sklearn also bundles the following software:
+This binary distribution of secret-learn also bundles the following software:
 
 ----
 

@@ -1,6 +1,6 @@
 """Principal Component Analysis."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from math import lgamma, log, sqrt
@@ -561,7 +561,7 @@ class PCA(_BasePCA):
         # When X is a scipy sparse matrix, self.mean_ is a numpy matrix, so we need
         # to transform it to a 1D array. Note that this is not the case when X
         # is a scipy sparse array.
-        # TODO: remove the following two lines when jax-sklearn only depends
+        # TODO: remove the following two lines when secret-learn only depends
         # on scipy versions that no longer support scipy.sparse matrices.
         self.mean_ = xp.reshape(xp.asarray(self.mean_), (-1,))
 
@@ -614,7 +614,7 @@ class PCA(_BasePCA):
             # are returned as instances of the soft-deprecated numpy.matrix
             # class. Note that this problem does not occur when X is a scipy
             # sparse array (or another other kind of supported array).
-            # TODO: remove the following two lines when jax-sklearn only
+            # TODO: remove the following two lines when secret-learn only
             # depends on scipy versions that no longer support scipy.sparse
             # matrices.
             eigenvals = xp.reshape(xp.asarray(eigenvals), (-1,))
@@ -778,7 +778,7 @@ class PCA(_BasePCA):
         # TODO: update this code to either:
         # * Use the array-api variance calculation, unless memory usage suffers
         # * Update xlearn.utils.extmath._incremental_mean_and_var to support array-api
-        # See: https://github.com/chenxingqiang/jax-sklearn/pull/18689#discussion_r1335540991
+        # See: https://github.com/chenxingqiang/secret-learn/pull/18689#discussion_r1335540991
         if total_var is None:
             N = X.shape[0] - 1
             X_centered **= 2

@@ -37,7 +37,7 @@ def test_available_if():
 
 def test_available_if_unbound_method():
     # This is a non regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/20614
+    # https://github.com/chenxingqiang/secret-learn/issues/20614
     # to make sure that decorated functions can be used as an unbound method,
     # for instance when monkeypatching.
     est = AvailableParameterEstimator()

@@ -43,7 +43,7 @@ def test_min_dependencies_readme():
 
     if not os.path.exists(readme_file):
         # Skip the test if the README.rst file is not available.
-        # For instance, when installing jax-sklearn from wheels
+        # For instance, when installing secret-learn from wheels
         pytest.skip("The README.rst file is not available.")
 
     with readme_file.open("r") as f:
@@ -81,7 +81,7 @@ def check_pyproject_section(
 
     if not pyproject_toml_path.exists():
         # Skip the test if the pyproject.toml file is not available.
-        # For instance, when installing jax-sklearn from wheels
+        # For instance, when installing secret-learn from wheels
         pytest.skip("pyproject.toml is not available.")
 
     with pyproject_toml_path.open("rb") as f:

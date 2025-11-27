@@ -35,7 +35,7 @@ case, the business metric depends on the amount of each individual transaction.
     <https://cseweb.ucsd.edu/~elkan/rescale.pdf>`_
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -100,7 +100,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 # also known as the specificity, for the ROC curve and the precision and recall for
 # the Precision-Recall curve.
 #
-# From these four metrics, jax-sklearn does not provide a scorer for the FPR. We
+# From these four metrics, secret-learn does not provide a scorer for the FPR. We
 # therefore need to define a small custom function to compute it.
 from xlearn.metrics import confusion_matrix
 
@@ -117,7 +117,7 @@ def fpr_score(y, y_pred, neg_label, pos_label):
 # some of the metrics with this non-standard value raise an error. We need to
 # provide the indication of the "positive label" to the metrics.
 #
-# We therefore need to define a jax-sklearn scorer using
+# We therefore need to define a secret-learn scorer using
 # :func:`~xlearn.metrics.make_scorer` where the information is passed. We store all
 # the custom scorers in a dictionary. To use them, we need to pass the fitted model,
 # the data and the target on which we want to evaluate the predictive model.
@@ -521,7 +521,7 @@ def business_metric(y_true, y_pred, amount):
 
 
 # %%
-# From this business metric, we create a jax-sklearn scorer that given a fitted
+# From this business metric, we create a secret-learn scorer that given a fitted
 # classifier and a test set compute the business metric. In this regard, we use
 # the :func:`~xlearn.metrics.make_scorer` factory. The variable `amount` is an
 # additional metadata to be passed to the scorer and we need to use
@@ -687,7 +687,7 @@ print(f"Benefit of logistic regression with a tuned threshold:  {business_score:
 # Any business impact estimated by cross-validation of a business metric on
 # historical data (offline evaluation) should ideally be confirmed by A/B testing
 # on live data (online evaluation). Note however that A/B testing models is
-# beyond the scope of the jax-sklearn library itself.
+# beyond the scope of the secret-learn library itself.
 
 # At the end, we disable the configuration flag for metadata routing::
 xlearn.set_config(enable_metadata_routing=False)

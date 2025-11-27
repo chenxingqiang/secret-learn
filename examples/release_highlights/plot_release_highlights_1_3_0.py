@@ -1,23 +1,23 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.3
+Release Highlights for secret-learn 1.3
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.3! Many bug fixes
+We are pleased to announce the release of secret-learn 1.3! Many bug fixes
 and improvements were added, as well as some new key features. We detail
 below a few of the major features of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_3>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
@@ -42,8 +42,8 @@ or with conda::
 # %%
 # HDBSCAN: hierarchical density-based clustering
 # ----------------------------------------------
-# Originally hosted in the jax-sklearn-contrib repository, :class:`cluster.HDBSCAN`
-# has been adpoted into jax-sklearn. It's missing a few features from the original
+# Originally hosted in the secret-learn-contrib repository, :class:`cluster.HDBSCAN`
+# has been adpoted into secret-learn. It's missing a few features from the original
 # implementation which will be added in future releases.
 # By performing a modified version of :class:`cluster.DBSCAN` over multiple epsilon
 # values simultaneously, :class:`cluster.HDBSCAN` finds clusters of varying densities

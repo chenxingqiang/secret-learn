@@ -73,7 +73,7 @@ if __name__ == "__main__":
         alpha, list_n_samples, [n_features], precompute=True
     )
 
-    plt.figure("jax-sklearn LASSO benchmark results")
+    plt.figure("secret-learn LASSO benchmark results")
     plt.subplot(211)
     plt.plot(list_n_samples, lasso_results, "b-", label="Lasso")
     plt.plot(list_n_samples, lars_lasso_results, "r-", label="LassoLars")

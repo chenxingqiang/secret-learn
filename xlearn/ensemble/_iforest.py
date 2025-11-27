@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -600,7 +600,7 @@ class IsolationForest(OutlierMixin, BaseBagging):
         # by using joblib.parallel_backend context manager around
         # ._compute_score_samples. Using a higher n_jobs may speed up the
         # computation of the scores, e.g. for > 1k samples. See
-        # https://github.com/chenxingqiang/jax-sklearn/pull/28622 for more
+        # https://github.com/chenxingqiang/secret-learn/pull/28622 for more
         # details.
         lock = threading.Lock()
         Parallel(

@@ -16,7 +16,7 @@ dataset and is only used to illustrate the usage of FeatureUnion.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from xlearn.datasets import load_iris

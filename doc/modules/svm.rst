@@ -38,7 +38,7 @@ The disadvantages of support vector machines include:
   calculated using an expensive five-fold cross-validation
   (see :ref:`Scores and probabilities <scores_probabilities>`, below).
 
-The support vector machines in jax-sklearn support both dense
+The support vector machines in secret-learn support both dense
 (``numpy.ndarray`` and convertible to that by ``numpy.asarray``) and
 sparse (any ``scipy.sparse``) sample vectors as input. However, to use
 an SVM to make predictions for sparse data, it must have been fit on such
@@ -231,7 +231,7 @@ In the multiclass case, this is extended as per [#2]_.
   via the :class:`~xlearn.calibration.CalibratedClassifierCV` (see
   :ref:`calibration`). In the case of :class:`SVC` and :class:`NuSVC`, this
   procedure is builtin to `libsvm`_ which is used under the hood, so it does
-  not rely on jax-sklearn's
+  not rely on secret-learn's
   :class:`~xlearn.calibration.CalibratedClassifierCV`.
 
 The cross-validation involved in Platt scaling

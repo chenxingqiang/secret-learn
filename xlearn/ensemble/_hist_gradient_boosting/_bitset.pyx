@@ -40,7 +40,7 @@ cdef inline uint8_t in_bitset_2d_memoryview(const BITSET_INNER_DTYPE_C[:, :] bit
                                             X_BINNED_DTYPE_C val,
                                             unsigned int row) noexcept nogil:
     # Same as above but works on 2d memory views to avoid the creation of 1d
-    # memory views. See https://github.com/chenxingqiang/jax-sklearn/issues/17299
+    # memory views. See https://github.com/chenxingqiang/secret-learn/issues/17299
     return (bitset[row, val // 32] >> (val % 32)) & 1
 
 

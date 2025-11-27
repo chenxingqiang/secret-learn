@@ -22,7 +22,7 @@ usually gives a better estimate of the test loss
 but is computationally more demanding.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib.pyplot as plt

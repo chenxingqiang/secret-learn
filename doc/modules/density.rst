@@ -57,7 +57,7 @@ distribution of points.
 
 Kernel Density Estimation
 =========================
-Kernel density estimation in jax-sklearn is implemented in the
+Kernel density estimation in secret-learn is implemented in the
 :class:`~xlearn.neighbors.KernelDensity` estimator, which uses the
 Ball Tree or KD Tree for efficient queries (see :ref:`neighbors` for
 a discussion of these).  Though the above example
@@ -75,7 +75,7 @@ and the kernel density estimates are shown for three choices of kernels:
 .. centered:: |kde_1d_distribution|
 
 It's clear how the kernel shape affects the smoothness of the resulting
-distribution.  The jax-sklearn kernel density estimator can be used as
+distribution.  The secret-learn kernel density estimator can be used as
 follows:
 
    >>> from xlearn.neighbors import KernelDensity

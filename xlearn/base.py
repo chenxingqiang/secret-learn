@@ -1,6 +1,6 @@
 """Base classes for all estimators and various utility functions."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import copy
@@ -111,12 +111,12 @@ def _clone_parametrized(estimator, *, safe=True):
                 raise TypeError(
                     "Cannot clone object. "
                     "You should provide an instance of "
-                    "jax-sklearn estimator instead of a class."
+                    "secret-learn estimator instead of a class."
                 )
             else:
                 raise TypeError(
                     "Cannot clone object '%s' (type %s): "
-                    "it does not seem to be a jax-sklearn "
+                    "it does not seem to be a secret-learn "
                     "estimator as it does not implement a "
                     "'get_params' method." % (repr(estimator), type(estimator))
                 )
@@ -154,7 +154,7 @@ def _clone_parametrized(estimator, *, safe=True):
 
 
 class BaseEstimator(ReprHTMLMixin, _HTMLDocumentationLinkMixin, _MetadataRequester):
-    """Base class for all estimators in jax-sklearn.
+    """Base class for all estimators in secret-learn.
 
     Inheriting from this class provides default implementations of:
 
@@ -221,7 +221,7 @@ class BaseEstimator(ReprHTMLMixin, _HTMLDocumentationLinkMixin, _MetadataRequest
         for p in parameters:
             if p.kind == p.VAR_POSITIONAL:
                 raise RuntimeError(
-                    "jax-sklearn estimators should always "
+                    "secret-learn estimators should always "
                     "specify their parameters in the signature"
                     " of their __init__ (no varargs)."
                     " %s with constructor %s doesn't "
@@ -476,7 +476,7 @@ class BaseEstimator(ReprHTMLMixin, _HTMLDocumentationLinkMixin, _MetadataRequest
 
 
 class ClassifierMixin:
-    """Mixin class for all classifiers in jax-sklearn.
+    """Mixin class for all classifiers in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -549,7 +549,7 @@ class ClassifierMixin:
 
 
 class RegressorMixin:
-    """Mixin class for all regression estimators in jax-sklearn.
+    """Mixin class for all regression estimators in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -640,7 +640,7 @@ class RegressorMixin:
 
 
 class ClusterMixin:
-    """Mixin class for all cluster estimators in jax-sklearn.
+    """Mixin class for all cluster estimators in secret-learn.
 
     - set estimator type to `"clusterer"` through the `estimator_type` tag;
     - `fit_predict` method returning the cluster labels associated to each sample.
@@ -697,7 +697,7 @@ class ClusterMixin:
 
 
 class BiclusterMixin:
-    """Mixin class for all bicluster estimators in jax-sklearn.
+    """Mixin class for all bicluster estimators in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -799,7 +799,7 @@ class BiclusterMixin:
 
 
 class TransformerMixin(_SetOutputMixin):
-    """Mixin class for all transformers in jax-sklearn.
+    """Mixin class for all transformers in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -992,7 +992,7 @@ class ClassNamePrefixFeaturesOutMixin:
 
 
 class DensityMixin:
-    """Mixin class for all density estimators in jax-sklearn.
+    """Mixin class for all density estimators in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -1038,7 +1038,7 @@ class DensityMixin:
 
 
 class OutlierMixin:
-    """Mixin class for all outlier detection estimators in jax-sklearn.
+    """Mixin class for all outlier detection estimators in secret-learn.
 
     This mixin defines the following functionality:
 
@@ -1123,7 +1123,7 @@ class OutlierMixin:
 
 
 class MetaEstimatorMixin:
-    """Mixin class for all meta estimators in jax-sklearn.
+    """Mixin class for all meta estimators in secret-learn.
 
     This mixin is empty, and only exists to indicate that the estimator is a
     meta-estimator.

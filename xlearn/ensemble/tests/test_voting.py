@@ -547,7 +547,7 @@ def test_transform(global_random_seed):
 def test_none_estimator_with_weights(X, y, voter):
     # check that an estimator can be set to 'drop' and passing some weight
     # regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/13777
+    # https://github.com/chenxingqiang/secret-learn/issues/13777
     voter = clone(voter)
     # Scaled to solve ConvergenceWarning throw by Logistic Regression
     X_scaled = StandardScaler().fit_transform(X)

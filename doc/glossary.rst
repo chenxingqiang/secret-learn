@@ -70,7 +70,7 @@ General Concepts
         * an iterator
         * a generator
 
-        Note that *output* from jax-sklearn estimators and functions (e.g.
+        Note that *output* from secret-learn estimators and functions (e.g.
         predictions) should generally be arrays or sparse matrices, or lists
         thereof (as in multi-output :class:`tree.DecisionTreeClassifier`'s
         ``predict_proba``). An estimator where ``predict()`` returns a list or
@@ -159,7 +159,7 @@ General Concepts
         A categorical or nominal :term:`feature` is one that has a
         finite set of discrete values across the population of data.
         These are commonly represented as columns of integers or
-        strings. Strings will be rejected by most jax-sklearn
+        strings. Strings will be rejected by most secret-learn
         estimators, and integers will be treated as ordinal or
         count-valued. For the use with most estimators, categorical
         variables should be one-hot encoded. Notable exceptions include
@@ -172,7 +172,7 @@ General Concepts
         one-hot encode categorical features.
         See also :ref:`preprocessing_categorical_features` and the
         `categorical-encoding
-        <https://github.com/jax-sklearn-contrib/category_encoders>`_
+        <https://github.com/secret-learn-contrib/category_encoders>`_
         package for tools related to encoding categorical features.
 
     clone
@@ -275,7 +275,7 @@ General Concepts
     data type
         NumPy arrays assume a homogeneous data type throughout, available in
         the ``.dtype`` attribute of an array (or sparse matrix). We generally
-        assume simple data types for jax-sklearn data: float or integer.
+        assume simple data types for secret-learn data: float or integer.
         We may support object or string data types for arrays before encoding
         or vectorizing.  Our estimators do not work with struct arrays, for
         instance.
@@ -432,7 +432,7 @@ General Concepts
         Elsewhere features are known as attributes, predictors, regressors, or
         independent variables.
 
-        Nearly all estimators in jax-sklearn assume that features are numeric,
+        Nearly all estimators in secret-learn assume that features are numeric,
         finite and not missing, even when they have semantically distinct
         domains and distributions (categorical, ordinal, count-valued,
         real-valued, interval). See also :term:`categorical feature` and
@@ -717,13 +717,13 @@ General Concepts
         sample properties and their routing in :term:`meta-estimators`, though
         a ``fit_params`` parameter is often used.
 
-    jax-sklearn-contrib
+    secret-learn-contrib
         A venue for publishing Scikit-learn-compatible libraries that are
         broadly authorized by the core developers and the contrib community,
         but not maintained by the core developer team.
-        See https://jax-sklearn-contrib.github.io.
+        See https://secret-learn-contrib.github.io.
 
-    jax-sklearn enhancement proposals
+    secret-learn enhancement proposals
     SLEP
     SLEPs
         Changes to the API principles and changes to dependencies or supported
@@ -733,8 +733,8 @@ General Concepts
         vote. Such a proposal must be a consolidated document, in the form of a
         "Scikit-Learn Enhancement Proposal" (SLEP), rather than a long discussion on an
         issue. A SLEP must be submitted as a pull-request to
-        `enhancement proposals <https://jax-sklearn-enhancement-proposals.readthedocs.io>`_ using the
-        `SLEP template <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_.
+        `enhancement proposals <https://secret-learn-enhancement-proposals.readthedocs.io>`_ using the
+        `SLEP template <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_.
 
     semi-supervised
     semi-supervised learning
@@ -846,7 +846,7 @@ Class APIs and Estimator Types
 
         A classifier supports modeling some of :term:`binary`,
         :term:`multiclass`, :term:`multilabel`, or :term:`multiclass
-        multioutput` targets.  Within jax-sklearn, all classifiers support
+        multioutput` targets.  Within secret-learn, all classifiers support
         multi-class classification, defaulting to using a one-vs-rest
         strategy over the binary classification problem.
 
@@ -1165,7 +1165,7 @@ Target Types
         For semi-supervised classification, :term:`unlabeled` samples should
         have the special label -1 in ``y``.
 
-        Within jax-sklearn, all estimators supporting binary classification
+        Within secret-learn, all estimators supporting binary classification
         also support multiclass classification, using One-vs-Rest by default.
 
         A :class:`preprocessing.LabelEncoder` helps to canonicalize multiclass
@@ -1648,7 +1648,7 @@ functions or non-estimator constructors.
         might be used in some configuration.
 
         For more details on the use of ``joblib`` and its interactions with
-        jax-sklearn, please refer to our :ref:`parallelism notes
+        secret-learn, please refer to our :ref:`parallelism notes
         <parallelism>`.
 
     ``pos_label``
@@ -1694,7 +1694,7 @@ functions or non-estimator constructors.
         input ``random_state`` and return a :class:`~numpy.random.RandomState`
         instance.
 
-        For more details on how to control the randomness of jax-sklearn
+        For more details on how to control the randomness of secret-learn
         objects and avoid common pitfalls, you may refer to :ref:`randomness`.
 
     ``scoring``

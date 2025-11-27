@@ -92,7 +92,7 @@ def test_tag_test_passes_with_inheritance():
 # TODO(1.8): Update this test to check for errors
 def test_tags_no_xlearn_tags_concrete_implementation():
     """Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/30479
+    https://github.com/chenxingqiang/secret-learn/issues/30479
 
     Either the estimator doesn't implement `__xlearn_tags` or there is no class
     implementing `__xlearn_tags__` without calling `super().__xlearn_tags__()` in

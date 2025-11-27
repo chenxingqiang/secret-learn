@@ -52,7 +52,7 @@ def get_file_size(version):
     api_url = ROOT_URL + "%s/_downloads" % version
     for path_details in json_urlread(api_url):
         file_extension = get_file_extension(version)
-        file_path = f"jax-sklearn-docs.{file_extension}"
+        file_path = f"secret-learn-docs.{file_extension}"
         if path_details["name"] == file_path:
             return human_readable_data_quantity(path_details["size"], 1000)
 
@@ -62,7 +62,7 @@ parser.add_argument("--rst", type=str, required=True)
 parser.add_argument("--json", type=str, required=True)
 args = parser.parse_args()
 
-heading = "Available documentation for jax-sklearn"
+heading = "Available documentation for secret-learn"
 json_content = []
 rst_content = [
     ":orphan:\n",
@@ -71,9 +71,9 @@ rst_content = [
     "Web-based documentation is available for versions listed below:\n",
 ]
 
-ROOT_URL = "https://api.github.com/repos/jax-sklearn/jax-sklearn.github.io/contents/"
-RAW_FMT = "https://raw.githubusercontent.com/jax-sklearn/jax-sklearn.github.io/master/%s/index.html"
-VERSION_RE = re.compile(r"jax-sklearn ([\w\.\-]+) documentation</title>")
+ROOT_URL = "https://api.github.com/repos/secret-learn/secret-learn.github.io/contents/"
+RAW_FMT = "https://raw.githubusercontent.com/secret-learn/secret-learn.github.io/master/%s/index.html"
+VERSION_RE = re.compile(r"secret-learn ([\w\.\-]+) documentation</title>")
 NAMED_DIRS = ["dev", "stable"]
 
 # Gather data for each version directory, including symlinks
@@ -113,7 +113,7 @@ for i, name in enumerate(
         seen.add(version_num)
 
     full_name = f"{version_num}" if name[:1].isdigit() else f"{version_num} ({name})"
-    path = f"https://jax-sklearn.org/{name}/"
+    path = f"https://secret-learn.org/{name}/"
 
     # Update JSON for the version switcher; only keep the 8 latest versions to avoid
     # overloading the version switcher dropdown
@@ -124,12 +124,12 @@ for i, name in enumerate(
         json_content.append(info)
 
     # Printout for the historical version page
-    out = f"* `jax-sklearn {full_name} documentation <{path}>`_"
+    out = f"* `secret-learn {full_name} documentation <{path}>`_"
     if file_size is not None:
         file_extension = get_file_extension(version_num)
         out += (
             f" (`{file_extension.upper()} {file_size} <{path}/"
-            f"_downloads/jax-sklearn-docs.{file_extension}>`_)"
+            f"_downloads/secret-learn-docs.{file_extension}>`_)"
         )
     rst_content.append(out)
 

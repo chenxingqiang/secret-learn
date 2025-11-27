@@ -9,7 +9,7 @@ FREE_THREADED_BUILD="$(python -c"import sysconfig; print(bool(sysconfig.get_conf
 
 if [[ $FREE_THREADED_BUILD == "False" ]]; then
     # Prepare a minimal Windows environment without any developer runtime libraries
-    # installed to check that the jax-sklearn wheel does not implicitly rely on
+    # installed to check that the secret-learn wheel does not implicitly rely on
     # external DLLs when running the tests.
     TEMP_FOLDER="$HOME/AppData/Local/Temp"
     WHEEL_PATH=$(ls -d $TEMP_FOLDER/**/*/repaired_wheel/*)
@@ -38,10 +38,10 @@ if [[ $FREE_THREADED_BUILD == "False" ]]; then
     exec_inside_container "python -m pip install $MNT_FOLDER/$WHEEL_NAME"
     exec_inside_container "python -m pip install $CIBW_TEST_REQUIRES"
 
-    # Save container state to jax-sklearn/minimal-windows image. On Windows the
+    # Save container state to secret-learn/minimal-windows image. On Windows the
     # container needs to be stopped first.
     docker stop $CONTAINER_ID
-    docker commit $CONTAINER_ID jax-sklearn/minimal-windows
+    docker commit $CONTAINER_ID secret-learn/minimal-windows
 else
     # This is too cumbersome to use a Docker image in the free-threaded case
     # TODO When pandas has a release with a Windows free-threaded wheel we can

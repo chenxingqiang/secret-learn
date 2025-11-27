@@ -1,6 +1,6 @@
 """Testing for kernels for Gaussian processes."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from inspect import signature
@@ -270,7 +270,7 @@ def test_kernel_clone_after_set_params(kernel):
     # break clone on kernels.
     # This used to break because in kernels such as the RBF, non-trivial
     # logic that modified the length scale used to be in the constructor
-    # See https://github.com/chenxingqiang/jax-sklearn/issues/6961
+    # See https://github.com/chenxingqiang/secret-learn/issues/6961
     # for more details.
     bounds = (1e-5, 1e5)
     kernel_cloned = clone(kernel)

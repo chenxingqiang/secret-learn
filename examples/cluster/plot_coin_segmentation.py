@@ -20,7 +20,7 @@ There are three options to assign labels:
   that directly determines the partition in the embedding space.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import time

@@ -15,7 +15,7 @@ set the amount of regularization, i.e. how to choose the bias-variance
 trade-off.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

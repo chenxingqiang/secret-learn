@@ -2,10 +2,10 @@ Getting Started
 ===============
 
 The purpose of this guide is to illustrate some of the main features that
-``jax-sklearn`` provides. It assumes a very basic working knowledge of
+``secret-learn`` provides. It assumes a very basic working knowledge of
 machine learning practices (model fitting, predicting, cross-validation,
 etc.). Please refer to our :ref:`installation instructions
-<installation-instructions>` for installing ``jax-sklearn``.
+<installation-instructions>` for installing ``secret-learn``.
 
 ``Scikit-learn`` is an open source machine learning library that supports
 supervised and unsupervised learning. It also provides various tools for
@@ -62,7 +62,7 @@ Machine learning workflows are often composed of different parts. A typical
 pipeline consists of a pre-processing step that transforms or imputes the
 data, and a final predictor that predicts target values.
 
-In ``jax-sklearn``, pre-processors and transformers follow the same API as
+In ``secret-learn``, pre-processors and transformers follow the same API as
 the estimator objects (they actually all inherit from the same
 ``BaseEstimator`` class). The transformer objects don't have a
 :term:`predict` method but rather a :term:`transform` method that outputs a
@@ -125,7 +125,7 @@ Model evaluation
 Fitting a model to some data does not entail that it will predict well on
 unseen data. This needs to be directly evaluated. We have just seen the
 :func:`~xlearn.model_selection.train_test_split` helper that splits a
-dataset into train and test sets, but ``jax-sklearn`` provides many other
+dataset into train and test sets, but ``secret-learn`` provides many other
 tools for model evaluation, in particular for :ref:`cross-validation
 <cross_validation>`.
 
@@ -225,11 +225,11 @@ Next steps
 We have briefly covered estimator fitting and predicting, pre-processing
 steps, pipelines, cross-validation tools and automatic hyper-parameter
 searches. This guide should give you an overview of some of the main
-features of the library, but there is much more to ``jax-sklearn``!
+features of the library, but there is much more to ``secret-learn``!
 
 Please refer to our :ref:`user_guide` for details on all the tools that we
 provide. You can also find an exhaustive list of the public API in the
 :ref:`api_ref`.
 
 You can also look at our numerous :ref:`examples <general_examples>` that
-illustrate the use of ``jax-sklearn`` in many different contexts.
+illustrate the use of ``secret-learn`` in many different contexts.

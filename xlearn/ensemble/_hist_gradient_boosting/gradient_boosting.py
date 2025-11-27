@@ -1,6 +1,6 @@
 """Fast Gradient Boosting decision trees for classification and regression."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -115,11 +115,11 @@ def _patch_raw_predict(estimator, raw_predictions):
 
     Note: this makes fitting HistGradientBoosting* models inherently non thread
     safe at fit time. However thread-safety at fit time was never guaranteed nor
-    enforced for jax-sklearn estimators in general.
+    enforced for secret-learn estimators in general.
 
     Thread-safety at prediction/transform time is another matter as those
     operations are typically side-effect free and therefore often thread-safe by
-    default for most jax-sklearn models and would like to keep it that way.
+    default for most secret-learn models and would like to keep it that way.
     Therefore this context manager should only be used at fit time.
 
     TODO: in the future, we could explore the possibility to extend the scorer

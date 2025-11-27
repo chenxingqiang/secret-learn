@@ -116,7 +116,7 @@ def test_most_frequent_and_prior_strategy():
 
 def test_most_frequent_and_prior_strategy_with_2d_column_y():
     # non-regression test added in
-    # https://github.com/chenxingqiang/jax-sklearn/pull/13545
+    # https://github.com/chenxingqiang/secret-learn/pull/13545
     X = [[0], [0], [0], [0]]
     y_1d = [1, 2, 1, 1]
     y_2d = [[1], [2], [1], [1]]

@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -32,7 +32,7 @@ class PartialDependenceDisplay:
     :class:`~xlearn.inspection.PartialDependenceDisplay`. All parameters are stored
     as attributes.
 
-    For general information regarding `jax-sklearn` visualization tools, see
+    For general information regarding `secret-learn` visualization tools, see
     the :ref:`Visualization Guide <visualizations>`.
     For guidance on interpreting these plots, refer to the
     :ref:`Inspection Guide <partial_dependence>`.
@@ -285,7 +285,7 @@ class PartialDependenceDisplay:
         x-axis. For two-way plots, the deciles are shown on both axes and PDPs
         are contour plots.
 
-        For general information regarding `jax-sklearn` visualization tools, see
+        For general information regarding `secret-learn` visualization tools, see
         the :ref:`Visualization Guide <visualizations>`.
         For guidance on interpreting these plots, refer to the
         :ref:`Inspection Guide <partial_dependence>`.

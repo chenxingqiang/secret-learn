@@ -9,7 +9,7 @@ _CPU_COUNTS = {}
 
 
 def _openmp_parallelism_enabled():
-    """Determines whether jax-sklearn has been built with OpenMP
+    """Determines whether secret-learn has been built with OpenMP
 
     It allows to retrieve at runtime the information gathered at compile time.
     """
@@ -48,7 +48,7 @@ cpdef _openmp_effective_n_threads(n_threads=None, only_physical_cores=True):
     assess the impact of SMT on a case-by-case basis (using various input data
     shapes, in particular small data shapes).
 
-    If jax-sklearn is built without OpenMP support, always return 1.
+    If secret-learn is built without OpenMP support, always return 1.
     """
     if n_threads == 0:
         raise ValueError("n_threads = 0 is invalid")

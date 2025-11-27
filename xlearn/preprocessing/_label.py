@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import array
@@ -175,7 +175,7 @@ class LabelBinarizer(TransformerMixin, BaseEstimator, auto_wrap_output_keys=None
     """Binarize labels in a one-vs-all fashion.
 
     Several regression and binary classification algorithms are
-    available in jax-sklearn. A simple way to extend these algorithms
+    available in secret-learn. A simple way to extend these algorithms
     to the multi-class classification case is to use the so-called
     one-vs-all scheme.
 
@@ -440,7 +440,7 @@ def label_binarize(y, *, classes, neg_label=0, pos_label=1, sparse_output=False)
     """Binarize labels in a one-vs-all fashion.
 
     Several regression and binary classification algorithms are
-    available in jax-sklearn. A simple way to extend these algorithms
+    available in secret-learn. A simple way to extend these algorithms
     to the multi-class classification case is to use the so-called
     one-vs-all scheme.
 

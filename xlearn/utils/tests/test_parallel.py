@@ -60,7 +60,7 @@ def test_dispatch_config_parallel(n_jobs):
     """Check that we properly dispatch the configuration in parallel processing.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/25239
+    https://github.com/chenxingqiang/secret-learn/issues/25239
     """
     pd = pytest.importorskip("pandas")
     iris = load_iris(as_frame=True)

@@ -1,6 +1,6 @@
 """Utilities to extract features from images."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import product
@@ -595,7 +595,7 @@ class PatchExtractor(TransformerMixin, BaseEstimator):
         """Only validate the parameters of the estimator.
 
         This method allows to: (i) validate the parameters of the estimator  and
-        (ii) be consistent with the jax-sklearn transformer API.
+        (ii) be consistent with the secret-learn transformer API.
 
         Parameters
         ----------

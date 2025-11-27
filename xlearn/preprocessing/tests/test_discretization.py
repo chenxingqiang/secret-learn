@@ -640,7 +640,7 @@ def test_quantile_method_future_warnings():
         FutureWarning,
         match="The current default behavior, quantile_method='linear', will be "
         "changed to quantile_method='averaged_inverted_cdf' in "
-        "jax-sklearn version 1.9 to naturally support sample weight "
+        "secret-learn version 1.9 to naturally support sample weight "
         "equivalence properties by default. Pass "
         "quantile_method='averaged_inverted_cdf' explicitly to silence this "
         "warning.",

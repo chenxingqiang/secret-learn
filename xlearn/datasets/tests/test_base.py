@@ -339,11 +339,11 @@ def test_loads_dumps_bunch():
 def test_bunch_pickle_generated_with_0_16_and_read_with_0_17():
     bunch = Bunch(key="original")
     # This reproduces a problem when Bunch pickles have been created
-    # with jax-sklearn 0.16 and are read with 0.17. Basically there
+    # with secret-learn 0.16 and are read with 0.17. Basically there
     # is a surprising behaviour because reading bunch.key uses
     # bunch.__dict__ (which is non empty for 0.16 Bunch objects)
     # whereas assigning into bunch.key uses bunch.__setattr__. See
-    # https://github.com/chenxingqiang/jax-sklearn/issues/6196 for
+    # https://github.com/chenxingqiang/secret-learn/issues/6196 for
     # more details
     bunch.__dict__["key"] = "set from __dict__"
     bunch_from_pkl = loads(dumps(bunch))
@@ -378,7 +378,7 @@ def test_load_boston_error():
 def test_fetch_remote_raise_warnings_with_invalid_url(monkeypatch):
     """Check retry mechanism in _fetch_remote."""
 
-    url = "https://jax-sklearn.org/this_file_does_not_exist.tar.gz"
+    url = "https://secret-learn.org/this_file_does_not_exist.tar.gz"
     invalid_remote_file = RemoteFileMetadata("invalid_file", url, None)
     urlretrieve_mock = Mock(
         side_effect=HTTPError(

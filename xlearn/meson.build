@@ -8,7 +8,7 @@ is_mingw = is_windows and cc.get_id() == 'gcc'
 
 # Adapted from Scipy. mingw is untested and not officially supported. If you
 # ever bump into issues when trying to compile for mingw, please open an issue
-# in the jax-sklearn issue tracker
+# in the secret-learn issue tracker
 if is_mingw
   # For mingw-w64, link statically against the UCRT.
   gcc_link_args = ['-lucrt', '-static']
@@ -23,26 +23,26 @@ endif
 # details, see https://docs.scipy.org/doc/scipy/building/cross_compilation.html
 if not meson.is_cross_build()
   if not py.version().version_compare('>=3.10')
-    error('jax-sklearn requires Python>=3.10, got ' + py.version() + ' instead')
+    error('secret-learn requires Python>=3.10, got ' + py.version() + ' instead')
   endif
 
   cython_min_version = run_command(py, ['_min_dependencies.py', 'cython'], check: true).stdout().strip()
   if not cython.version().version_compare('>=' + cython_min_version)
-    error('jax-sklearn requires Cython>=' + cython_min_version + ', got ' + cython.version() + ' instead')
+    error('secret-learn requires Cython>=' + cython_min_version + ', got ' + cython.version() + ' instead')
   endif
 
   numpy_version = run_command(py,
     ['-c', 'import numpy; print(numpy.__version__)'], check: true).stdout().strip()
   numpy_min_version = run_command(py, ['_min_dependencies.py', 'numpy'], check: true).stdout().strip()
   if not numpy_version.version_compare('>=' + numpy_min_version)
-    error('jax-sklearn requires numpy>=' + numpy_min_version + ', got ' + numpy_version + ' instead')
+    error('secret-learn requires numpy>=' + numpy_min_version + ', got ' + numpy_version + ' instead')
   endif
 
   scipy_version = run_command(py,
     ['-c', 'import scipy; print(scipy.__version__)'], check: true).stdout().strip()
   scipy_min_version = run_command(py, ['_min_dependencies.py', 'scipy'], check: true).stdout().strip()
   if not scipy_version.version_compare('>=' + scipy_min_version)
-    error('jax-sklearn requires scipy>=' + scipy_min_version + ', got ' + scipy_version + ' instead')
+    error('secret-learn requires scipy>=' + scipy_min_version + ', got ' + scipy_version + ' instead')
   endif
 
   # meson-python is required only when going through pip. Using meson directly
@@ -54,7 +54,7 @@ if not meson.is_cross_build()
     meson_python_version = meson_python_version_command_result.stdout().strip()
     meson_python_min_version = run_command(py, ['_min_dependencies.py', 'meson-python'], check: true).stdout().strip()
     if not meson_python_version.version_compare('>=' + meson_python_min_version)
-      error('jax-sklearn requires meson-python>=' + meson_python_min_version + ', got ' + meson_python_version + ' instead')
+      error('secret-learn requires meson-python>=' + meson_python_min_version + ', got ' + meson_python_version + ' instead')
     endif
   endif
 
@@ -108,7 +108,7 @@ openmp_dep = dependency('OpenMP', language: 'c', required: false)
 if not openmp_dep.found()
   warn_about_missing_openmp = true
   # On Apple Clang avoid a misleading warning if compiler variables are set.
-  # See https://github.com/chenxingqiang/jax-sklearn/issues/28710 for more
+  # See https://github.com/chenxingqiang/secret-learn/issues/28710 for more
   # details. This may be removed if the OpenMP detection on Apple Clang improves,
   # see https://github.com/mesonbuild/meson/issues/7435#issuecomment-2047585466.
   if host_machine.system() == 'darwin' and cc.get_id() == 'clang'
@@ -133,16 +133,16 @@ print(compiler_env_vars_with_openmp)
                 * WARNING *
                 ***********
 
-It seems that jax-sklearn cannot be built with OpenMP.
+It seems that secret-learn cannot be built with OpenMP.
 
 - Make sure you have followed the installation instructions:
 
-    https://jax-sklearn.org/dev/developers/advanced_installation.html
+    https://secret-learn.org/dev/developers/advanced_installation.html
 
 - If your compiler supports OpenMP but you still see this
   message, please submit a bug report at:
 
-    https://github.com/chenxingqiang/jax-sklearn/issues
+    https://github.com/chenxingqiang/secret-learn/issues
 
 - The build will continue with OpenMP-based parallelism
   disabled. Note however that some estimators will run in
@@ -155,7 +155,7 @@ It seems that jax-sklearn cannot be built with OpenMP.
     warning(
 '''It looks like compiler environment variables were set to enable OpenMP support.
 Check the output of "import xlearn; xlearn.show_versions()" after the build
-to make sure that jax-sklearn was actually built with OpenMP support.
+to make sure that secret-learn was actually built with OpenMP support.
 ''')
   endif
 endif
@@ -223,7 +223,7 @@ cython_gen_cpp = generator(cython_program,
 )
 
 # Write file in Meson build dir to be able to figure out from Python code
-# whether jax-sklearn was built with Meson. Adapted from pandas
+# whether secret-learn was built with Meson. Adapted from pandas
 # _version_meson.py.
 custom_target('write_built_with_meson_file',
     output: '_built_with_meson.py',

@@ -18,7 +18,7 @@ showcasing some other advantages of
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import matplotlib
@@ -150,7 +150,7 @@ plt.subplot(1, 2, 2)
 
 # `labels` argument in boxplot is deprecated in matplotlib 3.9 and has been
 # renamed to `tick_labels`. The following code handles this, but as a
-# jax-sklearn user you probably can write simpler code by using `labels=...`
+# secret-learn user you probably can write simpler code by using `labels=...`
 # (matplotlib < 3.9) or `tick_labels=...` (matplotlib >= 3.9).
 tick_labels_parameter_name = (
     "tick_labels"

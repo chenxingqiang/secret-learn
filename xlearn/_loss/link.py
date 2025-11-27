@@ -2,7 +2,7 @@
 Module contains classes for invertible (and differentiable) link functions.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from abc import ABC, abstractmethod

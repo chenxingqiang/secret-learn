@@ -11,7 +11,7 @@ example is based on the Ames housing data set.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 print(__doc__)

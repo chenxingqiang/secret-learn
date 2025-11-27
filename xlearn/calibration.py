@@ -1,6 +1,6 @@
 """Methods for calibrating predicted probabilities."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -384,9 +384,9 @@ class CalibratedClassifierCV(ClassifierMixin, MetaEstimatorMixin, BaseEstimator)
                         f"Since {estimator_name} does not appear to accept"
                         " sample_weight, sample weights will only be used for the"
                         " calibration itself. This can be caused by a limitation of"
-                        " the current jax-sklearn API. See the following issue for"
+                        " the current secret-learn API. See the following issue for"
                         " more details:"
-                        " https://github.com/chenxingqiang/jax-sklearn/issues/21134."
+                        " https://github.com/chenxingqiang/secret-learn/issues/21134."
                         " Be warned that the result of the calibration is likely to be"
                         " incorrect."
                     )
@@ -1079,7 +1079,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
     to create a `CalibrationDisplay`. All parameters are stored as attributes.
 
     Read more about calibration in the :ref:`User Guide <calibration>` and
-    more about the jax-sklearn visualization API in :ref:`visualizations`.
+    more about the secret-learn visualization API in :ref:`visualizations`.
 
     For an example on how to use the visualization, see
     :ref:`sphx_glr_auto_examples_calibration_plot_calibration_curve.py`.
@@ -1236,7 +1236,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
         :func:`matplotlib.pyplot.plot`.
 
         Read more about calibration in the :ref:`User Guide <calibration>` and
-        more about the jax-sklearn visualization API in :ref:`visualizations`.
+        more about the secret-learn visualization API in :ref:`visualizations`.
 
         .. versionadded:: 1.0
 
@@ -1359,7 +1359,7 @@ class CalibrationDisplay(_BinaryClassifierCurveDisplayMixin):
         :func:`matplotlib.pyplot.plot`.
 
         Read more about calibration in the :ref:`User Guide <calibration>` and
-        more about the jax-sklearn visualization API in :ref:`visualizations`.
+        more about the secret-learn visualization API in :ref:`visualizations`.
 
         .. versionadded:: 1.0
 

@@ -2,9 +2,9 @@
 Support
 =======
 
-There are several channels to connect with jax-sklearn developers for assistance, feedback, or contributions.
+There are several channels to connect with secret-learn developers for assistance, feedback, or contributions.
 
-**Note**: Communications on all channels should respect our `Code of Conduct <https://github.com/chenxingqiang/jax-sklearn/blob/main/CODE_OF_CONDUCT.md>`_.
+**Note**: Communications on all channels should respect our `Code of Conduct <https://github.com/chenxingqiang/secret-learn/blob/main/CODE_OF_CONDUCT.md>`_.
 
 
 .. _announcements_and_notification:
@@ -13,12 +13,12 @@ Mailing Lists
 =============
 
 - **Main Mailing List**: Join the primary discussion
-  platform for jax-sklearn at `jax-sklearn Mailing List
+  platform for secret-learn at `secret-learn Mailing List
   <https://mail.python.org/mailman/listinfo/scikitlearn>`_.
 
 - **Commit Updates**: Stay informed about repository
-  updates and test failures on the `jax-sklearn-commits list
-  <https://lists.sourceforge.net/lists/listinfo/jax-sklearn-commits>`_.
+  updates and test failures on the `secret-learn-commits list
+  <https://lists.sourceforge.net/lists/listinfo/secret-learn-commits>`_.
 
 .. _user_questions:
 
@@ -27,8 +27,8 @@ User Questions
 
 If you have questions, this is our general workflow.
 
-- **Stack Overflow**: Some jax-sklearn developers support users using the
-  `[jax-sklearn] <https://stackoverflow.com/questions/tagged/jax-sklearn>`_
+- **Stack Overflow**: Some secret-learn developers support users using the
+  `[secret-learn] <https://stackoverflow.com/questions/tagged/secret-learn>`_
   tag.
 
 - **General Machine Learning Queries**: For broader machine learning
@@ -37,7 +37,7 @@ If you have questions, this is our general workflow.
 When posting questions:
 
 - Please use a descriptive question in the title field (e.g. no "Please
-  help with jax-sklearn!" as this is not a question)
+  help with secret-learn!" as this is not a question)
 
 - Provide detailed context, expected results, and actual observations.
 
@@ -51,13 +51,13 @@ When posting questions:
 **Note**: Avoid asking user questions on the bug tracker to keep
 the focus on development.
 
-- `GitHub Discussions <https://github.com/chenxingqiang/jax-sklearn/discussions>`_
+- `GitHub Discussions <https://github.com/chenxingqiang/secret-learn/discussions>`_
   Usage questions such as methodological
 
-- `Stack Overflow <https://stackoverflow.com/questions/tagged/jax-sklearn>`_
-  Programming/user questions with `[jax-sklearn]` tag
+- `Stack Overflow <https://stackoverflow.com/questions/tagged/secret-learn>`_
+  Programming/user questions with `[secret-learn]` tag
 
-- `GitHub Bug Tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_
+- `GitHub Bug Tracker <https://github.com/chenxingqiang/secret-learn/issues>`_
   Bug reports - Please do not ask usage questions on the issue tracker.
 
 - `Discord Server <https://discord.gg/h9qyrK8Jc8>`_
@@ -70,7 +70,7 @@ Bug Tracker
 ===========
 
 Encountered a bug? Report it on our `issue tracker
-<https://github.com/chenxingqiang/jax-sklearn/issues>`_
+<https://github.com/chenxingqiang/secret-learn/issues>`_
 
 Include in your report:
 
@@ -92,8 +92,8 @@ Paid support
 ============
 
 The following companies (listed in alphabetical order) offer support services
-related to jax-sklearn and have a proven track record of employing long-term
-maintainers of jax-sklearn and related open source projects:
+related to secret-learn and have a proven track record of employing long-term
+maintainers of secret-learn and related open source projects:
 
 - `:probabl. <https://support.probabl.ai/?utm_source=scikit_learn_docs&utm_medium=documentation&utm_campaign=pro_support>`__
 - `Quansight <https://quansight.com/open-source-services>`__
@@ -103,7 +103,7 @@ maintainers of jax-sklearn and related open source projects:
 Social Media
 ============
 
-jax-sklearn has presence on various social media platforms to share
+secret-learn has presence on various social media platforms to share
 updates with the community. The platforms are not monitored for user
 questions.
 
@@ -112,7 +112,7 @@ questions.
 Gitter
 ======
 
-**Note**: The jax-sklearn Gitter room is no longer an active community.
+**Note**: The secret-learn Gitter room is no longer an active community.
 For live discussions and support, please refer to the other channels
 mentioned in this document.
 
@@ -122,11 +122,11 @@ Documentation Resources
 =======================
 
 This documentation is for |release|. Documentation for other versions can be found `here
-<https://jax-sklearn.org/dev/versions.html>`__, including zip archives which can be
+<https://secret-learn.org/dev/versions.html>`__, including zip archives which can be
 downloaded for offline access.
 
 We no longer provide a PDF version of the documentation, but you can still generate it
 locally by following the :ref:`building documentation instructions <building_documentation>`.
 The most recent version with a PDF documentation is quite old, 0.23.2 (released
 in August 2020), but the PDF is available `here
-<https://jax-sklearn.org/0.23/_downloads/jax-sklearn-docs.pdf>`__.
+<https://secret-learn.org/0.23/_downloads/secret-learn-docs.pdf>`__.

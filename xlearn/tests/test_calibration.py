@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
@@ -545,10 +545,10 @@ def test_calibration_dict_pipeline(dict_data, dict_data_pipeline):
     """Test that calibration works in prefit pipeline with transformer
 
     `X` is not array-like, sparse matrix or dataframe at the start.
-    See https://github.com/chenxingqiang/jax-sklearn/issues/8710
+    See https://github.com/chenxingqiang/secret-learn/issues/8710
 
     Also test it can predict without running into validation errors.
-    See https://github.com/chenxingqiang/jax-sklearn/issues/19637
+    See https://github.com/chenxingqiang/secret-learn/issues/19637
     """
     X, y = dict_data
     clf = dict_data_pipeline
@@ -922,7 +922,7 @@ def test_calibration_with_fit_params(fit_params_type, data):
     """Tests that fit_params are passed to the underlying base estimator.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/12384
+    https://github.com/chenxingqiang/secret-learn/issues/12384
     """
     X, y = data
     fit_params = {

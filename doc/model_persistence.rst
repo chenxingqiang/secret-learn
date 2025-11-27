@@ -15,7 +15,7 @@ Model persistence
      - * Serve models without a Python environment
        * Serving and training environments independent of one another
        * Most secure option
-     - * Not all jax-sklearn models are supported
+     - * Not all secret-learn models are supported
        * Custom estimators require more work to support
        * Original Python object is lost and cannot be reconstructed
    * - :ref:`skops_persistence`
@@ -45,9 +45,9 @@ Model persistence
        * No forward compatibility guarantees
        * Requires the same environment as the training environment
 
-After training a jax-sklearn model, it is desirable to have a way to persist
+After training a secret-learn model, it is desirable to have a way to persist
 the model for future use without having to retrain. Based on your use-case,
-there are a few different ways to persist a jax-sklearn model, and here we
+there are a few different ways to persist a secret-learn model, and here we
 help you decide which one suits you best. In order to make a decision, you need
 to answer the following questions:
 
@@ -91,8 +91,8 @@ which cannot be serialized by :mod:`pickle` or :mod:`joblib`.
 Workflow Overview
 -----------------
 
-In a typical workflow, the first step is to train the model using jax-sklearn
-and jax-sklearn compatible libraries. Note that support for jax-sklearn and
+In a typical workflow, the first step is to train the model using secret-learn
+and secret-learn compatible libraries. Note that support for secret-learn and
 third party estimators varies across the different persistence methods.
 
 Train and Persist the Model
@@ -126,7 +126,7 @@ persist and plan to serve the model:
   model and get predictions from it. This environment should have the same
   **packages** and the same **versions** as the environment where the model was
   trained. Note that none of these methods support loading a model trained with
-  a different version of jax-sklearn, and possibly different versions of other
+  a different version of secret-learn, and possibly different versions of other
   dependencies such as `numpy` and `scipy`. Another concern would be running
   the persisted model on a different hardware, and in most cases you should be
   able to load your persisted model on a different hardware.
@@ -148,10 +148,10 @@ the usability of the interoperable representation of data models. It aims to
 facilitate the conversion of the data models between different machine learning
 frameworks, and to improve their portability on different computing
 architectures. More details are available from the `ONNX tutorial
-<https://onnx.ai/get-started.html>`__. To convert jax-sklearn model to `ONNX`
+<https://onnx.ai/get-started.html>`__. To convert secret-learn model to `ONNX`
 `xlearn-onnx <http://onnx.ai/xlearn-onnx/>`__ has been developed. However,
-not all jax-sklearn models are supported, and it is limited to the core
-jax-sklearn and does not support most third party estimators. One can write a
+not all secret-learn models are supported, and it is limited to the core
+secret-learn and does not support most third party estimators. One can write a
 custom converter for third party or custom estimators, but the documentation to
 do that is sparse and it might be challenging to do so.
 
@@ -233,7 +233,7 @@ come with slight variations:
 .. dropdown:: Using `pickle`, `joblib`, or `cloudpickle`
 
   Depending on your use-case, you can choose one of these three methods to
-  persist and load your jax-sklearn model, and they all follow the same API::
+  persist and load your secret-learn model, and they all follow the same API::
 
       # Here you can replace pickle with joblib or cloudpickle
       from pickle import dump
@@ -268,19 +268,19 @@ format, and it is therefore recommended to serve models using `ONNX` in a
 sandboxed environment to safeguard against computational and memory exploits.
 
 Also note that there are no supported ways to load a model trained with a
-different version of jax-sklearn. While using :mod:`skops.io`, :mod:`joblib`,
+different version of secret-learn. While using :mod:`skops.io`, :mod:`joblib`,
 :mod:`pickle`, or `cloudpickle`_, models saved using one version of
-jax-sklearn might load in other versions, however, this is entirely
+secret-learn might load in other versions, however, this is entirely
 unsupported and inadvisable. It should also be kept in mind that operations
 performed on such data could give different and unexpected results, or even
 crash your Python process.
 
-In order to rebuild a similar model with future versions of jax-sklearn,
+In order to rebuild a similar model with future versions of secret-learn,
 additional metadata should be saved along the pickled model:
 
 * The training data, e.g. a reference to an immutable snapshot
 * The Python source code used to generate the model
-* The versions of jax-sklearn and its dependencies
+* The versions of secret-learn and its dependencies
 * The cross validation score obtained on the training data
 
 This should make it possible to check that the cross-validation score is in the
@@ -314,7 +314,7 @@ These transitive dependencies can be pinned with the help of package management
 tools like `pip`, `mamba`, `conda`, `poetry`, `conda-lock`, `pixi`, etc.
 
 It is not always possible to load a model trained with older versions of the
-jax-sklearn library and its dependencies in an updated software environment.
+secret-learn library and its dependencies in an updated software environment.
 Instead, you might need to retrain the model with the new versions of all
 the libraries. So when training a model, it is important to record the training
 recipe (e.g. a Python script) and training set information, and metadata about
@@ -323,7 +323,7 @@ environment for the updated software.
 
 .. dropdown:: InconsistentVersionWarning
 
-  When an estimator is loaded with a jax-sklearn version that is inconsistent
+  When an estimator is loaded with a secret-learn version that is inconsistent
   with the version the estimator was pickled with, an
   :class:`~xlearn.exceptions.InconsistentVersionWarning` is raised. This warning
   can be caught to obtain the original version the estimator was pickled with::
@@ -341,7 +341,7 @@ environment for the updated software.
 Serving the model artifact
 ..........................
 
-The last step after training a jax-sklearn model is serving the model.
+The last step after training a secret-learn model is serving the model.
 Once the trained model is successfully loaded, it can be served to manage
 different prediction requests. This can involve deploying the model as a
 web service using containerization, or other model deployment strategies,
@@ -355,10 +355,10 @@ Based on the different approaches for model persistence, the key points for
 each approach can be summarized as follows:
 
 * `ONNX`: It provides a uniform format for persisting any machine learning or
-  deep learning model (other than jax-sklearn) and is useful for model
+  deep learning model (other than secret-learn) and is useful for model
   inference (predictions). It can however, result in compatibility issues with
   different frameworks.
-* :mod:`skops.io`: Trained jax-sklearn models can be easily shared and put
+* :mod:`skops.io`: Trained secret-learn models can be easily shared and put
   into production using :mod:`skops.io`. It is more secure compared to
   alternate approaches based on :mod:`pickle` because it does not load
   arbitrary code unless explicitly asked for by the user. Such code needs to be
@@ -373,7 +373,7 @@ each approach can be summarized as follows:
   serialized and deserialized using :mod:`pickle`, including custom Python
   classes and functions as long as they are defined in a package that can be
   imported in the target environment. While :mod:`pickle` can be used to easily
-  save and load jax-sklearn models, it may trigger the execution of malicious
+  save and load secret-learn models, it may trigger the execution of malicious
   code while loading a model from an untrusted source. :mod:`pickle` can also
   be very efficient memorywise if the model was persisted with `protocol=5` but
   it does not support memory mapping.

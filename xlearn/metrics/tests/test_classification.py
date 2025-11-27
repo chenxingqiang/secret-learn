@@ -223,7 +223,7 @@ def test_classification_report_labels_subset_superset(labels, show_micro_avg):
     the micro-averaging if this is a subset.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27927
+    https://github.com/chenxingqiang/secret-learn/issues/27927
     """
 
     y_true, y_pred = [0, 1], [0, 1]
@@ -1104,7 +1104,7 @@ def test_matthews_corrcoef_multiclass(global_random_seed):
 
 @pytest.mark.parametrize("n_points", [100, 10000])
 def test_matthews_corrcoef_overflow(n_points, global_random_seed):
-    # https://github.com/chenxingqiang/jax-sklearn/issues/9622
+    # https://github.com/chenxingqiang/secret-learn/issues/9622
     rng = np.random.RandomState(global_random_seed)
 
     def mcc_safe(y_true, y_pred):
@@ -2566,7 +2566,7 @@ def test__check_targets():
 
 
 def test__check_targets_multiclass_with_both_y_true_and_y_pred_binary():
-    # https://github.com/chenxingqiang/jax-sklearn/issues/8098
+    # https://github.com/chenxingqiang/secret-learn/issues/8098
     y_true = [0, 1]
     y_pred = [0, -1]
     assert _check_targets(y_true, y_pred)[0] == "multiclass"
@@ -2682,7 +2682,7 @@ def test_hinge_loss_multiclass_with_missing_labels():
 
 def test_hinge_loss_multiclass_missing_labels_only_two_unq_in_y_true():
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/17630
+    # https://github.com/chenxingqiang/secret-learn/issues/17630
     # check that we can compute the hinge loss when providing an array
     # with labels allowing to not have all labels in y_true
     pred_decision = np.array(
@@ -2821,7 +2821,7 @@ def test_log_loss_eps(dtype):
     """Check the behaviour internal eps that changes depending on the input dtype.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/24315
+    https://github.com/chenxingqiang/secret-learn/issues/24315
     """
     y_true = np.array([0, 1], dtype=dtype)
     y_pred = np.array([1, 0], dtype=dtype)
@@ -3129,7 +3129,7 @@ def test_f1_for_small_binary_inputs_with_zero_division(y_true, y_pred, expected_
     """Check the behaviour of `zero_division` for f1-score.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/26965
+    https://github.com/chenxingqiang/secret-learn/issues/26965
     """
     assert f1_score(y_true, y_pred, zero_division=1.0) == pytest.approx(expected_score)
 
@@ -3151,7 +3151,7 @@ def test_classification_metric_division_by_zero_nan_validaton(scoring):
     `math.isnan`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27563
+    https://github.com/chenxingqiang/secret-learn/issues/27563
     """
     X, y = datasets.make_classification(random_state=0)
     classifier = DecisionTreeClassifier(max_depth=3, random_state=0).fit(X, y)
@@ -3311,7 +3311,7 @@ def test_d2_log_loss_score():
 def test_d2_log_loss_score_missing_labels():
     """Check that d2_log_loss_score works when not all labels are present in y_true
 
-    non-regression test for https://github.com/chenxingqiang/jax-sklearn/issues/30713
+    non-regression test for https://github.com/chenxingqiang/secret-learn/issues/30713
     """
     y_true = [2, 0, 2, 0]
     labels = [0, 1, 2]

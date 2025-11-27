@@ -10,7 +10,7 @@ We also show that you can easily inspect part of the pipeline.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -33,7 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 # %%
 # A common mistake done with feature selection is to search a subset of
 # discriminative features on the full dataset, instead of only using the
-# training set. The usage of jax-sklearn :func:`~xlearn.pipeline.Pipeline`
+# training set. The usage of secret-learn :func:`~xlearn.pipeline.Pipeline`
 # prevents to make such mistake.
 #
 # Here, we will demonstrate how to build a pipeline where the first step will

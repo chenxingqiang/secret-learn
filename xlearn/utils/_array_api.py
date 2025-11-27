@@ -1,6 +1,6 @@
 """Tools to support array_api."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -128,7 +128,7 @@ def _check_array_api_dispatch(array_api_dispatch):
     """Check that array_api_compat is installed and NumPy version is compatible.
 
     array_api_compat follows NEP29, which has a higher minimum NumPy version than
-    jax-sklearn.
+    secret-learn.
     """
     if not array_api_dispatch:
         return
@@ -156,9 +156,9 @@ def _single_array_device(array):
     if (
         isinstance(array, (numpy.ndarray, numpy.generic))
         or not hasattr(array, "device")
-        # When array API dispatch is disabled, we expect the jax-sklearn code
+        # When array API dispatch is disabled, we expect the secret-learn code
         # to use np.asarray so that the resulting NumPy array will implicitly use the
-        # CPU. In this case, jax-sklearn should stay as device neutral as possible,
+        # CPU. In this case, secret-learn should stay as device neutral as possible,
         # hence the use of `device=None` which is accepted by all libraries, before
         # and after the expected conversion to NumPy via np.asarray.
         or not get_config()["array_api_dispatch"]
@@ -294,7 +294,7 @@ def supported_float_dtypes(xp):
     """Supported floating point types for the namespace.
 
     Note: float16 is not officially part of the Array API spec at the
-    time of writing but jax-sklearn estimators and functions can choose
+    time of writing but secret-learn estimators and functions can choose
     to accept it when xp.float16 is defined.
 
     https://data-apis.org/array-api/latest/API_specification/data_types.html
@@ -608,7 +608,7 @@ def _average(a, axis=None, weights=None, normalize=True, xp=None):
 
     It does a best effort at mimicking the return dtype rule described at
     https://numpy.org/doc/stable/reference/generated/numpy.average.html but
-    only for the common cases needed in jax-sklearn.
+    only for the common cases needed in secret-learn.
     """
     xp, _, device_ = get_namespace_and_device(a, weights)
 
@@ -739,7 +739,7 @@ def _asarray_with_order(
     """Helper to support the order kwarg only for NumPy-backed arrays
 
     Memory layout parameter `order` is not exposed in the Array API standard,
-    however some input validation code in jax-sklearn needs to work both
+    however some input validation code in secret-learn needs to work both
     for classes and functions that will leverage Array API only operations
     and for code that inherently relies on NumPy backed data containers with
     specific memory layout constraints (e.g. our own Cython code). The

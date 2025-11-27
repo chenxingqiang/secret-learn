@@ -2,7 +2,7 @@
 Testing for the forest module (xlearn.ensemble.forest).
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -1635,7 +1635,7 @@ def test_mse_criterion_object_segfault_smoke_test(Forest):
     # This is a smoke test to ensure that passing a mutable criterion
     # does not cause a segfault when fitting with concurrent threads.
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/12623
+    # https://github.com/chenxingqiang/secret-learn/issues/12623
     from xlearn.tree._criterion import MSE
 
     y = y_reg.reshape(-1, 1)
@@ -1676,7 +1676,7 @@ def test_random_trees_embedding_feature_names_out():
 def test_read_only_buffer(csr_container, monkeypatch):
     """RandomForestClassifier must work on readonly sparse data.
 
-    Non-regression test for: https://github.com/chenxingqiang/jax-sklearn/issues/25333
+    Non-regression test for: https://github.com/chenxingqiang/secret-learn/issues/25333
     """
     monkeypatch.setattr(
         xlearn.ensemble._forest,

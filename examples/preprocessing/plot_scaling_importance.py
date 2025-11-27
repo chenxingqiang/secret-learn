@@ -26,7 +26,7 @@ accuracy of a model trained on PCA-reduced data.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%

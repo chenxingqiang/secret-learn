@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
@@ -400,7 +400,7 @@ class _GeneralizedLinearRegressor(RegressorMixin, BaseEstimator):
             D^2 of self.predict(X) w.r.t. y.
         """
         # TODO: Adapt link to User Guide in the docstring, once
-        # https://github.com/chenxingqiang/jax-sklearn/pull/22118 is merged.
+        # https://github.com/chenxingqiang/secret-learn/pull/22118 is merged.
         #
         # Note, default score defined in RegressorMixin is R^2 score.
         # TODO: make D^2 a score function in module metrics (and thereby get

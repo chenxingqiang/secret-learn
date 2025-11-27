@@ -16,7 +16,7 @@ stacking strategy. Stacking slightly improves the overall performance.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -31,7 +31,7 @@ stacking strategy. Stacking slightly improves the overall performance.
 # GradientBoostingRegressor() and limit number of entries (here we won't go
 # into the details on how to select the most interesting features).
 #
-# The Ames housing dataset is not shipped with jax-sklearn and therefore we
+# The Ames housing dataset is not shipped with secret-learn and therefore we
 # will fetch it from `OpenML`_.
 #
 # .. _`Ames Housing`: http://jse.amstat.org/v19n3/decock.pdf

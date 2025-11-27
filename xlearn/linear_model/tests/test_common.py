@@ -65,7 +65,7 @@ from xlearn.utils._testing import set_random_state
         LinearRegression(),
         # TODO: FIx SAGA which fails badly with sample_weights.
         # This is a known limitation, see:
-        # https://github.com/chenxingqiang/jax-sklearn/issues/21305
+        # https://github.com/chenxingqiang/secret-learn/issues/21305
         pytest.param(
             LogisticRegression(
                 penalty="elasticnet", solver="saga", l1_ratio=0.5, tol=1e-15

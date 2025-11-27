@@ -31,7 +31,7 @@ offering insight into the behavior of these models
 under different constraints.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from itertools import cycle

@@ -62,7 +62,7 @@ empirical covariance matrix cannot be inverted for numerical
 reasons. To avoid such an inversion problem, a transformation of the
 empirical covariance matrix has been introduced: the ``shrinkage``.
 
-In jax-sklearn, this transformation (with a user-defined shrinkage
+In secret-learn, this transformation (with a user-defined shrinkage
 coefficient) can be directly applied to a pre-computed covariance with
 the :func:`shrunk_covariance` method. Also, a shrunk estimator of the
 covariance can be fitted to data with a :class:`ShrunkCovariance` object
@@ -303,7 +303,7 @@ set ("reweighting step").
 
 Rousseeuw and Van Driessen [4]_ developed the FastMCD algorithm in order
 to compute the Minimum Covariance Determinant. This algorithm is used
-in jax-sklearn when fitting an MCD object to data. The FastMCD
+in secret-learn when fitting an MCD object to data. The FastMCD
 algorithm also computes a robust estimate of the data set location at
 the same time.
 

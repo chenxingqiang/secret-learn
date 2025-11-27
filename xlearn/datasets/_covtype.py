@@ -10,7 +10,7 @@ The dataset page is available from UCI Machine Learning Repository
 Courtesy of Jock A. Blackard and Colorado State University.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import logging
@@ -104,7 +104,7 @@ def fetch_covtype(
     ----------
     data_home : str or path-like, default=None
         Specify another download and cache folder for the datasets. By default
-        all jax-sklearn data is stored in '~/scikit_learn_data' subfolders.
+        all secret-learn data is stored in '~/scikit_learn_data' subfolders.
 
     download_if_missing : bool, default=True
         If False, raise an OSError if the data is not locally available

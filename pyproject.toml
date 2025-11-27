@@ -1,10 +1,10 @@
 [project]
-name = "jax-sklearn"
+name = "secret-learn"
 version = "0.1.1"
-description = "JAX-accelerated machine learning library with scikit-learn compatibility"
+description = "Privacy-preserving machine learning with SecretFlow - 348 sklearn-compatible algorithms (FL/SL/SS modes)"
 readme = "README.md"
 maintainers = [
-    {name = "XLearn developers", email="xlearn@python.org"},
+    {name = "Secret-Learn developers", email="secret-learn@python.org"},
 ]
 dependencies = [
   "numpy>=1.22.0",
@@ -13,6 +13,8 @@ dependencies = [
   "threadpoolctl>=3.1.0",
   "jax>=0.4.20",
   "jaxlib>=0.4.20",
+  "jax-sklearn>=0.1.0",  # Base JAX-sklearn implementation
+  "secretflow>=1.0.0",   # SecretFlow for privacy-preserving computation
 ]
 requires-python = ">=3.10"
 license = "BSD-3-Clause"
@@ -24,7 +26,9 @@ classifiers=[
   "Programming Language :: Python",
   "Topic :: Software Development",
   "Topic :: Scientific/Engineering",
-  "Development Status :: 5 - Production/Stable",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Security :: Cryptography",
+  "Development Status :: 4 - Beta",
   "Operating System :: Microsoft :: Windows",
   "Operating System :: POSIX",
   "Operating System :: Unix",
@@ -35,21 +39,34 @@ classifiers=[
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: Implementation :: CPython",
+  "License :: OSI Approved :: BSD License",
 ]
 
 [project.urls]
-homepage = "https://jax-sklearn.org"
-source = "https://github.com/chenxingqiang/jax-sklearn"
-download = "https://pypi.org/project/jax-sklearn/#files"
-tracker = "https://github.com/chenxingqiang/jax-sklearn/issues"
-"release notes" = "https://jax-sklearn.org/stable/whats_new"
+homepage = "https://github.com/chenxingqiang/secret-learn"
+source = "https://github.com/chenxingqiang/secret-learn"
+download = "https://pypi.org/project/secret-learn/#files"
+tracker = "https://github.com/chenxingqiang/secret-learn/issues"
+documentation = "https://github.com/chenxingqiang/secret-learn#readme"
+"JAX-sklearn" = "https://github.com/chenxingqiang/jax-sklearn"
+"SecretFlow" = "https://github.com/secretflow/secretflow"
 
 [project.optional-dependencies]
 build = ["numpy>=1.22.0", "scipy>=1.8.0", "cython>=3.0.10", "meson-python>=0.17.1"]
-install = ["numpy>=1.22.0", "scipy>=1.8.0", "joblib>=1.2.0", "threadpoolctl>=3.1.0", "jax>=0.4.20", "jaxlib>=0.4.20"]
+install = [
+    "numpy>=1.22.0",
+    "scipy>=1.8.0",
+    "joblib>=1.2.0",
+    "threadpoolctl>=3.1.0",
+    "jax>=0.4.20",
+    "jaxlib>=0.4.20",
+    "jax-sklearn>=0.1.0",
+    "secretflow>=1.0.0",
+]
 jax = ["jax>=0.4.20", "jaxlib>=0.4.20"]
 jax-cpu = ["jax[cpu]>=0.4.20"]
 jax-gpu = ["jax[gpu]>=0.4.20"]
+secretflow = ["secretflow>=1.0.0"]
 benchmark = ["matplotlib>=3.5.0", "pandas>=1.4.0", "memory_profiler>=0.57.0"]
 docs = [
     "matplotlib>=3.5.0",

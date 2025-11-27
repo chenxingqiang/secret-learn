@@ -1,33 +1,33 @@
 # ruff: noqa: CPY001, E501
 """
 =======================================
-Release Highlights for jax-sklearn 1.2
+Release Highlights for secret-learn 1.2
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.2! Many bug fixes
+We are pleased to announce the release of secret-learn 1.2! Many bug fixes
 and improvements were added, as well as some new key features. We detail
 below a few of the major features of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_2>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
 # %%
 # Pandas output with `set_output` API
 # -----------------------------------
-# jax-sklearn's transformers now support pandas output with the `set_output` API.
+# secret-learn's transformers now support pandas output with the `set_output` API.
 # To learn more about the `set_output` API see the example:
 # :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py` and
-# # this `video, pandas DataFrame output for jax-sklearn transformers
+# # this `video, pandas DataFrame output for secret-learn transformers
 # (some examples) <https://youtu.be/5bCg8VfX2x8>`__.
 
 import numpy as np

@@ -5,7 +5,7 @@ Scikit-learn governance and decision-making
 ===========================================
 
 The purpose of this document is to formalize the governance process used by the
-jax-sklearn project, to clarify how decisions are made and how the various
+secret-learn project, to clarify how decisions are made and how the various
 elements of our community interact.
 This document establishes a decision-making structure that takes into account
 feedback from all members of the community and strives to find consensus, while
@@ -39,11 +39,11 @@ Core Contributors
 
 All core contributor members have the same voting rights and right to propose
 new members to any of the roles listed below. Their membership is represented
-as being an organization member on the jax-sklearn `GitHub organization
-<https://github.com/orgs/jax-sklearn/people>`_.
+as being an organization member on the secret-learn `GitHub organization
+<https://github.com/orgs/secret-learn/people>`_.
 
 They are also welcome to join our `monthly core contributor meetings
-<https://github.com/jax-sklearn/administrative/tree/master/meeting_notes>`_.
+<https://github.com/secret-learn/administrative/tree/master/meeting_notes>`_.
 
 New members can be nominated by any existing member. Once they have been
 nominated, there will be a vote by the current core contributors. Voting on new
@@ -56,7 +56,7 @@ Core contributors that have not contributed to the project, corresponding to
 their role, in the past 12 months will be asked if they want to become emeritus
 members and recant their rights until they become active again. The list of
 members, active and emeritus (with dates at which they became active) is public
-on the jax-sklearn website. It is the responsibility of the active core
+on the secret-learn website. It is the responsibility of the active core
 contributors to send such a yearly reminder email.
 
 The following teams form the core contributors group:
@@ -75,10 +75,10 @@ The following teams form the core contributors group:
 
 * **Communication Team**
   Members of the communication team help with outreach and communication
-  for jax-sklearn. The goal of the team is to develop public awareness of
-  jax-sklearn, of its features and usage, as well as branding.
+  for secret-learn. The goal of the team is to develop public awareness of
+  secret-learn, of its features and usage, as well as branding.
 
-  For this, they can operate the jax-sklearn accounts on various social networks
+  For this, they can operate the secret-learn accounts on various social networks
   and produce materials. They also have the required rights to our blog
   repository and other relevant accounts and platforms.
 
@@ -88,13 +88,13 @@ The following teams form the core contributors group:
   project, but their reviews on documentation contributions are considered
   authoritative, and can merge such contributions.
 
-  To this end, they have permissions to merge pull requests in jax-sklearn's
+  To this end, they have permissions to merge pull requests in secret-learn's
   repository.
 
 * **Maintainers Team**
   Maintainers are community members who have shown that they are dedicated to the
   continued development of the project through ongoing engagement with the
-  community. They have shown they can be trusted to maintain jax-sklearn with
+  community. They have shown they can be trusted to maintain secret-learn with
   care. Being a maintainer allows contributors to more easily carry on with their
   project related activities by giving them direct access to the project's
   repository. Maintainers are expected to review code contributions, merge
@@ -119,7 +119,7 @@ membership votes are subject to a two-third majority of all cast votes as well
 as a simple majority approval of all the current TC members. TC members who do
 not actively engage with the TC duties are expected to resign.
 
-The Technical Committee of jax-sklearn consists of :user:`Thomas Fan
+The Technical Committee of secret-learn consists of :user:`Thomas Fan
 <thomasjpfan>`, :user:`Alexandre Gramfort <agramfort>`, :user:`Olivier Grisel
 <ogrisel>`, :user:`Adrin Jalali <adrinjalali>`, :user:`Andreas Müller
 <amueller>`, :user:`Joel Nothman <jnothman>` and :user:`Gaël Varoquaux
@@ -129,8 +129,8 @@ Decision Making Process
 =======================
 Decisions about the future of the project are made through discussion with all
 members of the community. All non-sensitive project management discussion takes
-place on the project contributors' `mailing list <mailto:jax-sklearn@python.org>`_
-and the `issue tracker <https://github.com/chenxingqiang/jax-sklearn/issues>`_.
+place on the project contributors' `mailing list <mailto:secret-learn@python.org>`_
+and the `issue tracker <https://github.com/chenxingqiang/secret-learn/issues>`_.
 Occasionally, sensitive discussion occurs on a private list.
 
 Scikit-learn uses a "consensus seeking" process for making decisions. The group
@@ -148,7 +148,7 @@ are made according to the following rules:
 
 * **Minor code and documentation changes**, such as small maintenance changes without
   modification of code logic, typo fixes, or addition / correction
-  of a sentence, but no change of the ``jax-sklearn.org`` landing page or the
+  of a sentence, but no change of the ``secret-learn.org`` landing page or the
   “about” page: Requires +1 by a core contributor, no -1 by a core contributor
   (lazy consensus), happens on the issue or pull request page. Core contributors
   are expected to give “reasonable time” to others to give their opinion on the
@@ -164,7 +164,7 @@ are made according to the following rules:
   like supported versions can happen on a GitHub issue or pull request.
 
 * **Changes to the governance model** follow the process outlined in `SLEP020
-  <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep020/proposal.html>`__.
+  <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep020/proposal.html>`__.
 
 If a veto -1 vote is cast on a lazy consensus, the proposer can appeal to the
 community and maintainers and the change can be approved or rejected using
@@ -193,9 +193,9 @@ For all votes, a proposal must have been made public and discussed before the
 vote. Such proposal must be a consolidated document, in the form of a
 "Scikit-Learn Enhancement Proposal" (SLEP), rather than a long discussion on an
 issue. A SLEP must be submitted as a pull-request to `enhancement proposals
-<https://jax-sklearn-enhancement-proposals.readthedocs.io>`_ using the `SLEP
+<https://secret-learn-enhancement-proposals.readthedocs.io>`_ using the `SLEP
 template
-<https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_.
+<https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep_template.html>`_.
 `SLEP000
-<https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep000/proposal.html>`__
+<https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep000/proposal.html>`__
 describes the process in more detail.

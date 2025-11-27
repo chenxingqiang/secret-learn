@@ -53,12 +53,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    - Improved random number generator by using a mersenne twister + tweaked
      lemire postprocessor. This fixed a convergence issue on windows targets.
      Sylvain Marie, Schneider Electric
-     see <https://github.com/chenxingqiang/jax-sklearn/pull/13511#issuecomment-481729756>
+     see <https://github.com/chenxingqiang/secret-learn/pull/13511#issuecomment-481729756>
 
    Modified 2021:
 
    - Exposed number of iterations run in optimization, Juan Martín Loyola.
-     See <https://github.com/chenxingqiang/jax-sklearn/pull/21408/>
+     See <https://github.com/chenxingqiang/secret-learn/pull/21408/>
  */
 
 #include <math.h>

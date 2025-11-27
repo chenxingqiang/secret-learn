@@ -1,4 +1,4 @@
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 
@@ -115,7 +115,7 @@ def test_perfect_signal_recovery():
 
 def test_orthogonal_mp_gram_readonly():
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/5956
+    # https://github.com/chenxingqiang/secret-learn/issues/5956
     (idx,) = gamma[:, 0].nonzero()
     G_readonly = G.copy()
     G_readonly.setflags(write=False)

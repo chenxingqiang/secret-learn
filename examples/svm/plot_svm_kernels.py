@@ -36,7 +36,7 @@ linear kernel (`"linear"`), the polynomial kernel (`"poly"`), the radial basis f
 kernel (`"rbf"`) and the sigmoid kernel (`"sigmoid"`).
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -209,7 +209,7 @@ plot_training_data_with_decision_boundary("poly")
 # RBF kernel
 # **********
 # The radial basis function (RBF) kernel, also known as the Gaussian kernel, is
-# the default kernel for Support Vector Machines in jax-sklearn. It measures
+# the default kernel for Support Vector Machines in secret-learn. It measures
 # similarity between two data points in infinite dimensions and then approaches
 # classification by majority vote. The kernel function is defined as:
 #

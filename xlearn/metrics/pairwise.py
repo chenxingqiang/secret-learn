@@ -1,6 +1,6 @@
 """Metrics for pairwise distances and affinity of sets of samples."""
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools
@@ -750,7 +750,7 @@ def pairwise_distances_argmin_min(
         Axis along which the argmin and distances are to be computed.
 
     metric : str or callable, default='euclidean'
-        Metric to use for distance computation. Any metric from jax-sklearn
+        Metric to use for distance computation. Any metric from secret-learn
         or :mod:`scipy.spatial.distance` can be used.
 
         If metric is a callable function, it is called on each
@@ -763,7 +763,7 @@ def pairwise_distances_argmin_min(
 
         Valid values for metric are:
 
-        - from jax-sklearn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
+        - from secret-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
           'manhattan', 'nan_euclidean']
 
         - from :mod:`scipy.spatial.distance`: ['braycurtis', 'canberra', 'chebyshev',
@@ -898,7 +898,7 @@ def pairwise_distances_argmin(X, Y, *, axis=1, metric="euclidean", metric_kwargs
         Axis along which the argmin and distances are to be computed.
 
     metric : str or callable, default="euclidean"
-        Metric to use for distance computation. Any metric from jax-sklearn
+        Metric to use for distance computation. Any metric from secret-learn
         or :mod:`scipy.spatial.distance` can be used.
 
         If metric is a callable function, it is called on each
@@ -911,7 +911,7 @@ def pairwise_distances_argmin(X, Y, *, axis=1, metric="euclidean", metric_kwargs
 
         Valid values for metric are:
 
-        - from jax-sklearn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
+        - from secret-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
           'manhattan', 'nan_euclidean']
 
         - from :mod:`scipy.spatial.distance`: ['braycurtis', 'canberra', 'chebyshev',
@@ -2300,7 +2300,7 @@ def pairwise_distances(
 
     Valid values for metric are:
 
-    - From jax-sklearn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
+    - From secret-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
       'manhattan', 'nan_euclidean']. All metrics support sparse matrix
       inputs except 'nan_euclidean'.
 
@@ -2317,10 +2317,10 @@ def pairwise_distances(
         `'matching'` has been removed in SciPy 1.9 (use `'hamming'` instead).
 
     Note that in the case of 'cityblock', 'cosine' and 'euclidean' (which are
-    valid :mod:`scipy.spatial.distance` metrics), the jax-sklearn implementation
+    valid :mod:`scipy.spatial.distance` metrics), the secret-learn implementation
     will be used, which is faster and has support for sparse matrices (except
     for 'cityblock'). For a verbose description of the metrics from
-    jax-sklearn, see :func:`xlearn.metrics.pairwise.distance_metrics`
+    secret-learn, see :func:`xlearn.metrics.pairwise.distance_metrics`
     function.
 
     Read more in the :ref:`User Guide <metrics>`.

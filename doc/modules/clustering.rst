@@ -34,7 +34,7 @@ Overview of clustering methods
    :align: center
    :scale: 50
 
-   A comparison of the clustering algorithms in jax-sklearn
+   A comparison of the clustering algorithms in secret-learn
 
 
 .. list-table::
@@ -224,7 +224,7 @@ Given enough time, K-means will always converge, however this may be to a local
 minimum. This is highly dependent on the initialization of the centroids.
 As a result, the computation is often done several times, with different
 initializations of the centroids. One method to help address this issue is the
-k-means++ initialization scheme, which has been implemented in jax-sklearn
+k-means++ initialization scheme, which has been implemented in secret-learn
 (use the ``init='k-means++'`` parameter). This initializes the centroids to be
 (generally) distant from each other, leading to probably better results than
 random initialization, as shown in the reference. For detailed examples of
@@ -954,7 +954,7 @@ by black points below.
 
   The current implementation uses ball trees and kd-trees to determine the
   neighborhood of points, which avoids calculating the full distance matrix (as
-  was done in jax-sklearn versions before 0.14). The possibility to use custom
+  was done in secret-learn versions before 0.14). The possibility to use custom
   metrics is retained; for details, see :class:`NearestNeighbors`.
 
 .. dropdown:: Memory consumption for large sample sizes
@@ -1007,7 +1007,7 @@ scales by building an alternative representation of the clustering problem.
 .. note::
 
   This implementation is adapted from the original implementation of HDBSCAN,
-  `jax-sklearn-contrib/hdbscan <https://github.com/jax-sklearn-contrib/hdbscan>`_ based on [LJ2017]_.
+  `secret-learn-contrib/hdbscan <https://github.com/secret-learn-contrib/hdbscan>`_ based on [LJ2017]_.
 
 .. rubric:: Examples
 

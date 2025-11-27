@@ -1,12 +1,12 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.0
+Release Highlights for secret-learn 1.0
 =======================================
 
 .. currentmodule:: xlearn
 
-We are very pleased to announce the release of jax-sklearn 1.0! The library
+We are very pleased to announce the release of secret-learn 1.0! The library
 has been stable for quite some time, releasing version 1.0 is recognizing that
 and signalling it to our users. This release does not include any breaking
 changes apart from the usual two-release deprecation cycle. For the future, we
@@ -19,18 +19,18 @@ notes <release_notes_1_0>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
 ##############################################################################
 # Keyword and positional arguments
 # ---------------------------------------------------------
-# The jax-sklearn API exposes many functions and methods which have many input
+# The secret-learn API exposes many functions and methods which have many input
 # parameters. For example, before this release, one could instantiate a
 # :class:`~ensemble.HistGradientBoostingRegressor` as::
 #
@@ -40,7 +40,7 @@ or with conda::
 #
 # Understanding the above code requires the reader to go to the API
 # documentation and to check each and every parameter for its position and
-# its meaning. To improve the readability of code written based on jax-sklearn,
+# its meaning. To improve the readability of code written based on secret-learn,
 # now users have to provide most parameters with their names, as keyword
 # arguments, instead of positional arguments. For example, the above code would
 # be::
@@ -142,7 +142,7 @@ spline.fit_transform(X)
 # <https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe>`_ during
 # :term:`fit`, the estimator will set a `feature_names_in_` attribute
 # containing the feature names. This is a part of
-# `SLEP007 <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
+# `SLEP007 <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
 # Note that feature names support is only enabled
 # when the column names in the dataframe are all strings. `feature_names_in_`
 # is used to check that the column names of the dataframe passed in

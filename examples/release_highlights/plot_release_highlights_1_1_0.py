@@ -1,23 +1,23 @@
 # ruff: noqa: CPY001
 """
 =======================================
-Release Highlights for jax-sklearn 1.1
+Release Highlights for secret-learn 1.1
 =======================================
 
 .. currentmodule:: xlearn
 
-We are pleased to announce the release of jax-sklearn 1.1! Many bug fixes
+We are pleased to announce the release of secret-learn 1.1! Many bug fixes
 and improvements were added, as well as some new key features. We detail
 below a few of the major features of this release. **For an exhaustive list of
 all the changes**, please refer to the :ref:`release notes <release_notes_1_1>`.
 
 To install the latest version (with pip)::
 
-    pip install --upgrade jax-sklearn
+    pip install --upgrade secret-learn
 
 or with conda::
 
-    conda install -c conda-forge jax-sklearn
+    conda install -c conda-forge secret-learn
 
 """
 
@@ -63,7 +63,7 @@ _ = ax.legend(loc="lower left")
 # -----------------------------------------------------
 # :term:`get_feature_names_out` is now available in all transformers, thereby
 # concluding the implementation of
-# `SLEP007 <https://jax-sklearn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
+# `SLEP007 <https://secret-learn-enhancement-proposals.readthedocs.io/en/latest/slep007/proposal.html>`__.
 # This enables :class:`~pipeline.Pipeline` to construct the output feature names for
 # more complex pipelines:
 from xlearn.compose import ColumnTransformer
@@ -164,7 +164,7 @@ pd.DataFrame(encoded, columns=enc.get_feature_names_out())
 # - :class:`semi_supervised.LabelSpreading`
 #
 # To know more about the technical details of this work, you can read
-# `this suite of blog posts <https://blog.jax-sklearn.org/technical/performances/>`_.
+# `this suite of blog posts <https://blog.secret-learn.org/technical/performances/>`_.
 #
 # Moreover, the computation of loss functions has been refactored using
 # Cython resulting in performance improvements for the following estimators:

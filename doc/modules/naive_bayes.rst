@@ -280,7 +280,7 @@ classifiers support sample weighting.
 Contrary to the ``fit`` method, the first call to ``partial_fit`` needs to be
 passed the list of all the expected class labels.
 
-For an overview of available strategies in jax-sklearn, see also the
+For an overview of available strategies in secret-learn, see also the
 :ref:`out-of-core learning <scaling_strategies>` documentation.
 
 .. note::

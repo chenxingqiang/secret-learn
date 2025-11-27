@@ -6,7 +6,7 @@ Metadata Routing
 .. currentmodule:: xlearn
 
 This document shows how you can use the :ref:`metadata routing mechanism
-<metadata_routing>` in jax-sklearn to route metadata to the estimators,
+<metadata_routing>` in secret-learn to route metadata to the estimators,
 scorers, and CV splitters consuming them.
 
 To better understand the following document, we need to introduce two concepts:
@@ -27,7 +27,7 @@ calculations, but it may also route it to the underlying estimator.
 First a few imports and some random data for the rest of the script.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # %%
@@ -295,7 +295,7 @@ except TypeError as e:
 
 # %%
 # This leads us to the ``get_metadata_routing``. The way routing works in
-# jax-sklearn is that consumers request what they need, and routers pass that
+# secret-learn is that consumers request what they need, and routers pass that
 # along. Additionally, a router exposes what it requires itself so that it can
 # be used inside another router, e.g. a pipeline inside a grid search object.
 # The output of the ``get_metadata_routing`` which is a dictionary
@@ -700,15 +700,15 @@ for w in record:
 set_config(enable_metadata_routing=False)
 
 # %%
-# Third Party Development and jax-sklearn Dependency
+# Third Party Development and secret-learn Dependency
 # ---------------------------------------------------
 #
 # As seen above, information is communicated between classes using
 # :class:`~utils.metadata_routing.MetadataRequest` and
 # :class:`~utils.metadata_routing.MetadataRouter`. It is strongly not advised,
 # but possible to vendor the tools related to metadata-routing if you strictly
-# want to have a jax-sklearn compatible estimator, without depending on the
-# jax-sklearn package. If all of the following conditions are met, you do NOT
+# want to have a secret-learn compatible estimator, without depending on the
+# secret-learn package. If all of the following conditions are met, you do NOT
 # need to modify your code at all:
 #
 # - your estimator inherits from :class:`~base.BaseEstimator`

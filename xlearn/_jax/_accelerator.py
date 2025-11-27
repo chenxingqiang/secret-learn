@@ -23,7 +23,7 @@ class AcceleratorRegistry:
         Parameters
         ----------
         original_class : type
-            The original jax-sklearn estimator class.
+            The original secret-learn estimator class.
         accelerated_class : type
             The JAX-accelerated implementation class.
         """
@@ -35,7 +35,7 @@ class AcceleratorRegistry:
         Parameters
         ----------
         original_class : type
-            The original jax-sklearn estimator class.
+            The original secret-learn estimator class.
             
         Returns
         -------
@@ -78,7 +78,7 @@ def accelerated_estimator(original_class: Type):
     Parameters
     ----------
     original_class : type
-        The original jax-sklearn estimator class to accelerate.
+        The original secret-learn estimator class to accelerate.
         
     Examples
     --------
@@ -101,7 +101,7 @@ def create_accelerated_estimator(original_class: Type, *args, **kwargs):
     Parameters
     ----------
     original_class : type
-        The original jax-sklearn estimator class.
+        The original secret-learn estimator class.
     *args, **kwargs
         Arguments to pass to the estimator constructor.
         

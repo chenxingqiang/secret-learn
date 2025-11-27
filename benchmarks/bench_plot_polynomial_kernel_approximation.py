@@ -39,7 +39,7 @@ Programming (pp. 693-703). Springer, Berlin, Heidelberg.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Load data manipulation functions

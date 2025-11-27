@@ -4,7 +4,7 @@ These routines execute the OPTICS algorithm, and implement various
 cluster extraction methods of the ordered list.
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import warnings
@@ -37,7 +37,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
     related to DBSCAN, finds core samples of high density and expands clusters
     from them [1]_. Unlike DBSCAN, it keeps cluster hierarchy for a variable
     neighborhood radius. Better suited for usage on large datasets than the
-    current jax-sklearn implementation of DBSCAN.
+    current secret-learn implementation of DBSCAN.
 
     Clusters are then extracted from the cluster-order using a
     DBSCAN-like method (cluster_method = 'dbscan') or an automatic
@@ -69,7 +69,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
         in shorter run times.
 
     metric : str or callable, default='minkowski'
-        Metric to use for distance computation. Any metric from jax-sklearn
+        Metric to use for distance computation. Any metric from secret-learn
         or :mod:`scipy.spatial.distance` can be used.
 
         If `metric` is a callable function, it is called on each
@@ -82,7 +82,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
 
         Valid values for metric are:
 
-        - from jax-sklearn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
+        - from secret-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
           'manhattan']
 
         - from scipy.spatial.distance: ['braycurtis', 'canberra', 'chebyshev',
@@ -91,7 +91,7 @@ class OPTICS(ClusterMixin, BaseEstimator):
           'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean',
           'yule']
 
-        Sparse matrices are only supported by jax-sklearn metrics.
+        Sparse matrices are only supported by secret-learn metrics.
         See :mod:`scipy.spatial.distance` for details on these metrics.
 
         .. note::
@@ -482,7 +482,7 @@ def compute_optics_graph(
         in shorter run times.
 
     metric : str or callable, default='minkowski'
-        Metric to use for distance computation. Any metric from jax-sklearn
+        Metric to use for distance computation. Any metric from secret-learn
         or scipy.spatial.distance can be used.
 
         If metric is a callable function, it is called on each
@@ -494,7 +494,7 @@ def compute_optics_graph(
 
         Valid values for metric are:
 
-        - from jax-sklearn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
+        - from secret-learn: ['cityblock', 'cosine', 'euclidean', 'l1', 'l2',
           'manhattan']
 
         - from scipy.spatial.distance: ['braycurtis', 'canberra', 'chebyshev',

@@ -3,7 +3,7 @@
 Out-of-core classification of text documents
 ======================================================
 
-This is an example showing how jax-sklearn can be used for classification
+This is an example showing how secret-learn can be used for classification
 using an out-of-core approach: learning from data that doesn't fit into main
 memory. We make use of an online classifier, i.e., one that supports the
 partial_fit method, that will be fed with batches of examples. To guarantee
@@ -14,7 +14,7 @@ features (words) may appear in each batch.
 
 """
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import itertools

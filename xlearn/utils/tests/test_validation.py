@@ -265,10 +265,10 @@ def test_check_array_links_to_imputer_doc_only_for_X(input_name, retype):
         " Alternatively, it is possible to preprocess the"
         " data, for instance by using an imputer transformer in a pipeline"
         " or drop samples with missing values. See"
-        " https://jax-sklearn.org/stable/modules/impute.html"
+        " https://secret-learn.org/stable/modules/impute.html"
         " You can find a list of all estimators that handle NaN values"
         " at the following page:"
-        " https://jax-sklearn.org/stable/modules/impute.html"
+        " https://secret-learn.org/stable/modules/impute.html"
         "#estimators-that-handle-nan-values"
     )
 
@@ -340,7 +340,7 @@ def test_check_array_series_err_msg():
     2-dimensional container.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/27498
+    https://github.com/chenxingqiang/secret-learn/issues/27498
     """
     pd = pytest.importorskip("pandas")
     ser = pd.Series([1, 2, 3])
@@ -1059,7 +1059,7 @@ def test_check_consistent_length_array_api(array_namespace, device, _):
 
 def test_check_dataframe_fit_attribute():
     # check pandas dataframe with 'fit' column does not raise error
-    # https://github.com/chenxingqiang/jax-sklearn/issues/8415
+    # https://github.com/chenxingqiang/secret-learn/issues/8415
     try:
         import pandas as pd
 
@@ -1102,7 +1102,7 @@ def test_check_dataframe_mixed_float_dtypes(dtype, bool_dtype):
     # with np.result_type which will return a float
     # check_array needs to explicitly check for bool dtype in a dataframe for
     # this situation
-    # https://github.com/chenxingqiang/jax-sklearn/issues/15787
+    # https://github.com/chenxingqiang/secret-learn/issues/15787
 
     pd = importorskip("pandas")
 

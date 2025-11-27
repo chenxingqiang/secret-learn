@@ -3,10 +3,10 @@
 `__xlearn_is_fitted__` as Developer API
 ========================================
 
-The `__xlearn_is_fitted__` method is a convention used in jax-sklearn for
+The `__xlearn_is_fitted__` method is a convention used in secret-learn for
 checking whether an estimator object has been fitted or not. This method is
 typically implemented in custom estimator classes that are built on top of
-jax-sklearn's base classes like `BaseEstimator` or its subclasses.
+secret-learn's base classes like `BaseEstimator` or its subclasses.
 
 Developers should use :func:`~xlearn.utils.validation.check_is_fitted`
 at the beginning of all methods except `fit`. If they need to customize or
@@ -24,10 +24,10 @@ by verifying the presence of the `_is_fitted` attribute.
 # ------------------------------------------------------------
 # This code snippet defines a custom estimator class called `CustomEstimator`
 # that extends both the `BaseEstimator` and `ClassifierMixin` classes from
-# jax-sklearn and showcases the usage of the `__xlearn_is_fitted__` method
+# secret-learn and showcases the usage of the `__xlearn_is_fitted__` method
 # and the `check_is_fitted` utility function.
 
-# Authors: The jax-sklearn developers
+# Authors: The secret-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 from xlearn.base import BaseEstimator, ClassifierMixin

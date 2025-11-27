@@ -4,7 +4,7 @@
      postprocessor. This fixed a convergence issue on windows targets for
      libsvm and liblinear.
      Sylvain Marie, Schneider Electric
-     See <https://github.com/chenxingqiang/jax-sklearn/pull/13511#issuecomment-481729756>
+     See <https://github.com/chenxingqiang/secret-learn/pull/13511#issuecomment-481729756>
  */
 #ifndef _NEWRAND_H
 #define _NEWRAND_H

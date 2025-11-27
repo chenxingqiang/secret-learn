@@ -232,7 +232,7 @@ def test_sparse_input(
     global_dtype, eigen_solver, path_method, global_random_seed, csr_container
 ):
     # TODO: compare results on dense and sparse data as proposed in:
-    # https://github.com/chenxingqiang/jax-sklearn/pull/23585#discussion_r968388186
+    # https://github.com/chenxingqiang/secret-learn/pull/23585#discussion_r968388186
     X = csr_container(
         sparse_rand(
             100,

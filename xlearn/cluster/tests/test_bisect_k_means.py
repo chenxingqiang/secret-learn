@@ -138,7 +138,7 @@ def test_float32_float64_equivalence(csr_container):
 @pytest.mark.parametrize("algorithm", ("lloyd", "elkan"))
 def test_no_crash_on_empty_bisections(algorithm):
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/27081
+    # https://github.com/chenxingqiang/secret-learn/issues/27081
     rng = np.random.RandomState(0)
     X_train = rng.rand(3000, 10)
     bkm = BisectingKMeans(n_clusters=10, algorithm=algorithm).fit(X_train)
@@ -153,6 +153,6 @@ def test_no_crash_on_empty_bisections(algorithm):
 def test_one_feature():
     # Check that no error is raised when there is only one feature
     # Non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/issues/27236
+    # https://github.com/chenxingqiang/secret-learn/issues/27236
     X = np.random.normal(size=(128, 1))
     BisectingKMeans(bisecting_strategy="biggest_inertia", random_state=0).fit(X)

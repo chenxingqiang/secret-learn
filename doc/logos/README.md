@@ -17,7 +17,7 @@ The official name of the package is __JAX-sklearn__.
 
 **Correct Usage:**
 - JAX-sklearn (preferred)
-- jax-sklearn (acceptable in code/URLs)
+- secret-learn (acceptable in code/URLs)
 
 **Incorrect Usage:**
 - ❌ Jax-sklearn
@@ -84,16 +84,16 @@ You may highlight or reference your work with JAX-sklearn by using one of the lo
 
 | Preview | Description |
 | ------- | ----------- |
-| ![Main Logo](jax-sklearn-logo.svg) | **Main Logo** <br> File type: SVG <br> Dimensions: 400×120px <br> Use: Primary brand representation <br> File: [jax-sklearn-logo.svg](jax-sklearn-logo.svg) |
-| ![Horizontal Logo](jax-sklearn-logo-horizontal.svg) | **Horizontal Logo** <br> File type: SVG <br> Dimensions: 600×80px <br> Use: Wide layouts, headers <br> File: [jax-sklearn-logo-horizontal.svg](jax-sklearn-logo-horizontal.svg) |
-| ![Icon Only](jax-sklearn-logo-notext.svg) | **Icon Only** <br> File type: SVG <br> Dimensions: 80×80px <br> Use: Social media, app icons <br> File: [jax-sklearn-logo-notext.svg](jax-sklearn-logo-notext.svg) |
+| ![Main Logo](secret-learn-logo.svg) | **Main Logo** <br> File type: SVG <br> Dimensions: 400×120px <br> Use: Primary brand representation <br> File: [secret-learn-logo.svg](secret-learn-logo.svg) |
+| ![Horizontal Logo](secret-learn-logo-horizontal.svg) | **Horizontal Logo** <br> File type: SVG <br> Dimensions: 600×80px <br> Use: Wide layouts, headers <br> File: [secret-learn-logo-horizontal.svg](secret-learn-logo-horizontal.svg) |
+| ![Icon Only](secret-learn-logo-notext.svg) | **Icon Only** <br> File type: SVG <br> Dimensions: 80×80px <br> Use: Social media, app icons <br> File: [secret-learn-logo-notext.svg](secret-learn-logo-notext.svg) |
 
 ### Theme Variations
 
 | Preview | Description |
 | ------- | ----------- |
-| ![Dark Theme](jax-sklearn-logo-dark.svg) | **Dark Theme Logo** <br> File type: SVG <br> Dimensions: 400×120px <br> Use: Dark backgrounds, night mode <br> File: [jax-sklearn-logo-dark.svg](jax-sklearn-logo-dark.svg) |
-| ![High Resolution](jax-sklearn-logo-1280.svg) | **High Resolution** <br> File type: SVG (for PNG conversion) <br> Dimensions: 1280×384px <br> Use: Print, large displays <br> File: [jax-sklearn-logo-1280.svg](jax-sklearn-logo-1280.svg) |
+| ![Dark Theme](secret-learn-logo-dark.svg) | **Dark Theme Logo** <br> File type: SVG <br> Dimensions: 400×120px <br> Use: Dark backgrounds, night mode <br> File: [secret-learn-logo-dark.svg](secret-learn-logo-dark.svg) |
+| ![High Resolution](secret-learn-logo-1280.svg) | **High Resolution** <br> File type: SVG (for PNG conversion) <br> Dimensions: 1280×384px <br> Use: Print, large displays <br> File: [secret-learn-logo-1280.svg](secret-learn-logo-1280.svg) |
 
 ### Favicon
 
@@ -121,7 +121,7 @@ You may highlight or reference your work with JAX-sklearn by using one of the lo
 
 ### Clear Space Requirements
 
-![Clear Space Guide](brand_guidelines/jax-sklearn-logo-clearspace.svg)
+![Clear Space Guide](brand_guidelines/secret-learn-logo-clearspace.svg)
 
 **Clear Space Rule**: Maintain minimum clear space around the logo equal to the height of the lightning bolt icon (X). This ensures the logo remains legible and impactful.
 
@@ -190,7 +190,7 @@ When using JAX-sklearn logo with other brands:
 When using JAX-sklearn logos:
 ```
 JAX-sklearn logo used with permission. 
-JAX-sklearn is an open source project: https://github.com/chenxingqiang/jax-sklearn
+JAX-sklearn is an open source project: https://github.com/chenxingqiang/secret-learn
 ```
 
 ---
@@ -202,8 +202,8 @@ JAX-sklearn is an open source project: https://github.com/chenxingqiang/jax-skle
 - [WCAG 2.1 Contrast Requirements](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
 
 ## Download All Assets
-For the complete brand asset package, visit: [JAX-sklearn Brand Assets](https://github.com/chenxingqiang/jax-sklearn/tree/main/doc/logos)
+For the complete brand asset package, visit: [JAX-sklearn Brand Assets](https://github.com/chenxingqiang/secret-learn/tree/main/doc/logos)
 
 ---
 
-**Questions about brand usage?** Open an issue at [JAX-sklearn GitHub Issues](https://github.com/chenxingqiang/jax-sklearn/issues)
+**Questions about brand usage?** Open an issue at [JAX-sklearn GitHub Issues](https://github.com/chenxingqiang/secret-learn/issues)

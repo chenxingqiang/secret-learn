@@ -1171,7 +1171,7 @@ def test_polynomial_features_behaviour_on_zero_degree(sparse_container):
 
 
 def test_sizeof_LARGEST_INT_t():
-    # On Windows, jax-sklearn is typically compiled with MSVC that
+    # On Windows, secret-learn is typically compiled with MSVC that
     # does not support int128 arithmetic (at the time of writing):
     # https://stackoverflow.com/a/6761962/163740
     if sys.platform == "win32" or (
@@ -1187,7 +1187,7 @@ def test_sizeof_LARGEST_INT_t():
 @pytest.mark.xfail(
     sys.platform == "win32",
     reason=(
-        "On Windows, jax-sklearn is typically compiled with MSVC that does not support"
+        "On Windows, secret-learn is typically compiled with MSVC that does not support"
         " int128 arithmetic (at the time of writing)"
     ),
     run=True,

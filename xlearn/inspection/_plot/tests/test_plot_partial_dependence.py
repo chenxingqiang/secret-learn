@@ -789,7 +789,7 @@ def test_plot_partial_dependence_does_not_override_ylabel(
     pyplot, clf_diabetes, diabetes
 ):
     # Non-regression test to be sure to not override the ylabel if it has been
-    # See https://github.com/chenxingqiang/jax-sklearn/issues/15772
+    # See https://github.com/chenxingqiang/secret-learn/issues/15772
     _, axes = pyplot.subplots(1, 2)
     axes[0].set_ylabel("Hello world")
     PartialDependenceDisplay.from_estimator(
@@ -910,7 +910,7 @@ def test_plot_partial_dependence_subsampling(
 ):
     # check that the subsampling is properly working
     # non-regression test for:
-    # https://github.com/chenxingqiang/jax-sklearn/pull/18359
+    # https://github.com/chenxingqiang/secret-learn/pull/18359
     matplotlib = pytest.importorskip("matplotlib")
     grid_resolution = 25
     feature_names = diabetes.feature_names
@@ -1300,7 +1300,7 @@ def test_subclass_named_constructors_return_type_is_subclass(
     """Check that named constructors return the correct type when subclassed.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/pull/27675
+    https://github.com/chenxingqiang/secret-learn/pull/27675
     """
 
     class SubclassOfDisplay(PartialDependenceDisplay):

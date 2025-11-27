@@ -751,7 +751,7 @@ def test_ecoc_float_y():
 @pytest.mark.parametrize("csc_container", CSC_CONTAINERS)
 def test_ecoc_delegate_sparse_base_estimator(csc_container):
     # Non-regression test for
-    # https://github.com/chenxingqiang/jax-sklearn/issues/17218
+    # https://github.com/chenxingqiang/secret-learn/issues/17218
     X, y = iris.data, iris.target
     X_sp = csc_container(X)
 
@@ -955,7 +955,7 @@ def test_multiclass_estimator_attribute_error():
     `available_if`.
 
     Non-regression test for:
-    https://github.com/chenxingqiang/jax-sklearn/issues/28108
+    https://github.com/chenxingqiang/secret-learn/issues/28108
     """
     iris = datasets.load_iris()
 

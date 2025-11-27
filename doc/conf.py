@@ -1,4 +1,4 @@
-# jax-sklearn documentation build configuration file, created by
+# secret-learn documentation build configuration file, created by
 # sphinx-quickstart on Fri Jan  8 09:13:42 2010.
 #
 # This file is execfile()d with the current directory set to its containing
@@ -149,8 +149,8 @@ source_encoding = "utf-8"
 root_doc = "index"
 
 # General information about the project.
-project = "jax-sklearn"
-copyright = f"2007 - {datetime.now().year}, jax-sklearn developers (BSD License)"
+project = "secret-learn"
+copyright = f"2007 - {datetime.now().year}, secret-learn developers (BSD License)"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -215,8 +215,8 @@ html_theme = "pydata_sphinx_theme"
 
 # This config option is used to generate the canonical links in the header
 # of every page. The canonical link is needed to prevent search engines from
-# returning results pointing to old jax-sklearn versions.
-html_baseurl = "https://jax-sklearn.org/stable/"
+# returning results pointing to old secret-learn versions.
+html_baseurl = "https://secret-learn.org/stable/"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -230,13 +230,13 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/chenxingqiang/jax-sklearn",
+            "url": "https://github.com/chenxingqiang/secret-learn",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
         },
     ],
     "analytics": {
-        "plausible_analytics_domain": "jax-sklearn.org",
+        "plausible_analytics_domain": "secret-learn.org",
         "plausible_analytics_url": "https://views.scientific-python.org/js/script.js",
     },
     # If "prev-next" is included in article_footer_items, then setting show_prev_next
@@ -257,7 +257,7 @@ html_theme_options = {
     # the `js/` static directory; it will then be copied to the `_static` directory in
     # the built documentation
     "switcher": {
-        "json_url": "https://jax-sklearn.org/dev/_static/versions.json",
+        "json_url": "https://secret-learn.org/dev/_static/versions.json",
         "version_match": release,
     },
     # check_switcher may be set to False if docbuild pipeline fails. See
@@ -415,7 +415,7 @@ html_use_index = False
 # html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "jax-sklearndoc"
+htmlhelp_basename = "secret-learndoc"
 
 # If true, the reST sources are included in the HTML build as _sources/name.
 html_copy_source = True
@@ -519,7 +519,7 @@ html_context["redirects"] = redirects
 for old_link in redirects:
     html_additional_pages[old_link] = "redirects.html"
 
-# See https://github.com/chenxingqiang/jax-sklearn/pull/22550
+# See https://github.com/chenxingqiang/secret-learn/pull/22550
 html_context["is_devrelease"] = parsed_version.is_devrelease
 
 
@@ -545,15 +545,15 @@ latex_documents = [
     (
         "contents",
         "user_guide.tex",
-        "jax-sklearn user guide",
-        "jax-sklearn developers",
+        "secret-learn user guide",
+        "secret-learn developers",
         "manual",
     ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = "logos/jax-sklearn-logo.png"
+latex_logo = "logos/secret-learn-logo.png"
 
 # Documents to append as an appendix to all manuals.
 # latex_appendices = []
@@ -656,11 +656,11 @@ def notebook_modification_function(notebook_content, notebook_filename):
 
     message_class = "warning"
     message = (
-        "Running the jax-sklearn examples in JupyterLite is experimental and you may"
+        "Running the secret-learn examples in JupyterLite is experimental and you may"
         " encounter some unexpected behavior.\n\nThe main difference is that imports"
         " will take a lot longer than usual, for example the first `import xlearn` can"
         " take roughly 10-20s.\n\nIf you notice problems, feel free to open an"
-        " [issue](https://github.com/chenxingqiang/jax-sklearn/issues/new/choose)"
+        " [issue](https://github.com/chenxingqiang/secret-learn/issues/new/choose)"
         " about it."
     )
 
@@ -693,7 +693,7 @@ def notebook_modification_function(notebook_content, notebook_filename):
 
     # Work around https://github.com/jupyterlite/pyodide-kernel/issues/166
     # and https://github.com/pyodide/micropip/issues/223 by installing the
-    # dependencies first, and then jax-sklearn from Anaconda.org.
+    # dependencies first, and then secret-learn from Anaconda.org.
     if "dev" in release:
         dev_docs_specific_code = [
             "import piplite",
@@ -701,7 +701,7 @@ def notebook_modification_function(notebook_content, notebook_filename):
             "import threadpoolctl",
             "import scipy",
             "await piplite.install(\n"
-            f"  'jax-sklearn=={release}',\n"
+            f"  'secret-learn=={release}',\n"
             "   index_urls='https://pypi.anaconda.org/scientific-python-nightly-wheels/simple',\n"
             ")",
         ]
@@ -738,8 +738,8 @@ sphinx_gallery_conf = {
     "subsection_order": SubSectionTitleOrder(sg_examples_dir),
     "within_subsection_order": SKExampleTitleSortKey,
     "binder": {
-        "org": "jax-sklearn",
-        "repo": "jax-sklearn",
+        "org": "secret-learn",
+        "repo": "secret-learn",
         "binderhub_url": "https://mybinder.org",
         "branch": binder_branch,
         "dependencies": "./binder/requirements.txt",
@@ -770,7 +770,7 @@ for sub_sg_dir in (Path(".") / sg_examples_dir).iterdir():
 
 
 # The following dictionary contains the information used to create the
-# thumbnails for the front page of the jax-sklearn home page.
+# thumbnails for the front page of the secret-learn home page.
 # key: first image in set
 # values: (number of plot in set, height of thumbnail)
 carousel_thumbs = {"sphx_glr_plot_classifier_comparison_001.png": 600}
@@ -822,7 +822,7 @@ def filter_search_index(app, exception):
 # Config for sphinx_issues
 
 # we use the issues path for PRs since the issues URL will forward
-issues_github_path = "jax-sklearn/jax-sklearn"
+issues_github_path = "secret-learn/secret-learn"
 
 
 def disable_plot_gallery_for_linkcheck(app):
@@ -858,8 +858,8 @@ def setup(app):
 linkcode_resolve = make_linkcode_resolve(
     "xlearn",
     (
-        "https://github.com/jax-sklearn/"
-        "jax-sklearn/blob/{revision}/"
+        "https://github.com/secret-learn/"
+        "secret-learn/blob/{revision}/"
         "{package}/{path}#L{lineno}"
     ),
 )
@@ -886,10 +886,10 @@ autosummary_filename_map = {
 
 # Config for sphinxext.opengraph
 
-ogp_site_url = "https://jax-sklearn/stable/"
-ogp_image = "https://jax-sklearn.org/stable/_static/jax-sklearn-logo-small.png"
+ogp_site_url = "https://secret-learn/stable/"
+ogp_image = "https://secret-learn.org/stable/_static/secret-learn-logo-small.png"
 ogp_use_first_image = True
-ogp_site_name = "jax-sklearn"
+ogp_site_name = "secret-learn"
 
 # Config for linkcheck that checks the documentation for broken links
 
@@ -1025,11 +1025,11 @@ from api_reference import API_REFERENCE, DEPRECATED_API_REFERENCE
 from xlearn._min_dependencies import dependent_packages
 
 # If development build, link to local page in the top navbar; otherwise link to the
-# development version; see https://github.com/chenxingqiang/jax-sklearn/pull/22550
+# development version; see https://github.com/chenxingqiang/secret-learn/pull/22550
 if parsed_version.is_devrelease:
     development_link = "developers/index"
 else:
-    development_link = "https://jax-sklearn.org/dev/developers/index.html"
+    development_link = "https://secret-learn.org/dev/developers/index.html"
 
 # Define the templates and target files for conversion
 # Each entry is in the format (template name, file name, kwargs for rendering)
