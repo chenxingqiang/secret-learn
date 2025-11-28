@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """
-智能批量生成算法 - 使用算法分类器和模板生成器
+Smart Batch Algorithm Generator
 
-根据算法类型自动选择正确的模板：
-- 无监督学习（聚类、降维、预处理）
-- 监督学习非迭代
-- 监督学习迭代（partial_fit）
+Uses algorithm classifier and template generator to automatically
+select correct templates based on algorithm type:
+- Unsupervised learning (clustering, dimensionality reduction, preprocessing)
+- Supervised non-iterative
+- Supervised iterative (partial_fit)
+
+Features:
+- Auto-detects algorithm characteristics
+- Generates correct fit() signatures
+- Creates proper methods for each type
+- Supports FL/SS/SL modes with correct patterns
+- SS mode uses SPU-based computation (not devices iteration)
 """
 
 import os
@@ -207,7 +215,7 @@ def generate_sl_template_smart(algo_name, module_name, characteristics):
         return generate_sl_non_iterative_template(algo_name, module_name)
 
 def generate_ss_unsupervised_template(algo_name, module_name):
-    """SS 无监督模板"""
+    """SS unsupervised template - Correct SPU-based implementation"""
     return f'''# Author: Chen Xingqiang
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -245,6 +253,7 @@ class SS{algo_name}:
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
+        
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
@@ -270,36 +279,44 @@ class SS{algo_name}:
         self._is_fitted = True
         return self
     
-    def transform(self, x: Union[FedNdarray, VDataFrame]):
-        """Transform data"""
-        if not self._is_fitted:
-            raise RuntimeError("Model not fitted")
-        if isinstance(x, VDataFrame):
-            x = x.values
-        
-        X_spu = x.to(self.spu)
-        return self.spu(lambda m, X: m.transform(X))(self.model, X_spu)
-    
     def predict(self, x: Union[FedNdarray, VDataFrame]):
-        """Predict (for clustering/anomaly detection)"""
+        """Predict cluster labels or anomalies"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
+        
         if isinstance(x, VDataFrame):
             x = x.values
         
         X_spu = x.to(self.spu)
         return self.spu(lambda m, X: m.predict(X))(self.model, X_spu)
+    
+    def transform(self, x: Union[FedNdarray, VDataFrame]):
+        """Transform data (if supported)"""
+        if not self._is_fitted:
+            raise RuntimeError("Model not fitted")
+        
+        if isinstance(x, VDataFrame):
+            x = x.values
+        
+        X_spu = x.to(self.spu)
+        
+        def _transform(m, X):
+            if hasattr(m, 'transform'):
+                return m.transform(X)
+            raise AttributeError("Model does not support transform")
+        
+        return self.spu(_transform)(self.model, X_spu)
 '''
 
 def generate_ss_non_iterative_template(algo_name, module_name):
-    """SS 监督学习非迭代模板"""
+    """SS supervised non-iterative template - Correct SPU-based implementation"""
     return f'''# Author: Chen Xingqiang
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
 Secret Sharing adapter for {algo_name}
 
-{algo_name} is a SUPERVISED non-iterative algorithm.
+{algo_name} is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -325,11 +342,12 @@ except ImportError:
 
 
 class SS{algo_name}:
-    """Secret Sharing {algo_name} (Supervised, Non-iterative)"""
+    """Secret Sharing {algo_name} (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
+        
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
@@ -339,7 +357,7 @@ class SS{algo_name}:
             logging.info(f"[SS] SS{algo_name} with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
-        """Fit (supervised, single-pass training in SPU)"""
+        """Fit (supervised - labels required)"""
         if isinstance(x, VDataFrame):
             x = x.values
         if isinstance(y, VDataFrame):
@@ -362,6 +380,7 @@ class SS{algo_name}:
         """Predict using model in SPU"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
+        
         if isinstance(x, VDataFrame):
             x = x.values
         
@@ -370,7 +389,7 @@ class SS{algo_name}:
 '''
 
 def generate_ss_iterative_template(algo_name, module_name):
-    """SS 监督学习迭代模板"""
+    """SS supervised iterative template - Correct SPU-based implementation"""
     return f'''# Author: Chen Xingqiang
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -408,6 +427,7 @@ class SS{algo_name}:
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
+        
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
@@ -417,7 +437,7 @@ class SS{algo_name}:
             logging.info(f"[SS] SS{algo_name} with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame], epochs: int = 10):
-        """Fit (supervised, iterative training in SPU)"""
+        """Fit (supervised, iterative)"""
         if isinstance(x, VDataFrame):
             x = x.values
         if isinstance(y, VDataFrame):
@@ -426,11 +446,11 @@ class SS{algo_name}:
         logging.info(f"[SS] SS{algo_name} training in SPU ({{epochs}} epochs)")
         
         def _spu_fit_iterative(X, y, epochs, **kwargs):
+            import numpy as np
             model = {algo_name}(**kwargs)
             for epoch in range(epochs):
                 if hasattr(model, 'partial_fit'):
                     if not hasattr(model, 'classes_'):
-                        import numpy as np
                         classes = np.unique(y)
                         model.partial_fit(X, y, classes=classes)
                     else:
@@ -449,6 +469,7 @@ class SS{algo_name}:
         """Predict using model in SPU"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
+        
         if isinstance(x, VDataFrame):
             x = x.values
         
