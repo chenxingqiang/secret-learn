@@ -1,6 +1,6 @@
 [project]
 name = "secret-learn"
-version = "0.1.1"
+version = "0.1.2"
 description = "Privacy-preserving machine learning with SecretFlow - 348 sklearn-compatible algorithms (FL/SL/SS modes)"
 readme = "README.md"
 authors = [

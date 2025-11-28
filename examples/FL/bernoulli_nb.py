@@ -5,7 +5,7 @@
 """
 Usage Example for FLBernoulliNB
 
-This example demonstrates how to use the privacy-preserving BernoulliNb
+This example demonstrates how to use the privacy-preserving BernoulliNB
 in SecretFlow's FL mode.
 """
 

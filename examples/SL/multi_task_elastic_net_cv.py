@@ -5,7 +5,7 @@
 """
 Usage Example for SLMultiTaskElasticNetCV
 
-This example demonstrates how to use the privacy-preserving MultiTaskElasticNetCv
+This example demonstrates how to use the privacy-preserving MultiTaskElasticNetCV
 in SecretFlow's SL mode.
 """
 

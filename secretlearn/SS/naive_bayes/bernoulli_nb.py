@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for BernoulliNb
+Secret Sharing adapter for BernoulliNB
 
-BernoulliNb is a SUPERVISED algorithm.
+BernoulliNB is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.naive_bayes import BernoulliNb
+    from xlearn.naive_bayes import BernoulliNB
     USING_XLEARN = True
 except ImportError:
-    from sklearn.naive_bayes import BernoulliNb
+    from sklearn.naive_bayes import BernoulliNB
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSBernoulliNb:
-    """Secret Sharing BernoulliNb (Supervised)"""
+class SSBernoulliNB:
+    """Secret Sharing BernoulliNB (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSBernoulliNb:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSBernoulliNb with JAX acceleration")
+            logging.info(f"[SS] SSBernoulliNB with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSBernoulliNb:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSBernoulliNb training in SPU")
+        logging.info(f"[SS] SSBernoulliNB training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = BernoulliNb(**kwargs)
+            model = BernoulliNB(**kwargs)
             model.fit(X, y)
             return model
         

@@ -92,7 +92,7 @@ Model split across parties, collaborative training, HEU-protected activations
 - **Manifold** (5): TSNE, Isomap, MDS, LocallyLinearEmbedding, SpectralEmbedding
 - **Kernel Approximation** (5): RBFSampler, Nystroem, AdditiveChi2Sampler, SkewedChi2Sampler, PolynomialCountSketch
 - **Tree** (4): DecisionTreeClassifier, DecisionTreeRegressor, ExtraTreeClassifier, ExtraTreeRegressor
-- **Cross Decomposition** (4): CCA, PLSRegression, PLSCanonical, PLSSVD
+- **Cross Decomposition** (4):  CCA, PLSRegression, PLSCanonical, PLSSVD
 - **Random Projection** (3): GaussianRandomProjection, SparseRandomProjection, BaseRandomProjection
 - **Impute** (3): SimpleImputer, KNNImputer, MissingIndicator
 - **Neural Network** (3): MLPClassifier, MLPRegressor, BernoulliRBM

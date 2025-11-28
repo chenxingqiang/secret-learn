@@ -5,7 +5,7 @@
 """
 Usage Example for FLCategoricalNB
 
-This example demonstrates how to use the privacy-preserving CategoricalNb
+This example demonstrates how to use the privacy-preserving CategoricalNB
 in SecretFlow's FL mode.
 """
 

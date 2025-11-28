@@ -5,7 +5,7 @@
 """
 Usage Example for FLCalibratedClassifierCV
 
-This example demonstrates how to use the privacy-preserving CalibratedClassifierCv
+This example demonstrates how to use the privacy-preserving CalibratedClassifierCV
 in SecretFlow's FL mode.
 """
 

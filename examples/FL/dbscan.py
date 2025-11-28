@@ -5,7 +5,7 @@
 """
 Usage Example for FLDBSCAN
 
-This example demonstrates how to use the privacy-preserving Dbscan
+This example demonstrates how to use the privacy-preserving DBSCAN
 in SecretFlow's FL mode.
 """
 

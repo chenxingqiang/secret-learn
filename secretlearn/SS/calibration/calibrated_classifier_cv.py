@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for CalibratedClassifierCv
+Secret Sharing adapter for CalibratedClassifierCV
 
-CalibratedClassifierCv is a SUPERVISED algorithm.
+CalibratedClassifierCV is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.calibration import CalibratedClassifierCv
+    from xlearn.calibration import CalibratedClassifierCV
     USING_XLEARN = True
 except ImportError:
-    from sklearn.calibration import CalibratedClassifierCv
+    from sklearn.calibration import CalibratedClassifierCV
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSCalibratedClassifierCv:
-    """Secret Sharing CalibratedClassifierCv (Supervised)"""
+class SSCalibratedClassifierCV:
+    """Secret Sharing CalibratedClassifierCV (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSCalibratedClassifierCv:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSCalibratedClassifierCv with JAX acceleration")
+            logging.info(f"[SS] SSCalibratedClassifierCV with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSCalibratedClassifierCv:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSCalibratedClassifierCv training in SPU")
+        logging.info(f"[SS] SSCalibratedClassifierCV training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = CalibratedClassifierCv(**kwargs)
+            model = CalibratedClassifierCV(**kwargs)
             model.fit(X, y)
             return model
         

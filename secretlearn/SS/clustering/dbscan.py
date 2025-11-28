@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for Dbscan
+Secret Sharing adapter for DBSCAN
 
-Dbscan is a SUPERVISED algorithm.
+DBSCAN is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.cluster import Dbscan
+    from xlearn.cluster import DBSCAN
     USING_XLEARN = True
 except ImportError:
-    from sklearn.cluster import Dbscan
+    from sklearn.cluster import DBSCAN
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSDbscan:
-    """Secret Sharing Dbscan (Supervised)"""
+class SSDBSCAN:
+    """Secret Sharing DBSCAN (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSDbscan:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSDbscan with JAX acceleration")
+            logging.info(f"[SS] SSDBSCAN with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSDbscan:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSDbscan training in SPU")
+        logging.info(f"[SS] SSDBSCAN training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = Dbscan(**kwargs)
+            model = DBSCAN(**kwargs)
             model.fit(X, y)
             return model
         

@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for AdaboostRegressor
+Secret Sharing adapter for AdaBoostRegressor
 
-AdaboostRegressor is a SUPERVISED algorithm.
+AdaBoostRegressor is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.ensemble import AdaboostRegressor
+    from xlearn.ensemble import AdaBoostRegressor
     USING_XLEARN = True
 except ImportError:
-    from sklearn.ensemble import AdaboostRegressor
+    from sklearn.ensemble import AdaBoostRegressor
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSAdaboostRegressor:
-    """Secret Sharing AdaboostRegressor (Supervised)"""
+class SSAdaBoostRegressor:
+    """Secret Sharing AdaBoostRegressor (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSAdaboostRegressor:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSAdaboostRegressor with JAX acceleration")
+            logging.info(f"[SS] SSAdaBoostRegressor with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSAdaboostRegressor:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSAdaboostRegressor training in SPU")
+        logging.info(f"[SS] SSAdaBoostRegressor training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = AdaboostRegressor(**kwargs)
+            model = AdaBoostRegressor(**kwargs)
             model.fit(X, y)
             return model
         

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for Cca
+Secret Sharing adapter for CCA
 
 Cca is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.cross_decomposition import Cca
+    from xlearn.cross_decomposition import CCA
     USING_XLEARN = True
 except ImportError:
-    from sklearn.cross_decomposition import Cca
+    from sklearn.cross_decomposition import CCA
     USING_XLEARN = False
 
 try:
@@ -30,7 +30,7 @@ except ImportError:
 
 
 class SSCca:
-    """Secret Sharing Cca (Supervised)"""
+    """Secret Sharing CCA (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -54,7 +54,7 @@ class SSCca:
         logging.info(f"[SS] SSCca training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = Cca(**kwargs)
+            model = CCA(**kwargs)
             model.fit(X, y)
             return model
         

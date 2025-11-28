@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Usage Example for FLCCA
+Usage Example for FL CCA
 
-This example demonstrates how to use the privacy-preserving Cca
+This example demonstrates how to use the privacy-preserving CCA
 in SecretFlow's FL mode.
 """
 
@@ -21,13 +21,13 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.FL.cross_decomposition.cca import FLCCA
+from secretlearn.FL.cross_decomposition.cca import FL CCA
 
 
 def main():
     """Main example function"""
     print("="*70)
-    print(f" FLCCA Usage Example")
+    print(f" FL CCA Usage Example")
     print("="*70)
     
     # Step 1: Initialize SecretFlow (PRODUCTION mode for SF 1.11+)
@@ -95,7 +95,7 @@ def main():
     print("  ✓ Federated data created")
     
     # Step 4: Train model
-    print("\n[4/5] Training FLCCA...")
+    print("\n[4/5] Training FL CCA...")
     print("  Note: All computation with privacy protection")
     
     import time
@@ -104,7 +104,7 @@ def main():
     # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = FLCCA(devices)
+    model = FL CCA(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

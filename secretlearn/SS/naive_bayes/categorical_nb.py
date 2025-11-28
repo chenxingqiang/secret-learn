@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for CategoricalNb
+Secret Sharing adapter for CategoricalNB
 
-CategoricalNb is a SUPERVISED algorithm.
+CategoricalNB is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.naive_bayes import CategoricalNb
+    from xlearn.naive_bayes import CategoricalNB
     USING_XLEARN = True
 except ImportError:
-    from sklearn.naive_bayes import CategoricalNb
+    from sklearn.naive_bayes import CategoricalNB
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSCategoricalNb:
-    """Secret Sharing CategoricalNb (Supervised)"""
+class SSCategoricalNB:
+    """Secret Sharing CategoricalNB (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSCategoricalNb:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSCategoricalNb with JAX acceleration")
+            logging.info(f"[SS] SSCategoricalNB with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSCategoricalNb:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSCategoricalNb training in SPU")
+        logging.info(f"[SS] SSCategoricalNB training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = CategoricalNb(**kwargs)
+            model = CategoricalNB(**kwargs)
             model.fit(X, y)
             return model
         

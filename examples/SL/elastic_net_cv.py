@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Usage Example for SLElasticNetCv
+Usage Example for SLElasticNetCV
 
-This example demonstrates how to use the privacy-preserving ElasticNetCv
+This example demonstrates how to use the privacy-preserving ElasticNetCV
 in SecretFlow's SL mode.
 """
 
@@ -21,13 +21,13 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.SL.linear_models.elastic_net_cv import SLElasticNetCv
+from secretlearn.SL.linear_models.elastic_net_cv import SLElasticNetCV
 
 
 def main():
     """Main example function"""
     print("="*70)
-    print(f" SLElasticNetCv Usage Example")
+    print(f" SLElasticNetCV Usage Example")
     print("="*70)
     
     # Step 1: Initialize SecretFlow (PRODUCTION mode for SF 1.11+)
@@ -95,7 +95,7 @@ def main():
     print("  ✓ Federated data created")
     
     # Step 4: Train model
-    print("\n[4/5] Training SLElasticNetCv...")
+    print("\n[4/5] Training SLElasticNetCV...")
     print("  Note: All computation with privacy protection")
     
     import time
@@ -104,7 +104,7 @@ def main():
     # Create devices dict for SL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = SLElasticNetCv(devices)
+    model = SLElasticNetCV(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

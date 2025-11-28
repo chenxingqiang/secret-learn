@@ -30,21 +30,21 @@ def test_adaboostclassifier_basic():
     # Initialize SecretFlow
     sf.init(['alice', 'bob'], address='local')
     spu = sf.SPU(sf.utils.testing.cluster_def(['alice', 'bob']))
-    
+
     alice = sf.PYU('alice')
     bob = sf.PYU('bob')
-    
+
     # Create test data
     np.random.seed(42)
     X = np.random.randn(100, 10)
     X_alice = X[:, :5]
     X_bob = X[:, 5:]
-    
+
     # Create federated data
     fed_X = FedNdarray(
         partitions={
             alice: alice(lambda x: x)
-    
+
     # Create federated labels
     fed_y = FedNdarray(
         partitions={
@@ -56,15 +56,15 @@ def test_adaboostclassifier_basic():
         },
         partition_way=PartitionWay.VERTICAL
     )
-    
+
     # Test model
     model = FLAdaBoostClassifier(spu)
     model.fit(fed_X, fed_y)
-    
+
     # Basic assertions
     assert model.model_state_ is not None
     print("Basic test passed")
-    
+
     sf.shutdown()
 
 
@@ -73,27 +73,27 @@ def test_adaboostclassifier_consistency():
     """Test numerical consistency with sklearn"""
     sf.init(['alice', 'bob'], address='local')
     spu = sf.SPU(sf.utils.testing.cluster_def(['alice', 'bob']))
-    
+
     alice = sf.PYU('alice')
     bob = sf.PYU('bob')
-    
+
     # Create test data
     np.random.seed(42)
     X = np.random.randn(50, 10).astype(np.float32)
-    
+
     # Test with sklearn
     from sklearn.ensemble import AdaBoostClassifier
     sklearn_model = AdaBoostClassifier()
     sklearn_model.fit(X, y)
-    
+
     # Test with SecretFlow adapter
     X_alice = X[:, :5]
     X_bob = X[:, 5:]
-    
+
     fed_X = FedNdarray(
         partitions={
             alice: alice(lambda x: x)
-    
+
     # Create federated labels
     fed_y = FedNdarray(
         partitions={
@@ -105,13 +105,13 @@ def test_adaboostclassifier_consistency():
         },
         partition_way=PartitionWay.VERTICAL
     )
-    
+
     sf_model = FLAdaBoostClassifier(spu)
     sf_model.fit(fed_X, fed_y)
-    
+
     # Compare key attributes
     print("Consistency test passed")
-    
+
     sf.shutdown()
 
 

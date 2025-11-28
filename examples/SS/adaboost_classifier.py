@@ -5,7 +5,7 @@
 """
 Usage Example for SSAdaBoostClassifier
 
-This example demonstrates how to use the privacy-preserving AdaboostClassifier
+This example demonstrates how to use the privacy-preserving AdaBoostClassifier
 in SecretFlow's SS mode.
 """
 

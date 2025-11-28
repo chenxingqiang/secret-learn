@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for ComplementNb
+Secret Sharing adapter for ComplementNB
 
-ComplementNb is a SUPERVISED algorithm.
+ComplementNB is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.naive_bayes import ComplementNb
+    from xlearn.naive_bayes import ComplementNB
     USING_XLEARN = True
 except ImportError:
-    from sklearn.naive_bayes import ComplementNb
+    from sklearn.naive_bayes import ComplementNB
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSComplementNb:
-    """Secret Sharing ComplementNb (Supervised)"""
+class SSComplementNB:
+    """Secret Sharing ComplementNB (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSComplementNb:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSComplementNb with JAX acceleration")
+            logging.info(f"[SS] SSComplementNB with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSComplementNb:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSComplementNb training in SPU")
+        logging.info(f"[SS] SSComplementNB training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = ComplementNb(**kwargs)
+            model = ComplementNB(**kwargs)
             model.fit(X, y)
             return model
         

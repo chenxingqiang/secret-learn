@@ -5,7 +5,7 @@
 """
 Usage Example for FLElasticNetCV
 
-This example demonstrates how to use the privacy-preserving ElasticNetCv
+This example demonstrates how to use the privacy-preserving ElasticNetCV
 in SecretFlow's FL mode.
 """
 

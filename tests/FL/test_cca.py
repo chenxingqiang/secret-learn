@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Tests for FLCCA
+Tests for FL CCA
 """
 
 import pytest
@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from secretlearn.FL.cca import FLCCA
+from secretlearn.FL.cca import FL CCA
 
 
 @pytest.mark.skipif(not SECRETFLOW_AVAILABLE, reason="SecretFlow not available")
@@ -58,7 +58,7 @@ def test_cca_basic():
     )
     
     # Test model
-    model = FLCCA(spu)
+    model = FL CCA(spu)
     model.fit(fed_X, fed_y)
     
     # Basic assertions
@@ -82,8 +82,8 @@ def test_cca_consistency():
     X = np.random.randn(50, 10).astype(np.float32)
     
     # Test with sklearn
-    from sklearn.cross_decomposition import CCA
-    sklearn_model = CCA()
+    from sklearn.cross_decomposition import  CCA
+    sklearn_model =  CCA()
     sklearn_model.fit(X, y)
     
     # Test with SecretFlow adapter
@@ -106,7 +106,7 @@ def test_cca_consistency():
         partition_way=PartitionWay.VERTICAL
     )
     
-    sf_model = FLCCA(spu)
+    sf_model = FL CCA(spu)
     sf_model.fit(fed_X, fed_y)
     
     # Compare key attributes
@@ -116,6 +116,6 @@ def test_cca_consistency():
 
 
 if __name__ == "__main__":
-    print(f"Testing FLCCA...")
+    print(f"Testing FL CCA...")
     print("Note: These tests require SecretFlow to be installed")
     pytest.main([__file__, "-v", "-s"])

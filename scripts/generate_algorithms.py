@@ -57,7 +57,7 @@ MISSING_ALGORITHMS = {
     },
     'neighbors': {
         'display_name': 'Neighbors',
-        'algorithms': ['KNeighborsTransformer', 'KernelDensity', 'NearestNeighbors', 
+        'algorithms': ['KNeighborsTransformer', 'KernelDensity', 'NearestNeighbors',
                       'NeighborhoodComponentsAnalysis', 'RadiusNeighborsTransformer']
     },
     'neural_network': {
@@ -74,7 +74,7 @@ MISSING_ALGORITHMS = {
     },
     'clustering': {
         'display_name': 'Clustering',
-        'algorithms': ['BisectingKMeans', 'FeatureAgglomeration', 'HDBSCAN', 
+        'algorithms': ['BisectingKMeans', 'FeatureAgglomeration', 'HDBSCAN',
                       'OPTICS', 'SpectralBiclustering', 'SpectralCoclustering']
     },
     'mixture': {
@@ -139,7 +139,7 @@ def get_sklearn_module_name(category):
 def generate_algorithm_smart(algo_name, category, mode, base_path):
     """
     智能生成算法实现 - 使用算法分类器和模板生成器
-    
+
     Parameters
     ----------
     algo_name : str
@@ -154,23 +154,23 @@ def generate_algorithm_smart(algo_name, category, mode, base_path):
     # 确定目标目录
     mode_dir = os.path.join(base_path, f'secretlearn/{mode}/{category}')
     os.makedirs(mode_dir, exist_ok=True)
-    
+
     # 生成文件名
     filename = camel_to_snake(algo_name) + '.py'
     filepath = os.path.join(mode_dir, filename)
-    
+
     # 检查文件是否已存在
     if os.path.exists(filepath):
         return False, "已存在"
-    
+
     # 获取 sklearn 模块名
     sklearn_module = get_sklearn_module_name(category)
-    
+
     # 使用算法分类器分类
     try:
         characteristics = classify_algorithm(algo_name)
         template_type = characteristics.get('recommended_implementation', 'supervised_non_iterative')
-        
+
         # 生成模板
         if mode.upper() == 'FL':
             code = generate_template(algo_name, sklearn_module, characteristics, 'fl')
@@ -180,13 +180,13 @@ def generate_algorithm_smart(algo_name, category, mode, base_path):
             code = generate_sl_template_smart(algo_name, sklearn_module, characteristics)
         else:
             return False, f"未知模式: {mode}"
-        
+
         # 写入文件
         with open(filepath, 'w') as f:
             f.write(code)
-        
+
         return True, template_type
-        
+
     except Exception as e:
         return False, f"错误: {str(e)}"
 
@@ -194,7 +194,7 @@ def generate_ss_template_smart(algo_name, module_name, characteristics):
     """生成 SS 模式的智能模板"""
     is_unsupervised = characteristics.get('is_unsupervised', False)
     use_epochs = characteristics.get('use_epochs', False)
-    
+
     if is_unsupervised:
         return generate_ss_unsupervised_template(algo_name, module_name)
     elif use_epochs:
@@ -206,7 +206,7 @@ def generate_sl_template_smart(algo_name, module_name, characteristics):
     """生成 SL 模式的智能模板"""
     is_unsupervised = characteristics.get('is_unsupervised', False)
     use_epochs = characteristics.get('use_epochs', False)
-    
+
     if is_unsupervised:
         return generate_sl_unsupervised_template(algo_name, module_name)
     elif use_epochs:
@@ -249,62 +249,62 @@ except ImportError:
 
 class SS{algo_name}:
     """Secret Sharing {algo_name} (Unsupervised)"""
-    
+
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
-        
+
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
         self._is_fitted = False
-        
+
         if USING_XLEARN:
             logging.info(f"[SS] SS{algo_name} with JAX acceleration")
-    
+
     def fit(self, x: Union[FedNdarray, VDataFrame]):
         """Fit (unsupervised - no y needed)"""
         if isinstance(x, VDataFrame):
             x = x.values
-        
+
         logging.info(f"[SS] SS{algo_name} training in SPU")
-        
+
         def _spu_fit(X, **kwargs):
             model = {algo_name}(**kwargs)
             model.fit(X)
             return model
-        
+
         X_spu = x.to(self.spu)
         self.model = self.spu(_spu_fit)(X_spu, **self.kwargs)
         self._is_fitted = True
         return self
-    
+
     def predict(self, x: Union[FedNdarray, VDataFrame]):
         """Predict cluster labels or anomalies"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
-        
+
         if isinstance(x, VDataFrame):
             x = x.values
-        
+
         X_spu = x.to(self.spu)
         return self.spu(lambda m, X: m.predict(X))(self.model, X_spu)
-    
+
     def transform(self, x: Union[FedNdarray, VDataFrame]):
         """Transform data (if supported)"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
-        
+
         if isinstance(x, VDataFrame):
             x = x.values
-        
+
         X_spu = x.to(self.spu)
-        
+
         def _transform(m, X):
             if hasattr(m, 'transform'):
                 return m.transform(X)
             raise AttributeError("Model does not support transform")
-        
+
         return self.spu(_transform)(self.model, X_spu)
 '''
 
@@ -343,47 +343,47 @@ except ImportError:
 
 class SS{algo_name}:
     """Secret Sharing {algo_name} (Supervised)"""
-    
+
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
-        
+
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
         self._is_fitted = False
-        
+
         if USING_XLEARN:
             logging.info(f"[SS] SS{algo_name} with JAX acceleration")
-    
+
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
         if isinstance(x, VDataFrame):
             x = x.values
         if isinstance(y, VDataFrame):
             y = y.values
-        
+
         logging.info(f"[SS] SS{algo_name} training in SPU")
-        
+
         def _spu_fit(X, y, **kwargs):
             model = {algo_name}(**kwargs)
             model.fit(X, y)
             return model
-        
+
         X_spu = x.to(self.spu)
         y_spu = y.to(self.spu)
         self.model = self.spu(_spu_fit)(X_spu, y_spu, **self.kwargs)
         self._is_fitted = True
         return self
-    
+
     def predict(self, x: Union[FedNdarray, VDataFrame]):
         """Predict using model in SPU"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
-        
+
         if isinstance(x, VDataFrame):
             x = x.values
-        
+
         X_spu = x.to(self.spu)
         return self.spu(lambda m, X: m.predict(X))(self.model, X_spu)
 '''
@@ -423,28 +423,28 @@ except ImportError:
 
 class SS{algo_name}:
     """Secret Sharing {algo_name} (Supervised, Iterative)"""
-    
+
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
             raise RuntimeError("SecretFlow not installed")
-        
+
         self.spu = spu
         self.kwargs = kwargs
         self.model = None
         self._is_fitted = False
-        
+
         if USING_XLEARN:
             logging.info(f"[SS] SS{algo_name} with JAX acceleration")
-    
+
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame], epochs: int = 10):
         """Fit (supervised, iterative)"""
         if isinstance(x, VDataFrame):
             x = x.values
         if isinstance(y, VDataFrame):
             y = y.values
-        
+
         logging.info(f"[SS] SS{algo_name} training in SPU ({{epochs}} epochs)")
-        
+
         def _spu_fit_iterative(X, y, epochs, **kwargs):
             import numpy as np
             model = {algo_name}(**kwargs)
@@ -458,21 +458,21 @@ class SS{algo_name}:
                 else:
                     model.fit(X, y)
             return model
-        
+
         X_spu = x.to(self.spu)
         y_spu = y.to(self.spu)
         self.model = self.spu(_spu_fit_iterative)(X_spu, y_spu, epochs, **self.kwargs)
         self._is_fitted = True
         return self
-    
+
     def predict(self, x: Union[FedNdarray, VDataFrame]):
         """Predict using model in SPU"""
         if not self._is_fitted:
             raise RuntimeError("Model not fitted")
-        
+
         if isinstance(x, VDataFrame):
             x = x.values
-        
+
         X_spu = x.to(self.spu)
         return self.spu(lambda m, X: m.predict(X))(self.model, X_spu)
 '''
@@ -493,44 +493,44 @@ def generate_sl_iterative_template(algo_name, module_name):
 
 def main():
     base_path = '/Users/xingqiangchen/jax-sklearn'
-    
+
     print("="*90)
     print("智能批量生成算法 - 根据算法类型自动选择模板")
     print("="*90)
     print()
-    
+
     total_created = 0
     total_skipped = 0
     stats_by_type = {}
-    
+
     for category, info in MISSING_ALGORITHMS.items():
         display_name = info['display_name']
         algorithms = info['algorithms']
-        
+
         if not algorithms:
             continue
-            
+
         print(f"\n【{display_name}】 ({len(algorithms)} 个算法 × 3 模式 = {len(algorithms) * 3} 个文件)")
-        
+
         for algo_name in algorithms:
             print(f"\n  算法: {algo_name}")
-            
+
             # 分类算法
             try:
                 char = classify_algorithm(algo_name)
                 algo_type = char.get('recommended_implementation', 'unknown')
                 print(f"    类型: {algo_type}")
                 print(f"    签名: {char.get('fit_signature', 'unknown')}")
-                
+
                 # 统计
                 if algo_type not in stats_by_type:
                     stats_by_type[algo_type] = 0
                 stats_by_type[algo_type] += 1
-                
+
             except Exception as e:
                 print(f"    ⚠️  分类失败: {e}")
                 algo_type = 'unknown'
-            
+
             for mode in ['FL', 'SS', 'SL']:
                 success, message = generate_algorithm_smart(algo_name, category, mode, base_path)
                 if success:
@@ -539,7 +539,7 @@ def main():
                 else:
                     print(f"    ⚠️  {mode}: {message}")
                     total_skipped += 1
-    
+
     print("\n" + "="*90)
     print("生成完成")
     print("="*90)
@@ -547,7 +547,7 @@ def main():
     print(f"跳过文件数: {total_skipped}")
     print(f"总计: {total_created + total_skipped}")
     print()
-    
+
     print("算法类型统计:")
     for algo_type, count in sorted(stats_by_type.items(), key=lambda x: x[1], reverse=True):
         print(f"  - {algo_type}: {count} 个")
@@ -570,7 +570,7 @@ if __name__ == '__main__':
     print("  - secretlearn/SS/*/")
     print("  - secretlearn/SL/*/")
     print()
-    
+
     response = input("是否继续？(yes/no): ")
     if response.lower() in ['yes', 'y']:
         main()

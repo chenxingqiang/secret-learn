@@ -5,7 +5,7 @@
 """
 Usage Example for FLComplementNB
 
-This example demonstrates how to use the privacy-preserving ComplementNb
+This example demonstrates how to use the privacy-preserving ComplementNB
 in SecretFlow's FL mode.
 """
 

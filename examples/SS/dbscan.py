@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Usage Example for SSDbscan
+Usage Example for SSDBSCAN
 
-This example demonstrates how to use the privacy-preserving Dbscan
+This example demonstrates how to use the privacy-preserving DBSCAN
 in SecretFlow's SS mode.
 """
 
@@ -21,13 +21,13 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.SS.clustering.dbscan import SSDbscan
+from secretlearn.SS.clustering.dbscan import SSDBSCAN
 
 
 def main():
     """Main example function"""
     print("="*70)
-    print(f" SSDbscan Usage Example")
+    print(f" SSDBSCAN Usage Example")
     print("="*70)
     
     # Step 1: Initialize SecretFlow (PRODUCTION mode for SF 1.11+)
@@ -95,7 +95,7 @@ def main():
     print("  ✓ Federated data created")
     
     # Step 4: Train model
-    print("\n[4/5] Training SSDbscan...")
+    print("\n[4/5] Training SSDBSCAN...")
     print("  Note: All computation with privacy protection")
     
     import time
@@ -103,7 +103,7 @@ def main():
     
     # Use SPU for SS mode
     
-    model = SSDbscan(spu)
+    model = SSDBSCAN(spu)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

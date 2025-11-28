@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.feature_selection import Chi2
+    from xlearn.feature_selection import chi2
     USING_XLEARN = True
 except ImportError:
-    from sklearn.feature_selection import Chi2
+    from sklearn.feature_selection import chi2
     USING_XLEARN = False
 
 try:

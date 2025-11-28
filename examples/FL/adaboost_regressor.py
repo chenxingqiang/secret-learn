@@ -5,7 +5,7 @@
 """
 Usage Example for FLAdaBoostRegressor
 
-This example demonstrates how to use the privacy-preserving AdaboostRegressor
+This example demonstrates how to use the privacy-preserving AdaBoostRegressor
 in SecretFlow's FL mode.
 """
 

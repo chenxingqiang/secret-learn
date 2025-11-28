@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Secret Sharing adapter for ElasticNetCv
+Secret Sharing adapter for ElasticNetCV
 
-ElasticNetCv is a SUPERVISED algorithm.
+ElasticNetCV is a SUPERVISED algorithm.
 Data aggregated to SPU with full MPC protection.
 
 Mode: Secret Sharing (SS)
@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.linear_model import ElasticNetCv
+    from xlearn.linear_model import ElasticNetCV
     USING_XLEARN = True
 except ImportError:
-    from sklearn.linear_model import ElasticNetCv
+    from sklearn.linear_model import ElasticNetCV
     USING_XLEARN = False
 
 try:
@@ -29,8 +29,8 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SSElasticNetCv:
-    """Secret Sharing ElasticNetCv (Supervised)"""
+class SSElasticNetCV:
+    """Secret Sharing ElasticNetCV (Supervised)"""
     
     def __init__(self, spu: SPU, **kwargs):
         if not SECRETFLOW_AVAILABLE:
@@ -42,7 +42,7 @@ class SSElasticNetCv:
         self._is_fitted = False
         
         if USING_XLEARN:
-            logging.info(f"[SS] SSElasticNetCv with JAX acceleration")
+            logging.info(f"[SS] SSElasticNetCV with JAX acceleration")
     
     def fit(self, x: Union[FedNdarray, VDataFrame], y: Union[FedNdarray, VDataFrame]):
         """Fit (supervised - labels required)"""
@@ -51,10 +51,10 @@ class SSElasticNetCv:
         if isinstance(y, VDataFrame):
             y = y.values
         
-        logging.info(f"[SS] SSElasticNetCv training in SPU")
+        logging.info(f"[SS] SSElasticNetCV training in SPU")
         
         def _spu_fit(X, y, **kwargs):
-            model = ElasticNetCv(**kwargs)
+            model = ElasticNetCV(**kwargs)
             model.fit(X, y)
             return model
         
