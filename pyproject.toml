@@ -1,7 +1,7 @@
 [project]
 name = "secret-learn"
-version = "0.1.2"
-description = "Privacy-preserving machine learning with SecretFlow - 348 sklearn-compatible algorithms (FL/SL/SS modes)"
+version = "0.2.0"
+description = "Privacy-preserving machine learning with SecretFlow - 573 implementations (191 algorithms × 3 modes: FL/SS/SL) with JAX acceleration"
 readme = "README.md"
 authors = [
     {name = "Chen Xingqiang", email="joy6677@outlook.com"},
@@ -20,9 +20,9 @@ dependencies = [
   "secretflow>=0.7.0",
 ]
 requires-python = ">=3.10"
-license = "BSD-3-Clause"
-license-files = ["COPYING"]
+license = {text = "BSD-3-Clause"}
 classifiers=[
+  "License :: OSI Approved :: BSD License",
   "Intended Audience :: Science/Research",
   "Intended Audience :: Developers",
   "Programming Language :: Python",
@@ -36,7 +36,7 @@ classifiers=[
   "Topic :: Scientific/Engineering",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
   "Topic :: Security :: Cryptography",
-  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
   "Operating System :: Microsoft :: Windows",
   "Operating System :: POSIX",
   "Operating System :: Unix",
