@@ -30,7 +30,6 @@ classifiers=[
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Software Development",
   "Topic :: Scientific/Engineering",
@@ -78,12 +77,6 @@ docs = [
     "sphinxext-opengraph>=0.9.1",
     "plotly>=5.14.0",
     "polars>=0.20.30",
-    "sphinx-design>=0.5.0",
-    "sphinx-design>=0.6.0",
-    "sphinxcontrib-sass>=0.3.4",
-    "pydata-sphinx-theme>=0.15.3",
-    "sphinx-remove-toctrees>=1.0.0.post1",
-    "towncrier>=24.8.0",
 ]
 examples = [
     "matplotlib>=3.5.0",
@@ -138,12 +131,6 @@ exclude=[
     "__pycache__",
     "build",
     "dist",
-    "doc/_build",
-    "doc/auto_examples",
-    "asv_benchmarks/env",
-    "asv_benchmarks/html",
-    "asv_benchmarks/results",
-    "asv_benchmarks/benchmarks/cache",
 ]
 
 [tool.ruff.lint]
