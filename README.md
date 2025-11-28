@@ -730,10 +730,8 @@ For detailed usage instructions, see [`EXAMPLES_USAGE_GUIDE.md`](EXAMPLES_USAGE_
 
 ### Quick Links
 
-- **SecretFlow Status**: [secretlearn/secretflow/STATUS.md](secretlearn/secretflow/STATUS.md)
-- **SecretFlow README**: [secretlearn/secretflow/README.md](secretlearn/secretflow/README.md)
-- **Examples**: [secretlearn/secretflow/generated/examples/README.md](secretlearn/secretflow/generated/examples/README.md)
-- **Tool Documentation**: [secretlearn/secretflow/TOOLS_UPDATE_SUMMARY.md](secretlearn/secretflow/TOOLS_UPDATE_SUMMARY.md)
+- **SecretLearn Status**: [secretlearn/README.md](secretlearn/README.md)
+- **Examples**: [examples/README.md](examples/README.md)
 
 ### API Documentation
 
