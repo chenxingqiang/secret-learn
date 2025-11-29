@@ -128,7 +128,7 @@ secretlearn_est.set_params(loss=loss)
 
 
 if args.print_params:
-    print("secret-learn")
+    print("Secret-Learn")
     pprint(secretlearn_est.get_params())
 
     for libname in ["lightgbm", "xgboost", "catboost"]:

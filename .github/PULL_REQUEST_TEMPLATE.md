@@ -1,6 +1,6 @@
 <!--
 Thanks for contributing a pull request! Please ensure you have taken a look at
-the contribution guidelines: https://github.com/chenxingqiang/secret-learn/blob/main/CONTRIBUTING.md
+the contribution guidelines: https://github.com/chenxingqiang/Secret-Learn/blob/main/CONTRIBUTING.md
 -->
 
 #### Reference Issues/PRs
@@ -26,7 +26,7 @@ review, either the pull request needs some benchmarking, tinkering,
 convincing, etc. or more likely the reviewers are simply busy. In either
 case, we ask for your understanding during the review process.
 For more information, see our FAQ on this topic:
-https://secret-learn.org/dev/faq.html#why-is-my-pull-request-not-getting-any-attention.
+https://Secret-Learn.org/dev/faq.html#why-is-my-pull-request-not-getting-any-attention.
 
 Thanks for contributing!
 -->

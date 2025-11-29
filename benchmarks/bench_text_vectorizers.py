@@ -2,7 +2,7 @@
 
 To run this benchmark, you will need,
 
- * secret-learn
+ * Secret-Learn
  * pandas
  * memory_profiler
  * psutil (optional, but recommended)

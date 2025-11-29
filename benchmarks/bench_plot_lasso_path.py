@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     max_time = max(max(t) for t in results.values())
 
-    fig = plt.figure("secret-learn Lasso path benchmark results")
+    fig = plt.figure("Secret-Learn Lasso path benchmark results")
     i = 1
     for c, (label, timings) in zip("bcry", sorted(results.items())):
         ax = fig.add_subplot(2, 2, i, projection="3d")

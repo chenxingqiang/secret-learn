@@ -1,4 +1,4 @@
-# Authors: The secret-learn developers
+# Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import gc

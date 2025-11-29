@@ -45,7 +45,7 @@ if __name__ == "__main__":
         lasso.fit(X, Y)
         time_lasso[i] = (datetime.now() - start).total_seconds()
 
-    plt.figure("secret-learn GLM benchmark results")
+    plt.figure("Secret-Learn GLM benchmark results")
     plt.xlabel("Dimensions")
     plt.ylabel("Time (s)")
     plt.plot(dimensions, time_ridge, color="r")

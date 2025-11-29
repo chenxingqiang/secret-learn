@@ -2,7 +2,7 @@
 Benchmarks of Non-Negative Matrix Factorization
 """
 
-# Authors: The secret-learn developers
+# Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import numbers
@@ -30,7 +30,7 @@ mem = Memory(cachedir=".", verbose=0)
 # Start of _PGNMF #
 ###################
 # This class implements a projected gradient solver for the NMF.
-# The projected gradient solver was removed from secret-learn in version 0.19,
+# The projected gradient solver was removed from Secret-Learn in version 0.19,
 # and a simplified copy is used here for comparison purpose only.
 # It is not tested, and it may change or disappear without notice.
 

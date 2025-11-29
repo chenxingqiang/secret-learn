@@ -9,7 +9,7 @@ on:
 jobs:
   check-sdist:
     # Don't run on forks
-    if: github.repository == 'secret-learn/secret-learn'
+    if: github.repository == 'Secret-Learn/Secret-Learn'
 
     runs-on: ubuntu-latest
     steps:

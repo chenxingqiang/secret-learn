@@ -7,7 +7,7 @@
 [![JAX-sklearn](https://img.shields.io/badge/JAX--sklearn-0.1.0+-red.svg)](https://github.com/chenxingqiang/jax-sklearn)
 [![SecretFlow](https://img.shields.io/badge/SecretFlow-1.0.0+-green.svg)](https://github.com/secretflow/secretflow)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](COPYING)
-[![Version](https://img.shields.io/badge/version-0.2.2-brightgreen.svg)](https://pypi.org/project/secret-learn/)
+[![Version](https://img.shields.io/badge/version-0.2.2-brightgreen.svg)](https://pypi.org/project/Secret-Learn/)
 [![sklearn Compatible](https://img.shields.io/badge/sklearn-compatible-blue.svg)](https://scikit-learn.org)
 
 ---
@@ -65,7 +65,7 @@ For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ```bash
 # For Secret-Learn with JAX acceleration
-pip install secret-learn
+pip install Secret-Learn
 
 # For privacy-preserving features, install SecretFlow
 # Note: Requires Python 3.10
@@ -83,15 +83,15 @@ conda activate sf
 pip install -U secretflow
 
 # Install Secret-Learn
-pip install secret-learn
+pip install Secret-Learn
 ```
 
 #### Option 3: From Source (Recommended for Developers)
 
 ```bash
 # Clone repository
-git clone https://github.com/chenxingqiang/secret-learn.git
-cd secret-learn
+git clone https://github.com/chenxingqiang/Secret-Learn.git
+cd Secret-Learn
 
 # Create conda environment
 conda create -n sf python=3.10
@@ -321,14 +321,14 @@ pip install jax[tpu] -f https://storage.googleapis.com/jax-releases/libtpu_relea
 
 ```bash
 # From PyPI (recommended)
-pip install secret-learn
+pip install Secret-Learn
 
 # With SecretFlow for privacy-preserving ML
-pip install secret-learn[secretflow]
+pip install Secret-Learn[secretflow]
 
 # From source (development)
-git clone https://github.com/chenxingqiang/secret-learn.git
-cd secret-learn
+git clone https://github.com/chenxingqiang/Secret-Learn.git
+cd Secret-Learn
 pip install -e .
 ```
 
@@ -611,7 +611,7 @@ conda activate sf
 
 ```bash
 # Install Secret-Learn (JAX acceleration)
-pip install secret-learn
+pip install Secret-Learn
 
 # Install SecretFlow (privacy features)
 pip install -U secretflow
@@ -626,7 +626,7 @@ pip install jax[cuda12]  # For CUDA 12
 pip install jax[cuda11]  # For CUDA 11
 
 # Then install Secret-Learn
-pip install secret-learn secretflow
+pip install Secret-Learn secretflow
 ```
 
 ### With TPU Support
@@ -634,19 +634,19 @@ pip install secret-learn secretflow
 ```bash
 # For Google Cloud TPU
 pip install jax[tpu] -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
-pip install secret-learn secretflow
+pip install Secret-Learn secretflow
 ```
 
 ### Full Installation (All Features)
 
 ```bash
 # Complete installation with all dependencies
-pip install secret-learn[all]
+pip install Secret-Learn[all]
 pip install secretflow
 
 # Or from source
-git clone https://github.com/chenxingqiang/secret-learn.git
-cd secret-learn
+git clone https://github.com/chenxingqiang/Secret-Learn.git
+cd Secret-Learn
 pip install -e .[dev,docs,tests]
 pip install secretflow
 ```
@@ -654,8 +654,8 @@ pip install secretflow
 ### Development Installation
 
 ```bash
-git clone https://github.com/chenxingqiang/secret-learn.git
-cd secret-learn
+git clone https://github.com/chenxingqiang/Secret-Learn.git
+cd Secret-Learn
 
 # Create environment
 conda create -n sf python=3.10
@@ -914,8 +914,8 @@ We welcome contributions!
 ### Development Setup
 
 ```bash
-git clone https://github.com/chenxingqiang/secret-learn.git
-cd secret-learn
+git clone https://github.com/chenxingqiang/Secret-Learn.git
+cd Secret-Learn
 pip install -e ".[install,docs,tests]"
 ```
 
@@ -948,7 +948,7 @@ BSD-3-Clause License - Compatible with sklearn, JAX, and SecretFlow
 
 ## 📞 Support
 
-- **Issues:** [GitHub Issues](https://github.com/chenxingqiang/secret-learn/issues)
+- **Issues:** [GitHub Issues](https://github.com/chenxingqiang/Secret-Learn/issues)
 - **JAX-sklearn Base:** [JAX-sklearn Project](https://github.com/chenxingqiang/jax-sklearn)
 - **SecretFlow:** [SecretFlow Documentation](https://www.secretflow.org.cn/docs/secretflow/en/)
 
@@ -985,7 +985,7 @@ BSD-3-Clause License - Compatible with sklearn, JAX, and SecretFlow
 **🚀 Ready to build privacy-preserving ML with JAX acceleration?**
 
 ```bash
-pip install secret-learn
+pip install Secret-Learn
 ```
 
 **Join the privacy-preserving ML revolution!** 🎊

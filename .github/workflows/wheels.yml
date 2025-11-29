@@ -28,12 +28,12 @@ jobs:
   check_build_trigger:
     name: Check build trigger
     runs-on: ubuntu-latest
-    if: github.repository == 'secret-learn/secret-learn'
+    if: github.repository == 'Secret-Learn/Secret-Learn'
     outputs:
       build: ${{ steps.check_build_trigger.outputs.build }}
 
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -160,7 +160,7 @@ jobs:
             cibw_enable: cpython-freethreading
 
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
 
       - name: Setup Python
@@ -221,7 +221,7 @@ jobs:
     if: needs.check_build_trigger.outputs.build
 
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
 
       - name: Setup Python
@@ -253,7 +253,7 @@ jobs:
     if: github.event_name != 'pull_request'
 
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
 
       - name: Download artifacts

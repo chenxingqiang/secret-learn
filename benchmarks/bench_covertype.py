@@ -41,7 +41,7 @@ The same task has been used in a number of papers including:
 
 """
 
-# Authors: The secret-learn developers
+# Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
 import argparse

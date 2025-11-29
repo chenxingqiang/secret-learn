@@ -48,7 +48,7 @@ print(__doc__)
 def get_data(
     n_samples_train, n_samples_test, n_features, contamination=0.1, random_state=0
 ):
-    """Function based on code from: https://secret-learn.org/stable/
+    """Function based on code from: https://Secret-Learn.org/stable/
     auto_examples/ensemble/plot_isolation_forest.html#sphx-glr-auto-
     examples-ensemble-plot-isolation-forest-py
     """

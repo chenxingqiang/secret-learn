@@ -30,11 +30,11 @@ jobs:
   check_build_trigger:
     name: Check build trigger
     runs-on: ubuntu-latest
-    if: github.repository == 'secret-learn/secret-learn'
+    if: github.repository == 'Secret-Learn/Secret-Learn'
     outputs:
       build: ${{ steps.check_build_trigger.outputs.build }}
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -62,7 +62,7 @@ jobs:
     needs: check_build_trigger
     if: needs.check_build_trigger.outputs.build
     steps:
-      - name: Checkout secret-learn
+      - name: Checkout Secret-Learn
         uses: actions/checkout@v5
         with:
           persist-credentials: false
@@ -85,15 +85,15 @@ jobs:
           path: ./wheelhouse/*.whl
           if-no-files-found: error
 
-  # Push to https://anaconda.org/scientific-python-nightly-wheels/secret-learn
+  # Push to https://anaconda.org/scientific-python-nightly-wheels/Secret-Learn
   # WARNING: this job will overwrite any existing WASM wheels.
   upload-wheels:
-    name: Upload secret-learn WASM wheels to Anaconda.org
+    name: Upload Secret-Learn WASM wheels to Anaconda.org
     runs-on: ubuntu-latest
     permissions: {}
     environment: upload_anaconda
     needs: [build_wasm_wheel]
-    if: github.repository == 'secret-learn/secret-learn' && github.event_name != 'pull_request'
+    if: github.repository == 'Secret-Learn/Secret-Learn' && github.event_name != 'pull_request'
     steps:
       - name: Download wheel artifact
         uses: actions/download-artifact@v5

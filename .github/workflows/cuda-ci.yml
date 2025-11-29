@@ -61,7 +61,7 @@ jobs:
       - name: Install miniforge
         if: ${{ steps.cache-conda.outputs.cache-hit != 'true' }}
         run: bash build_tools/github/create_gpu_environment.sh
-      - name: Install secret-learn
+      - name: Install Secret-Learn
         run: |
           source "${HOME}/conda/etc/profile.d/conda.sh"
           conda activate secretlearn

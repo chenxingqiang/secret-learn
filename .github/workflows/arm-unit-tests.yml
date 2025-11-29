@@ -14,7 +14,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    if: github.repository == 'secret-learn/secret-learn'
+    if: github.repository == 'Secret-Learn/Secret-Learn'
 
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
   run-unit-tests:
     name: Run unit tests
     runs-on: ubuntu-24.04-arm
-    if: github.repository == 'secret-learn/secret-learn'
+    if: github.repository == 'Secret-Learn/Secret-Learn'
     needs: [lint]
     steps:
       - name: Checkout

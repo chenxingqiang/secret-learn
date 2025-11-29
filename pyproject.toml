@@ -1,5 +1,5 @@
 [project]
-name = "secret-learn"
+name = "Secret-Learn"
 version = "0.2.2"
 description = "Privacy-preserving machine learning with SecretFlow - 573 implementations (191 algorithms × 3 modes: FL/SS/SL) with JAX acceleration"
 readme = "README.md"
@@ -43,11 +43,11 @@ classifiers=[
 ]
 
 [project.urls]
-homepage = "https://github.com/chenxingqiang/secret-learn"
-source = "https://github.com/chenxingqiang/secret-learn"
-download = "https://pypi.org/project/secret-learn/#files"
-tracker = "https://github.com/chenxingqiang/secret-learn/issues"
-documentation = "https://github.com/chenxingqiang/secret-learn#readme"
+homepage = "https://github.com/chenxingqiang/Secret-Learn"
+source = "https://github.com/chenxingqiang/Secret-Learn"
+download = "https://pypi.org/project/Secret-Learn/#files"
+tracker = "https://github.com/chenxingqiang/Secret-Learn/issues"
+documentation = "https://github.com/chenxingqiang/Secret-Learn#readme"
 "JAX-sklearn" = "https://github.com/chenxingqiang/jax-sklearn"
 "SecretFlow" = "https://github.com/secretflow/secretflow"
 

@@ -1,7 +1,7 @@
 """
 To run this, you'll need to have installed.
 
-  * secret-learn
+  * Secret-Learn
 
 Does two benchmarks
 
@@ -28,7 +28,7 @@ mu_second = 0.0 + 10**6  # number of microseconds in a second
 
 
 def bench_scikit_tree_classifier(X, Y):
-    """Benchmark with secret-learn decision tree classifier"""
+    """Benchmark with Secret-Learn decision tree classifier"""
 
     from secretlearn.tree import DecisionTreeClassifier
 
@@ -45,7 +45,7 @@ def bench_scikit_tree_classifier(X, Y):
 
 
 def bench_scikit_tree_regressor(X, Y):
-    """Benchmark with secret-learn decision tree regressor"""
+    """Benchmark with Secret-Learn decision tree regressor"""
 
     from secretlearn.tree import DecisionTreeRegressor
 
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         bench_scikit_tree_regressor(X, Y)
 
     xx = range(0, n * step, step)
-    plt.figure("secret-learn tree benchmark results")
+    plt.figure("Secret-Learn tree benchmark results")
     plt.subplot(211)
     plt.title("Learning with varying number of samples")
     plt.plot(xx, scikit_classifier_results, "g-", label="classification")

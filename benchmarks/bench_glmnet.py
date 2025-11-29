@@ -2,7 +2,7 @@
 To run this, you'll need to have installed.
 
   * glmnet-python
-  * secret-learn (of course)
+  * Secret-Learn (of course)
 
 Does two benchmarks
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
         X = X[: (i * step)]
         Y = Y[: (i * step)]
 
-        print("benchmarking secret-learn: ")
+        print("benchmarking Secret-Learn: ")
         scikit_results.append(bench(ScikitLasso, X, Y, X_test, Y_test, coef_))
         print("benchmarking glmnet: ")
         glmnet_results.append(bench(GlmnetLasso, X, Y, X_test, Y_test, coef_))
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     plt.clf()
     xx = range(0, n * step, step)
     plt.title("Lasso regression on sample dataset (%d features)" % n_features)
-    plt.plot(xx, scikit_results, "b-", label="secret-learn")
+    plt.plot(xx, scikit_results, "b-", label="Secret-Learn")
     plt.plot(xx, glmnet_results, "r-", label="glmnet")
     plt.legend()
     plt.xlabel("number of samples to classify")
@@ -123,15 +123,15 @@ if __name__ == "__main__":
         X = X[:n_samples]
         Y = Y[:n_samples]
 
-        print("benchmarking secret-learn: ")
+        print("benchmarking Secret-Learn: ")
         scikit_results.append(bench(ScikitLasso, X, Y, X_test, Y_test, coef_))
         print("benchmarking glmnet: ")
         glmnet_results.append(bench(GlmnetLasso, X, Y, X_test, Y_test, coef_))
 
     xx = np.arange(100, 100 + n * step, step)
-    plt.figure("secret-learn vs. glmnet benchmark results")
+    plt.figure("Secret-Learn vs. glmnet benchmark results")
     plt.title("Regression in high dimensional spaces (%d samples)" % n_samples)
-    plt.plot(xx, scikit_results, "b-", label="secret-learn")
+    plt.plot(xx, scikit_results, "b-", label="Secret-Learn")
     plt.plot(xx, glmnet_results, "r-", label="glmnet")
     plt.legend()
     plt.xlabel("number of features")

@@ -213,7 +213,7 @@ Growth: +2287% 🚀
 
 ## Links
 
-- **Main Repository**: [github.com/chenxingqiang/secret-learn](https://github.com/chenxingqiang/secret-learn)
+- **Main Repository**: [github.com/chenxingqiang/Secret-Learn](https://github.com/chenxingqiang/Secret-Learn)
 - **JAX-sklearn Base**: [github.com/chenxingqiang/jax-sklearn](https://github.com/chenxingqiang/jax-sklearn)
 - **SecretFlow**: [github.com/secretflow/secretflow](https://github.com/secretflow/secretflow)
 - **Documentation**: See project root for complete docs

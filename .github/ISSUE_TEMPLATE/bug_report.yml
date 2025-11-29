@@ -7,7 +7,7 @@ body:
   attributes:
     value: >
       #### Before submitting a bug, please make sure the issue hasn't been already
-      addressed by searching through [the past issues](https://github.com/chenxingqiang/secret-learn/issues).
+      addressed by searching through [the past issues](https://github.com/chenxingqiang/Secret-Learn/issues).
 - type: textarea
   attributes:
     label: Describe the bug
@@ -19,7 +19,7 @@ body:
   attributes:
     label: Steps/Code to Reproduce
     description: |
-      Please add a [minimal code example](https://secret-learn.org/dev/developers/minimal_reproducer.html) that can reproduce the error when running it. Be as succinct as possible, **do not depend on external data files**: instead you can generate synthetic data using `numpy.random`, [secretlearn.datasets.make_regression](https://secret-learn.org/stable/modules/generated/secretlearn.datasets.make_regression.html), [secretlearn.datasets.make_classification](https://secret-learn.org/stable/modules/generated/secretlearn.datasets.make_classification.html) or a few lines of Python code. Example:
+      Please add a [minimal code example](https://Secret-Learn.org/dev/developers/minimal_reproducer.html) that can reproduce the error when running it. Be as succinct as possible, **do not depend on external data files**: instead you can generate synthetic data using `numpy.random`, [secretlearn.datasets.make_regression](https://Secret-Learn.org/stable/modules/generated/secretlearn.datasets.make_regression.html), [secretlearn.datasets.make_classification](https://Secret-Learn.org/stable/modules/generated/secretlearn.datasets.make_classification.html) or a few lines of Python code. Example:
 
       ```python
       from secretlearn.feature_extraction.text import CountVectorizer
@@ -40,7 +40,7 @@ body:
 
       In short, **we are going to copy-paste your code** to run it and we expect to get the same result as you.
 
-      We acknowledge that crafting a [minimal reproducible code example](https://secret-learn.org/dev/developers/minimal_reproducer.html) requires some effort on your side but it really helps the maintainers quickly reproduce the problem and analyze its cause without any ambiguity. Ambiguous bug reports tend to be slower to fix because they will require more effort and back and forth discussion between the maintainers and the reporter to pin-point the precise conditions necessary to reproduce the problem.
+      We acknowledge that crafting a [minimal reproducible code example](https://Secret-Learn.org/dev/developers/minimal_reproducer.html) requires some effort on your side but it really helps the maintainers quickly reproduce the problem and analyze its cause without any ambiguity. Ambiguous bug reports tend to be slower to fix because they will require more effort and back and forth discussion between the maintainers and the reporter to pin-point the precise conditions necessary to reproduce the problem.
     placeholder: |
       ```
       Sample code to reproduce the problem

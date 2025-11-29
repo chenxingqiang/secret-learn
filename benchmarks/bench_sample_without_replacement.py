@@ -214,7 +214,7 @@ if __name__ == "__main__":
     print("Results are averaged over %s repetition(s)." % opts.n_times)
     print("")
 
-    fig = plt.figure("secret-learn sample w/o replacement benchmark results")
+    fig = plt.figure("Secret-Learn sample w/o replacement benchmark results")
     fig.suptitle("n_population = %s, n_times = %s" % (opts.n_population, opts.n_times))
     ax = fig.add_subplot(111)
     for name in sampling_algorithm:

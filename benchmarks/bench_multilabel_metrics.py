@@ -130,7 +130,7 @@ def _plot(
     Plot the results by metric, format and some other variable given by
     x_label
     """
-    fig = plt.figure("secret-learn multilabel metrics benchmarks")
+    fig = plt.figure("Secret-Learn multilabel metrics benchmarks")
     plt.title(title)
     ax = fig.add_subplot(111)
     for i, metric in enumerate(metrics):
