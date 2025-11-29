@@ -51,7 +51,10 @@ class SSNormalizer:
         
         logging.info(f"[SS] SSNormalizer training in SPU")
         
-        def _spu_fit(X, **kwargs):
+        def _spu_fit(X_parts, **kwargs):
+            import jax.numpy as jnp
+            # Concatenate partitions
+            X = jnp.concatenate(X_parts, axis=1) if len(X_parts) > 1 else X_parts[0]
             model = Normalizer(**kwargs)
             model.fit(X)
             return model

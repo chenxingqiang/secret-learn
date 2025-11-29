@@ -52,7 +52,11 @@ class SSLabelBinarizer:
         
         logging.info(f"[SS] SSLabelBinarizer training in SPU")
         
-        def _spu_fit(X, y, **kwargs):
+        def _spu_fit(X_parts, y_parts, **kwargs):
+            import jax.numpy as jnp
+            # Concatenate partitions
+            X = jnp.concatenate(X_parts, axis=1) if len(X_parts) > 1 else X_parts[0]
+            y = y_parts[0] if isinstance(y_parts, list) else y_parts
             model = LabelBinarizer(**kwargs)
             model.fit(X, y)
             return model
