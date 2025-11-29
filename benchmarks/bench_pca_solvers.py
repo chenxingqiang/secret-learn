@@ -21,7 +21,7 @@ import numpy as np
 import pandas as pd
 
 from secretlearn import config_context
-from secretlearn.decomposition import PCA
+from xlearn.decomposition import PCA
 
 REF_DIMS = [100, 1000, 10_000]
 data_shapes = []

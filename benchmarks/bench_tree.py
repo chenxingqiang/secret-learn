@@ -30,7 +30,7 @@ mu_second = 0.0 + 10**6  # number of microseconds in a second
 def bench_scikit_tree_classifier(X, Y):
     """Benchmark with Secret-Learn decision tree classifier"""
 
-    from secretlearn.tree import DecisionTreeClassifier
+    from xlearn.tree import DecisionTreeClassifier
 
     gc.collect()
 
@@ -47,7 +47,7 @@ def bench_scikit_tree_classifier(X, Y):
 def bench_scikit_tree_regressor(X, Y):
     """Benchmark with Secret-Learn decision tree regressor"""
 
-    from secretlearn.tree import DecisionTreeRegressor
+    from xlearn.tree import DecisionTreeRegressor
 
     gc.collect()
 

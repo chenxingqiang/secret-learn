@@ -7,13 +7,13 @@ import numpy as np
 from threadpoolctl import threadpool_limits
 
 import secretlearn
-from secretlearn.datasets import make_classification, make_regression
-from secretlearn.ensemble import (
+from xlearn.datasets import make_classification, make_regression
+from xlearn.ensemble import (
     HistGradientBoostingClassifier,
     HistGradientBoostingRegressor,
 )
-from secretlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from secretlearn.model_selection import train_test_split
+from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
+from xlearn.model_selection import train_test_split
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)
@@ -153,7 +153,7 @@ def one_run(n_threads, n_samples):
     assert X_test.shape[0] == n_samples
     print("Fitting a secretlearn model...")
     tic = time()
-    est = secretlearn.base.clone(secretlearn_est)
+    est = xlearn.base.clone(secretlearn_est)
 
     with threadpool_limits(n_threads, user_api="openmp"):
         est.fit(X_train, y_train, sample_weight=sample_weight_train)
@@ -296,7 +296,7 @@ if args.plot or args.plot_filename:
 
     fig, axs = plt.subplots(2, figsize=(12, 12))
 
-    label = f"secretlearn {secretlearn.__version__}"
+    label = f"secretlearn {xlearn.__version__}"
     axs[0].plot(n_threads_list, secretlearn_fit_durations, label=label)
     axs[1].plot(n_threads_list, secretlearn_score_durations, label=label)
 

@@ -11,19 +11,19 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from secretlearn.datasets import (
+from xlearn.datasets import (
     fetch_20newsgroups_vectorized,
     fetch_rcv1,
     load_digits,
     load_iris,
 )
-from secretlearn.linear_model import LogisticRegression
-from secretlearn.metrics import log_loss
-from secretlearn.model_selection import train_test_split
-from secretlearn.multiclass import OneVsRestClassifier
-from secretlearn.preprocessing import LabelBinarizer, LabelEncoder
-from secretlearn.utils.extmath import safe_sparse_dot, softmax
-from secretlearn.utils.parallel import Parallel, delayed
+from xlearn.linear_model import LogisticRegression
+from xlearn.metrics import log_loss
+from xlearn.model_selection import train_test_split
+from xlearn.multiclass import OneVsRestClassifier
+from xlearn.preprocessing import LabelBinarizer, LabelEncoder
+from xlearn.utils.extmath import safe_sparse_dot, softmax
+from xlearn.utils.parallel import Parallel, delayed
 
 
 def fit_single(

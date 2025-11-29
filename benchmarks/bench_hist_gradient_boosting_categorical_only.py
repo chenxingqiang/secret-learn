@@ -1,10 +1,10 @@
 import argparse
 from time import time
 
-from secretlearn.datasets import make_classification
-from secretlearn.ensemble import HistGradientBoostingClassifier
-from secretlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from secretlearn.preprocessing import KBinsDiscretizer
+from xlearn.datasets import make_classification
+from xlearn.ensemble import HistGradientBoostingClassifier
+from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
+from xlearn.preprocessing import KBinsDiscretizer
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)

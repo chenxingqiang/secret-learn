@@ -4,13 +4,13 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from secretlearn.datasets import make_classification, make_regression
-from secretlearn.ensemble import (
+from xlearn.datasets import make_classification, make_regression
+from xlearn.ensemble import (
     HistGradientBoostingClassifier,
     HistGradientBoostingRegressor,
 )
-from secretlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from secretlearn.model_selection import train_test_split
+from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
+from xlearn.model_selection import train_test_split
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)

@@ -76,7 +76,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
 
-from secretlearn.datasets import (
+from xlearn.datasets import (
     fetch_20newsgroups_vectorized,
     fetch_lfw_people,
     fetch_olivetti_faces,
@@ -85,10 +85,10 @@ from secretlearn.datasets import (
     make_low_rank_matrix,
     make_sparse_uncorrelated,
 )
-from secretlearn.utils import gen_batches
-from secretlearn.utils._arpack import _init_arpack_v0
-from secretlearn.utils.extmath import randomized_svd
-from secretlearn.utils.validation import check_random_state
+from xlearn.utils import gen_batches
+from xlearn.utils._arpack import _init_arpack_v0
+from xlearn.utils.extmath import randomized_svd
+from xlearn.utils.validation import check_random_state
 
 try:
     import fbpca

@@ -22,7 +22,7 @@ from time import time
 
 import numpy as np
 
-from secretlearn.datasets import make_regression
+from xlearn.datasets import make_regression
 
 alpha = 0.1
 # alpha = 0.01
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from glmnet.elastic_net import Lasso as GlmnetLasso
 
-    from secretlearn.linear_model import Lasso as ScikitLasso
+    from xlearn.linear_model import Lasso as ScikitLasso
 
     scikit_results = []
     glmnet_results = []

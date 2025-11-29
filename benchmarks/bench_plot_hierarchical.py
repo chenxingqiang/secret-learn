@@ -4,7 +4,7 @@ from time import time
 import numpy as np
 from numpy import random as nr
 
-from secretlearn.cluster import AgglomerativeClustering
+from xlearn.cluster import AgglomerativeClustering
 
 
 def compute_bench(samples_range, features_range):
