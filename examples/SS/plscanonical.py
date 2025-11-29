@@ -48,12 +48,10 @@ def main():
     print("="*70)
     print(f" SSPLSCanonical - Party: {party_name.upper()}")
     print("="*70)
-    print(f"
-[{party_name}] PID: {os.getpid()}")
+    print(f"\n[{party_name}] PID: {os.getpid()}")
     
     try:
-        print(f"
-[{party_name}] [1/5] Initializing...")
+        print(f"\n[{party_name}] [1/5] Initializing...")
         
         # Cluster config
         alice_host, alice_port = args.alice_addr.split(':')
@@ -98,8 +96,7 @@ def main():
         
         if party_name == 'alice':
             # Alice runs the training
-            print(f"
-[{party_name}] [2/5] Preparing data...")    
+            print(f"\n[{party_name}] [2/5] Preparing data...")
     # Step 2: Create sample data
     print("\n[2/5] Creating sample data...")
     np.random.seed(42)
@@ -156,8 +153,7 @@ def main():
     print(f"  ✓ Performance: {training_time*1000:.2f}ms")
     else:
         # Bob waits and participates
-        print(f"
-[{{party_name}}] Waiting for alice...")
+        print(f"\n[{{party_name}}] Waiting for alice...")
         time.sleep(300)
         print(f"[{{party_name}}] ✓ Done")
 

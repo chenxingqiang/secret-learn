@@ -7,7 +7,7 @@
 [![JAX-sklearn](https://img.shields.io/badge/JAX--sklearn-0.1.0+-red.svg)](https://github.com/chenxingqiang/jax-sklearn)
 [![SecretFlow](https://img.shields.io/badge/SecretFlow-1.0.0+-green.svg)](https://github.com/secretflow/secretflow)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](COPYING)
-[![Version](https://img.shields.io/badge/version-0.2.3-brightgreen.svg)](https://pypi.org/project/Secret-Learn/)
+[![Version](https://img.shields.io/badge/version-0.2.2-brightgreen.svg)](https://pypi.org/project/secret-learn/)
 [![sklearn Compatible](https://img.shields.io/badge/sklearn-compatible-blue.svg)](https://scikit-learn.org)
 
 ---
@@ -102,74 +102,89 @@ pip install -U secretflow
 pip install -e .
 ```
 
-### Basic JAX-sklearn Usage
+### Quick Start
 
-```python
-# Simply replace sklearn with secretlearn!
-import secretlearn as sklearn
-from secretlearn.linear_model import LinearRegression
-from secretlearn.cluster import KMeans
+Secret-Learn provides **573 privacy-preserving ML algorithms** through three modes:
+- **FL Mode**: Federated Learning (data stays local)
+- **SL Mode**: Split Learning (collaborative training)
+- **SS Mode**: Secret Sharing (maximum privacy with MPC)
 
-# Everything works the same - 100% API compatible
-model = LinearRegression()
-model.fit(X, y)
-predictions = model.predict(X_test)
+```bash
+# Run FL example (easiest to start)
+python examples/FL/linear_regression.py
 
-# JAX acceleration applied automatically when beneficial
+# Run other examples
+python examples/FL/kmeans.py
+python examples/SL/random_forest_classifier.py
+
+# For maximum privacy (SS mode - requires multi-party)
+# Terminal 1: python examples/SS/pca.py --party bob
+# Terminal 2: python examples/SS/pca.py --party alice
 ```
 
 ### SecretFlow Privacy-Preserving Usage
 
-```python
-import secretflow as sf
-from secretlearn.FL.clustering.kmeans import FLKMeans
-from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
+**⚠️ Important**: SecretFlow 1.14+ removed simulation mode. Use the provided example scripts instead of manual REPL initialization.
 
-# Initialize SecretFlow
-sf.init(['alice', 'bob'])
-alice = sf.PYU('alice')
-bob = sf.PYU('bob')
+#### Recommended: Use Pre-Built Examples
 
-# Unsupervised Learning (FL Mode)
-model = FLKMeans(
-    devices={'alice': alice, 'bob': bob},
-    heu=None,
-    n_clusters=3
-)
-model.fit(fed_X)  # No labels needed
-labels = model.predict(fed_X)
+The easiest way to get started is running the complete examples:
 
-# Supervised Learning (FL Mode)
-model = FLLinearRegression(
-    devices={'alice': alice, 'bob': bob},
-    heu=None
-)
-model.fit(fed_X, fed_y)  # With labels
-predictions = model.predict(fed_X_test)
+```bash
+# FL Mode - Best for learning (works in examples)
+python examples/FL/linear_regression.py      # Linear regression
+python examples/FL/kmeans.py                 # Clustering  
+python examples/FL/random_forest_classifier.py  # Ensemble
+
+# SL Mode - Split learning examples
+python examples/SL/mlp_classifier.py
+python examples/SL/linear_regression.py
+
+# SS Mode - Requires multi-party setup (highest security)
+# Terminal 1 (Bob):
+python examples/SS/pca.py --party bob
+
+# Terminal 2 (Alice):  
+python examples/SS/pca.py --party alice
 ```
+
+#### Why Use Example Scripts?
+
+SecretFlow 1.14+ uses PRODUCTION mode which requires:
+- Proper cluster configuration
+- Network initialization
+- Multi-party coordination
+
+The example scripts handle all this complexity for you. For custom code, use the examples as templates.
+
+See complete working examples in:
+- [`examples/FL/`](examples/FL/) - 191 FL examples
+- [`examples/SL/`](examples/SL/) - 191 SL examples
+- [`examples/SS/`](examples/SS/) - 191 SS examples
 
 ### Running Examples
 
 Secret-Learn includes **573 complete examples** (191 algorithms × 3 modes):
 
 ```bash
-# Run single example
+# Run FL examples (single process, recommended for testing)
 python examples/FL/linear_regression.py
+python examples/FL/kmeans.py
+python examples/FL/adaboost_classifier.py
 
-# Run all FL examples (incremental mode - skip successful)
-python run_all_fl_examples.py
+# Run SL examples (single process)
+python examples/SL/mlp_classifier.py
+python examples/SL/random_forest_classifier.py
 
-# Run all SS examples
-python run_all_ss_examples.py
+# Run SS examples (requires multi-party setup)
+# Terminal 1: python examples/SS/pca.py --party bob
+# Terminal 2: python examples/SS/pca.py --party alice
+# Or use: ./examples/SS/run_any_example.sh pca
 
-# Run all SL examples
-python run_all_sl_examples.py
-
-# Run all modes at once
-python run_all_examples.py
-
-# Force rerun all (ignore previous success)
-python run_all_fl_examples.py --force
+# Batch run examples
+python scripts/run_all_fl_examples.py
+python scripts/run_all_sl_examples.py
+python scripts/run_all_ss_examples.py
 ```
 
 **Features**:
@@ -338,103 +353,80 @@ pip install -e .
 # Test Secret-Learn installation
 import secretlearn
 print(f"Secret-Learn Version: {secretlearn.__version__}")
-print(f"JAX enabled: {secretlearn._JAX_ENABLED}")
+print("Secret-Learn installed: ✅")
 
 # Test SecretFlow integration
 try:
     import secretflow as sf
     print(f"SecretFlow Version: {sf.__version__}")
-    print(f"SecretFlow installed: ✅")
+    print("SecretFlow installed: ✅")
 except ImportError:
-    print(f"SecretFlow not installed. Run: pip install secretflow")
+    print("SecretFlow not installed. Run: pip install secretflow")
 
-# Test algorithm import
-from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
-print(f"FL algorithms available: ✅")
+# Test algorithm import (FL mode)
+try:
+    from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
+    print("FL algorithms available: ✅")
+except ImportError as e:
+    print(f"Import error: {e}")
 
-# Quick test
-from secretlearn.linear_model import LinearRegression
-import numpy as np
-X = np.random.randn(100, 10)
-y = np.random.randn(100)
-model = LinearRegression()
-model.fit(X, y)
-print(f"JAX-sklearn working: ✅")
+# Quick functionality test - run an example
+print("\nTo test functionality, run an example:")
+print("  python examples/FL/linear_regression.py")
 ```
 
 ---
 
 ## 🎯 Usage Examples
 
-### 1. Standard JAX-sklearn (Local, Accelerated)
+### 1. Federated Learning Mode (FL)
 
-```python
-import secretlearn as sklearn
-import numpy as np
+FL mode keeps data local while enabling collaborative learning:
 
-# Generate data
-X = np.random.randn(50000, 200)
-y = X @ np.random.randn(200) + 0.1 * np.random.randn(50000)
-
-# Use as drop-in sklearn replacement
-model = sklearn.linear_model.LinearRegression()
-model.fit(X, y)  # Automatically uses JAX when beneficial
-
-# Check acceleration
-print(f"Used JAX: {getattr(model, 'is_using_jax', False)}")
+```bash
+# Run complete FL example
+python examples/FL/linear_regression.py
 ```
+
+The example demonstrates:
+- Local data computation on each party's PYU device
+- Secure model aggregation
+- Privacy-preserving predictions
+- JAX acceleration for local training
 
 ### 2. Privacy-Preserving FL Mode (Federated)
 
+**FL Mode** works with single-process simulation (best for learning and testing):
+
 ```python
-import secretflow as sf
-from secretlearn.FL.linear_models import FLLinearRegression
+# Run existing FL examples - no complex setup needed!
+# These work out of the box:
+# python examples/FL/linear_regression.py
+# python examples/FL/kmeans.py
+# python examples/FL/random_forest_classifier.py
 
-# Initialize SecretFlow
-sf.init(['alice', 'bob'])
-alice, bob = sf.PYU('alice'), sf.PYU('bob')
-
-# Create federated data
-from secretflow.data import FedNdarray, PartitionWay
-
-fed_X = FedNdarray(
-    partitions={
-        alice: alice(lambda x: x)(X_alice),
-        bob: bob(lambda x: x)(X_bob),
-    },
-    partition_way=PartitionWay.VERTICAL
-)
-
-fed_y = FedNdarray(
-    partitions={alice: alice(lambda x: x)(y)},
-    partition_way=PartitionWay.HORIZONTAL
-)
-
-# Train privacy-preserving model
-model = FLLinearRegression(
-    devices={'alice': alice, 'bob': bob},
-    heu=None  # Optional: HEU for secure aggregation
-)
-model.fit(fed_X, fed_y)  # Data stays local!
-predictions = model.predict(fed_X_test)
+# For custom FL code, see examples/FL/ directory
+# FL mode simulates federation in a single process
 ```
+
+**For production FL deployments**, use the production mode setup shown above with PYU devices.
 
 ### 3. Maximum Privacy SS Mode (MPC Encrypted)
 
-```python
-from secretlearn.SS.decomposition import SSPCA
+**SS Mode** requires multi-party setup with SecretFlow's MPC engine:
 
-# Initialize SPU for maximum privacy
-spu = sf.SPU(sf.SPUConfig(...))
+```bash
+# Run existing SS examples (multi-process required):
+# Terminal 1 - Bob
+python examples/SS/adaboost_classifier.py --party bob
 
-# All computation in encrypted space
-model = SSPCA(spu=spu, n_components=10)
-model.fit(fed_X)  # Full MPC protection
-X_reduced = model.transform(fed_X)
+# Terminal 2 - Alice  
+python examples/SS/adaboost_classifier.py --party alice
 
-# Reveal results only when needed
-results = sf.reveal(X_reduced)
+# Each party's data stays completely private with full MPC protection
 ```
+
+See [`examples/SS/`](examples/SS/) directory for 191 complete SS mode examples.
 
 ---
 
@@ -480,11 +472,11 @@ Train models on distributed medical data across hospitals without sharing patien
 
 ```python
 # Each hospital keeps their data locally
-from secretlearn.FL.ensemble import FLRandomForestClassifier
+from secretlearn.FL.ensemble.random_forest_classifier import FLRandomForestClassifier
 
+# See complete example: examples/FL/random_forest_classifier.py
 model = FLRandomForestClassifier(
-    devices={'hospital_a': alice, 'hospital_b': bob, 'hospital_c': carol},
-    heu=heu,
+    devices={'hospital_a': alice, 'hospital_b': bob},
     n_estimators=100
 )
 model.fit(fed_patient_data, fed_diagnoses)
@@ -494,10 +486,11 @@ model.fit(fed_patient_data, fed_diagnoses)
 Collaborative fraud detection across banks while preserving transaction privacy.
 
 ```python
-from secretlearn.SS.svm import SSSVC
+from secretlearn.SS.svm.svc import SSSVC
 
 # Full MPC protection for sensitive financial data
-model = SSSVC(spu=spu, kernel='rbf')
+# See examples/SS/svc.py for complete multi-party setup
+model = SSSVC(spu=spu)
 model.fit(fed_transactions, fed_fraud_labels)
 ```
 
@@ -505,15 +498,15 @@ model.fit(fed_transactions, fed_fraud_labels)
 Federated learning on edge devices with encrypted aggregation.
 
 ```python
-from secretlearn.FL.neural_network import FLMLPClassifier
+from secretlearn.FL.neural_network.mlp_classifier import FLMLPClassifier
 
 # Train on distributed IoT devices
+# See examples/FL/mlp_classifier.py for complete setup
 model = FLMLPClassifier(
     devices=edge_devices,
-    heu=heu,
     hidden_layer_sizes=(100,)
 )
-model.fit(fed_sensor_data, fed_labels, epochs=10)
+model.fit(fed_sensor_data, fed_labels)
 ```
 
 ---
@@ -556,33 +549,20 @@ model.fit(fed_sensor_data, fed_labels, epochs=10)
 
 ## ⚡ JAX Acceleration Features
 
-### Automatic Hardware Selection
+Secret-Learn algorithms use JAX for acceleration in their local computations:
 
-```python
-import secretlearn as sklearn
+- **FL Mode**: Each party's local training is JAX-accelerated
+- **SL Mode**: Split model computations use JAX when beneficial  
+- **SS Mode**: Pre/post-processing with JAX before MPC encryption
 
-# Automatically selects best hardware
-model = sklearn.linear_model.LinearRegression()
-model.fit(X, y)  # Uses GPU/TPU if available and beneficial
+### Hardware Support
 
-# Check hardware used
-print(f"Platform: {getattr(model, '_jax_platform', 'cpu')}")
-```
+JAX automatically selects the best available hardware:
+- CPU: Default, works everywhere
+- GPU: Automatic detection if CUDA available
+- TPU: Automatic detection on Google Cloud
 
-### Manual Hardware Configuration
-
-```python
-import secretlearn._jax as jax_config
-
-# Force GPU
-jax_config.set_config(enable_jax=True, jax_platform="gpu")
-
-# Force TPU
-jax_config.set_config(enable_jax=True, jax_platform="tpu")
-
-# Disable JAX (use NumPy)
-jax_config.set_config(enable_jax=False)
-```
+All examples benefit from JAX acceleration automatically with no code changes required.
 
 ### Supported Hardware
 
@@ -779,7 +759,7 @@ print(char['use_epochs'])  # True
 
 ---
 
-## 🎮 When Does XLearn Use JAX?
+## 🎮 When Does Secret-Learn Use JAX?
 
 ### Algorithm-Specific Thresholds
 
@@ -809,17 +789,16 @@ print(char['use_epochs'])  # True
 
 ```python
 # Collaborative research without data sharing
-from secretlearn.FL.ensemble import FLRandomForestClassifier
+from secretlearn.FL.ensemble.random_forest_classifier import FLRandomForestClassifier
 
+# Complete example: examples/FL/random_forest_classifier.py
 institutions = {
     'hospital_a': alice,
     'hospital_b': bob,
-    'research_center': carol
 }
 
 model = FLRandomForestClassifier(
     devices=institutions,
-    heu=heu,
     n_estimators=100
 )
 model.fit(fed_patient_data, fed_diagnoses)
@@ -830,9 +809,10 @@ model.fit(fed_patient_data, fed_diagnoses)
 
 ```python
 # Collaborative fraud detection with full privacy
-from secretlearn.SS.neural_network import SSMLPClassifier
+from secretlearn.SS.neural_network.mlp_classifier import SSMLPClassifier
 
-spu = sf.SPU(...)  # Secure Processing Unit
+# Complete example: examples/SS/mlp_classifier.py
+# Requires multi-party execution (see examples/SS/README.md)
 model = SSMLPClassifier(
     spu=spu,
     hidden_layer_sizes=(100, 50)
@@ -1006,8 +986,8 @@ pip install Secret-Learn
 
 ---
 
-**Last Updated:** 2025-11-28  
-**Version:** 0.2.3 (Major Release)  
+**Last Updated:** 2025-11-29  
+**Version:** 0.2.2 (SS Mode Fix)  
 **Status:** Production Ready  
 
 **Summary:**
