@@ -331,35 +331,5 @@ model.fit(fed_X, fed_y)  # Split model training
 | **Tools** | Manual | Automated | ∞ |
 | **Coverage** | 4.3% | 103.8% | +2377% |
 
----
 
-## 🎨 Visual Files
-
-### Architecture Diagrams
-
-1. **SECRET_LEARN_ARCHITECTURE.drawio**
-   - Interactive draw.io diagram
-   - Open in draw.io or VS Code
-   - Editable and customizable
-
-2. **ARCHITECTURE.md** (this file)
-   - Text-based architecture description
-   - ASCII art diagrams
-   - Easy to read in terminal
-
----
-
-## 🔗 Related Documentation
-
-- `README.md` - Project overview
-- `PROJECT_COMPLETE.md` - Completion status
-- `FINAL_VALIDATION_REPORT.md` - Quality validation
-- `EXAMPLES_USAGE_GUIDE.md` - Usage instructions
-
----
-
-**Architecture Version**: 1.0  
-**Last Updated**: 2025-11-28  
-**Secret-Learn Version**: 0.2.0  
-**Status**: ✅ PRODUCTION READY
 
