@@ -1,36 +1,27 @@
 """
-To run this, you'll need to have installed.
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
 
-  * glmnet-python
-  * Secret-Learn (of course)
-
-Does two benchmarks
-
-First, we fix a training set and increase the number of
-samples. Then we plot the computation time as function of
-the number of samples.
-
-In the second benchmark, we increase the number of dimensions of the
-training set. Then we plot the computation time as function of
-the number of dimensions.
-
-In both cases, only 10% of the features are informative.
+Original benchmark adapted for secretlearn.split_learning.
 """
+
+from secretlearn.split_learning.linear_models.lasso import SLLasso
 
 import gc
 from time import time
 
 import numpy as np
 
-from xlearn.datasets import make_regression
+from sklearn.datasets import make_regression
 
 alpha = 0.1
 # alpha = 0.01
 
-
 def rmse(a, b):
     return np.sqrt(np.mean((a - b) ** 2))
-
 
 def bench(factory, X, Y, X_test, Y_test, ref_coef):
     gc.collect()
@@ -46,14 +37,12 @@ def bench(factory, X, Y, X_test, Y_test, ref_coef):
     print("mean coef abs diff: %f" % abs(ref_coef - clf.coef_.ravel()).mean())
     return delta
 
-
 if __name__ == "__main__":
     # Delayed import of matplotlib.pyplot
     import matplotlib.pyplot as plt
-    from glmnet.elastic_net import Lasso as GlmnetLasso
+    from glmnet.elastic_net import SLLasso as GlmnetLasso
 
-    from xlearn.linear_model import Lasso as ScikitLasso
-
+    
     scikit_results = []
     glmnet_results = []
     n = 20
@@ -72,7 +61,6 @@ if __name__ == "__main__":
             noise=0.1,
             n_informative=n_informative,
             coef=True,
-        )
 
         X_test = X[-n_test_samples:]
         Y_test = Y[-n_test_samples:]
@@ -86,7 +74,7 @@ if __name__ == "__main__":
 
     plt.clf()
     xx = range(0, n * step, step)
-    plt.title("Lasso regression on sample dataset (%d features)" % n_features)
+    plt.title("SLLasso regression on sample dataset (%d features)" % n_features)
     plt.plot(xx, scikit_results, "b-", label="Secret-Learn")
     plt.plot(xx, glmnet_results, "r-", label="glmnet")
     plt.legend()
@@ -116,7 +104,6 @@ if __name__ == "__main__":
             noise=0.1,
             n_informative=n_informative,
             coef=True,
-        )
 
         X_test = X[-n_test_samples:]
         Y_test = Y[-n_test_samples:]

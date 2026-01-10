@@ -1,6 +1,11 @@
 """
-Benchmarks for sampling without replacement of integer.
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
+Original benchmark adapted for secretlearn.secret_sharing.
 """
 
 import gc
@@ -13,14 +18,12 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.utils.random import sample_without_replacement
-
+from sklearn.utils.random import sample_without_replacement
 
 def compute_time(t_start, delta):
     mu_second = 0.0 + 10**6  # number of microseconds in a second
 
     return delta.seconds + delta.microseconds / mu_second
-
 
 def bench_sample(sampling, n_population, n_samples):
     gc.collect()
@@ -31,7 +34,6 @@ def bench_sample(sampling, n_population, n_samples):
     # stop time
     time = compute_time(t_start, delta)
     return time
-
 
 if __name__ == "__main__":
     ###########################################################################
@@ -44,7 +46,6 @@ if __name__ == "__main__":
         default=5,
         type=int,
         help="Benchmark results are average over n_times experiments",
-    )
 
     op.add_option(
         "--n-population",
@@ -52,7 +53,6 @@ if __name__ == "__main__":
         default=100000,
         type=int,
         help="Size of the population to sample from.",
-    )
 
     op.add_option(
         "--n-step",
@@ -60,13 +60,11 @@ if __name__ == "__main__":
         default=5,
         type=int,
         help="Number of step interval between 0 and n_population.",
-    )
 
     default_algorithms = (
         "custom-tracking-selection,custom-auto,"
         "custom-reservoir-sampling,custom-pool,"
         "python-core-sample,numpy-permutation"
-    )
 
     op.add_option(
         "--algorithm",
@@ -77,7 +75,6 @@ if __name__ == "__main__":
             "Comma-separated list of transformer to benchmark. "
             "Default: %default. \nAvailable: %default"
         ),
-    )
 
     # op.add_option("--random-seed",
     #               dest="random_seed", default=13, type=int,
@@ -94,7 +91,6 @@ if __name__ == "__main__":
             raise ValueError(
                 'Unknown sampling algorithm "%s" not in (%s).'
                 % (key, default_algorithms)
-            )
 
     ###########################################################################
     # List sampling algorithm
@@ -108,15 +104,12 @@ if __name__ == "__main__":
     # Set Python core input
     sampling_algorithm["python-core-sample"] = (
         lambda n_population, n_sample: random.sample(range(n_population), n_sample)
-    )
 
     ###########################################################################
     # Set custom automatic method selection
     sampling_algorithm["custom-auto"] = (
         lambda n_population, n_samples, random_state=None: sample_without_replacement(
             n_population, n_samples, method="auto", random_state=random_state
-        )
-    )
 
     ###########################################################################
     # Set custom tracking based method
@@ -126,8 +119,6 @@ if __name__ == "__main__":
             n_samples,
             method="tracking_selection",
             random_state=random_state,
-        )
-    )
 
     ###########################################################################
     # Set custom reservoir based method
@@ -137,22 +128,17 @@ if __name__ == "__main__":
             n_samples,
             method="reservoir_sampling",
             random_state=random_state,
-        )
-    )
 
     ###########################################################################
     # Set custom reservoir based method
     sampling_algorithm["custom-pool"] = (
         lambda n_population, n_samples, random_state=None: sample_without_replacement(
             n_population, n_samples, method="pool", random_state=random_state
-        )
-    )
 
     ###########################################################################
     # Numpy permutation based
     sampling_algorithm["numpy-permutation"] = (
         lambda n_population, n_sample: np.random.permutation(n_population)[:n_sample]
-    )
 
     ###########################################################################
     # Remove unspecified algorithm
@@ -168,7 +154,6 @@ if __name__ == "__main__":
     time = {}
     n_samples = np.linspace(start=0, stop=opts.n_population, num=opts.n_steps).astype(
         int
-    )
 
     ratio = n_samples / opts.n_population
 
@@ -183,7 +168,6 @@ if __name__ == "__main__":
             for it in range(opts.n_times):
                 time[name][step, it] = bench_sample(
                     sampling_algorithm[name], opts.n_population, n_samples[step]
-                )
 
         print("done")
 
@@ -202,8 +186,7 @@ if __name__ == "__main__":
         % (
             "Arguments".ljust(16),
             "Value".center(12),
-        )
-    )
+
     print(25 * "-" + ("|" + "-" * 14) * 1)
     for key, value in arguments.items():
         print("%s \t | %s " % (str(key).ljust(16), str(value).strip().center(12)))

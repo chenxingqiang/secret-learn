@@ -1,9 +1,16 @@
 """
-A comparison of different methods in GLM
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-Data comes from a random square matrix.
-
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.linear_models.lasso_lars import SSLassoLars
+from secretlearn.secret_sharing.linear_models.linear_regression import SSLinearRegression
+from secretlearn.secret_sharing.linear_models.ridge import SSRidge
 
 from datetime import datetime
 
@@ -31,17 +38,17 @@ if __name__ == "__main__":
         Y = np.random.randn(n_samples)
 
         start = datetime.now()
-        ridge = linear_model.Ridge(alpha=1.0)
+        ridge = linear_model.SSRidge(alpha=1.0)
         ridge.fit(X, Y)
         time_ridge[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        ols = linear_model.LinearRegression()
+        ols = linear_model.SSLinearRegression()
         ols.fit(X, Y)
         time_ols[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        lasso = linear_model.LassoLars()
+        lasso = linear_model.SSLassoLars()
         lasso.fit(X, Y)
         time_lasso[i] = (datetime.now() - start).total_seconds()
 
@@ -52,6 +59,6 @@ if __name__ == "__main__":
     plt.plot(dimensions, time_ols, color="g")
     plt.plot(dimensions, time_lasso, color="b")
 
-    plt.legend(["Ridge", "OLS", "LassoLars"], loc="upper left")
+    plt.legend(["SSRidge", "OLS", "SSLassoLars"], loc="upper left")
     plt.axis("tight")
     plt.show()

@@ -1,11 +1,21 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
+from secretlearn.split_learning.clustering.kmeans import SLKMeans
+from secretlearn.split_learning.clustering.mini_batch_kmeans import SLMiniBatchKMeans
+
 from collections import defaultdict
 from time import time
 
 import numpy as np
 from numpy import random as nr
-
-from xlearn.cluster import KMeans, MiniBatchKMeans
-
 
 def compute_bench(samples_range, features_range):
     it = 0
@@ -24,7 +34,7 @@ def compute_bench(samples_range, features_range):
 
             print("K-Means")
             tstart = time()
-            kmeans = KMeans(init="k-means++", n_clusters=10).fit(data)
+            kmeans = SLKMeans(init="k-means++", n_clusters=10).fit(data)
 
             delta = time() - tstart
             print("Speed: %0.3fs" % delta)
@@ -36,9 +46,9 @@ def compute_bench(samples_range, features_range):
 
             print("Fast K-Means")
             # let's prepare the data in small chunks
-            mbkmeans = MiniBatchKMeans(
+            mbkmeans = SLMiniBatchKMeans(
                 init="k-means++", n_clusters=10, batch_size=chunk
-            )
+
             tstart = time()
             mbkmeans.fit(data)
             delta = time() - tstart
@@ -47,11 +57,10 @@ def compute_bench(samples_range, features_range):
             print()
             print()
 
-            results["MiniBatchKMeans Speed"].append(delta)
-            results["MiniBatchKMeans Quality"].append(mbkmeans.inertia_)
+            results["SLMiniBatchKMeans Speed"].append(delta)
+            results["SLMiniBatchKMeans Quality"].append(mbkmeans.inertia_)
 
     return results
-
 
 def compute_bench_2(chunks):
     results = defaultdict(lambda: [])
@@ -67,7 +76,7 @@ def compute_bench_2(chunks):
             [-1, 0.75],
             [1, 0],
         ]
-    )
+
     X = np.empty((0, 2))
     for i in range(8):
         X = np.r_[X, means[i] + 0.8 * np.random.randn(n_features, 2)]
@@ -82,7 +91,7 @@ def compute_bench_2(chunks):
 
         print("Fast K-Means")
         tstart = time()
-        mbkmeans = MiniBatchKMeans(init="k-means++", n_clusters=8, batch_size=chunk)
+        mbkmeans = SLMiniBatchKMeans(init="k-means++", n_clusters=8, batch_size=chunk)
 
         mbkmeans.fit(X)
         delta = time() - tstart
@@ -90,11 +99,10 @@ def compute_bench_2(chunks):
         print("Inertia: %0.3fs" % mbkmeans.inertia_)
         print()
 
-        results["MiniBatchKMeans Speed"].append(delta)
-        results["MiniBatchKMeans Quality"].append(mbkmeans.inertia_)
+        results["SLMiniBatchKMeans Speed"].append(delta)
+        results["SLMiniBatchKMeans Quality"].append(mbkmeans.inertia_)
 
     return results
-
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
@@ -109,10 +117,9 @@ if __name__ == "__main__":
 
     max_time = max(
         [max(i) for i in [t for (label, t) in results.items() if "speed" in label]]
-    )
+
     max_inertia = max(
         [max(i) for i in [t for (label, t) in results.items() if "speed" not in label]]
-    )
 
     fig = plt.figure("Secret-Learn K-Means benchmark results")
     for c, (label, timings) in zip("brcy", sorted(results.items())):

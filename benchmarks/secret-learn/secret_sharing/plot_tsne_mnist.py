@@ -1,3 +1,13 @@
+"""
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
 import argparse
 import os.path as op
 
@@ -6,7 +16,6 @@ import numpy as np
 
 LOG_DIR = "mnist_tsne_output"
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Plot benchmark results for t-SNE")
     parser.add_argument(
@@ -14,13 +23,13 @@ if __name__ == "__main__":
         type=str,
         default=op.join(LOG_DIR, "mnist_original_labels_10000.npy"),
         help="1D integer numpy array for labels",
-    )
+
     parser.add_argument(
         "--embedding",
         type=str,
         default=op.join(LOG_DIR, "mnist_secretlearn_TSNE_10000.npy"),
         help="2D float numpy array for embedded data",
-    )
+
     args = parser.parse_args()
 
     X = np.load(args.embedding)

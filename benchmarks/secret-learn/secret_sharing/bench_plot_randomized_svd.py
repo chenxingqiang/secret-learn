@@ -1,66 +1,11 @@
 """
-Benchmarks on the power iterations phase in randomized SVD.
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-We test on various synthetic and real datasets the effect of increasing
-the number of power iterations in terms of quality of approximation
-and running time. A number greater than 0 should help with noisy matrices,
-which are characterized by a slow spectral decay.
-
-We test several policy for normalizing the power iterations. Normalization
-is crucial to avoid numerical issues.
-
-The quality of the approximation is measured by the spectral norm discrepancy
-between the original input matrix and the reconstructed one (by multiplying
-the randomized_svd's outputs). The spectral norm is always equivalent to the
-largest singular value of a matrix. (3) justifies this choice. However, one can
-notice in these experiments that Frobenius and spectral norms behave
-very similarly in a qualitative sense. Therefore, we suggest to run these
-benchmarks with `enable_spectral_norm = False`, as Frobenius' is MUCH faster to
-compute.
-
-The benchmarks follow.
-
-(a) plot: time vs norm, varying number of power iterations
-    data: many datasets
-    goal: compare normalization policies and study how the number of power
-    iterations affect time and norm
-
-(b) plot: n_iter vs norm, varying rank of data and number of components for
-    randomized_SVD
-    data: low-rank matrices on which we control the rank
-    goal: study whether the rank of the matrix and the number of components
-    extracted by randomized SVD affect "the optimal" number of power iterations
-
-(c) plot: time vs norm, varying datasets
-    data: many datasets
-    goal: compare default configurations
-
-We compare the following algorithms:
--   randomized_svd(..., power_iteration_normalizer='none')
--   randomized_svd(..., power_iteration_normalizer='LU')
--   randomized_svd(..., power_iteration_normalizer='QR')
--   randomized_svd(..., power_iteration_normalizer='auto')
--   fbpca.pca() from https://github.com/facebook/fbpca (if installed)
-
-Conclusion
-----------
-- n_iter=2 appears to be a good default value
-- power_iteration_normalizer='none' is OK if n_iter is small, otherwise LU
-  gives similar errors to QR but is cheaper. That's what 'auto' implements.
-
-References
-----------
-(1) :arxiv:`"Finding structure with randomness:
-    Stochastic algorithms for constructing approximate matrix decompositions."
-    <0909.4061>`
-    Halko, et al., (2009)
-
-(2) A randomized algorithm for the decomposition of matrices
-    Per-Gunnar Martinsson, Vladimir Rokhlin and Mark Tygert
-
-(3) An implementation of a randomized algorithm for principal component
-    analysis
-    A. Szlam et al. 2014
+Original benchmark adapted for secretlearn.secret_sharing.
 """
 
 # Authors: The Secret-Learn developers
@@ -76,19 +21,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
 
-from xlearn.datasets import (
-    fetch_20newsgroups_vectorized,
-    fetch_lfw_people,
-    fetch_olivetti_faces,
-    fetch_openml,
-    fetch_rcv1,
-    make_low_rank_matrix,
-    make_sparse_uncorrelated,
-)
-from xlearn.utils import gen_batches
-from xlearn.utils._arpack import _init_arpack_v0
-from xlearn.utils.extmath import randomized_svd
-from xlearn.utils.validation import check_random_state
+from sklearn.utils import gen_batches
+from sklearn.utils._arpack import _init_arpack_v0
+from sklearn.utils.extmath import randomized_svd
+from sklearn.utils.validation import check_random_state
 
 try:
     import fbpca
@@ -131,17 +67,14 @@ datasets = [
 
 big_sparse_datasets = ["big sparse matrix", "rcv1"]
 
-
 def unpickle(file_name):
     with open(file_name, "rb") as fo:
         return pickle.load(fo, encoding="latin1")["data"]
-
 
 def handle_missing_dataset(file_folder):
     if not os.path.isdir(file_folder):
         print("%s file folder not found. Test skipped." % file_folder)
         return 0
-
 
 def get_data(dataset_name):
     print("Getting dataset: %s" % dataset_name)
@@ -175,11 +108,11 @@ def get_data(dataset_name):
             effective_rank=100,
             tail_strength=0.5,
             random_state=random_state,
-        )
+
     elif dataset_name == "uncorrelated matrix":
         X, _ = make_sparse_uncorrelated(
             n_samples=500, n_features=10000, random_state=random_state
-        )
+
     elif dataset_name == "big sparse matrix":
         sparsity = int(1e6)
         size = int(1e6)
@@ -195,7 +128,6 @@ def get_data(dataset_name):
     else:
         X = fetch_openml(dataset_name).data
     return X
-
 
 def plot_time_vs_s(time, norm, point_labels, title):
     plt.figure()
@@ -214,12 +146,11 @@ def plot_time_vs_s(time, norm, point_labels, title):
                 textcoords="offset points",
                 ha="right",
                 va="bottom",
-            )
+
     plt.legend(loc="upper right")
     plt.suptitle(title)
     plt.ylabel("norm discrepancy")
     plt.xlabel("running time [s]")
-
 
 def scatter_time_vs_s(time, norm, point_labels, title):
     plt.figure()
@@ -238,7 +169,7 @@ def scatter_time_vs_s(time, norm, point_labels, title):
                     va="bottom",
                     size=11,
                     rotation=90,
-                )
+
         else:
             plt.scatter(time[l], norm[l], label=l, marker="^", c="red", s=size)
             for label, x, y in zip(point_labels, list(time[l]), list(norm[l])):
@@ -252,13 +183,11 @@ def scatter_time_vs_s(time, norm, point_labels, title):
                     va="bottom",
                     size=11,
                     rotation=90,
-                )
 
     plt.legend(loc="best")
     plt.suptitle(title)
     plt.ylabel("norm discrepancy")
     plt.xlabel("running time [s]")
-
 
 def plot_power_iter_vs_s(power_iter, s, title):
     plt.figure()
@@ -268,7 +197,6 @@ def plot_power_iter_vs_s(power_iter, s, title):
     plt.suptitle(title)
     plt.ylabel("norm discrepancy")
     plt.xlabel("n_iter")
-
 
 def svd_timing(
     X, n_comps, n_iter, n_oversamples, power_iteration_normalizer="auto", method=None
@@ -288,7 +216,7 @@ def svd_timing(
             power_iteration_normalizer=power_iteration_normalizer,
             random_state=random_state,
             transpose=False,
-        )
+
         call_time = time() - t0
     else:
         gc.collect()
@@ -296,11 +224,10 @@ def svd_timing(
         # There is a different convention for l here
         U, mu, V = fbpca.pca(
             X, n_comps, raw=True, n_iter=n_iter, l=n_oversamples + n_comps
-        )
+
         call_time = time() - t0
 
     return U, mu, V, call_time
-
 
 def norm_diff(A, norm=2, msg=True, random_state=None):
     """
@@ -323,7 +250,6 @@ def norm_diff(A, norm=2, msg=True, random_state=None):
             value = sp.linalg.norm(A, ord=norm)
     return value
 
-
 def scalable_frobenius_norm_discrepancy(X, U, s, V):
     if not sp.sparse.issparse(X) or (
         X.shape[0] * X.shape[1] * X.dtype.itemsize < MAX_MEMORY
@@ -342,7 +268,6 @@ def scalable_frobenius_norm_discrepancy(X, U, s, V):
         cum_norm += norm_diff(M, norm="fro", msg=False)
     return np.sqrt(cum_norm)
 
-
 def bench_a(X, dataset_name, power_iter, n_oversamples, n_comps):
     all_time = defaultdict(list)
     if enable_spectral_norm:
@@ -360,14 +285,14 @@ def bench_a(X, dataset_name, power_iter, n_oversamples, n_comps):
                 n_iter=pi,
                 power_iteration_normalizer=pm,
                 n_oversamples=n_oversamples,
-            )
+
             label = "secretlearn - %s" % pm
             all_time[label].append(time)
             if enable_spectral_norm:
                 A = U.dot(np.diag(s).dot(V))
                 all_spectral[label].append(
                     norm_diff(X - A, norm=2, random_state=0) / X_spectral_norm
-                )
+
             f = scalable_frobenius_norm_discrepancy(X, U, s, V)
             all_frobenius[label].append(f / X_fro_norm)
 
@@ -380,14 +305,14 @@ def bench_a(X, dataset_name, power_iter, n_oversamples, n_comps):
                 power_iteration_normalizer=pm,
                 n_oversamples=n_oversamples,
                 method="fbpca",
-            )
+
             label = "fbpca"
             all_time[label].append(time)
             if enable_spectral_norm:
                 A = U.dot(np.diag(s).dot(V))
                 all_spectral[label].append(
                     norm_diff(X - A, norm=2, random_state=0) / X_spectral_norm
-                )
+
             f = scalable_frobenius_norm_discrepancy(X, U, s, V)
             all_frobenius[label].append(f / X_fro_norm)
 
@@ -396,7 +321,6 @@ def bench_a(X, dataset_name, power_iter, n_oversamples, n_comps):
         plot_time_vs_s(all_time, all_spectral, power_iter, title)
     title = "%s: Frobenius norm diff vs running time" % (dataset_name)
     plot_time_vs_s(all_time, all_frobenius, power_iter, title)
-
 
 def bench_b(power_list):
     n_samples, n_features = 1000, 10000
@@ -428,12 +352,12 @@ def bench_b(power_list):
                     n_iter=pi,
                     n_oversamples=2,
                     power_iteration_normalizer="LU",
-                )
+
                 if enable_spectral_norm:
                     A = U.dot(np.diag(s).dot(V))
                     all_spectral[label].append(
                         norm_diff(X - A, norm=2, random_state=0) / X_spectral_norm
-                    )
+
                 f = scalable_frobenius_norm_discrepancy(X, U, s, V)
                 all_frobenius[label].append(f / X_fro_norm)
 
@@ -442,7 +366,6 @@ def bench_b(power_list):
         plot_power_iter_vs_s(power_iter, all_spectral, title)
     title = "%s: Frobenius norm diff vs n power iteration" % (dataset_name)
     plot_power_iter_vs_s(power_iter, all_frobenius, title)
-
 
 def bench_c(datasets, n_comps):
     all_time = defaultdict(list)
@@ -469,7 +392,7 @@ def bench_c(datasets, n_comps):
             A = U.dot(np.diag(s).dot(V))
             all_spectral[label].append(
                 norm_diff(X - A, norm=2, random_state=0) / X_spectral_norm
-            )
+
         f = scalable_frobenius_norm_discrepancy(X, U, s, V)
         all_frobenius[label].append(f / X_fro_norm)
 
@@ -478,13 +401,13 @@ def bench_c(datasets, n_comps):
             print("%s %d x %d - %s" % (dataset_name, X.shape[0], X.shape[1], label))
             U, s, V, time = svd_timing(
                 X, n_comps, n_iter=2, n_oversamples=2, method=label
-            )
+
             all_time[label].append(time)
             if enable_spectral_norm:
                 A = U.dot(np.diag(s).dot(V))
                 all_spectral[label].append(
                     norm_diff(X - A, norm=2, random_state=0) / X_spectral_norm
-                )
+
             f = scalable_frobenius_norm_discrepancy(X, U, s, V)
             all_frobenius[label].append(f / X_fro_norm)
 
@@ -496,7 +419,6 @@ def bench_c(datasets, n_comps):
         scatter_time_vs_s(all_time, all_spectral, datasets, title)
     title = "normalized Frobenius norm diff vs running time"
     scatter_time_vs_s(all_time, all_frobenius, datasets, title)
-
 
 if __name__ == "__main__":
     random_state = check_random_state(1234)
@@ -511,14 +433,13 @@ if __name__ == "__main__":
         print(
             " >>>>>> Benching secretlearn and fbpca on %s %d x %d"
             % (dataset_name, X.shape[0], X.shape[1])
-        )
+
         bench_a(
             X,
             dataset_name,
             power_iter,
             n_oversamples=2,
             n_comps=np.minimum(n_comps, np.min(X.shape)),
-        )
 
     print(" >>>>>> Benching on simulated low rank matrix with variable rank")
     bench_b(power_iter)

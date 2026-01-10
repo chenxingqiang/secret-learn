@@ -1,6 +1,14 @@
 """
-Benchmark Secret-Learn's Ward implement compared to SciPy's
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.clustering.agglomerative_clustering import SSAgglomerativeClustering
 
 import time
 
@@ -8,9 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.cluster import hierarchy
 
-from xlearn.cluster import AgglomerativeClustering
-
-ward = AgglomerativeClustering(n_clusters=3, linkage="ward")
+ward = SSAgglomerativeClustering(n_clusters=3, linkage="ward")
 
 n_samples = np.logspace(0.5, 3, 9)
 n_features = np.logspace(1, 3.5, 7)
@@ -39,7 +45,7 @@ plt.contour(
         1,
     ],
     colors="k",
-)
+
 plt.yticks(range(len(n_features)), n_features.astype(int))
 plt.ylabel("N features")
 plt.xticks(range(len(n_samples)), n_samples.astype(int))

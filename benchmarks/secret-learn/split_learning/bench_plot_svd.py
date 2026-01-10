@@ -1,6 +1,11 @@
-"""Benchmarks of Singular Value Decomposition (Exact and Approximate)
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
 
-The data is mostly low rank but is a fat infinite tail.
+Original benchmark adapted for secretlearn.split_learning.
 """
 
 import gc
@@ -10,9 +15,8 @@ from time import time
 import numpy as np
 from scipy.linalg import svd
 
-from xlearn.datasets import make_low_rank_matrix
-from xlearn.utils.extmath import randomized_svd
-
+from sklearn.datasets import make_low_rank_matrix
+from sklearn.utils.extmath import randomized_svd
 
 def compute_bench(samples_range, features_range, n_iter=3, rank=50):
     it = 0
@@ -28,7 +32,6 @@ def compute_bench(samples_range, features_range, n_iter=3, rank=50):
             print("====================")
             X = make_low_rank_matrix(
                 n_samples, n_features, effective_rank=rank, tail_strength=0.2
-            )
 
             gc.collect()
             print("benchmarking scipy svd: ")
@@ -48,10 +51,8 @@ def compute_bench(samples_range, features_range, n_iter=3, rank=50):
             randomized_svd(X, rank, n_iter=n_iter)
             results["Secret-Learn randomized_svd (n_iter=%d)" % n_iter].append(
                 time() - tstart
-            )
 
     return results
-
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt

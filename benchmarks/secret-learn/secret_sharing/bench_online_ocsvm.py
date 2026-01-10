@@ -1,18 +1,16 @@
 """
-=====================================
-SGDOneClassSVM benchmark
-=====================================
-This benchmark compares the :class:`SGDOneClassSVM` with :class:`OneClassSVM`.
-The former is an online One-Class SVM implemented with a Stochastic Gradient
-Descent (SGD). The latter is based on the LibSVM implementation. The
-complexity of :class:`SGDOneClassSVM` is linear in the number of samples
-whereas the one of :class:`OneClassSVM` is at best quadratic in the number of
-samples. We here compare the performance in terms of AUC and training time on
-classical anomaly detection datasets.
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-The :class:`OneClassSVM` is applied with a Gaussian kernel and we therefore
-use a kernel approximation prior to the application of :class:`SGDOneClassSVM`.
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.kernel_approximation.nystroem import SSNystroem
+from secretlearn.secret_sharing.svm.one_class_svm import SSOneClassSVM
+from secretlearn.secret_sharing.preprocessing.standard_scaler import SSStandardScaler
 
 from time import time
 
@@ -21,21 +19,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 
-from xlearn.datasets import fetch_covtype, fetch_kddcup99
-from xlearn.kernel_approximation import Nystroem
-from xlearn.linear_model import SGDOneClassSVM
-from xlearn.metrics import auc, roc_curve
+from sklearn.datasets import fetch_covtype, fetch_kddcup99
+from xlearn.kernel_approximation import SSNystroem
+from sklearn.metrics import auc, roc_curve
 from xlearn.pipeline import make_pipeline
-from xlearn.preprocessing import LabelBinarizer, StandardScaler
-from xlearn.svm import OneClassSVM
-from xlearn.utils import shuffle
+from sklearn.preprocessing import LabelBinarizer, SSStandardScaler
+from sklearn.utils import shuffle
 
 font = {"weight": "normal", "size": 15}
 
 matplotlib.rc("font", **font)
 
 print(__doc__)
-
 
 def print_outlier_ratio(y):
     """
@@ -47,7 +42,6 @@ def print_outlier_ratio(y):
     for u, c in zip(uniq, cnt):
         print("------ %s -> %d occurrences" % (str(u), c))
     print("----- Outlier ratio: %.5f" % (np.min(cnt) / len(y)))
-
 
 # for roc curve computation
 n_axis = 1000
@@ -70,7 +64,7 @@ for dat, dataset_name in enumerate(datasets):
     if dataset_name in ["http", "smtp", "SA", "SF"]:
         dataset = fetch_kddcup99(
             subset=dataset_name, shuffle=False, percent10=False, random_state=88
-        )
+
         X = dataset.data
         y = dataset.target
 
@@ -143,10 +137,10 @@ for dat, dataset_name in enumerate(datasets):
             X_train = X_train[y_train == 0]
             y_train = y_train[y_train == 0]
 
-        std = StandardScaler()
+        std = SSStandardScaler()
 
         print("----------- LibSVM OCSVM ------------")
-        ocsvm = OneClassSVM(kernel="rbf", gamma=gamma, nu=nu)
+        ocsvm = SSOneClassSVM(kernel="rbf", gamma=gamma, nu=nu)
         pipe_libsvm = make_pipeline(std, ocsvm)
 
         tstart = time()
@@ -163,7 +157,7 @@ for dat, dataset_name in enumerate(datasets):
         tpr_libsvm += f_libsvm(x_axis)
 
         print("----------- Online OCSVM ------------")
-        nystroem = Nystroem(gamma=gamma, random_state=random_state)
+        nystroem = SSNystroem(gamma=gamma, random_state=random_state)
         online_ocsvm = SGDOneClassSVM(nu=nu, random_state=random_state)
         pipe_online = make_pipeline(std, nystroem, online_ocsvm)
 
@@ -208,7 +202,6 @@ for dat, dataset_name in enumerate(datasets):
         n_features,
     ] + list(tpr_libsvm)
 
-
 # -------- Plotting bar charts -------------
 fit_time_libsvm_all = results_libsvm[:, 0]
 predict_time_libsvm_all = results_libsvm[:, 1]
@@ -220,14 +213,12 @@ fit_time_online_all = results_online[:, 0]
 predict_time_online_all = results_online[:, 1]
 auc_online_all = results_online[:, 2]
 
-
 width = 0.7
 ind = 2 * np.arange(len(datasets))
 x_tickslabels = [
     (name + "\n" + r"$n={:,d}$" + "\n" + r"$d={:d}$").format(int(n), int(d))
     for name, n, d in zip(datasets, n_train_all, n_features_all)
 ]
-
 
 def autolabel_auc(rects, ax):
     """Attach a text label above each bar displaying its height."""
@@ -239,8 +230,6 @@ def autolabel_auc(rects, ax):
             "%.3f" % height,
             ha="center",
             va="bottom",
-        )
-
 
 def autolabel_time(rects, ax):
     """Attach a text label above each bar displaying its height."""
@@ -252,8 +241,6 @@ def autolabel_time(rects, ax):
             "%.1f" % height,
             ha="center",
             va="bottom",
-        )
-
 
 fig, ax = plt.subplots(figsize=(15, 8))
 ax.set_ylabel("AUC")
@@ -267,7 +254,6 @@ autolabel_auc(rect_libsvm, ax)
 autolabel_auc(rect_online, ax)
 plt.show()
 
-
 fig, ax = plt.subplots(figsize=(15, 8))
 ax.set_ylabel("Training time (sec) - Log scale")
 ax.set_yscale("log")
@@ -279,7 +265,6 @@ ax.set_xticklabels(x_tickslabels)
 autolabel_time(rect_libsvm, ax)
 autolabel_time(rect_online, ax)
 plt.show()
-
 
 fig, ax = plt.subplots(figsize=(15, 8))
 ax.set_ylabel("Testing time (sec) - Log scale")

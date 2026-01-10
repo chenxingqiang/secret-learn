@@ -1,10 +1,20 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
+from secretlearn.split_learning.ensemble.histgradient_boosting_classifier import SLHistGradientBoostingClassifier
+
 import argparse
 from time import time
 
-from xlearn.datasets import make_classification
-from xlearn.ensemble import HistGradientBoostingClassifier
-from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from xlearn.preprocessing import KBinsDiscretizer
+from sklearn.datasets import make_classification
+from sklearn.preprocessing import KBinsDiscretizer
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)
@@ -28,14 +38,12 @@ lr = args.learning_rate
 max_bins = args.max_bins
 verbose = args.verbose
 
-
 def fit(est, data_train, target_train, libname, **fit_params):
     print(f"Fitting a {libname} model...")
     tic = time()
     est.fit(data_train, target_train, **fit_params)
     toc = time()
     print(f"fitted in {toc - tic:.3f}s")
-
 
 def predict(est, data_test):
     # We don't report accuracy or ROC because the dataset doesn't really make
@@ -47,7 +55,6 @@ def predict(est, data_test):
     toc = time()
     print(f"predicted in {toc - tic:.3f}s")
 
-
 X, y = make_classification(n_samples=n_samples, n_features=n_features, random_state=0)
 
 X = KBinsDiscretizer(n_bins=n_categories, encode="ordinal").fit_transform(X)
@@ -56,7 +63,7 @@ print(f"Number of features: {n_features}")
 print(f"Number of samples: {n_samples}")
 
 is_categorical = [True] * n_features
-est = HistGradientBoostingClassifier(
+est = SLHistGradientBoostingClassifier(
     loss="log_loss",
     learning_rate=lr,
     max_iter=n_trees,
@@ -66,7 +73,6 @@ est = HistGradientBoostingClassifier(
     early_stopping=False,
     random_state=0,
     verbose=verbose,
-)
 
 fit(est, X, y, "secretlearn")
 predict(est, X)

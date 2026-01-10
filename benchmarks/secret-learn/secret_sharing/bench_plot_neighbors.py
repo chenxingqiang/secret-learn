@@ -1,6 +1,14 @@
 """
-Plot the scaling of the nearest neighbors algorithms with k, D, and N
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.neighbors.nearest_neighbors import SSNearestNeighbors
 
 from time import time
 
@@ -9,7 +17,6 @@ import numpy as np
 from matplotlib import ticker
 
 from secretlearn import datasets, neighbors
-
 
 def get_data(N, D, dataset="dense"):
     if dataset == "dense":
@@ -22,7 +29,6 @@ def get_data(N, D, dataset="dense"):
         return X[:N, :D]
     else:
         raise ValueError("invalid dataset: %s" % dataset)
-
 
 def barplot_neighbors(
     Nrange=2 ** np.arange(1, 11),
@@ -46,9 +52,9 @@ def barplot_neighbors(
         print("N = %i (%i out of %i)" % (NN, i + 1, len(Nrange)))
         X = get_data(NN, D, dataset)
         for algorithm in algorithms:
-            nbrs = neighbors.NearestNeighbors(
+            nbrs = neighbors.SSNearestNeighbors(
                 n_neighbors=min(NN, k), algorithm=algorithm, leaf_size=leaf_size
-            )
+
             t0 = time()
             nbrs.fit(X)
             t1 = time()
@@ -67,9 +73,9 @@ def barplot_neighbors(
         print("D = %i (%i out of %i)" % (DD, i + 1, len(Drange)))
         X = get_data(N, DD, dataset)
         for algorithm in algorithms:
-            nbrs = neighbors.NearestNeighbors(
+            nbrs = neighbors.SSNearestNeighbors(
                 n_neighbors=k, algorithm=algorithm, leaf_size=leaf_size
-            )
+
             t0 = time()
             nbrs.fit(X)
             t1 = time()
@@ -89,9 +95,9 @@ def barplot_neighbors(
     for i, kk in enumerate(krange):
         print("k = %i (%i out of %i)" % (kk, i + 1, len(krange)))
         for algorithm in algorithms:
-            nbrs = neighbors.NearestNeighbors(
+            nbrs = neighbors.SSNearestNeighbors(
                 n_neighbors=kk, algorithm=algorithm, leaf_size=leaf_size
-            )
+
             t0 = time()
             nbrs.fit(X)
             t1 = time()
@@ -116,7 +122,6 @@ def barplot_neighbors(
 
         bottom = 10 ** np.min(
             [min(np.floor(np.log10(build_time[alg]))) for alg in algorithms]
-        )
 
         for i, alg in enumerate(algorithms):
             xvals = 0.1 + i * (1 + len(vals)) + np.arange(len(vals))
@@ -136,7 +141,6 @@ def barplot_neighbors(
                 ha="left",
                 va="top",
                 bbox=dict(facecolor="w", edgecolor="w", alpha=0.5),
-            )
 
             plt.ylabel("Time (s)")
 
@@ -168,7 +172,6 @@ def barplot_neighbors(
             ha="left",
             va="center",
             fontsize=20,
-        )
 
         plt.text(
             0.99,
@@ -178,12 +181,10 @@ def barplot_neighbors(
             rotation=-90,
             ha="right",
             va="center",
-        )
 
         plt.gcf().suptitle("%s data set" % dataset.capitalize(), fontsize=16)
 
     plt.figlegend((c_bar, q_bar), ("construction", "N-point query"), "upper right")
-
 
 if __name__ == "__main__":
     barplot_neighbors(dataset="digits")

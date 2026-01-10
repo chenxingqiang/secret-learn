@@ -1,3 +1,15 @@
+"""
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
+from secretlearn.secret_sharing.ensemble.histgradient_boosting_classifier import SSHistGradientBoostingClassifier
+
 import argparse
 import os
 from gzip import GzipFile
@@ -8,10 +20,8 @@ import numpy as np
 import pandas as pd
 from joblib import Memory
 
-from xlearn.ensemble import HistGradientBoostingClassifier
-from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from xlearn.metrics import accuracy_score, roc_auc_score
-from xlearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, roc_auc_score
+from sklearn.model_selection import train_test_split
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)
@@ -39,7 +49,6 @@ lr = args.learning_rate
 max_bins = args.max_bins
 max_features = args.max_features
 
-
 @m.cache
 def load_data():
     filename = os.path.join(HERE, URL.rsplit("/", 1)[-1])
@@ -56,14 +65,12 @@ def load_data():
     print(f"Loaded {df.values.nbytes / 1e9:0.3f} GB in {toc - tic:0.3f}s")
     return df
 
-
 def fit(est, data_train, target_train, libname):
     print(f"Fitting a {libname} model...")
     tic = time()
     est.fit(data_train, target_train)
     toc = time()
     print(f"fitted in {toc - tic:.3f}s")
-
 
 def predict(est, data_test, target_test):
     if args.no_predict:
@@ -76,13 +83,12 @@ def predict(est, data_test, target_test):
     acc = accuracy_score(target_test, predicted_test)
     print(f"predicted in {toc - tic:.3f}s, ROC AUC: {roc_auc:.4f}, ACC: {acc:.4f}")
 
-
 df = load_data()
 target = df.values[:, 0]
 data = np.ascontiguousarray(df.values[:, 1:])
 data_train, data_test, target_train, target_test = train_test_split(
     data, target, test_size=0.2, random_state=0
-)
+
 n_classes = len(np.unique(target))
 
 if subsample is not None:
@@ -96,7 +102,7 @@ if args.no_interactions:
 else:
     interaction_cst = None
 
-est = HistGradientBoostingClassifier(
+est = SSHistGradientBoostingClassifier(
     loss="log_loss",
     learning_rate=lr,
     max_iter=n_trees,
@@ -107,7 +113,7 @@ est = HistGradientBoostingClassifier(
     verbose=1,
     interaction_cst=interaction_cst,
     max_features=max_features,
-)
+
 fit(est, data_train, target_train, "secretlearn")
 predict(est, data_test, target_test)
 

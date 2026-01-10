@@ -1,7 +1,14 @@
-"""Benchmarks of Lasso regularization path computation using Lars and CD
-
-The input data is mostly low rank but is a fat infinite tail.
 """
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
+from secretlearn.secret_sharing.linear_models.lasso import SSLasso
 
 import gc
 import sys
@@ -10,9 +17,7 @@ from time import time
 
 import numpy as np
 
-from xlearn.datasets import make_regression
-from xlearn.linear_model import lars_path, lars_path_gram, lasso_path
-
+from sklearn.datasets import make_regression
 
 def compute_bench(samples_range, features_range):
     it = 0
@@ -78,7 +83,6 @@ def compute_bench(samples_range, features_range):
 
     return results
 
-
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import axes3d  # register the 3d projection # noqa: F401
@@ -89,7 +93,7 @@ if __name__ == "__main__":
 
     max_time = max(max(t) for t in results.values())
 
-    fig = plt.figure("Secret-Learn Lasso path benchmark results")
+    fig = plt.figure("Secret-Learn SSLasso path benchmark results")
     i = 1
     for c, (label, timings) in zip("bcry", sorted(results.items())):
         ax = fig.add_subplot(2, 2, i, projection="3d")

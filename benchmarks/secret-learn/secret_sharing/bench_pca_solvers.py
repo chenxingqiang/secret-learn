@@ -1,6 +1,18 @@
+"""
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
+from secretlearn.secret_sharing.decomposition.pca import SSPCA
+
 # %%
 #
-# This benchmark compares the speed of PCA solvers on datasets of different
+# This benchmark compares the speed of SSPCA solvers on datasets of different
 # sizes in order to determine the best solver to select by default via the
 # "auto" heuristic.
 #
@@ -21,7 +33,6 @@ import numpy as np
 import pandas as pd
 
 from secretlearn import config_context
-from xlearn.decomposition import PCA
 
 REF_DIMS = [100, 1000, 10_000]
 data_shapes = []
@@ -29,11 +40,10 @@ for ref_dim in REF_DIMS:
     data_shapes.extend([(ref_dim, 10**i) for i in range(1, 8 - int(log10(ref_dim)))])
     data_shapes.extend(
         [(ref_dim, 3 * 10**i) for i in range(1, 8 - int(log10(ref_dim)))]
-    )
+
     data_shapes.extend([(10**i, ref_dim) for i in range(1, 8 - int(log10(ref_dim)))])
     data_shapes.extend(
         [(3 * 10**i, ref_dim) for i in range(1, 8 - int(log10(ref_dim)))]
-    )
 
 # Remove duplicates:
 data_shapes = sorted(set(data_shapes))
@@ -42,14 +52,13 @@ print("Generating test datasets...")
 rng = np.random.default_rng(0)
 datasets = [rng.normal(size=shape) for shape in data_shapes]
 
-
 # %%
 def measure_one(data, n_components, solver, method_name="fit"):
     print(
         f"Benchmarking {solver=!r}, {n_components=}, {method_name=!r} on data with"
         f" shape {data.shape}"
-    )
-    pca = PCA(n_components=n_components, svd_solver=solver, random_state=0)
+
+    pca = SSPCA(n_components=n_components, svd_solver=solver, random_state=0)
     timings = []
     elapsed = 0
     method = getattr(pca, method_name)
@@ -61,7 +70,6 @@ def measure_one(data, n_components, solver, method_name="fit"):
             timings.append(duration)
             elapsed += duration
     return np.median(timings)
-
 
 SOLVERS = ["full", "covariance_eigh", "arpack", "randomized", "auto"]
 measurements = []
@@ -87,7 +95,7 @@ for data, n_components, method_name in itertools.product(
                 "solver": solver,
                 "method_name": method_name,
             }
-        )
+
 measurements = pd.DataFrame(measurements)
 measurements.to_csv("bench_pca_solvers.csv", index=False)
 
@@ -102,8 +110,8 @@ for method_name in all_method_names:
         ncols=len(all_n_components),
         sharey=True,
         constrained_layout=True,
-    )
-    fig.suptitle(f"Benchmarks for PCA.{method_name}, varying n_samples", fontsize=16)
+
+    fig.suptitle(f"Benchmarks for SSPCA.{method_name}, varying n_samples", fontsize=16)
 
     for row_idx, ref_dim in enumerate(REF_DIMS):
         for n_components, ax in zip(all_n_components, axes[row_idx]):
@@ -115,7 +123,7 @@ for method_name in all_method_names:
                 ax.set(
                     title=f"n_components={n_components}, n_features={ref_dim}",
                     ylabel="time (s)",
-                )
+
                 measurements.query(
                     "n_components == @n_components and n_features == @ref_dim"
                     " and solver == @solver and method_name == @method_name"
@@ -127,7 +135,7 @@ for method_name in all_method_names:
                     logy=True,
                     ax=ax,
                     **style_kwargs,
-                )
+
 # %%
 for method_name in all_method_names:
     fig, axes = plt.subplots(
@@ -135,8 +143,8 @@ for method_name in all_method_names:
         nrows=len(REF_DIMS),
         ncols=len(all_n_components),
         sharey=True,
-    )
-    fig.suptitle(f"Benchmarks for PCA.{method_name}, varying n_features", fontsize=16)
+
+    fig.suptitle(f"Benchmarks for SSPCA.{method_name}, varying n_features", fontsize=16)
 
     for row_idx, ref_dim in enumerate(REF_DIMS):
         for n_components, ax in zip(all_n_components, axes[row_idx]):
@@ -148,7 +156,7 @@ for method_name in all_method_names:
                 ax.set(
                     title=f"n_components={n_components}, n_samples={ref_dim}",
                     ylabel="time (s)",
-                )
+
                 measurements.query(
                     "n_components == @n_components and n_samples == @ref_dim "
                     " and solver == @solver and method_name == @method_name"
@@ -160,6 +168,5 @@ for method_name in all_method_names:
                     logy=True,
                     ax=ax,
                     **style_kwargs,
-                )
 
 # %%

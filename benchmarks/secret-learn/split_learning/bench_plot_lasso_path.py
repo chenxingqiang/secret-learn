@@ -1,7 +1,14 @@
-"""Benchmarks of Lasso regularization path computation using Lars and CD
-
-The input data is mostly low rank but is a fat infinite tail.
 """
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
+from secretlearn.split_learning.linear_models.lasso import SLLasso
 
 import gc
 import sys
@@ -10,9 +17,7 @@ from time import time
 
 import numpy as np
 
-from xlearn.datasets import make_regression
-from xlearn.linear_model import lars_path, lars_path_gram, lasso_path
-
+from sklearn.datasets import make_regression
 
 def compute_bench(samples_range, features_range):
     it = 0
@@ -78,7 +83,6 @@ def compute_bench(samples_range, features_range):
 
     return results
 
-
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import axes3d  # register the 3d projection # noqa: F401
@@ -89,7 +93,7 @@ if __name__ == "__main__":
 
     max_time = max(max(t) for t in results.values())
 
-    fig = plt.figure("Secret-Learn Lasso path benchmark results")
+    fig = plt.figure("Secret-Learn SLLasso path benchmark results")
     i = 1
     for c, (label, timings) in zip("bcry", sorted(results.items())):
         ax = fig.add_subplot(2, 2, i, projection="3d")

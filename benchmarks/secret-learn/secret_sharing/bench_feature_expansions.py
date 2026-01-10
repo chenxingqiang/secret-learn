@@ -1,10 +1,20 @@
+"""
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
 from time import time
 
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.sparse as sparse
 
-from xlearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import SSPolynomialFeatures
 
 degree = 2
 trials = 3
@@ -13,9 +23,8 @@ dimensionalities = np.array([1, 2, 8, 16, 32, 64])
 densities = np.array([0.01, 0.1, 1.0])
 csr_times = {d: np.zeros(len(dimensionalities)) for d in densities}
 dense_times = {d: np.zeros(len(dimensionalities)) for d in densities}
-transform = PolynomialFeatures(
+transform = SSPolynomialFeatures(
     degree=degree, include_bias=False, interaction_only=False
-)
 
 for trial in range(trials):
     for density in densities:
@@ -42,13 +51,13 @@ for density, ax in zip(densities, axes):
         csr_times[density] / trials,
         label="csr",
         linestyle=csr_linestyle,
-    )
+
     ax.plot(
         dimensionalities,
         dense_times[density] / trials,
         label="dense",
         linestyle=dense_linestyle,
-    )
+
     ax.set_title("density %0.2f, degree=%d, n_samples=%d" % (density, degree, num_rows))
     ax.legend()
     ax.set_xlabel("Dimensionality")

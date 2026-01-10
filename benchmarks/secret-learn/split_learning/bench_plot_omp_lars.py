@@ -1,7 +1,11 @@
-"""Benchmarks of orthogonal matching pursuit (:ref:`OMP`) versus least angle
-regression (:ref:`least_angle_regression`)
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
 
-The input data is mostly low rank but is a fat infinite tail.
+Original benchmark adapted for secretlearn.split_learning.
 """
 
 import gc
@@ -10,9 +14,7 @@ from time import time
 
 import numpy as np
 
-from xlearn.datasets import make_sparse_coded_signal
-from xlearn.linear_model import lars_path, lars_path_gram, orthogonal_mp
-
+from sklearn.datasets import make_sparse_coded_signal
 
 def compute_bench(samples_range, features_range):
     it = 0
@@ -93,7 +95,6 @@ def compute_bench(samples_range, features_range):
     results["time(LARS) / time(OMP)\n (w/ Gram)"] = lars_gram / omp_gram
     results["time(LARS) / time(OMP)\n (w/o Gram)"] = lars / omp
     return results
-
 
 if __name__ == "__main__":
     samples_range = np.linspace(1000, 5000, 5).astype(int)

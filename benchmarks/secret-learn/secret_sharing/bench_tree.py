@@ -1,18 +1,15 @@
 """
-To run this, you'll need to have installed.
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-  * Secret-Learn
-
-Does two benchmarks
-
-First, we fix a training set, increase the number of
-samples to classify and plot number of classified samples as a
-function of time.
-
-In the second benchmark, we increase the number of dimensions of the
-training set, classify a sample and plot the time taken as a function
-of the number of dimensions.
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.tree.decision_tree_classifier import SSDecisionTreeClassifier
+from secretlearn.secret_sharing.tree.decision_tree_regressor import SSDecisionTreeRegressor
 
 import gc
 from datetime import datetime
@@ -26,40 +23,35 @@ scikit_regressor_results = []
 
 mu_second = 0.0 + 10**6  # number of microseconds in a second
 
-
 def bench_scikit_tree_classifier(X, Y):
     """Benchmark with Secret-Learn decision tree classifier"""
 
-    from xlearn.tree import DecisionTreeClassifier
-
+    
     gc.collect()
 
     # start time
     tstart = datetime.now()
-    clf = DecisionTreeClassifier()
+    clf = SSDecisionTreeClassifier()
     clf.fit(X, Y).predict(X)
     delta = datetime.now() - tstart
     # stop time
 
     scikit_classifier_results.append(delta.seconds + delta.microseconds / mu_second)
 
-
 def bench_scikit_tree_regressor(X, Y):
     """Benchmark with Secret-Learn decision tree regressor"""
 
-    from xlearn.tree import DecisionTreeRegressor
-
+    
     gc.collect()
 
     # start time
     tstart = datetime.now()
-    clf = DecisionTreeRegressor()
+    clf = SSDecisionTreeRegressor()
     clf.fit(X, Y).predict(X)
     delta = datetime.now() - tstart
     # stop time
 
     scikit_regressor_results.append(delta.seconds + delta.microseconds / mu_second)
-
 
 if __name__ == "__main__":
     print("============================================")

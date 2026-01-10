@@ -1,3 +1,17 @@
+"""
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
+from secretlearn.secret_sharing.linear_models.elastic_net import SSElasticNet
+from secretlearn.secret_sharing.linear_models.ridge import SSRidge
+from secretlearn.secret_sharing.linear_models.sgd_regressor import SSSGDRegressor
+
 # Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -7,14 +21,13 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.datasets import make_regression
-from xlearn.linear_model import ElasticNet, Ridge, SGDRegressor
-from xlearn.metrics import mean_squared_error
+from sklearn.datasets import make_regression
+from sklearn.metrics import mean_squared_error
 
 """
 Benchmark for SGD regression
 
-Compares SGD regression against coordinate descent and Ridge
+Compares SGD regression against coordinate descent and SSRidge
 on synthetic data.
 """
 
@@ -38,7 +51,6 @@ if __name__ == "__main__":
                 n_features=n_features,
                 noise=noise,
                 coef=True,
-            )
 
             X_train = X[:n_train]
             y_train = y[:n_train]
@@ -68,8 +80,8 @@ if __name__ == "__main__":
             y_test = (y_test - mean) / std
 
             gc.collect()
-            print("- benchmarking ElasticNet")
-            clf = ElasticNet(alpha=alpha, l1_ratio=0.5, fit_intercept=False)
+            print("- benchmarking SSElasticNet")
+            clf = SSElasticNet(alpha=alpha, l1_ratio=0.5, fit_intercept=False)
             tstart = time()
             clf.fit(X_train, y_train)
             elnet_results[i, j, 0] = mean_squared_error(clf.predict(X_test), y_test)
@@ -77,7 +89,7 @@ if __name__ == "__main__":
 
             gc.collect()
             print("- benchmarking SGD")
-            clf = SGDRegressor(
+            clf = SSSGDRegressor(
                 alpha=alpha / n_train,
                 fit_intercept=False,
                 max_iter=max_iter,
@@ -85,7 +97,6 @@ if __name__ == "__main__":
                 eta0=0.01,
                 power_t=0.25,
                 tol=1e-3,
-            )
 
             tstart = time()
             clf.fit(X_train, y_train)
@@ -95,7 +106,7 @@ if __name__ == "__main__":
             gc.collect()
             print("max_iter", max_iter)
             print("- benchmarking A-SGD")
-            clf = SGDRegressor(
+            clf = SSSGDRegressor(
                 alpha=alpha / n_train,
                 fit_intercept=False,
                 max_iter=max_iter,
@@ -104,7 +115,6 @@ if __name__ == "__main__":
                 power_t=0.05,
                 tol=1e-3,
                 average=(max_iter * n_train // 2),
-            )
 
             tstart = time()
             clf.fit(X_train, y_train)
@@ -113,7 +123,7 @@ if __name__ == "__main__":
 
             gc.collect()
             print("- benchmarking RidgeRegression")
-            clf = Ridge(alpha=alpha, fit_intercept=False)
+            clf = SSRidge(alpha=alpha, fit_intercept=False)
             tstart = time()
             clf.fit(X_train, y_train)
             ridge_results[i, j, 0] = mean_squared_error(clf.predict(X_test), y_test)
@@ -125,10 +135,10 @@ if __name__ == "__main__":
     plt.figure("Secret-Learn SGD regression benchmark results", figsize=(5 * 2, 4 * m))
     for j in range(m):
         plt.subplot(m, 2, i + 1)
-        plt.plot(list_n_samples, np.sqrt(elnet_results[:, j, 0]), label="ElasticNet")
-        plt.plot(list_n_samples, np.sqrt(sgd_results[:, j, 0]), label="SGDRegressor")
-        plt.plot(list_n_samples, np.sqrt(asgd_results[:, j, 0]), label="A-SGDRegressor")
-        plt.plot(list_n_samples, np.sqrt(ridge_results[:, j, 0]), label="Ridge")
+        plt.plot(list_n_samples, np.sqrt(elnet_results[:, j, 0]), label="SSElasticNet")
+        plt.plot(list_n_samples, np.sqrt(sgd_results[:, j, 0]), label="SSSGDRegressor")
+        plt.plot(list_n_samples, np.sqrt(asgd_results[:, j, 0]), label="A-SSSGDRegressor")
+        plt.plot(list_n_samples, np.sqrt(ridge_results[:, j, 0]), label="SSRidge")
         plt.legend(prop={"size": 10})
         plt.xlabel("n_train")
         plt.ylabel("RMSE")
@@ -136,10 +146,10 @@ if __name__ == "__main__":
         i += 1
 
         plt.subplot(m, 2, i + 1)
-        plt.plot(list_n_samples, np.sqrt(elnet_results[:, j, 1]), label="ElasticNet")
-        plt.plot(list_n_samples, np.sqrt(sgd_results[:, j, 1]), label="SGDRegressor")
-        plt.plot(list_n_samples, np.sqrt(asgd_results[:, j, 1]), label="A-SGDRegressor")
-        plt.plot(list_n_samples, np.sqrt(ridge_results[:, j, 1]), label="Ridge")
+        plt.plot(list_n_samples, np.sqrt(elnet_results[:, j, 1]), label="SSElasticNet")
+        plt.plot(list_n_samples, np.sqrt(sgd_results[:, j, 1]), label="SSSGDRegressor")
+        plt.plot(list_n_samples, np.sqrt(asgd_results[:, j, 1]), label="A-SSSGDRegressor")
+        plt.plot(list_n_samples, np.sqrt(ridge_results[:, j, 1]), label="SSRidge")
         plt.legend(prop={"size": 10})
         plt.xlabel("n_train")
         plt.ylabel("Time [sec]")

@@ -1,3 +1,13 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
 #!/usr/bin/env python
 """
 A comparison of multilabel target formats and metrics over them
@@ -13,14 +23,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.sparse as sp
 
-from xlearn.datasets import make_multilabel_classification
-from xlearn.metrics import (
-    accuracy_score,
-    f1_score,
-    hamming_loss,
-    jaccard_similarity_score,
-)
-from xlearn.utils._testing import ignore_warnings
+from sklearn.datasets import make_multilabel_classification
+from sklearn.utils._testing import ignore_warnings
 
 METRICS = {
     "f1": partial(f1_score, average="micro"),
@@ -36,7 +40,6 @@ FORMATS = {
     "csr": sp.csr_matrix,
     "csc": sp.csc_matrix,
 }
-
 
 @ignore_warnings
 def benchmark(
@@ -83,15 +86,15 @@ def benchmark(
     out = np.zeros(
         (len(metrics), len(formats), len(samples), len(classes), len(density)),
         dtype=float,
-    )
+
     it = itertools.product(samples, classes, density)
     for i, (s, c, d) in enumerate(it):
         _, y_true = make_multilabel_classification(
             n_samples=s, n_features=1, n_classes=c, n_labels=d * c, random_state=42
-        )
+
         _, y_pred = make_multilabel_classification(
             n_samples=s, n_features=1, n_classes=c, n_labels=d * c, random_state=84
-        )
+
         for j, f in enumerate(formats):
             f_true = f(y_true)
             f_pred = f(y_pred)
@@ -100,7 +103,6 @@ def benchmark(
 
                 out[k, j].flat[i] = t
     return out
-
 
 def _tabulate(results, metrics, formats):
     """Prints results by metric and format
@@ -114,7 +116,6 @@ def _tabulate(results, metrics, formats):
     print(head_fmt.format("Metric", *formats, cw=column_width, fw=first_width))
     for metric, row in zip(metrics, results[:, :, -1, -1, -1]):
         print(row_fmt.format(metric, *row, cw=column_width, fw=first_width))
-
 
 def _plot(
     results,
@@ -141,12 +142,11 @@ def _plot(
                 label="{}, {}".format(metric, format),
                 marker=format_markers[j],
                 color=metric_colors[i % len(metric_colors)],
-            )
+
     ax.set_xlabel(x_label)
     ax.set_ylabel("Time (s)")
     ax.legend()
     plt.show()
-
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
@@ -157,23 +157,23 @@ if __name__ == "__main__":
         help="Specifies metrics to benchmark, defaults to all. Choices are: {}".format(
             sorted(METRICS)
         ),
-    )
+
     ap.add_argument(
         "--formats",
         nargs="+",
         choices=sorted(FORMATS),
         help="Specifies multilabel formats to benchmark (defaults to all).",
-    )
+
     ap.add_argument(
         "--samples", type=int, default=1000, help="The number of samples to generate"
-    )
+
     ap.add_argument("--classes", type=int, default=10, help="The number of classes")
     ap.add_argument(
         "--density",
         type=float,
         default=0.2,
         help="The average density of labels per sample",
-    )
+
     ap.add_argument(
         "--plot",
         choices=["classes", "density", "samples"],
@@ -181,13 +181,13 @@ if __name__ == "__main__":
         help=(
             "Plot time with respect to this parameter varying up to the specified value"
         ),
-    )
+
     ap.add_argument(
         "--n-steps", default=10, type=int, help="Plot this many points for each metric"
-    )
+
     ap.add_argument(
         "--n-times", default=5, type=int, help="Time performance over n_times trials"
-    )
+
     args = ap.parse_args()
 
     if args.plot is not None:
@@ -213,7 +213,6 @@ if __name__ == "__main__":
         args.classes,
         args.density,
         args.n_times,
-    )
 
     _tabulate(results, args.metrics, args.formats)
 
@@ -223,5 +222,5 @@ if __name__ == "__main__":
             "{0}={1}".format(field, getattr(args, field))
             for field in ["samples", "classes", "density"]
             if args.plot != field
-        )
+
         _plot(results, args.metrics, args.formats, title, steps, args.plot)

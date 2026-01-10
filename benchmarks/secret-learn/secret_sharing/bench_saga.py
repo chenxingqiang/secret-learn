@@ -1,8 +1,14 @@
-"""Author: Arthur Mensch, Nelle Varoquaux
-
-Benchmarks of secretlearn SAGA vs lightning SAGA vs Liblinear. Shows the gain
-in using multinomial logistic regression in term of learning time.
 """
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
+
+Original benchmark adapted for secretlearn.secret_sharing.
+"""
+
+from secretlearn.secret_sharing.linear_models.logistic_regression import SSLogisticRegression
 
 import json
 import os
@@ -11,20 +17,12 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.datasets import (
-    fetch_20newsgroups_vectorized,
-    fetch_rcv1,
-    load_digits,
-    load_iris,
-)
-from xlearn.linear_model import LogisticRegression
-from xlearn.metrics import log_loss
-from xlearn.model_selection import train_test_split
+from sklearn.metrics import log_loss
+from sklearn.model_selection import train_test_split
 from xlearn.multiclass import OneVsRestClassifier
-from xlearn.preprocessing import LabelBinarizer, LabelEncoder
-from xlearn.utils.extmath import safe_sparse_dot, softmax
-from xlearn.utils.parallel import Parallel, delayed
-
+from sklearn.preprocessing import LabelBinarizer, LabelEncoder
+from sklearn.utils.extmath import safe_sparse_dot, softmax
+from sklearn.utils.parallel import Parallel, delayed
 
 def fit_single(
     solver,
@@ -44,7 +42,6 @@ def fit_single(
     print(
         "Solving %s logistic regression with penalty %s, solver %s."
         % ("binary" if single_target else "multinomial", penalty, solver)
-    )
 
     if solver == "lightning":
         from lightning.classification import SAGAClassifier
@@ -57,7 +54,7 @@ def fit_single(
     y = y.astype(dtype)
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, random_state=42, stratify=y
-    )
+
     n_samples = X_train.shape[0]
     n_classes = np.unique(y_train).shape[0]
     test_scores = [1]
@@ -82,8 +79,7 @@ def fit_single(
                 penalty,
                 solver,
                 this_max_iter,
-            )
-        )
+
         if solver == "lightning":
             lr = SAGAClassifier(
                 loss="log",
@@ -92,9 +88,9 @@ def fit_single(
                 penalty=lightning_penalty,
                 tol=-1,
                 max_iter=this_max_iter,
-            )
+
         else:
-            lr = LogisticRegression(
+            lr = SSLogisticRegression(
                 solver=solver,
                 C=C,
                 penalty=penalty,
@@ -102,7 +98,7 @@ def fit_single(
                 tol=0,
                 max_iter=this_max_iter,
                 random_state=42,
-            )
+
             if multi_class == "ovr":
                 lr = OneVsRestClassifier(lr)
 
@@ -137,14 +133,12 @@ def fit_single(
         times.append(train_time)
     return lr, times, train_scores, test_scores, accuracies
 
-
 def _predict_proba(lr, X):
     """Predict proba for lightning for n_classes >=3."""
     pred = safe_sparse_dot(X, lr.coef_.T)
     if hasattr(lr, "intercept_"):
         pred += lr.intercept_
     return softmax(pred)
-
 
 def exp(
     solvers,
@@ -212,10 +206,9 @@ def exp(
             C=1,
             max_iter=max_iter,
             skip_slow=skip_slow,
-        )
+
         for solver in solvers
         for dtype in dtypes_mapping.values()
-    )
 
     res = []
     idx = 0
@@ -232,13 +225,12 @@ def exp(
                     train_scores=train_scores,
                     test_scores=test_scores,
                     accuracies=accuracies,
-                )
+
                 res.append(this_res)
             idx += 1
 
     with open("bench_saga.json", "w+") as f:
         json.dump(res, f)
-
 
 def plot(outname=None):
     import pandas as pd
@@ -270,13 +262,13 @@ def plot(outname=None):
                 alpha=alpha[dtype],
                 marker=".",
                 linestyle=linestyles[dtype],
-            )
+
             ax.axvline(
                 times[-1],
                 color=colors[solver],
                 alpha=alpha[dtype],
                 linestyle=linestyles[dtype],
-            )
+
         ax.set_xlabel("Time (s)")
         ax.set_ylabel("Training objective (relative to min)")
         ax.set_yscale("log")
@@ -294,13 +286,12 @@ def plot(outname=None):
                 linestyle=linestyles[dtype],
                 marker=".",
                 alpha=alpha[dtype],
-            )
+
             ax.axvline(
                 times[-1],
                 color=colors[solver],
                 alpha=alpha[dtype],
                 linestyle=linestyles[dtype],
-            )
 
         ax.set_xlabel("Time (s)")
         ax.set_ylabel("Test objective (relative to min)")
@@ -318,13 +309,12 @@ def plot(outname=None):
                 marker=".",
                 color=colors[solver],
                 linestyle=linestyles[dtype],
-            )
+
             ax.axvline(
                 times[-1],
                 color=colors[solver],
                 alpha=alpha[dtype],
                 linestyle=linestyles[dtype],
-            )
 
         ax.set_xlabel("Time (s)")
         ax.set_ylabel("Test accuracy")
@@ -349,7 +339,6 @@ def plot(outname=None):
                 alpha=alpha[dtype],
                 color=colors[solver],
                 linestyle=linestyles[dtype],
-            )
 
         ax.set_yscale("log")
         ax.set_xlabel("# iterations")
@@ -357,7 +346,6 @@ def plot(outname=None):
         ax.legend()
 
         plt.savefig(outname)
-
 
 if __name__ == "__main__":
     solvers = ["saga", "liblinear", "lightning"]
@@ -374,7 +362,7 @@ if __name__ == "__main__":
                 n_jobs=1,
                 dataset="rcv1",
                 max_iter=10,
-            )
+
             if n_sample is not None:
                 outname = "figures/saga_%s_%d.png" % (penalty, n_sample)
             else:

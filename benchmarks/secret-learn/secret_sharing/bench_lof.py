@@ -1,31 +1,23 @@
 """
-============================
-LocalOutlierFactor benchmark
-============================
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-A test of LocalOutlierFactor on classical anomaly detection datasets.
-
-Note that LocalOutlierFactor is not meant to predict on a test set and its
-performance is assessed in an outlier detection context:
-1. The model is trained on the whole dataset which is assumed to contain
-outliers.
-2. The ROC curve is computed on the same dataset using the knowledge of the
-labels.
-In this context there is no need to shuffle the dataset because the model
-is trained and tested on the whole dataset. The randomness of this benchmark
-is only caused by the random selection of anomalies in the SA dataset.
-
+Original benchmark adapted for secretlearn.secret_sharing.
 """
+
+from secretlearn.secret_sharing.neighbors.local_outlier_factor import SSLocalOutlierFactor
 
 from time import time
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.datasets import fetch_covtype, fetch_kddcup99, fetch_openml
-from xlearn.metrics import auc, roc_curve
-from xlearn.neighbors import LocalOutlierFactor
-from xlearn.preprocessing import LabelBinarizer
+from sklearn.datasets import fetch_covtype, fetch_kddcup99, fetch_openml
+from sklearn.metrics import auc, roc_curve
+from sklearn.preprocessing import LabelBinarizer
 
 print(__doc__)
 
@@ -41,7 +33,7 @@ for dataset_name in datasets:
     if dataset_name in ["http", "smtp", "SA", "SF"]:
         dataset = fetch_kddcup99(
             subset=dataset_name, percent10=True, random_state=random_state
-        )
+
         X = dataset.data
         y = dataset.target
 
@@ -88,8 +80,8 @@ for dataset_name in datasets:
 
     X = X.astype(float)
 
-    print("LocalOutlierFactor processing...")
-    model = LocalOutlierFactor(n_neighbors=20)
+    print("SSLocalOutlierFactor processing...")
+    model = SSLocalOutlierFactor(n_neighbors=20)
     tstart = time()
     model.fit(X)
     fit_time = time() - tstart
@@ -102,7 +94,6 @@ for dataset_name in datasets:
         lw=1,
         label="ROC for %s (area = %0.3f, train-time: %0.2fs)"
         % (dataset_name, AUC, fit_time),
-    )
 
 plt.xlim([-0.05, 1.05])
 plt.ylim([-0.05, 1.05])

@@ -1,6 +1,14 @@
 """
-Benchmark Secret-Learn's Ward implement compared to SciPy's
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
 """
+
+from secretlearn.split_learning.clustering.agglomerative_clustering import SLAgglomerativeClustering
 
 import time
 
@@ -8,9 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.cluster import hierarchy
 
-from xlearn.cluster import AgglomerativeClustering
-
-ward = AgglomerativeClustering(n_clusters=3, linkage="ward")
+ward = SLAgglomerativeClustering(n_clusters=3, linkage="ward")
 
 n_samples = np.logspace(0.5, 3, 9)
 n_features = np.logspace(1, 3.5, 7)
@@ -39,7 +45,7 @@ plt.contour(
         1,
     ],
     colors="k",
-)
+
 plt.yticks(range(len(n_features)), n_features.astype(int))
 plt.ylabel("N features")
 plt.xticks(range(len(n_samples)), n_samples.astype(int))

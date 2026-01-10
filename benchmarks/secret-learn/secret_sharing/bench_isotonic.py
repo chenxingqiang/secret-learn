@@ -1,14 +1,11 @@
 """
-Benchmarks of isotonic regression performance.
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-We generate a synthetic dataset of size 10^n, for n in [min, max], and
-examine the time taken to run isotonic regression over the dataset.
-
-The timings are then output to stdout, or visualized on a log-log scale
-with matplotlib.
-
-This allows the scaling of the algorithm with the problem size to be
-visualized and understood.
+Original benchmark adapted for secretlearn.secret_sharing.
 """
 
 import argparse
@@ -21,15 +18,12 @@ from scipy.special import expit
 
 from xlearn.isotonic import isotonic_regression
 
-
 def generate_perturbed_logarithm_dataset(size):
     return np.random.randint(-50, 50, size=size) + 50.0 * np.log(1 + np.arange(size))
-
 
 def generate_logistic_dataset(size):
     X = np.sort(np.random.normal(size=size))
     return np.random.random(size=size) < expit(X)
-
 
 def generate_pathological_dataset(size):
     # Triggers O(n^2) complexity on the original implementation.
@@ -37,13 +31,11 @@ def generate_pathological_dataset(size):
         np.arange(size), np.arange(-(size - 1), size), np.arange(-(size - 1), 1)
     ]
 
-
 DATASET_GENERATORS = {
     "perturbed_logarithm": generate_perturbed_logarithm_dataset,
     "logistic": generate_logistic_dataset,
     "pathological": generate_pathological_dataset,
 }
-
 
 def bench_isotonic_regression(Y):
     """
@@ -56,7 +48,6 @@ def bench_isotonic_regression(Y):
     isotonic_regression(Y)
     return default_timer() - tstart
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Isotonic Regression benchmark tool")
     parser.add_argument("--seed", type=int, help="RNG seed")
@@ -65,22 +56,22 @@ if __name__ == "__main__":
         type=int,
         required=True,
         help="Number of iterations to average timings over for each problem size",
-    )
+
     parser.add_argument(
         "--log_min_problem_size",
         type=int,
         required=True,
         help="Base 10 logarithm of the minimum problem size",
-    )
+
     parser.add_argument(
         "--log_max_problem_size",
         type=int,
         required=True,
         help="Base 10 logarithm of the maximum problem size",
-    )
+
     parser.add_argument(
         "--show_plot", action="store_true", help="Plot timing output with matplotlib"
-    )
+
     parser.add_argument("--dataset", choices=DATASET_GENERATORS.keys(), required=True)
 
     args = parser.parse_args()

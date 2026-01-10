@@ -1,29 +1,37 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
+from secretlearn.split_learning.ensemble.adaboost_classifier import SLAdaBoostClassifier
+from secretlearn.split_learning.dummy.dummy_classifier import SLDummyClassifier
+from secretlearn.split_learning.ensemble.extra_trees_classifier import SLExtraTreesClassifier
+from secretlearn.split_learning.linear_models.logistic_regression import SLLogisticRegression
+from secretlearn.split_learning.naive_bayes.multinomial_nb import SLMultinomialNB
+from secretlearn.split_learning.ensemble.random_forest_classifier import SLRandomForestClassifier
+
 import argparse
 from time import time
 
 import numpy as np
 
-from xlearn.datasets import fetch_20newsgroups_vectorized
-from xlearn.dummy import DummyClassifier
-from xlearn.ensemble import (
-    AdaBoostClassifier,
-    ExtraTreesClassifier,
-    RandomForestClassifier,
-)
-from xlearn.linear_model import LogisticRegression
-from xlearn.metrics import accuracy_score
-from xlearn.naive_bayes import MultinomialNB
-from xlearn.utils.validation import check_array
+from sklearn.datasets import fetch_20newsgroups_vectorized
+from sklearn.metrics import accuracy_score
+from sklearn.utils.validation import check_array
 
 ESTIMATORS = {
-    "dummy": DummyClassifier(),
-    "random_forest": RandomForestClassifier(max_features="sqrt", min_samples_split=10),
-    "extra_trees": ExtraTreesClassifier(max_features="sqrt", min_samples_split=10),
-    "logistic_regression": LogisticRegression(),
-    "naive_bayes": MultinomialNB(),
-    "adaboost": AdaBoostClassifier(n_estimators=10),
+    "dummy": SLDummyClassifier(),
+    "random_forest": SLRandomForestClassifier(max_features="sqrt", min_samples_split=10),
+    "extra_trees": SLExtraTreesClassifier(max_features="sqrt", min_samples_split=10),
+    "logistic_regression": SLLogisticRegression(),
+    "naive_bayes": SLMultinomialNB(),
+    "adaboost": SLAdaBoostClassifier(n_estimators=10),
 }
-
 
 ###############################################################################
 # Data
@@ -32,7 +40,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-e", "--estimators", nargs="+", required=True, choices=ESTIMATORS
-    )
+
     args = vars(parser.parse_args())
 
     data_train = fetch_20newsgroups_vectorized(subset="train")
@@ -88,7 +96,5 @@ if __name__ == "__main__":
                 ("%.4fs" % train_time[name]).center(10),
                 ("%.4fs" % test_time[name]).center(10),
                 ("%.4f" % accuracy[name]).center(10),
-            )
-        )
 
     print()

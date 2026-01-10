@@ -1,9 +1,16 @@
 """
-A comparison of different methods in GLM
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
 
-Data comes from a random square matrix.
-
+Original benchmark adapted for secretlearn.split_learning.
 """
+
+from secretlearn.split_learning.linear_models.lasso_lars import SLLassoLars
+from secretlearn.split_learning.linear_models.linear_regression import SLLinearRegression
+from secretlearn.split_learning.linear_models.ridge import SLRidge
 
 from datetime import datetime
 
@@ -31,17 +38,17 @@ if __name__ == "__main__":
         Y = np.random.randn(n_samples)
 
         start = datetime.now()
-        ridge = linear_model.Ridge(alpha=1.0)
+        ridge = linear_model.SLRidge(alpha=1.0)
         ridge.fit(X, Y)
         time_ridge[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        ols = linear_model.LinearRegression()
+        ols = linear_model.SLLinearRegression()
         ols.fit(X, Y)
         time_ols[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        lasso = linear_model.LassoLars()
+        lasso = linear_model.SLLassoLars()
         lasso.fit(X, Y)
         time_lasso[i] = (datetime.now() - start).total_seconds()
 
@@ -52,6 +59,6 @@ if __name__ == "__main__":
     plt.plot(dimensions, time_ols, color="g")
     plt.plot(dimensions, time_lasso, color="b")
 
-    plt.legend(["Ridge", "OLS", "LassoLars"], loc="upper left")
+    plt.legend(["SLRidge", "OLS", "SLLassoLars"], loc="upper left")
     plt.axis("tight")
     plt.show()

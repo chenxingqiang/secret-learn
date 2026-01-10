@@ -1,10 +1,20 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
 from time import time
 
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.sparse as sparse
 
-from xlearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import SLPolynomialFeatures
 
 degree = 2
 trials = 3
@@ -13,9 +23,8 @@ dimensionalities = np.array([1, 2, 8, 16, 32, 64])
 densities = np.array([0.01, 0.1, 1.0])
 csr_times = {d: np.zeros(len(dimensionalities)) for d in densities}
 dense_times = {d: np.zeros(len(dimensionalities)) for d in densities}
-transform = PolynomialFeatures(
+transform = SLPolynomialFeatures(
     degree=degree, include_bias=False, interaction_only=False
-)
 
 for trial in range(trials):
     for density in densities:
@@ -42,13 +51,13 @@ for density, ax in zip(densities, axes):
         csr_times[density] / trials,
         label="csr",
         linestyle=csr_linestyle,
-    )
+
     ax.plot(
         dimensionalities,
         dense_times[density] / trials,
         label="dense",
         linestyle=dense_linestyle,
-    )
+
     ax.set_title("density %0.2f, degree=%d, n_samples=%d" % (density, degree, num_rows))
     ax.legend()
     ax.set_xlabel("Dimensionality")

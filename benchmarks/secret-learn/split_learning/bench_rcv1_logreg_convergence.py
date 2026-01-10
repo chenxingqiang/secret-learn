@@ -1,3 +1,16 @@
+"""
+Split Learning Benchmark
+========================
+This benchmark runs in SL (Split Learning) mode where the model
+is split across parties - each holds different layers/features.
+Only activations/gradients are exchanged, preserving raw data privacy.
+
+Original benchmark adapted for secretlearn.split_learning.
+"""
+
+from secretlearn.split_learning.linear_models.logistic_regression import SLLogisticRegression
+from secretlearn.split_learning.linear_models.sgd_classifier import SLSGDClassifier
+
 # Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -8,9 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from joblib import Memory
 
-from xlearn.datasets import fetch_rcv1
-from xlearn.linear_model import LogisticRegression, SGDClassifier
-from xlearn.linear_model._sag import get_auto_step_size
+from sklearn.datasets import fetch_rcv1
 
 try:
     import lightning.classification as lightning_clf
@@ -18,7 +29,6 @@ except ImportError:
     lightning_clf = None
 
 m = Memory(cachedir=".", verbose=0)
-
 
 # compute logistic loss
 def get_loss(w, intercept, myX, myy, C):
@@ -28,7 +38,6 @@ def get_loss(w, intercept, myX, myy, C):
     print("%f + %f" % (p, w.dot(w) / 2.0 / C / n_samples))
     p += w.dot(w) / 2.0 / C / n_samples
     return p
-
 
 # We use joblib to cache individual fits. Note that we do not pass the dataset
 # as argument as the hashing would be too slow, so we assume that the dataset
@@ -62,7 +71,6 @@ def bench_one(name, clf_type, clf_params, n_iter):
 
     return train_loss, train_score, test_score, duration
 
-
 def bench(clfs):
     for (
         name,
@@ -82,7 +90,6 @@ def bench(clfs):
 
             train_loss, train_score, test_score, duration = bench_one(
                 name, clf_type, clf_params, n_iter
-            )
 
             train_losses.append(train_loss)
             train_scores.append(train_score)
@@ -98,7 +105,6 @@ def bench(clfs):
         print("")
     return clfs
 
-
 def plot_train_losses(clfs):
     plt.figure()
     for name, _, _, train_losses, _, _, durations in clfs:
@@ -106,7 +112,6 @@ def plot_train_losses(clfs):
         plt.legend(loc=0)
         plt.xlabel("seconds")
         plt.ylabel("train loss")
-
 
 def plot_train_scores(clfs):
     plt.figure()
@@ -117,7 +122,6 @@ def plot_train_scores(clfs):
         plt.ylabel("train score")
         plt.ylim((0.92, 0.96))
 
-
 def plot_test_scores(clfs):
     plt.figure()
     for name, _, _, _, _, test_scores, durations in clfs:
@@ -126,7 +130,6 @@ def plot_test_scores(clfs):
         plt.xlabel("seconds")
         plt.ylabel("test score")
         plt.ylim((0.92, 0.96))
-
 
 def plot_dloss(clfs):
     plt.figure()
@@ -145,11 +148,9 @@ def plot_dloss(clfs):
         plt.xlabel("seconds")
         plt.ylabel("log(best - train_loss)")
 
-
 def get_max_squared_sum(X):
     """Get the maximum row-wise sum of squares"""
     return np.sum(X**2, axis=1).max()
-
 
 rcv1 = fetch_rcv1()
 X = rcv1.data
@@ -176,7 +177,7 @@ sag_iter_range = list(range(1, 37, 3))
 clfs = [
     (
         "LR-liblinear",
-        LogisticRegression(
+        SLLogisticRegression(
             C=C,
             tol=tol,
             solver="liblinear",
@@ -191,7 +192,7 @@ clfs = [
     ),
     (
         "LR-liblinear-dual",
-        LogisticRegression(
+        SLLogisticRegression(
             C=C,
             tol=tol,
             dual=True,
@@ -207,7 +208,7 @@ clfs = [
     ),
     (
         "LR-SAG",
-        LogisticRegression(C=C, tol=tol, solver="sag", fit_intercept=fit_intercept),
+        SLLogisticRegression(C=C, tol=tol, solver="sag", fit_intercept=fit_intercept),
         sag_iter_range,
         [],
         [],
@@ -216,7 +217,7 @@ clfs = [
     ),
     (
         "LR-newton-cg",
-        LogisticRegression(
+        SLLogisticRegression(
             C=C, tol=tol, solver="newton-cg", fit_intercept=fit_intercept
         ),
         newton_iter_range,
@@ -227,7 +228,7 @@ clfs = [
     ),
     (
         "LR-lbfgs",
-        LogisticRegression(C=C, tol=tol, solver="lbfgs", fit_intercept=fit_intercept),
+        SLLogisticRegression(C=C, tol=tol, solver="lbfgs", fit_intercept=fit_intercept),
         lbfgs_iter_range,
         [],
         [],
@@ -236,7 +237,7 @@ clfs = [
     ),
     (
         "SGD",
-        SGDClassifier(
+        SLSGDClassifier(
             alpha=1.0 / C / n_samples,
             penalty="l2",
             loss="log_loss",
@@ -250,7 +251,6 @@ clfs = [
         [],
     ),
 ]
-
 
 if lightning_clf is not None and not fit_intercept:
     alpha = 1.0 / C / n_samples
@@ -269,8 +269,7 @@ if lightning_clf is not None and not fit_intercept:
             [],
             [],
             [],
-        )
-    )
+
     clfs.append(
         (
             "Lightning-SAG",
@@ -282,8 +281,6 @@ if lightning_clf is not None and not fit_intercept:
             [],
             [],
             [],
-        )
-    )
 
     # We keep only 200 features, to have a dense dataset,
     # and compare to lightning SAG, which seems incorrect in the sparse case.
@@ -292,7 +289,6 @@ if lightning_clf is not None and not fit_intercept:
     X = X_csc[:, np.argsort(nnz_in_each_features)[-200:]]
     X = X.toarray()
     print("dataset: %.3f MB" % (X.nbytes / 1e6))
-
 
 # Split training and testing. Switch train and test subset compared to
 # LYRL2004 split, to have a larger training dataset.

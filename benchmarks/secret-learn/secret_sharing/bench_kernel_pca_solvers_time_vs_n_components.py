@@ -1,39 +1,11 @@
 """
-=============================================================
-Kernel PCA Solvers comparison benchmark: time vs n_components
-=============================================================
+Secret Sharing Benchmark
+========================
+This benchmark runs in SS (Secret Sharing) mode where data is
+securely split among parties using multi-party computation (MPC).
+Computations are performed on encrypted/secret-shared data via SPU.
 
-This benchmark shows that the approximate solvers provided in Kernel PCA can
-help significantly improve its execution speed when an approximate solution
-(small `n_components`) is acceptable. In many real-world datasets a few
-hundreds of principal components are indeed sufficient enough to capture the
-underlying distribution.
-
-Description:
-------------
-A fixed number of training (default: 2000) and test (default: 1000) samples
-with 2 features is generated using the `make_circles` helper method.
-
-KernelPCA models are trained on the training set with an increasing number of
-principal components, between 1 and `max_n_compo` (default: 1999), with
-`n_compo_grid_size` positions (default: 10). For each value of `n_components`
-to try, KernelPCA models are trained for the various possible `eigen_solver`
-values. The execution times are displayed in a plot at the end of the
-experiment.
-
-What you can observe:
----------------------
-When the number of requested principal components is small, the dense solver
-takes more time to complete, while the randomized method returns similar
-results with shorter execution times.
-
-Going further:
---------------
-You can adjust `max_n_compo` and `n_compo_grid_size` if you wish to explore a
-different range of values for `n_components`.
-
-You can also set `arpack_all=True` to activate arpack solver for large number
-of components (this takes more time).
+Original benchmark adapted for secretlearn.secret_sharing.
 """
 
 import time
@@ -42,11 +14,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 
-from xlearn.datasets import make_circles
-from xlearn.decomposition import KernelPCA
+from sklearn.datasets import make_circles
 
 print(__doc__)
-
 
 # 1- Design the Experiment
 # ------------------------
@@ -62,15 +32,13 @@ n_compo_range = [
 n_iter = 3  # the number of times each experiment will be repeated
 arpack_all = False  # set to True if you wish to run arpack for all n_compo
 
-
 # 2- Generate random data
 # -----------------------
 n_features = 2
 X, y = make_circles(
     n_samples=(n_train + n_test), factor=0.3, noise=0.05, random_state=0
-)
-X_train, X_test = X[:n_train, :], X[n_train:, :]
 
+X_train, X_test = X[:n_train, :], X[n_train:, :]
 
 # 3- Benchmark
 # ------------
@@ -89,7 +57,7 @@ for j, n_components in enumerate(n_compo_range):
         start_time = time.perf_counter()
         ref_pred = (
             KernelPCA(n_components, eigen_solver="dense").fit(X_train).transform(X_test)
-        )
+
         ref_time[j, i] = time.perf_counter() - start_time
 
     # B- arpack (for small number of components only, too slow otherwise)
@@ -101,7 +69,7 @@ for j, n_components in enumerate(n_compo_range):
                 KernelPCA(n_components, eigen_solver="arpack")
                 .fit(X_train)
                 .transform(X_test)
-            )
+
             a_time[j, i] = time.perf_counter() - start_time
             # check that the result is still correct despite the approx
             assert_array_almost_equal(np.abs(a_pred), np.abs(ref_pred))
@@ -114,7 +82,7 @@ for j, n_components in enumerate(n_compo_range):
             KernelPCA(n_components, eigen_solver="randomized")
             .fit(X_train)
             .transform(X_test)
-        )
+
         r_time[j, i] = time.perf_counter() - start_time
         # check that the result is still correct despite the approximation
         assert_array_almost_equal(np.abs(r_pred), np.abs(ref_pred))
@@ -126,7 +94,6 @@ avg_a_time = a_time.mean(axis=1)
 std_a_time = a_time.std(axis=1)
 avg_r_time = r_time.mean(axis=1)
 std_r_time = r_time.std(axis=1)
-
 
 # 4- Plots
 # --------
@@ -141,7 +108,7 @@ ax.errorbar(
     linestyle="",
     color="r",
     label="full",
-)
+
 ax.errorbar(
     n_compo_range,
     avg_a_time,
@@ -150,7 +117,7 @@ ax.errorbar(
     linestyle="",
     color="g",
     label="arpack",
-)
+
 ax.errorbar(
     n_compo_range,
     avg_r_time,
@@ -159,7 +126,7 @@ ax.errorbar(
     linestyle="",
     color="b",
     label="randomized",
-)
+
 ax.legend(loc="upper left")
 
 # customize axes
@@ -172,6 +139,5 @@ ax.set_title(
     "kPCA Execution time comparison on %i samples with %i "
     "features, according to the choice of `eigen_solver`"
     "" % (n_train, n_features)
-)
 
 plt.show()
