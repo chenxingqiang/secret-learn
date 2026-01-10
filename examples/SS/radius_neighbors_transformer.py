@@ -104,7 +104,7 @@ def main():
     # Use SPU for SS mode
     
     model = SSRadiusNeighborsTransformer(spu)
-    model.fit(fed_X, fed_y)
+    model.fit(fed_X)
     
     training_time = time.time() - start_time
     print(f"  ✓ Training completed in {training_time*1000:.2f}ms")

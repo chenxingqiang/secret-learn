@@ -58,7 +58,7 @@ def main():
     base = Path(__file__).parent.parent
     
     fixed = 0
-    for mode in ['SL', 'FL']:
+    for mode in ['SL', 'FL', 'SS']:
         examples_dir = base / "examples" / mode
         for alg in UNSUPERVISED_ALGORITHMS:
             filepath = examples_dir / f"{alg}.py"
