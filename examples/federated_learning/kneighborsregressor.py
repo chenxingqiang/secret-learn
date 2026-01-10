@@ -21,7 +21,7 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.federated_learning.neighbors.KNeighborsRegressor import FLKNeighborsRegressor
+from secretlearn.federated_learning.neighbors.k_neighbors_regressor import FLKNeighborsRegressor
 
 
 def main():

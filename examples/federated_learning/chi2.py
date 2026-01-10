@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Usage Example for FLchi2
+Usage Example for FLChi2
 
 This example demonstrates how to use the privacy-preserving Chi2
 in SecretFlow's FL mode.
@@ -21,13 +21,13 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.federated_learning.feature_selection.chi2 import FLchi2
+from secretlearn.federated_learning.feature_selection.chi2 import FLChi2
 
 
 def main():
     """Main example function"""
     print("="*70)
-    print(f" FLchi2 Usage Example")
+    print(f" FLChi2 Usage Example")
     print("="*70)
     
     # Step 1: Initialize SecretFlow (PRODUCTION mode for SF 1.11+)
@@ -98,7 +98,7 @@ def main():
     print("  ✓ Federated data created")
     
     # Step 4: Train model
-    print("\n[4/5] Training FLchi2...")
+    print("\n[4/5] Training FLChi2...")
     print("  Note: All computation with privacy protection")
     
     import time
@@ -107,7 +107,7 @@ def main():
     # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = FLchi2(devices)
+    model = FLChi2(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time
