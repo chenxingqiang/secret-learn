@@ -34,11 +34,14 @@ def main():
     print("\n[1/5] Initializing SecretFlow...")
     
     # For single-node testing (simulated multi-party)
+    # Use random ports to avoid conflicts
+    import random
+    base_port = random.randint(10000, 60000)
     cluster_config = {
         'parties': {
-            'alice': {'address': 'localhost:9494', 'listen_addr': '0.0.0.0:9494'},
-            'bob': {'address': 'localhost:9495', 'listen_addr': '0.0.0.0:9495'},
-            'carol': {'address': 'localhost:9496', 'listen_addr': '0.0.0.0:9496'},
+            'alice': {'address': f'localhost:{base_port}', 'listen_addr': f'0.0.0.0:{base_port}'},
+            'bob': {'address': f'localhost:{base_port+1}', 'listen_addr': f'0.0.0.0:{base_port+1}'},
+            'carol': {'address': f'localhost:{base_port+2}', 'listen_addr': f'0.0.0.0:{base_port+2}'},
         },
         'self_party': 'alice'
     }
