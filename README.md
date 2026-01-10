@@ -7,7 +7,7 @@
 [![JAX-sklearn](https://img.shields.io/badge/JAX--sklearn-0.1.0+-red.svg)](https://github.com/chenxingqiang/jax-sklearn)
 [![SecretFlow](https://img.shields.io/badge/SecretFlow-1.0.0+-green.svg)](https://github.com/secretflow/secretflow)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](COPYING)
-[![Version](https://img.shields.io/badge/version-0.2.2-brightgreen.svg)](https://pypi.org/project/secret-learn/)
+[![Version](https://img.shields.io/badge/version-0.3.0-brightgreen.svg)](https://pypi.org/project/secret-learn/)
 [![sklearn Compatible](https://img.shields.io/badge/sklearn-compatible-blue.svg)](https://scikit-learn.org)
 
 ---
@@ -987,8 +987,8 @@ pip install Secret-Learn
 
 ---
 
-**Last Updated:** 2025-11-29  
-**Version:** 0.2.2 (SS Mode Fix)  
+**Last Updated:** 2026-01-10  
+**Version:** 0.3.0 (Directory Refactoring)  
 **Status:** Production Ready  
 
 **Summary:**
