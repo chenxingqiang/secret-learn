@@ -54,7 +54,7 @@ Secret-Learn features a 6-layer architecture that seamlessly integrates JAX acce
 5. **JAX Acceleration** - 5x+ performance boost with hardware abstraction
 6. **SecretFlow Integration** - SPU, HEU, TEE devices for privacy computation
 
-For detailed architecture documentation, see [ARCHITECTURE.md](doc/ARCHITECTURE.md).
+For detailed architecture documentation, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ---
 
@@ -134,7 +134,7 @@ The easiest way to get started is running the complete examples:
 ```bash
 # FL Mode - Best for learning (works in examples)
 python examples/federated_learning/linear_regression.py      # Linear regression
-python examples/federated_learning/kmeans.py                 # Clustering  
+python examples/federated_learning/kmeans.py                 # Clustering
 python examples/federated_learning/random_forest_classifier.py  # Ensemble
 
 # SL Mode - Split learning examples
