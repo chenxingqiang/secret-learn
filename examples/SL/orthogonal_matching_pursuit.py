@@ -104,7 +104,7 @@ def main():
     # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = FLOrthogonalMatchingPursuit(devices)
+    model = SLOrthogonalMatchingPursuit(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

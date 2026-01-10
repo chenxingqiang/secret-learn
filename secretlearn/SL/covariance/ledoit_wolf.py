@@ -275,8 +275,28 @@ class SLLedoitWolf:
         if self.aggregation_method == 'mean':
             return aggregator.average(transform_list)
         elif self.aggregation_method == 'weighted_mean':
-            # TODO: Implement weighted aggregation
-            return aggregator.average(transform_list)
+            # Weighted average based on sample counts from each party
+            # Collect sample counts for weighting
+            weights = []
+            for party_name, device in self.devices.items():
+                if device in x.partitions:
+                    X_local = x.partitions[device]
+                    # Get sample count as weight
+                    n_samples = device(lambda X: X.shape[0])(X_local)
+                    weights.append(n_samples)
+            
+            # Normalize weights
+            total = sum(weights)
+            normalized_weights = [w / total for w in weights]
+            
+            # Apply weighted aggregation
+            weighted_results = []
+            for t, w in zip(transform_list, normalized_weights):
+                weighted_t = t * w
+                weighted_results.append(weighted_t)
+            
+            # Sum weighted results
+            return aggregator.sum(weighted_results, axis=0)
         else:
             raise ValueError(f"Unsupported aggregation method: {self.aggregation_method}")
     

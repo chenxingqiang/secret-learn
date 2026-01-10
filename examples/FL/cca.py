@@ -21,7 +21,7 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.FL.cross_decomposition.cca import FL CCA
+from secretlearn.FL.cross_decomposition.cca import FLCCA
 
 
 def main():
@@ -104,7 +104,7 @@ def main():
     # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = FL CCA(devices)
+    model = FLCCA(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

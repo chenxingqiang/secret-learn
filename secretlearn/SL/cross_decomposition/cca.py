@@ -29,7 +29,7 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SL CCA:
+class SLCCA:
     """Federated Learning  CCA"""
     
     def __init__(self, devices: Dict[str, 'PYU'], heu: Optional['HEU'] = None, **kwargs):
@@ -39,7 +39,7 @@ class SL CCA:
         self.heu = heu
         self.local_models = {}
         for party_name, device in devices.items():
-            self.local_models[party_name] = device(lambda **kw:  CCA(**kw))(**kwargs)
+            self.local_models[party_name] = device(lambda **kw: CCA(**kw))(**kwargs)
         self._is_fitted = False
         if USING_XLEARN:
             logging.info(f"[SL] SL CCA with JAX acceleration")

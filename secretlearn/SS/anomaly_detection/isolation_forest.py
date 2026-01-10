@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.anomaly_detection import IsolationForest
+    from xlearn.ensemble import IsolationForest
     USING_XLEARN = True
 except ImportError:
-    from sklearn.anomaly_detection import IsolationForest
+    from sklearn.ensemble import IsolationForest
     USING_XLEARN = False
 
 try:

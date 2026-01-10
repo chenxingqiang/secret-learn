@@ -34,7 +34,7 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
     
 
-class FLchi2:
+class FLChi2:
     """
     Federated Learning chi2
     

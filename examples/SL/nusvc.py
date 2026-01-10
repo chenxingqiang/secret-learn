@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-Usage Example for SLNusvc
+Usage Example for SLNuSVC
 
 This example demonstrates how to use the privacy-preserving Nusvc
 in SecretFlow's SL mode.
@@ -21,24 +21,27 @@ except ImportError:
     print(" SecretFlow not installed. Install with: pip install secretflow")
     exit(1)
 
-from secretlearn.SL.svm.nusvc import SLNusvc
+from secretlearn.SL.svm.nusvc import SLNuSVC
 
 
 def main():
     """Main example function"""
     print("="*70)
-    print(f" SLNusvc Usage Example")
+    print(f" SLNuSVC Usage Example")
     print("="*70)
     
     # Step 1: Initialize SecretFlow (PRODUCTION mode for SF 1.11+)
     print("\n[1/5] Initializing SecretFlow...")
     
     # For single-node testing (simulated multi-party)
+    # Use random ports to avoid conflicts
+    import random
+    base_port = random.randint(10000, 60000)
     cluster_config = {
         'parties': {
-            'alice': {'address': 'localhost:9497', 'listen_addr': '0.0.0.0:9497'},
-            'bob': {'address': 'localhost:9498', 'listen_addr': '0.0.0.0:9498'},
-            'carol': {'address': 'localhost:9499', 'listen_addr': '0.0.0.0:9499'},
+            'alice': {'address': f'localhost:{base_port}', 'listen_addr': f'0.0.0.0:{base_port}'},
+            'bob': {'address': f'localhost:{base_port+1}', 'listen_addr': f'0.0.0.0:{base_port+1}'},
+            'carol': {'address': f'localhost:{base_port+2}', 'listen_addr': f'0.0.0.0:{base_port+2}'},
         },
         'self_party': 'alice'
     }
@@ -95,7 +98,7 @@ def main():
     print("  ✓ Federated data created")
     
     # Step 4: Train model
-    print("\n[4/5] Training SLNusvc...")
+    print("\n[4/5] Training SLNuSVC...")
     print("  Note: All computation with privacy protection")
     
     import time
@@ -104,7 +107,7 @@ def main():
     # Create devices dict for SL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = SLNusvc(devices)
+    model = SLNuSVC(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

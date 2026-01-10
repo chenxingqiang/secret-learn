@@ -104,7 +104,7 @@ def main():
     # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     
-    model = FLSkewedChi2Sampler(devices)
+    model = SLSkewedChi2Sampler(devices)
     model.fit(fed_X, fed_y)
     
     training_time = time.time() - start_time

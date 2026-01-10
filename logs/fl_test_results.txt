@@ -1,0 +1,281 @@
+FL Examples Test Results
+Started: 2026-01-10 01:14:14.687544
+Total examples: 192
+======================================================================
+
+✓ adaboost_classifier.py: PASS (102.9s)
+✓ adaboost_regressor.py: PASS (102.7s)
+✓ additive_chi2_sampler.py: PASS (102.3s)
+✓ affinity_propagation.py: PASS (102.5s)
+✓ agglomerative_clustering.py: PASS (102.3s)
+✓ ard_regression.py: PASS (102.0s)
+✓ bagging_classifier.py: PASS (102.0s)
+✓ bagging_regressor.py: PASS (102.2s)
+✓ base_random_projection.py: PASS (102.1s)
+✓ bayesian_gaussian_mixture.py: PASS (102.7s)
+✓ bayesian_ridge.py: PASS (102.2s)
+✓ bernoulli_nb.py: PASS (102.4s)
+✓ bernoulli_rbm.py: PASS (102.4s)
+✓ binarizer.py: PASS (102.2s)
+✓ birch.py: PASS (102.6s)
+✓ bisecting_kmeans.py: PASS (102.1s)
+✓ calibrated_classifier_cv.py: PASS (102.3s)
+✓ categorical_nb.py: PASS (102.3s)
+✓ cca.py: PASS (102.4s)
+✓ chi2.py: PASS (102.5s)
+✓ complement_nb.py: PASS (102.3s)
+✗ dbscan.py: FAIL - TIMEOUT
+✓ decision_tree_classifier.py: PASS (102.9s)
+✓ decision_tree_regressor.py: PASS (102.8s)
+✓ dict_vectorizer.py: PASS (102.0s)
+✓ dictionary_learning.py: PASS (102.6s)
+✓ dummy_classifier.py: PASS (102.6s)
+✓ dummy_regressor.py: PASS (102.2s)
+✓ elastic_net.py: PASS (102.5s)
+✓ elastic_net_cv.py: PASS (102.6s)
+✗ elliptic_envelope.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ empirical_covariance.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ extra_tree_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ extra_tree_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ extra_trees_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ extra_trees_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ factor_analysis.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ fast_ica.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ feature_agglomeration.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ feature_hasher.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ function_transformer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gamma_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gaussian_mixture.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gaussian_nb.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gaussian_process_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gaussian_process_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gaussian_random_projection.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ generic_univariate_select.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gradient_boosting_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ gradient_boosting_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ graphical_lasso.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ graphical_lasso_cv.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ hdbscan.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ histgradient_boosting_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ histgradient_boosting_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ huber_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ incremental_pca.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ isolation_forest.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ isomap.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ isotonic_regression.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ k_bins_discretizer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ k_neighbors_classifier.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ k_neighbors_regressor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ k_neighbors_transformer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kernel_centerer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kernel_density.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kernel_pca.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kernel_ridge.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kmeans.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ kneighborsregressor.py: FAIL - ModuleNotFoundError: No module named 'secretlearn.FL.neighbors.KNeighborsRegressor'
+✗ knn_imputer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ label_binarizer.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ label_encoder.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ label_propagation.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ label_spreading.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lars.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lars_cv.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lasso.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lasso_cv.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lasso_lars.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lasso_lars_cv.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ lasso_lars_ic.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ latent_dirichlet_allocation.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ ledoit_wolf.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ linear_discriminant_analysis.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ linear_regression.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ linear_svc.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ linear_svr.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ local_outlier_factor.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ locally_linear_embedding.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ logistic_regression.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ logistic_regression_cv.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ max_abs_scaler.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ mds.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ mean_shift.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✗ min_cov_det.py: FAIL - RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+✓ min_max_scaler.py: PASS (102.1s)
+✗ mini_batch_dictionarylearning.py: FAIL - TIMEOUT
+✗ mini_batch_kmeans.py: FAIL - TIMEOUT
+✗ mini_batch_nmf.py: FAIL - TIMEOUT
+✓ mini_batch_sparse_pca.py: PASS (102.1s)
+✓ missing_indicator.py: PASS (101.9s)
+✓ mlp_classifier.py: PASS (102.6s)
+✓ mlp_regressor.py: PASS (102.7s)
+✓ multi_label_binarizer.py: PASS (102.3s)
+✓ multi_output_classifier.py: PASS (102.5s)
+✓ multi_output_regressor.py: PASS (102.0s)
+✓ multi_task_elastic_net.py: PASS (102.6s)
+✓ multi_task_elastic_net_cv.py: PASS (102.1s)
+✓ multi_task_lasso.py: PASS (102.1s)
+✓ multi_task_lasso_cv.py: PASS (102.4s)
+✓ multinomial_nb.py: PASS (102.4s)
+✓ nearest_centroid.py: PASS (102.1s)
+✓ nearest_neighbors.py: PASS (102.5s)
+✓ neighborhood_components_analysis.py: PASS (102.6s)
+✗ nmf.py: FAIL - TIMEOUT
+✓ normalizer.py: PASS (102.3s)
+✓ nusvc.py: PASS (102.2s)
+✓ nusvr.py: PASS (102.6s)
+✓ nystroem.py: PASS (102.0s)
+✓ oas.py: PASS (102.4s)
+✗ one_class_svm.py: FAIL - TIMEOUT
+✓ one_hot_encoder.py: PASS (102.3s)
+✓ one_vs_one_classifier.py: PASS (102.1s)
+✓ one_vs_rest_classifier.py: PASS (102.6s)
+✓ optics.py: PASS (102.7s)
+✓ ordinal_encoder.py: PASS (102.4s)
+✓ orthogonal_matching_pursuit.py: PASS (102.4s)
+✓ orthogonal_matching_pursuit_cv.py: PASS (102.0s)
+✓ passive_aggressive_classifier.py: PASS (102.2s)
+✓ passive_aggressive_regressor.py: PASS (102.5s)
+✗ pca.py: FAIL - TIMEOUT
+✓ perceptron.py: PASS (102.6s)
+✓ plscanonical.py: PASS (102.7s)
+✓ plsregression.py: PASS (102.6s)
+✓ poisson_regressor.py: PASS (102.5s)
+✓ polynomial_count_sketch.py: PASS (102.3s)
+✓ polynomial_features.py: PASS (102.5s)
+✓ power_transformer.py: PASS (102.4s)
+✓ quadratic_discriminant_analysis.py: PASS (106.9s)
+✓ quantile_regressor.py: PASS (107.5s)
+✓ quantile_transformer.py: PASS (102.1s)
+✓ radius_neighbors_classifier.py: PASS (102.8s)
+✓ radius_neighbors_regressor.py: PASS (102.3s)
+✓ radius_neighbors_transformer.py: PASS (102.5s)
+✓ random_forest_classifier.py: PASS (102.5s)
+✓ random_forest_regressor.py: PASS (102.4s)
+✓ random_trees_embedding.py: PASS (102.7s)
+✓ ransac_regressor.py: PASS (102.3s)
+✓ rbf_sampler.py: PASS (102.1s)
+✓ rfe.py: PASS (102.3s)
+✓ rfecv.py: PASS (102.5s)
+✓ ridge.py: PASS (102.6s)
+✓ ridge_classifier.py: PASS (102.6s)
+✓ ridge_classifier_cv.py: PASS (102.4s)
+✓ ridgecv.py: PASS (102.6s)
+✓ robust_scaler.py: PASS (102.5s)
+✓ select_fdr.py: PASS (102.4s)
+✓ select_fpr.py: PASS (102.2s)
+✓ select_from_model.py: PASS (102.4s)
+✓ select_fwe.py: PASS (102.5s)
+✓ select_k_best.py: PASS (102.5s)
+✓ select_percentile.py: PASS (102.3s)
+✓ self_training_classifier.py: PASS (102.4s)
+✓ sequential_feature_selector.py: PASS (102.6s)
+✓ sgd_classifier.py: PASS (102.6s)
+✗ sgd_one_class_svm.py: FAIL - TIMEOUT
+✓ sgd_regressor.py: PASS (102.3s)
+✗ shrunkcovariance.py: FAIL - TIMEOUT
+✓ simple_imputer.py: PASS (102.6s)
+✓ skewed_chi2_sampler.py: PASS (102.4s)
+✓ sparse_coder.py: PASS (102.4s)
+✓ sparse_pca.py: PASS (102.4s)
+✓ sparse_random_projection.py: PASS (102.3s)
+✓ spectral_biclustering.py: PASS (102.4s)
+✓ spectral_clustering.py: PASS (102.7s)
+✓ spectral_coclustering.py: PASS (102.6s)
+✓ spectral_embedding.py: PASS (102.7s)
+✗ splinetransformer.py: FAIL - TIMEOUT
+✓ stacking_classifier.py: PASS (102.5s)
+✓ stacking_regressor.py: PASS (102.5s)
+✓ standard_scaler.py: PASS (102.1s)
+✓ svc.py: PASS (102.3s)
+✓ svr.py: PASS (102.2s)
+✓ target_encoder.py: PASS (102.3s)
+✓ theil_sen_regressor.py: PASS (102.2s)
+✗ truncated_svd.py: FAIL - TIMEOUT
+✗ tsne.py: FAIL - TIMEOUT
+✓ tweedie_regressor.py: PASS (102.6s)
+✓ variance_threshold.py: PASS (102.2s)
+✓ voting_classifier.py: PASS (102.6s)
+✓ voting_regressor.py: PASS (102.5s)
+
+======================================================================
+Results: 114/192 passed
+Finished: 2026-01-10 05:07:53.289710
+
+Failed examples (78):
+  - dbscan.py: TIMEOUT
+  - elliptic_envelope.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - empirical_covariance.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - extra_tree_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - extra_tree_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - extra_trees_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - extra_trees_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - factor_analysis.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - fast_ica.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - feature_agglomeration.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - feature_hasher.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - function_transformer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gamma_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gaussian_mixture.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gaussian_nb.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gaussian_process_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gaussian_process_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gaussian_random_projection.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - generic_univariate_select.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gradient_boosting_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - gradient_boosting_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - graphical_lasso.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - graphical_lasso_cv.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - hdbscan.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - histgradient_boosting_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - histgradient_boosting_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - huber_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - incremental_pca.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - isolation_forest.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - isomap.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - isotonic_regression.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - k_bins_discretizer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - k_neighbors_classifier.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - k_neighbors_regressor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - k_neighbors_transformer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kernel_centerer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kernel_density.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kernel_pca.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kernel_ridge.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kmeans.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - kneighborsregressor.py: ModuleNotFoundError: No module named 'secretlearn.FL.neighbors.KNeighborsRegressor'
+  - knn_imputer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - label_binarizer.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - label_encoder.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - label_propagation.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - label_spreading.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lars.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lars_cv.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lasso.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lasso_cv.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lasso_lars.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lasso_lars_cv.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - lasso_lars_ic.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - latent_dirichlet_allocation.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - ledoit_wolf.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - linear_discriminant_analysis.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - linear_regression.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - linear_svc.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - linear_svr.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - local_outlier_factor.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - locally_linear_embedding.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - logistic_regression.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - logistic_regression_cv.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - max_abs_scaler.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - mds.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - mean_shift.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - min_cov_det.py: RuntimeError: Failed to bind to address [::]:9491; set GRPC_VERBOSITY=debug environment variable to see detailed error message.
+  - mini_batch_dictionarylearning.py: TIMEOUT
+  - mini_batch_kmeans.py: TIMEOUT
+  - mini_batch_nmf.py: TIMEOUT
+  - nmf.py: TIMEOUT
+  - one_class_svm.py: TIMEOUT
+  - pca.py: TIMEOUT
+  - sgd_one_class_svm.py: TIMEOUT
+  - shrunkcovariance.py: TIMEOUT
+  - splinetransformer.py: TIMEOUT
+  - truncated_svd.py: TIMEOUT
+  - tsne.py: TIMEOUT

@@ -219,12 +219,56 @@ class SLSVR:
                 return self._simple_aggregate_predictions(predictions_list)
     
     def _secure_aggregate_parameters(self):
-        """Securely aggregate model parameters using HEU"""
-        logging.info("[SL] Secure parameter aggregation via HEU")
-        # TODO: Implement actual HEU-encrypted parameter aggregation
-        aggregator = SecureAggregator(device=self.heu)
-        # Aggregate coef_, intercept_, etc.
-        pass
+        """
+        Securely aggregate model parameters across parties using HEU
+        
+        Collects coef_, intercept_ from each party's local model and
+        performs secure weighted averaging based on sample counts.
+        
+        Returns
+        -------
+        aggregated_params : dict
+            Dictionary containing securely aggregated model parameters
+        """
+        logging.info("[SL] Secure parameter aggregation via SecureAggregator")
+        
+        # Get participating parties
+        parties = list(self.devices.values())
+        host_party = parties[0]
+        
+        # Create SecureAggregator
+        aggregator = SecureAggregator(device=host_party, participants=parties)
+        
+        # Collect parameters from each party
+        coef_list = []
+        intercept_list = []
+        sample_counts = []
+        
+        for party_name, device in self.devices.items():
+            model = self.local_models[party_name]
+            
+            def _extract_params(m):
+                params = {}
+                if hasattr(m, 'coef_'):
+                    params['coef_'] = m.coef_
+                if hasattr(m, 'intercept_'):
+                    params['intercept_'] = m.intercept_
+                return params
+            
+            params = device(_extract_params)(model)
+            if 'coef_' in params:
+                coef_list.append(params['coef_'])
+            if 'intercept_' in params:
+                intercept_list.append(params['intercept_'])
+        
+        # Securely aggregate parameters
+        aggregated = {}
+        if coef_list:
+            aggregated['coef_'] = aggregator.average(coef_list, axis=0)
+        if intercept_list:
+            aggregated['intercept_'] = aggregator.average(intercept_list, axis=0)
+        
+        return aggregated
     
     def _secure_aggregate_predictions(self, predictions_list):
         """Securely aggregate predictions using HEU"""

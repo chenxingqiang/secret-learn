@@ -227,8 +227,55 @@ class FLSGDClassifier:
                 return np.mean(predictions_list, axis=0)
     
     def _secure_aggregate_parameters(self):
-        """Securely aggregate model parameters using HEU"""
-        logging.debug("[FL] Secure parameter aggregation via HEU")
-        aggregator = SecureAggregator(device=self.heu)
-        # TODO: Implement actual parameter aggregation
-        pass
+        """
+        Securely aggregate model parameters across parties using HEU
+        
+        For iterative models (SGD, Perceptron, etc.), called after
+        each epoch to synchronize parameters across parties.
+        """
+        logging.debug("[FL] Secure parameter aggregation via SecureAggregator")
+        
+        parties = list(self.devices.values())
+        host_party = parties[0]
+        aggregator = SecureAggregator(device=host_party, participants=parties)
+        
+        coef_list = []
+        intercept_list = []
+        
+        for party_name, device in self.devices.items():
+            model = self.local_models[party_name]
+            
+            def _extract_params(m):
+                params = {}
+                if hasattr(m, 'coef_'):
+                    params['coef_'] = m.coef_
+                if hasattr(m, 'intercept_'):
+                    params['intercept_'] = m.intercept_
+                return params
+            
+            params = device(_extract_params)(model)
+            if 'coef_' in params:
+                coef_list.append(params['coef_'])
+            if 'intercept_' in params:
+                intercept_list.append(params['intercept_'])
+        
+        aggregated = {}
+        if coef_list:
+            aggregated['coef_'] = aggregator.average(coef_list, axis=0)
+        if intercept_list:
+            aggregated['intercept_'] = aggregator.average(intercept_list, axis=0)
+        
+        # Update local models
+        for party_name, device in self.devices.items():
+            model = self.local_models[party_name]
+            
+            def _update_params(m, params):
+                if 'coef_' in params:
+                    m.coef_ = params['coef_']
+                if 'intercept_' in params:
+                    m.intercept_ = params['intercept_']
+                return m
+            
+            device(_update_params)(model, aggregated)
+        
+        return aggregated

@@ -29,7 +29,7 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
 
 
-class SLQuadraticdiscriminantanalysis:
+class SLQuadraticDiscriminantAnalysis:
     """Split Learning Quadraticdiscriminantanalysis"""
     
     def __init__(self, devices: Dict[str, 'PYU'], heu: Optional['HEU'] = None, **kwargs):

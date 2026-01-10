@@ -34,7 +34,7 @@ except ImportError:
     SECRETFLOW_AVAILABLE = False
     
 
-class SLchi2:
+class SLChi2:
     """
     Split Learning chi2
     

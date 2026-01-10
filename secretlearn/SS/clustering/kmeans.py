@@ -14,10 +14,10 @@ import logging
 from typing import Union
 
 try:
-    from xlearn.cluster import Kmeans
+    from xlearn.cluster import KMeans
     USING_XLEARN = True
 except ImportError:
-    from sklearn.cluster import Kmeans
+    from sklearn.cluster import KMeans
     USING_XLEARN = False
 
 try:
@@ -58,7 +58,7 @@ class SSKmeans:
             # Concatenate partitions
             X = jnp.concatenate(X_parts, axis=1) if len(X_parts) > 1 else X_parts[0]
             y = y_parts[0] if isinstance(y_parts, list) else y_parts
-            model = Kmeans(**kwargs)
+            model = KMeans(**kwargs)
             model.fit(X, y)
             return model
         
