@@ -1,25 +1,36 @@
-name: Feature request
-description: Suggest a new algorithm, enhancement to an existing algorithm, etc.
-labels: ['New Feature', 'Needs Triage']
+name: Feature Request
+description: Suggest a new feature
+labels: ['enhancement']
 
 body:
-- type: markdown
-  attributes:
-    value: >
-      #### If you want to propose a new algorithm, please refer first to the [Secret-Learn inclusion criterion](https://Secret-Learn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms).
 - type: textarea
   attributes:
-    label: Describe the workflow you want to enable
+    label: Feature Description
+    description: What feature would you like to see?
   validations:
     required: true
-- type: textarea
+
+- type: dropdown
   attributes:
-    label: Describe your proposed solution
+    label: Privacy Mode
+    description: Which mode should this feature support?
+    multiple: true
+    options:
+      - FL (Federated Learning)
+      - SS (Secret Sharing)
+      - SL (Split Learning)
+      - All modes
   validations:
     required: true
+
 - type: textarea
   attributes:
-    label: Describe alternatives you've considered, if relevant
+    label: Use Case
+    description: Describe your use case for this feature.
+  validations:
+    required: true
+
 - type: textarea
   attributes:
-    label: Additional context
+    label: Proposed Solution
+    description: How would you implement this? (optional)
