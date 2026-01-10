@@ -1,45 +1,21 @@
 """
-===========================
-Covertype dataset benchmark
-===========================
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-Benchmark stochastic gradient descent (SGD), Liblinear, and Naive Bayes, CART
-(decision tree), RandomForest and Extra-Trees on the forest covertype dataset
-of Blackard, Jock, and Dean [1]. The dataset comprises 581,012 samples. It is
-low dimensional with 54 features and a sparsity of approx. 23%. Here, we
-consider the task of predicting class 1 (spruce/fir). The classification
-performance of SGD is competitive with Liblinear while being two orders of
-magnitude faster to train::
-
-    [..]
-    Classification performance:
-    ===========================
-    Classifier   train-time test-time error-rate
-    --------------------------------------------
-    liblinear     15.9744s    0.0705s     0.2305
-    GaussianNB    3.0666s     0.3884s     0.4841
-    SGD           1.0558s     0.1152s     0.2300
-    CART          79.4296s    0.0523s     0.0469
-    RandomForest  1190.1620s  0.5881s     0.0243
-    ExtraTrees    640.3194s   0.6495s     0.0198
-
-The same task has been used in a number of papers including:
-
- * :doi:`"SVM Optimization: Inverse Dependence on Training Set Size"
-   S. Shalev-Shwartz, N. Srebro - In Proceedings of ICML '08.
-   <10.1145/1390156.1390273>`
-
- * :doi:`"Pegasos: Primal estimated sub-gradient solver for svm"
-   S. Shalev-Shwartz, Y. Singer, N. Srebro - In Proceedings of ICML '07.
-   <10.1145/1273496.1273598>`
-
- * `"Training Linear SVMs in Linear Time"
-   <https://www.cs.cornell.edu/people/tj/publications/joachims_06a.pdf>`_
-   T. Joachims - In SIGKDD '06
-
-[1] https://archive.ics.uci.edu/ml/datasets/Covertype
-
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.tree.decision_tree_classifier import FLDecisionTreeClassifier
+from secretlearn.federated_learning.ensemble.extra_trees_classifier import FLExtraTreesClassifier
+from secretlearn.federated_learning.naive_bayes.gaussian_nb import FLGaussianNB
+from secretlearn.federated_learning.ensemble.gradient_boosting_classifier import FLGradientBoostingClassifier
+from secretlearn.federated_learning.svm.linear_svc import FLLinearSVC
+from secretlearn.federated_learning.linear_models.logistic_regression import FLLogisticRegression
+from secretlearn.federated_learning.ensemble.random_forest_classifier import FLRandomForestClassifier
+from secretlearn.federated_learning.linear_models.sgd_classifier import FLSGDClassifier
 
 # Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
@@ -51,25 +27,14 @@ from time import time
 import numpy as np
 from joblib import Memory
 
-from xlearn.datasets import fetch_covtype, get_data_home
-from xlearn.ensemble import (
-    ExtraTreesClassifier,
-    GradientBoostingClassifier,
-    RandomForestClassifier,
-)
-from xlearn.linear_model import LogisticRegression, SGDClassifier
-from xlearn.metrics import zero_one_loss
-from xlearn.naive_bayes import GaussianNB
-from xlearn.svm import LinearSVC
-from xlearn.tree import DecisionTreeClassifier
-from xlearn.utils import check_array
+from sklearn.datasets import fetch_covtype, get_data_home
+from sklearn.metrics import zero_one_loss
+from sklearn.utils import check_array
 
 # Memoize the data extraction and memory map the resulting
 # train / test splits in readonly mode
 memory = Memory(
     os.path.join(get_data_home(), "covertype_benchmark_data"), mmap_mode="r"
-)
-
 
 @memory.cache
 def load_data(dtype=np.float32, order="C", random_state=13):
@@ -79,7 +44,7 @@ def load_data(dtype=np.float32, order="C", random_state=13):
     print("Loading dataset...")
     data = fetch_covtype(
         download_if_missing=True, shuffle=True, random_state=random_state
-    )
+
     X = check_array(data["data"], dtype=dtype, order=order)
     y = (data["target"] != 1).astype(int)
 
@@ -100,18 +65,16 @@ def load_data(dtype=np.float32, order="C", random_state=13):
     X_test = (X_test - mean) / std
     return X_train, X_test, y_train, y_test
 
-
 ESTIMATORS = {
-    "GBRT": GradientBoostingClassifier(n_estimators=250),
-    "ExtraTrees": ExtraTreesClassifier(n_estimators=20),
-    "RandomForest": RandomForestClassifier(n_estimators=20),
-    "CART": DecisionTreeClassifier(min_samples_split=5),
-    "SGD": SGDClassifier(alpha=0.001),
-    "GaussianNB": GaussianNB(),
-    "liblinear": LinearSVC(loss="l2", penalty="l2", C=1000, dual=False, tol=1e-3),
-    "SAG": LogisticRegression(solver="sag", max_iter=2, C=1000),
+    "GBRT": FLGradientBoostingClassifier(n_estimators=250),
+    "ExtraTrees": FLExtraTreesClassifier(n_estimators=20),
+    "RandomForest": FLRandomForestClassifier(n_estimators=20),
+    "CART": FLDecisionTreeClassifier(min_samples_split=5),
+    "SGD": FLSGDClassifier(alpha=0.001),
+    "FLGaussianNB": FLGaussianNB(),
+    "liblinear": FLLinearSVC(loss="l2", penalty="l2", C=1000, dual=False, tol=1e-3),
+    "SAG": FLLogisticRegression(solver="sag", max_iter=2, C=1000),
 }
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -120,9 +83,9 @@ if __name__ == "__main__":
         nargs="+",
         choices=ESTIMATORS,
         type=str,
-        default=["liblinear", "GaussianNB", "SGD", "CART"],
+        default=["liblinear", "FLGaussianNB", "SGD", "CART"],
         help="list of classifiers to benchmark.",
-    )
+
     parser.add_argument(
         "--n-jobs",
         nargs="?",
@@ -132,7 +95,7 @@ if __name__ == "__main__":
             "Number of concurrently running workers for "
             "models that support parallelism."
         ),
-    )
+
     parser.add_argument(
         "--order",
         nargs="?",
@@ -140,21 +103,20 @@ if __name__ == "__main__":
         type=str,
         choices=["F", "C"],
         help="Allow to choose between fortran and C ordered data",
-    )
+
     parser.add_argument(
         "--random-seed",
         nargs="?",
         default=13,
         type=int,
         help="Common seed used by random number generator.",
-    )
+
     args = vars(parser.parse_args())
 
     print(__doc__)
 
     X_train, X_test, y_train, y_test = load_data(
         order=args["order"], random_state=args["random_seed"]
-    )
 
     print("")
     print("Dataset statistics:")
@@ -170,8 +132,7 @@ if __name__ == "__main__":
             np.sum(y_train == 1),
             np.sum(y_train == 0),
             int(X_train.nbytes / 1e6),
-        )
-    )
+
     print(
         "%s %d (pos=%d, neg=%d, size=%dMB)"
         % (
@@ -180,8 +141,6 @@ if __name__ == "__main__":
             np.sum(y_test == 1),
             np.sum(y_test == 0),
             int(X_test.nbytes / 1e6),
-        )
-    )
 
     print()
     print("Training Classifiers")
@@ -198,7 +157,6 @@ if __name__ == "__main__":
                 for p in estimator_params
                 if p.endswith("random_state")
             }
-        )
 
         if "n_jobs" in estimator_params:
             estimator.set_params(n_jobs=args["n_jobs"])
@@ -228,7 +186,5 @@ if __name__ == "__main__":
                 ("%.4fs" % train_time[name]).center(10),
                 ("%.4fs" % test_time[name]).center(10),
                 ("%.4f" % error[name]).center(10),
-            )
-        )
 
     print()

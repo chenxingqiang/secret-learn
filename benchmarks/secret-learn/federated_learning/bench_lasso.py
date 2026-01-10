@@ -1,24 +1,22 @@
 """
-Benchmarks of Lasso vs LassoLars
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-First, we fix a training set and increase the number of
-samples. Then we plot the computation time as function of
-the number of samples.
-
-In the second benchmark, we increase the number of dimensions of the
-training set. Then we plot the computation time as function of
-the number of dimensions.
-
-In both cases, only 10% of the features are informative.
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.linear_models.lasso import FLLasso
+from secretlearn.federated_learning.linear_models.lasso_lars import FLLassoLars
 
 import gc
 from time import time
 
 import numpy as np
 
-from xlearn.datasets import make_regression
-
+from sklearn.datasets import make_regression
 
 def compute_bench(alpha, n_samples, n_features, precompute):
     lasso_results = []
@@ -39,44 +37,40 @@ def compute_bench(alpha, n_samples, n_features, precompute):
                 n_informative=n_informative,
                 noise=0.1,
                 coef=True,
-            )
 
             X /= np.sqrt(np.sum(X**2, axis=0))  # Normalize data
 
             gc.collect()
-            print("- benchmarking Lasso")
-            clf = Lasso(alpha=alpha, fit_intercept=False, precompute=precompute)
+            print("- benchmarking FLLasso")
+            clf = FLLasso(alpha=alpha, fit_intercept=False, precompute=precompute)
             tstart = time()
             clf.fit(X, Y)
             lasso_results.append(time() - tstart)
 
             gc.collect()
-            print("- benchmarking LassoLars")
-            clf = LassoLars(alpha=alpha, fit_intercept=False, precompute=precompute)
+            print("- benchmarking FLLassoLars")
+            clf = FLLassoLars(alpha=alpha, fit_intercept=False, precompute=precompute)
             tstart = time()
             clf.fit(X, Y)
             lars_lasso_results.append(time() - tstart)
 
     return lasso_results, lars_lasso_results
 
-
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    from xlearn.linear_model import Lasso, LassoLars
-
+    
     alpha = 0.01  # regularization parameter
 
     n_features = 10
     list_n_samples = np.linspace(100, 1000000, 5).astype(int)
     lasso_results, lars_lasso_results = compute_bench(
         alpha, list_n_samples, [n_features], precompute=True
-    )
 
     plt.figure("Secret-Learn LASSO benchmark results")
     plt.subplot(211)
-    plt.plot(list_n_samples, lasso_results, "b-", label="Lasso")
-    plt.plot(list_n_samples, lars_lasso_results, "r-", label="LassoLars")
+    plt.plot(list_n_samples, lasso_results, "b-", label="FLLasso")
+    plt.plot(list_n_samples, lars_lasso_results, "r-", label="FLLassoLars")
     plt.title("precomputed Gram matrix, %d features, alpha=%s" % (n_features, alpha))
     plt.legend(loc="upper left")
     plt.xlabel("number of samples")
@@ -87,10 +81,10 @@ if __name__ == "__main__":
     list_n_features = np.linspace(500, 3000, 5).astype(int)
     lasso_results, lars_lasso_results = compute_bench(
         alpha, [n_samples], list_n_features, precompute=False
-    )
+
     plt.subplot(212)
-    plt.plot(list_n_features, lasso_results, "b-", label="Lasso")
-    plt.plot(list_n_features, lars_lasso_results, "r-", label="LassoLars")
+    plt.plot(list_n_features, lasso_results, "b-", label="FLLasso")
+    plt.plot(list_n_features, lars_lasso_results, "r-", label="FLLassoLars")
     plt.title("%d samples, alpha=%s" % (n_samples, alpha))
     plt.legend(loc="upper left")
     plt.xlabel("number of features")

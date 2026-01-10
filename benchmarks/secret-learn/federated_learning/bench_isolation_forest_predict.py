@@ -1,35 +1,14 @@
 """
-==========================================
-IsolationForest prediction benchmark
-==========================================
-A test of IsolationForest on classical anomaly detection datasets.
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-The benchmark is run as follows:
-1. The dataset is randomly split into a training set and a test set, both
-assumed to contain outliers.
-2. Isolation Forest is trained on the training set fixed at 1000 samples.
-3. The test samples are scored using the trained model at:
-    - 1000, 10000, 50000 samples
-    - 10, 100, 1000 features
-    - 0.01, 0.1, 0.5 contamination
-    - 1, 2, 3, 4 n_jobs
-
-We compare the prediction time at the very end.
-
-Here are instructions for running this benchmark to compare runtime against main branch:
-
-1. Build and run on a branch or main, e.g. for a branch named `pr`:
-
-```bash
-python bench_isolation_forest_predict.py bench ~/bench_results pr
-```
-
-2. Plotting to compare two branches `pr` and `main`:
-
-```bash
-python bench_isolation_forest_predict.py plot ~/bench_results pr main results_image.png
-```
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.anomaly_detection.isolation_forest import FLIsolationForest
 
 import argparse
 from collections import defaultdict
@@ -40,10 +19,7 @@ import numpy as np
 import pandas as pd
 from joblib import parallel_config
 
-from xlearn.ensemble import IsolationForest
-
 print(__doc__)
-
 
 def get_data(
     n_samples_train, n_samples_test, n_features, contamination=0.1, random_state=0
@@ -68,7 +44,6 @@ def get_data(
 
     return X_train, X_test
 
-
 def plot(args):
     import matplotlib.pyplot as plt
     import seaborn as sns
@@ -92,7 +67,6 @@ def plot(args):
         df_main,
         on=["n_samples_test", "n_jobs"],
         suffixes=("_pr", "_main"),
-    )
 
     # Set up the plotting grid
     sns.set(style="whitegrid", context="notebook", font_scale=1.5)
@@ -112,7 +86,7 @@ def plot(args):
         markers="o",
         ax=ax,
         legend="full",
-    )
+
     ax.set_title(f"Predict Time vs. n_samples_test - {pr_name} branch")
     ax.set_ylabel("Predict Time (Seconds)")
     ax.set_xlabel("n_samples_test")
@@ -128,7 +102,7 @@ def plot(args):
         dashes=True,
         ax=ax,
         legend=None,
-    )
+
     ax.set_title(f"Predict Time vs. n_samples_test - {main_name} branch")
     ax.set_ylabel("Predict Time")
     ax.set_xlabel("n_samples_test")
@@ -137,7 +111,6 @@ def plot(args):
     plt.tight_layout()
     fig.savefig(image_path, bbox_inches="tight")
     print(f"Saved image to {image_path}")
-
 
 def bench(args):
     results_dir = Path(args.bench_results)
@@ -162,10 +135,9 @@ def bench(args):
                         n_features,
                         contamination,
                         random_state,
-                    )
 
-                    print("--- Fitting the IsolationForest estimator...")
-                    model = IsolationForest(n_jobs=-1, random_state=random_state)
+                    print("--- Fitting the FLIsolationForest estimator...")
+                    model = FLIsolationForest(n_jobs=-1, random_state=random_state)
                     tstart = time()
                     model.fit(X_train)
                     fit_time = time() - tstart
@@ -188,7 +160,6 @@ def bench(args):
 
     df = pd.DataFrame(results)
     df.to_csv(results_dir / f"{branch}.csv", index=False)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -1,34 +1,26 @@
 """
-==========================================
-IsolationForest benchmark
-==========================================
-A test of IsolationForest on classical anomaly detection datasets.
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-The benchmark is run as follows:
-1. The dataset is randomly split into a training set and a test set, both
-assumed to contain outliers.
-2. Isolation Forest is trained on the training set.
-3. The ROC curve is computed on the test set using the knowledge of the labels.
-
-Note that the smtp dataset contains a very small proportion of outliers.
-Therefore, depending on the seed of the random number generator, randomly
-splitting the data set might lead to a test set containing no outliers. In this
-case a warning is raised when computing the ROC curve.
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.anomaly_detection.isolation_forest import FLIsolationForest
 
 from time import time
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.datasets import fetch_covtype, fetch_kddcup99, fetch_openml
-from xlearn.ensemble import IsolationForest
-from xlearn.metrics import auc, roc_curve
-from xlearn.preprocessing import LabelBinarizer
-from xlearn.utils import shuffle as sh
+from sklearn.datasets import fetch_covtype, fetch_kddcup99, fetch_openml
+from sklearn.metrics import auc, roc_curve
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.utils import shuffle as sh
 
 print(__doc__)
-
 
 def print_outlier_ratio(y):
     """
@@ -40,7 +32,6 @@ def print_outlier_ratio(y):
     for u, c in zip(uniq, cnt):
         print("------ %s -> %d occurrences" % (str(u), c))
     print("----- Outlier ratio: %.5f" % (np.min(cnt) / len(y)))
-
 
 random_state = 1
 fig_roc, ax_roc = plt.subplots(1, 1, figsize=(8, 5))
@@ -59,7 +50,7 @@ for dat in datasets:
     if dat in ["http", "smtp", "SF", "SA"]:
         dataset = fetch_kddcup99(
             subset=dat, shuffle=True, percent10=True, random_state=random_state
-        )
+
         X = dataset.data
         y = dataset.target
 
@@ -119,8 +110,8 @@ for dat in datasets:
     y_train = y[:n_samples_train]
     y_test = y[n_samples_train:]
 
-    print("--- Fitting the IsolationForest estimator...")
-    model = IsolationForest(n_jobs=-1, random_state=random_state)
+    print("--- Fitting the FLIsolationForest estimator...")
+    model = FLIsolationForest(n_jobs=-1, random_state=random_state)
     tstart = time()
     model.fit(X_train)
     fit_time = time() - tstart
@@ -148,11 +139,10 @@ for dat in datasets:
         auc_score,
         fit_time,
         predict_time,
-    )
+
     # Print AUC score and train/test time:
     print(label)
     ax_roc.plot(fpr, tpr, lw=1, label=label)
-
 
 ax_roc.set_xlim([-0.05, 1.05])
 ax_roc.set_ylim([-0.05, 1.05])

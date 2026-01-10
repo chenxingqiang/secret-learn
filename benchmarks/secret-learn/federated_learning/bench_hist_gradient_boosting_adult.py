@@ -1,3 +1,15 @@
+"""
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
+
+Original benchmark adapted for secretlearn.federated_learning.
+"""
+
+from secretlearn.federated_learning.ensemble.histgradient_boosting_classifier import FLHistGradientBoostingClassifier
+
 import argparse
 from time import time
 
@@ -5,12 +17,10 @@ import numpy as np
 import pandas as pd
 
 from xlearn.compose import make_column_selector, make_column_transformer
-from xlearn.datasets import fetch_openml
-from xlearn.ensemble import HistGradientBoostingClassifier
-from xlearn.ensemble._hist_gradient_boosting.utils import get_equivalent_estimator
-from xlearn.metrics import accuracy_score, roc_auc_score
-from xlearn.model_selection import train_test_split
-from xlearn.preprocessing import OrdinalEncoder
+from sklearn.datasets import fetch_openml
+from sklearn.metrics import accuracy_score, roc_auc_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OrdinalEncoder
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n-leaf-nodes", type=int, default=31)
@@ -28,14 +38,12 @@ lr = args.learning_rate
 max_bins = args.max_bins
 verbose = args.verbose
 
-
 def fit(est, data_train, target_train, libname, **fit_params):
     print(f"Fitting a {libname} model...")
     tic = time()
     est.fit(data_train, target_train, **fit_params)
     toc = time()
     print(f"fitted in {toc - tic:.3f}s")
-
 
 def predict(est, data_test, target_test):
     if args.no_predict:
@@ -48,7 +56,6 @@ def predict(est, data_test, target_test):
     acc = accuracy_score(target_test, predicted_test)
     print(f"predicted in {toc - tic:.3f}s, ROC AUC: {roc_auc:.4f}, ACC: {acc:.4f}")
 
-
 data = fetch_openml(data_id=179, as_frame=True)  # adult dataset
 X, y = data.data, data.target
 
@@ -58,11 +65,10 @@ preprocessing = make_column_transformer(
     (OrdinalEncoder(), cat_columns),
     remainder="passthrough",
     verbose_feature_names_out=False,
-)
+
 X = pd.DataFrame(
     preprocessing.fit_transform(X),
     columns=preprocessing.get_feature_names_out(),
-)
 
 n_classes = len(np.unique(y))
 n_features = X.shape[1]
@@ -75,7 +81,7 @@ print(f"Number of numerical features: {n_numerical_features}")
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 is_categorical = [True] * n_categorical_features + [False] * n_numerical_features
-est = HistGradientBoostingClassifier(
+est = FLHistGradientBoostingClassifier(
     loss="log_loss",
     learning_rate=lr,
     max_iter=n_trees,
@@ -85,7 +91,6 @@ est = HistGradientBoostingClassifier(
     early_stopping=False,
     random_state=0,
     verbose=verbose,
-)
 
 fit(est, X_train, y_train, "secretlearn")
 predict(est, X_test, y_test)

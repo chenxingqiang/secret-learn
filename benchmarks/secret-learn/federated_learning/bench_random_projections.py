@@ -1,11 +1,15 @@
 """
-===========================
-Random projection benchmark
-===========================
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-Benchmarks for random projections.
-
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.random_projection.gaussian_random_projection import FLGaussianRandomProjection
+from secretlearn.federated_learning.random_projection.sparse_random_projection import FLSparseRandomProjection
 
 import collections
 import gc
@@ -17,19 +21,11 @@ import numpy as np
 import scipy.sparse as sp
 
 from secretlearn import clone
-from xlearn.random_projection import (
-    GaussianRandomProjection,
-    SparseRandomProjection,
-    johnson_lindenstrauss_min_dim,
-)
-
-
 def type_auto_or_float(val):
     if val == "auto":
         return "auto"
     else:
         return float(val)
-
 
 def type_auto_or_int(val):
     if val == "auto":
@@ -37,12 +33,10 @@ def type_auto_or_int(val):
     else:
         return int(val)
 
-
 def compute_time(t_start, delta):
     mu_second = 0.0 + 10**6  # number of microseconds in a second
 
     return delta.seconds + delta.microseconds / mu_second
-
 
 def bench_scikit_transformer(X, transformer):
     gc.collect()
@@ -65,7 +59,6 @@ def bench_scikit_transformer(X, transformer):
 
     return time_to_fit, time_to_transform
 
-
 # Make some random data with uniformly located non zero entries with
 # Gaussian distributed values
 def make_sparse_random_data(n_samples, n_features, n_nonzeros, random_state=None):
@@ -79,9 +72,8 @@ def make_sparse_random_data(n_samples, n_features, n_nonzeros, random_state=None
             ),
         ),
         shape=(n_samples, n_features),
-    )
-    return data_coo.toarray(), data_coo.tocsr()
 
+    return data_coo.toarray(), data_coo.tocsr()
 
 def print_row(clf_type, time_fit, time_transform):
     print(
@@ -90,9 +82,6 @@ def print_row(clf_type, time_fit, time_transform):
             clf_type.ljust(30),
             ("%.4fs" % time_fit).center(12),
             ("%.4fs" % time_transform).center(12),
-        )
-    )
-
 
 if __name__ == "__main__":
     ###########################################################################
@@ -105,7 +94,6 @@ if __name__ == "__main__":
         default=5,
         type=int,
         help="Benchmark results are average over n_times experiments",
-    )
 
     op.add_option(
         "--n-features",
@@ -113,14 +101,12 @@ if __name__ == "__main__":
         default=10**4,
         type=int,
         help="Number of features in the benchmarks",
-    )
 
     op.add_option(
         "--n-components",
         dest="n_components",
         default="auto",
         help="Size of the random subspace. ('auto' or int > 0)",
-    )
 
     op.add_option(
         "--ratio-nonzeros",
@@ -128,7 +114,6 @@ if __name__ == "__main__":
         default=10**-3,
         type=float,
         help="Number of features in the benchmarks",
-    )
 
     op.add_option(
         "--n-samples",
@@ -136,7 +121,6 @@ if __name__ == "__main__":
         default=500,
         type=int,
         help="Number of samples in the benchmarks",
-    )
 
     op.add_option(
         "--random-seed",
@@ -144,7 +128,6 @@ if __name__ == "__main__":
         default=13,
         type=int,
         help="Seed used by the random number generators.",
-    )
 
     op.add_option(
         "--density",
@@ -153,7 +136,6 @@ if __name__ == "__main__":
         help=(
             "Density used by the sparse random projection. ('auto' or float (0.0, 1.0]"
         ),
-    )
 
     op.add_option(
         "--eps",
@@ -161,19 +143,17 @@ if __name__ == "__main__":
         default=0.5,
         type=float,
         help="See the documentation of the underlying transformers.",
-    )
 
     op.add_option(
         "--transformers",
         dest="selected_transformers",
-        default="GaussianRandomProjection,SparseRandomProjection",
+        default="FLGaussianRandomProjection,FLSparseRandomProjection",
         type=str,
         help=(
             "Comma-separated list of transformer to benchmark. "
             "Default: %default. Available: "
-            "GaussianRandomProjection,SparseRandomProjection"
+            "FLGaussianRandomProjection,FLSparseRandomProjection"
         ),
-    )
 
     op.add_option(
         "--dense",
@@ -181,7 +161,6 @@ if __name__ == "__main__":
         default=False,
         action="store_true",
         help="Set input space as a dense matrix.",
-    )
 
     (opts, args) = op.parse_args()
     if len(args) > 0:
@@ -204,7 +183,7 @@ if __name__ == "__main__":
         print(
             "n_components \t= %s (auto)"
             % johnson_lindenstrauss_min_dim(n_samples=opts.n_samples, eps=opts.eps)
-        )
+
     else:
         print("n_components \t= %s" % opts.n_components)
     print("n_elements \t= %s" % (opts.n_features * opts.n_samples))
@@ -218,17 +197,16 @@ if __name__ == "__main__":
     transformers = {}
 
     ###########################################################################
-    # Set GaussianRandomProjection input
+    # Set FLGaussianRandomProjection input
     gaussian_matrix_params = {
         "n_components": opts.n_components,
         "random_state": opts.random_seed,
     }
-    transformers["GaussianRandomProjection"] = GaussianRandomProjection(
+    transformers["FLGaussianRandomProjection"] = FLGaussianRandomProjection(
         **gaussian_matrix_params
-    )
 
     ###########################################################################
-    # Set SparseRandomProjection input
+    # Set FLSparseRandomProjection input
     sparse_matrix_params = {
         "n_components": opts.n_components,
         "random_state": opts.random_seed,
@@ -236,9 +214,8 @@ if __name__ == "__main__":
         "eps": opts.eps,
     }
 
-    transformers["SparseRandomProjection"] = SparseRandomProjection(
+    transformers["FLSparseRandomProjection"] = FLSparseRandomProjection(
         **sparse_matrix_params
-    )
 
     ###########################################################################
     # Perform benchmark
@@ -251,7 +228,7 @@ if __name__ == "__main__":
     print("Generate dataset benchmarks... ", end="")
     X_dense, X_sparse = make_sparse_random_data(
         opts.n_samples, opts.n_features, n_nonzeros, random_state=opts.random_seed
-    )
+
     X = X_dense if opts.dense else X_sparse
     print("done")
 
@@ -262,7 +239,7 @@ if __name__ == "__main__":
             print("\titer %s..." % iteration, end="")
             time_to_fit, time_to_transform = bench_scikit_transformer(
                 X_dense, transformers[name]
-            )
+
             time_fit[name].append(time_to_fit)
             time_transform[name].append(time_to_transform)
             print("done")
@@ -280,8 +257,7 @@ if __name__ == "__main__":
         % (
             "Arguments".ljust(16),
             "Value".center(12),
-        )
-    )
+
     print(25 * "-" + ("|" + "-" * 14) * 1)
     for key, value in arguments.items():
         print("%s \t | %s " % (str(key).ljust(16), str(value).strip().center(12)))
@@ -294,7 +270,7 @@ if __name__ == "__main__":
     print(
         "%s | %s | %s"
         % ("Transformer".ljust(30), "fit".center(12), "transform".center(12))
-    )
+
     print(31 * "-" + ("|" + "-" * 14) * 2)
 
     for name in sorted(selected_transformers):

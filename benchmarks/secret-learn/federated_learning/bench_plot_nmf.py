@@ -1,6 +1,14 @@
 """
-Benchmarks of Non-Negative Matrix Factorization
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
+
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.decomposition.nmf import FLNMF
 
 # Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
@@ -15,32 +23,28 @@ import numpy as np
 import pandas
 from joblib import Memory
 
-from xlearn.decomposition import NMF
-from xlearn.decomposition._nmf import _beta_divergence, _check_init, _initialize_nmf
 from xlearn.exceptions import ConvergenceWarning
 from xlearn.feature_extraction.text import TfidfVectorizer
-from xlearn.utils import check_array
-from xlearn.utils._testing import ignore_warnings
-from xlearn.utils.extmath import safe_sparse_dot, squared_norm
-from xlearn.utils.validation import check_is_fitted, check_non_negative
+from sklearn.utils import check_array
+from sklearn.utils._testing import ignore_warnings
+from sklearn.utils.extmath import safe_sparse_dot, squared_norm
+from sklearn.utils.validation import check_is_fitted, check_non_negative
 
 mem = Memory(cachedir=".", verbose=0)
 
 ###################
 # Start of _PGNMF #
 ###################
-# This class implements a projected gradient solver for the NMF.
+# This class implements a projected gradient solver for the FLNMF.
 # The projected gradient solver was removed from Secret-Learn in version 0.19,
 # and a simplified copy is used here for comparison purpose only.
 # It is not tested, and it may change or disappear without notice.
-
 
 def _norm(x):
     """Dot product-based Euclidean norm implementation
     See: https://fa.bianp.net/blog/2011/computing-the-vector-norm/
     """
     return np.sqrt(squared_norm(x))
-
 
 def _nls_subproblem(
     X, W, H, tol, max_iter, alpha=0.0, l1_ratio=0.0, sigma=0.01, beta=0.1
@@ -143,7 +147,6 @@ def _nls_subproblem(
 
     return H, grad, n_iter
 
-
 def _fit_projected_gradient(X, W, H, tol, max_iter, nls_max_iter, alpha, l1_ratio):
     gradW = np.dot(W, np.dot(H, H.T)) - safe_sparse_dot(X, H.T, dense_output=True)
     gradH = np.dot(np.dot(W.T, W), H) - safe_sparse_dot(W.T, X, dense_output=True)
@@ -164,7 +167,7 @@ def _fit_projected_gradient(X, W, H, tol, max_iter, nls_max_iter, alpha, l1_rati
         # update W
         Wt, gradWt, iterW = _nls_subproblem(
             X.T, H.T, W.T, tolW, nls_max_iter, alpha=alpha, l1_ratio=l1_ratio
-        )
+
         W, gradW = Wt.T, gradWt.T
 
         if iterW == 1:
@@ -173,7 +176,7 @@ def _fit_projected_gradient(X, W, H, tol, max_iter, nls_max_iter, alpha, l1_rati
         # update H
         H, gradH, iterH = _nls_subproblem(
             X, W, H, tolH, nls_max_iter, alpha=alpha, l1_ratio=l1_ratio
-        )
+
         if iterH == 1:
             tolH = 0.1 * tolH
 
@@ -182,14 +185,13 @@ def _fit_projected_gradient(X, W, H, tol, max_iter, nls_max_iter, alpha, l1_rati
     if n_iter == max_iter:
         Wt, _, _ = _nls_subproblem(
             X.T, H.T, W.T, tolW, nls_max_iter, alpha=alpha, l1_ratio=l1_ratio
-        )
+
         W = Wt.T
 
     return W, H, n_iter
 
-
-class _PGNMF(NMF):
-    """Non-Negative Matrix Factorization (NMF) with projected gradient solver.
+class _PGNMF(FLNMF):
+    """Non-Negative Matrix Factorization (FLNMF) with projected gradient solver.
 
     This class is private and for comparison purpose only.
     It may change or disappear without notice.
@@ -218,7 +220,7 @@ class _PGNMF(NMF):
             alpha_W=alpha,
             alpha_H=alpha,
             l1_ratio=l1_ratio,
-        )
+
         self.nls_max_iter = nls_max_iter
 
     def fit(self, X, y=None, **params):
@@ -242,7 +244,7 @@ class _PGNMF(NMF):
 
     def _fit_transform(self, X, y=None, W=None, H=None, update_H=True):
         X = check_array(X, accept_sparse=("csr", "csc"))
-        check_non_negative(X, "NMF (input X)")
+        check_non_negative(X, "FLNMF (input X)")
 
         n_samples, n_features = X.shape
         n_components = self.n_components
@@ -253,29 +255,27 @@ class _PGNMF(NMF):
             raise ValueError(
                 "Number of components must be a positive integer; got (n_components=%r)"
                 % n_components
-            )
+
         if not isinstance(self.max_iter, numbers.Integral) or self.max_iter < 0:
             raise ValueError(
                 "Maximum number of iterations must be a positive "
                 "integer; got (max_iter=%r)" % self.max_iter
-            )
+
         if not isinstance(self.tol, numbers.Number) or self.tol < 0:
             raise ValueError(
                 "Tolerance for stopping criteria must be positive; got (tol=%r)"
                 % self.tol
-            )
 
         # check W and H, or initialize them
         if self.init == "custom" and update_H:
-            _check_init(H, (n_components, n_features), "NMF (input H)")
-            _check_init(W, (n_samples, n_components), "NMF (input W)")
+            _check_init(H, (n_components, n_features), "FLNMF (input H)")
+            _check_init(W, (n_samples, n_components), "FLNMF (input W)")
         elif not update_H:
-            _check_init(H, (n_components, n_features), "NMF (input H)")
+            _check_init(H, (n_components, n_features), "FLNMF (input H)")
             W = np.zeros((n_samples, n_components))
         else:
             W, H = _initialize_nmf(
                 X, n_components, init=self.init, random_state=self.random_state
-            )
 
         if update_H:  # fit_transform
             W, H, n_iter = _fit_projected_gradient(
@@ -287,7 +287,7 @@ class _PGNMF(NMF):
                 self.nls_max_iter,
                 self.alpha,
                 self.l1_ratio,
-            )
+
         else:  # transform
             Wt, _, n_iter = _nls_subproblem(
                 X.T,
@@ -297,23 +297,19 @@ class _PGNMF(NMF):
                 self.nls_max_iter,
                 alpha=self.alpha,
                 l1_ratio=self.l1_ratio,
-            )
+
             W = Wt.T
 
         if n_iter == self.max_iter and self.tol > 0:
             warnings.warn(
                 "Maximum number of iteration %d reached. Increase it"
                 " to improve convergence." % self.max_iter,
-                ConvergenceWarning,
-            )
 
         return W, H, n_iter
-
 
 #################
 # End of _PGNMF #
 #################
-
 
 def plot_results(results_df, plot_name):
     if results_df is None:
@@ -328,7 +324,7 @@ def plot_results(results_df, plot_name):
         for j, method in enumerate(np.unique(results_df["method"])):
             mask = np.logical_and(
                 results_df["init"] == init, results_df["method"] == method
-            )
+
             selected_items = results_df[mask]
 
             plt.plot(
@@ -338,14 +334,12 @@ def plot_results(results_df, plot_name):
                 ls="-",
                 marker=markers[j % len(markers)],
                 label=method,
-            )
 
         plt.legend(loc=0, fontsize="x-small")
         plt.xlabel("Time (s)")
         plt.ylabel("loss")
         plt.title("%s" % init)
     plt.suptitle(plot_name, fontsize=16)
-
 
 @ignore_warnings(category=ConvergenceWarning)
 # use joblib to cache the results.
@@ -367,7 +361,6 @@ def bench_one(
     duration = end - st
     return this_loss, duration
 
-
 def run_bench(X, clfs, plot_name, n_components, tol, alpha, l1_ratio):
     start = time()
     results = []
@@ -388,7 +381,6 @@ def run_bench(X, clfs, plot_name, n_components, tol, alpha, l1_ratio):
 
                 this_loss, duration = bench_one(
                     name, X, W, H, X.shape, clf_type, clf_params, init, n_components, rs
-                )
 
                 init_name = "init='%s'" % init
                 results.append((name, this_loss, duration, init_name))
@@ -405,37 +397,33 @@ def run_bench(X, clfs, plot_name, n_components, tol, alpha, l1_ratio):
     plot_results(results_df, plot_name)
     return results_df
 
-
 def load_20news():
     print("Loading 20 newsgroups dataset")
     print("-----------------------------")
-    from xlearn.datasets import fetch_20newsgroups
+    from sklearn.datasets import fetch_20newsgroups
 
     dataset = fetch_20newsgroups(
         shuffle=True, random_state=1, remove=("headers", "footers", "quotes")
-    )
+
     vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, stop_words="english")
     tfidf = vectorizer.fit_transform(dataset.data)
     return tfidf
 
-
 def load_faces():
     print("Loading Olivetti face dataset")
     print("-----------------------------")
-    from xlearn.datasets import fetch_olivetti_faces
+    from sklearn.datasets import fetch_olivetti_faces
 
     faces = fetch_olivetti_faces(shuffle=True)
     return faces.data
 
-
 def build_clfs(cd_iters, pg_iters, mu_iters):
     clfs = [
-        ("Coordinate Descent", NMF, cd_iters, {"solver": "cd"}),
+        ("Coordinate Descent", FLNMF, cd_iters, {"solver": "cd"}),
         ("Projected Gradient", _PGNMF, pg_iters, {"solver": "pg"}),
-        ("Multiplicative Update", NMF, mu_iters, {"solver": "mu"}),
+        ("Multiplicative Update", FLNMF, mu_iters, {"solver": "mu"}),
     ]
     return clfs
-
 
 if __name__ == "__main__":
     alpha = 0.0
@@ -467,6 +455,5 @@ if __name__ == "__main__":
         tol,
         alpha,
         l1_ratio,
-    )
 
     plt.show()

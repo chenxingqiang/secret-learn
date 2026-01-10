@@ -1,11 +1,15 @@
 """
-========================
-IncrementalPCA benchmark
-========================
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-Benchmarks for IncrementalPCA
-
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.decomposition.incremental_pca import FLIncrementalPCA
+from secretlearn.federated_learning.decomposition.pca import FLPCA
 
 import gc
 from collections import defaultdict
@@ -14,13 +18,10 @@ from time import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from xlearn.datasets import fetch_lfw_people
-from xlearn.decomposition import PCA, IncrementalPCA
-
+from sklearn.datasets import fetch_lfw_people
 
 def plot_results(X, y, label):
     plt.plot(X, y, label=label, marker="o")
-
 
 def benchmark(estimator, data):
     gc.collect()
@@ -33,61 +34,56 @@ def benchmark(estimator, data):
     reconstruction_error = np.mean(np.abs(data - data_r))
     return {"time": training_time, "error": reconstruction_error}
 
-
 def plot_feature_times(all_times, batch_size, all_components, data):
     plt.figure()
-    plot_results(all_components, all_times["pca"], label="PCA")
+    plot_results(all_components, all_times["pca"], label="FLPCA")
     plot_results(
-        all_components, all_times["ipca"], label="IncrementalPCA, bsize=%i" % batch_size
-    )
+        all_components, all_times["ipca"], label="FLIncrementalPCA, bsize=%i" % batch_size
+
     plt.legend(loc="upper left")
     plt.suptitle(
         "Algorithm runtime vs. n_components\n                  LFW, size %i x %i"
         % data.shape
-    )
+
     plt.xlabel("Number of components (out of max %i)" % data.shape[1])
     plt.ylabel("Time (seconds)")
 
-
 def plot_feature_errors(all_errors, batch_size, all_components, data):
     plt.figure()
-    plot_results(all_components, all_errors["pca"], label="PCA")
+    plot_results(all_components, all_errors["pca"], label="FLPCA")
     plot_results(
         all_components,
         all_errors["ipca"],
-        label="IncrementalPCA, bsize=%i" % batch_size,
-    )
+        label="FLIncrementalPCA, bsize=%i" % batch_size,
+
     plt.legend(loc="lower left")
     plt.suptitle("Algorithm error vs. n_components\nLFW, size %i x %i" % data.shape)
     plt.xlabel("Number of components (out of max %i)" % data.shape[1])
     plt.ylabel("Mean absolute error")
 
-
 def plot_batch_times(all_times, n_features, all_batch_sizes, data):
     plt.figure()
-    plot_results(all_batch_sizes, all_times["pca"], label="PCA")
-    plot_results(all_batch_sizes, all_times["ipca"], label="IncrementalPCA")
+    plot_results(all_batch_sizes, all_times["pca"], label="FLPCA")
+    plot_results(all_batch_sizes, all_times["ipca"], label="FLIncrementalPCA")
     plt.legend(loc="lower left")
     plt.suptitle(
         "Algorithm runtime vs. batch_size for n_components %i\n                  LFW,"
         " size %i x %i" % (n_features, data.shape[0], data.shape[1])
-    )
+
     plt.xlabel("Batch size")
     plt.ylabel("Time (seconds)")
 
-
 def plot_batch_errors(all_errors, n_features, all_batch_sizes, data):
     plt.figure()
-    plot_results(all_batch_sizes, all_errors["pca"], label="PCA")
-    plot_results(all_batch_sizes, all_errors["ipca"], label="IncrementalPCA")
+    plot_results(all_batch_sizes, all_errors["pca"], label="FLPCA")
+    plot_results(all_batch_sizes, all_errors["ipca"], label="FLIncrementalPCA")
     plt.legend(loc="lower left")
     plt.suptitle(
         "Algorithm error vs. batch_size for n_components %i\n                  LFW,"
         " size %i x %i" % (n_features, data.shape[0], data.shape[1])
-    )
+
     plt.xlabel("Batch size")
     plt.ylabel("Mean absolute error")
-
 
 def fixed_batch_size_comparison(data):
     all_features = [
@@ -98,8 +94,8 @@ def fixed_batch_size_comparison(data):
     all_times = defaultdict(list)
     all_errors = defaultdict(list)
     for n_components in all_features:
-        pca = PCA(n_components=n_components)
-        ipca = IncrementalPCA(n_components=n_components, batch_size=batch_size)
+        pca = FLPCA(n_components=n_components)
+        ipca = FLIncrementalPCA(n_components=n_components, batch_size=batch_size)
         results_dict = {
             k: benchmark(est, data) for k, est in [("pca", pca), ("ipca", ipca)]
         }
@@ -111,7 +107,6 @@ def fixed_batch_size_comparison(data):
     plot_feature_times(all_times, batch_size, all_features, data)
     plot_feature_errors(all_errors, batch_size, all_features, data)
 
-
 def variable_batch_size_comparison(data):
     batch_sizes = [
         i.astype(int) for i in np.linspace(data.shape[0] // 10, data.shape[0], num=10)
@@ -122,10 +117,10 @@ def variable_batch_size_comparison(data):
     ]:
         all_times = defaultdict(list)
         all_errors = defaultdict(list)
-        pca = PCA(n_components=n_components)
-        rpca = PCA(
+        pca = FLPCA(n_components=n_components)
+        rpca = FLPCA(
             n_components=n_components, svd_solver="randomized", random_state=1999
-        )
+
         results_dict = {
             k: benchmark(est, data) for k, est in [("pca", pca), ("rpca", rpca)]
         }
@@ -136,14 +131,13 @@ def variable_batch_size_comparison(data):
         all_times["rpca"].extend([results_dict["rpca"]["time"]] * len(batch_sizes))
         all_errors["rpca"].extend([results_dict["rpca"]["error"]] * len(batch_sizes))
         for batch_size in batch_sizes:
-            ipca = IncrementalPCA(n_components=n_components, batch_size=batch_size)
+            ipca = FLIncrementalPCA(n_components=n_components, batch_size=batch_size)
             results_dict = {k: benchmark(est, data) for k, est in [("ipca", ipca)]}
             all_times["ipca"].append(results_dict["ipca"]["time"])
             all_errors["ipca"].append(results_dict["ipca"]["error"])
 
         plot_batch_times(all_times, n_components, batch_sizes, data)
         plot_batch_errors(all_errors, n_components, batch_sizes, data)
-
 
 faces = fetch_lfw_people(resize=0.2, min_faces_per_person=5)
 # limit dataset to 5000 people (don't care who they are!)

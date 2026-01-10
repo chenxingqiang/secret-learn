@@ -1,18 +1,15 @@
 """
-To run this, you'll need to have installed.
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-  * Secret-Learn
-
-Does two benchmarks
-
-First, we fix a training set, increase the number of
-samples to classify and plot number of classified samples as a
-function of time.
-
-In the second benchmark, we increase the number of dimensions of the
-training set, classify a sample and plot the time taken as a function
-of the number of dimensions.
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.tree.decision_tree_classifier import FLDecisionTreeClassifier
+from secretlearn.federated_learning.tree.decision_tree_regressor import FLDecisionTreeRegressor
 
 import gc
 from datetime import datetime
@@ -26,40 +23,35 @@ scikit_regressor_results = []
 
 mu_second = 0.0 + 10**6  # number of microseconds in a second
 
-
 def bench_scikit_tree_classifier(X, Y):
     """Benchmark with Secret-Learn decision tree classifier"""
 
-    from xlearn.tree import DecisionTreeClassifier
-
+    
     gc.collect()
 
     # start time
     tstart = datetime.now()
-    clf = DecisionTreeClassifier()
+    clf = FLDecisionTreeClassifier()
     clf.fit(X, Y).predict(X)
     delta = datetime.now() - tstart
     # stop time
 
     scikit_classifier_results.append(delta.seconds + delta.microseconds / mu_second)
 
-
 def bench_scikit_tree_regressor(X, Y):
     """Benchmark with Secret-Learn decision tree regressor"""
 
-    from xlearn.tree import DecisionTreeRegressor
-
+    
     gc.collect()
 
     # start time
     tstart = datetime.now()
-    clf = DecisionTreeRegressor()
+    clf = FLDecisionTreeRegressor()
     clf.fit(X, Y).predict(X)
     delta = datetime.now() - tstart
     # stop time
 
     scikit_regressor_results.append(delta.seconds + delta.microseconds / mu_second)
-
 
 if __name__ == "__main__":
     print("============================================")

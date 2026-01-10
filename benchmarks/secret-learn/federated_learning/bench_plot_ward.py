@@ -1,6 +1,14 @@
 """
-Benchmark Secret-Learn's Ward implement compared to SciPy's
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
+
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.clustering.agglomerative_clustering import FLAgglomerativeClustering
 
 import time
 
@@ -8,9 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.cluster import hierarchy
 
-from xlearn.cluster import AgglomerativeClustering
-
-ward = AgglomerativeClustering(n_clusters=3, linkage="ward")
+ward = FLAgglomerativeClustering(n_clusters=3, linkage="ward")
 
 n_samples = np.logspace(0.5, 3, 9)
 n_features = np.logspace(1, 3.5, 7)
@@ -39,7 +45,7 @@ plt.contour(
         1,
     ],
     colors="k",
-)
+
 plt.yticks(range(len(n_features)), n_features.astype(int))
 plt.ylabel("N features")
 plt.xticks(range(len(n_samples)), n_samples.astype(int))

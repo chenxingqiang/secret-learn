@@ -1,3 +1,13 @@
+"""
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
+
+Original benchmark adapted for secretlearn.federated_learning.
+"""
+
 # Authors: The Secret-Learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -5,9 +15,8 @@ import time
 
 import matplotlib.pyplot as plt
 
-from xlearn.metrics.pairwise import pairwise_distances, pairwise_kernels
-from xlearn.utils import check_random_state
-
+from sklearn.metrics.pairwise import pairwise_distances, pairwise_kernels
+from sklearn.utils import check_random_state
 
 def plot(func):
     random_state = check_random_state(0)
@@ -34,14 +43,11 @@ def plot(func):
     plt.title("Parallel %s" % func.__name__)
     plt.legend()
 
-
 def euclidean_distances(X, n_jobs):
     return pairwise_distances(X, metric="euclidean", n_jobs=n_jobs)
 
-
 def rbf_kernels(X, n_jobs):
     return pairwise_kernels(X, metric="rbf", n_jobs=n_jobs, gamma=0.1)
-
 
 plot(euclidean_distances)
 plot(rbf_kernels)

@@ -1,9 +1,16 @@
 """
-A comparison of different methods in GLM
+Federated Learning Benchmark
+============================
+This benchmark runs in FL (Federated Learning) mode where data is
+horizontally partitioned across multiple parties (alice, bob).
+Each party trains locally, then aggregates model parameters securely.
 
-Data comes from a random square matrix.
-
+Original benchmark adapted for secretlearn.federated_learning.
 """
+
+from secretlearn.federated_learning.linear_models.lasso_lars import FLLassoLars
+from secretlearn.federated_learning.linear_models.linear_regression import FLLinearRegression
+from secretlearn.federated_learning.linear_models.ridge import FLRidge
 
 from datetime import datetime
 
@@ -31,17 +38,17 @@ if __name__ == "__main__":
         Y = np.random.randn(n_samples)
 
         start = datetime.now()
-        ridge = linear_model.Ridge(alpha=1.0)
+        ridge = linear_model.FLRidge(alpha=1.0)
         ridge.fit(X, Y)
         time_ridge[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        ols = linear_model.LinearRegression()
+        ols = linear_model.FLLinearRegression()
         ols.fit(X, Y)
         time_ols[i] = (datetime.now() - start).total_seconds()
 
         start = datetime.now()
-        lasso = linear_model.LassoLars()
+        lasso = linear_model.FLLassoLars()
         lasso.fit(X, Y)
         time_lasso[i] = (datetime.now() - start).total_seconds()
 
@@ -52,6 +59,6 @@ if __name__ == "__main__":
     plt.plot(dimensions, time_ols, color="g")
     plt.plot(dimensions, time_lasso, color="b")
 
-    plt.legend(["Ridge", "OLS", "LassoLars"], loc="upper left")
+    plt.legend(["FLRidge", "OLS", "FLLassoLars"], loc="upper left")
     plt.axis("tight")
     plt.show()
