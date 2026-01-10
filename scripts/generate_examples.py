@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate example files for FL/SS/SL modes
+Generate example files for FL/secret_sharing/SL modes
 """
 
 import os
@@ -75,7 +75,7 @@ def generate_example(algo_name, category, mode, actual_class_name=None):
     category : str
         Category, e.g., 'svm'
     mode : str
-        'FL', 'SS', or 'SL'
+        'federated_learning', 'secret_sharing', or 'split_learning'
     actual_class_name : str, optional
         The actual class name from the module (to handle case differences)
     """
@@ -97,15 +97,15 @@ def generate_example(algo_name, category, mode, actual_class_name=None):
         use_epochs = False
     
     # pattern
-    port_base = {'FL': 9491, 'SS': 9494, 'SL': 9497}
+    port_base = {'federated_learning': 9491, 'secret_sharing': 9494, 'split_learning': 9497}
     ports = [port_base[mode] + i for i in range(3)]
     
     # patterninitialization
-    if mode == 'FL':
+    if mode == 'federated_learning':
         init_code = """    # Create devices dict for FL mode
     devices = {"alice": alice, "bob": bob, "carol": carol}
     """
-    elif mode == 'SS':
+    elif mode == 'secret_sharing':
         init_code = """    # Use SPU for SS mode
     """
     else:  # SL
@@ -114,7 +114,7 @@ def generate_example(algo_name, category, mode, actual_class_name=None):
     """
     
     # pattern
-    if mode == 'FL' or mode == 'SL':
+    if mode == 'federated_learning' or mode == 'split_learning':
         model_init = f"model = {class_name}(devices)"
     else:  # SS
         model_init = f"model = {class_name}(spu)"
@@ -294,7 +294,7 @@ def regenerate_problematic_examples(base_path):
     
     regenerated = 0
     
-    for mode in ['FL', 'SS', 'SL']:
+    for mode in ['federated_learning', 'secret_sharing', 'split_learning']:
         examples_path = Path(base_path) / 'examples' / mode
         
         if not examples_path.exists():
@@ -326,8 +326,8 @@ def regenerate_problematic_examples(base_path):
                     has_issue = True
                 
                 # 3. class nameerror
-                # ：from secretlearn.SL.svm.linear_svc import FLLinearSVC
-                # ：from secretlearn.SL.svm.linear_svc import SLLinearSVC
+                # ：from secretlearn.split_learning.svm.linear_svc import FLLinearSVC
+                # ：from secretlearn.split_learning.svm.linear_svc import SLLinearSVC
                 import_match = re.search(
                     rf'from secretlearn\.{mode}\.(\w+)\.(\w+) import ([A-Z]\w+)',
                     content
@@ -380,7 +380,7 @@ def regenerate_ss_only(base_path, force=False):
     print("Regenerating SS example files")
     print("=" * 70)
     
-    examples_path = Path(base_path) / 'examples' / 'SS'
+    examples_path = Path(base_path) / 'examples' / 'secret_sharing'
     
     if not examples_path.exists():
         print(f"Error: {examples_path} does not exist")
@@ -422,10 +422,10 @@ def regenerate_ss_only(base_path, force=False):
                     continue
             
             # Get the actual class name from the module file
-            actual_class_name = get_actual_class_name('SS', category, filename)
+            actual_class_name = get_actual_class_name('secret_sharing', category, filename)
             
             # Generate new content with the correct class name
-            new_content = generate_example(algo_name, category, 'SS', actual_class_name)
+            new_content = generate_example(algo_name, category, 'secret_sharing', actual_class_name)
             
             # Verify syntax before writing
             try:
@@ -520,7 +520,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description='Generate example files')
-    parser.add_argument('--mode', choices=['FL', 'SS', 'SL', 'all'], default='SS',
+    parser.add_argument('--mode', choices=['federated_learning', 'secret_sharing', 'split_learning', 'all'], default='secret_sharing',
                        help='Which mode to regenerate (default: SS)')
     parser.add_argument('--force', action='store_true',
                        help='Force regenerate all files, not just those with errors')
@@ -531,7 +531,7 @@ def main():
     print("=" * 70)
     print()
     
-    if args.mode == 'SS':
+    if args.mode == 'secret_sharing':
         count = regenerate_ss_only(BASE_PATH, force=args.force)
     elif args.mode == 'all':
         count = regenerate_problematic_examples(BASE_PATH)

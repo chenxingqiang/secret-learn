@@ -10,15 +10,15 @@
 
 ```python
 # FL Mode
-from secretlearn.FL.clustering.kmeans import FLKMeans
-from secretlearn.FL.linear_models.linearregression import FLLinearRegression
-from secretlearn.FL.decomposition.pca import FLPCA
+from secretlearn.federated_learning.clustering.kmeans import FLKMeans
+from secretlearn.federated_learning.linear_models.linearregression import FLLinearRegression
+from secretlearn.federated_learning.decomposition.pca import FLPCA
 
 # SL Mode
-from secretlearn.SL.clustering.kmeans import SLKMeans
+from secretlearn.split_learning.clustering.kmeans import SLKMeans
 
 # SS Mode
-from secretlearn.SS.clustering.kmeans import SSKMeans
+from secretlearn.secret_sharing.clustering.kmeans import SSKMeans
 ```
 
 ### FL Mode Example
@@ -48,7 +48,7 @@ fed_X = FedNdarray(
 )
 
 # Unsupervised learning (e.g. KMeans, PCA)
-from secretlearn.FL.clustering.kmeans import FLKMeans
+from secretlearn.federated_learning.clustering.kmeans import FLKMeans
 
 model = FLKMeans(
     devices={'alice': alice, 'bob': bob},
@@ -58,7 +58,7 @@ model = FLKMeans(
 model.fit(fed_X)  # No y required
 
 # Supervised learning (e.g. LinearRegression)
-from secretlearn.FL.linear_models.linearregression import FLLinearRegression
+from secretlearn.federated_learning.linear_models.linearregression import FLLinearRegression
 
 y = np.random.randn(100)
 fed_y = FedNdarray(
@@ -80,7 +80,7 @@ predictions = model.predict(fed_X)
 spu = sf.SPU(...)
 
 # SS mode using spu
-from secretlearn.SS.clustering.kmeans import SSKMeans
+from secretlearn.secret_sharing.clustering.kmeans import SSKMeans
 
 model = SSKMeans(spu=spu, n_clusters=3)
 model.fit(fed_X)

@@ -12,7 +12,7 @@ Features:
 - Auto-detects algorithm characteristics
 - Generates correct fit() signatures
 - Creates proper methods for each type
-- Supports FL/SS/SL modes with correct patterns
+- Supports FL/secret_sharing/SL modes with correct patterns
 - SS mode uses SPU-based computation (not devices iteration)
 """
 
@@ -147,7 +147,7 @@ def generate_algorithm_smart(algo_name, category, mode, base_path):
     category : str
         ， 'clustering'
     mode : str
-        pattern，'FL', 'SS',  'SL'
+        pattern，'federated_learning', 'secret_sharing',  'split_learning'
     base_path : str
         
     """
@@ -172,11 +172,11 @@ def generate_algorithm_smart(algo_name, category, mode, base_path):
         template_type = characteristics.get('recommended_implementation', 'supervised_non_iterative')
 
         # 
-        if mode.upper() == 'FL':
+        if mode.upper() == 'federated_learning':
             code = generate_template(algo_name, sklearn_module, characteristics, 'fl')
-        elif mode.upper() == 'SS':
+        elif mode.upper() == 'secret_sharing':
             code = generate_ss_template_smart(algo_name, sklearn_module, characteristics)
-        elif mode.upper() == 'SL':
+        elif mode.upper() == 'split_learning':
             code = generate_sl_template_smart(algo_name, sklearn_module, characteristics)
         else:
             return False, f"pattern: {mode}"
@@ -480,16 +480,16 @@ class SS{algo_name}:
 def generate_sl_unsupervised_template(algo_name, module_name):
     """SL """
     # SL pattern FL 
-    return generate_ss_unsupervised_template(algo_name, module_name).replace('SS', 'SL').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
+    return generate_ss_unsupervised_template(algo_name, module_name).replace('secret_sharing', 'split_learning').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
 
 def generate_sl_non_iterative_template(algo_name, module_name):
     """SL """
     #  FL logic
-    return generate_ss_non_iterative_template(algo_name, module_name).replace('SS', 'SL').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
+    return generate_ss_non_iterative_template(algo_name, module_name).replace('secret_sharing', 'split_learning').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
 
 def generate_sl_iterative_template(algo_name, module_name):
     """SL """
-    return generate_ss_iterative_template(algo_name, module_name).replace('SS', 'SL').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
+    return generate_ss_iterative_template(algo_name, module_name).replace('secret_sharing', 'split_learning').replace('Secret Sharing', 'Split Learning').replace('SPU', 'PYU')
 
 def main():
     base_path = '/Users/xingqiangchen/jax-sklearn'
@@ -531,7 +531,7 @@ def main():
                 print(f"    ⚠️  failed: {e}")
                 algo_type = 'unknown'
 
-            for mode in ['FL', 'SS', 'SL']:
+            for mode in ['federated_learning', 'secret_sharing', 'split_learning']:
                 success, message = generate_algorithm_smart(algo_name, category, mode, base_path)
                 if success:
                     print(f"    {mode}: {message}")
@@ -566,9 +566,9 @@ if __name__ == '__main__':
     print("  （transform/predict/partial_fit）")
     print()
     print(" 234 file:")
-    print("  - secretlearn/FL/*/")
-    print("  - secretlearn/SS/*/")
-    print("  - secretlearn/SL/*/")
+    print("  - secretlearn/federated_learning/*/")
+    print("  - secretlearn/secret_sharing/*/")
+    print("  - secretlearn/split_learning/*/")
     print()
 
     response = input("？(yes/no): ")

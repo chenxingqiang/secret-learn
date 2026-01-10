@@ -24,9 +24,9 @@
 
 ```python
 import secretflow as sf
-from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
-from secretlearn.SS.clustering.kmeans import SSKMeans
-from secretlearn.SL.ensemble.random_forest_classifier import SLRandomForestClassifier
+from secretlearn.federated_learning.linear_models.linear_regression import FLLinearRegression
+from secretlearn.secret_sharing.clustering.kmeans import SSKMeans
+from secretlearn.split_learning.ensemble.random_forest_classifier import SLRandomForestClassifier
 
 # Initialize SecretFlow
 sf.init(['alice', 'bob', 'carol'])
@@ -53,7 +53,7 @@ Secret-Learn includes **573 complete examples**:
 
 ```bash
 # Run single example
-python examples/FL/linear_regression.py
+python examples/federated_learning/linear_regression.py
 
 # Run all FL examples
 python run_all_fl_examples.py

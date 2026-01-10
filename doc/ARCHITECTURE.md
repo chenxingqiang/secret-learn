@@ -93,7 +93,7 @@ Secret-Learn is a 6-layer architecture that combines JAX acceleration with priva
 - **Use Case**: Horizontal federated learning, data sovereignty
 
 ```python
-from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
+from secretlearn.federated_learning.linear_models.linear_regression import FLLinearRegression
 model = FLLinearRegression(devices={'alice': alice, 'bob': bob})
 model.fit(fed_X, fed_y)  # Data never leaves local
 ```
@@ -106,7 +106,7 @@ model.fit(fed_X, fed_y)  # Data never leaves local
 - **Use Case**: Maximum security requirements
 
 ```python
-from secretlearn.SS.linear_models.linear_regression import SSLinearRegression
+from secretlearn.secret_sharing.linear_models.linear_regression import SSLinearRegression
 model = SSLinearRegression(spu=spu)
 model.fit(fed_X, fed_y)  # Full MPC encryption
 ```
@@ -119,7 +119,7 @@ model.fit(fed_X, fed_y)  # Full MPC encryption
 - **Use Case**: Vertical federated learning, model privacy
 
 ```python
-from secretlearn.SL.linear_models.linear_regression import SLLinearRegression
+from secretlearn.split_learning.linear_models.linear_regression import SLLinearRegression
 model = SLLinearRegression(devices={'alice': alice, 'bob': bob})
 model.fit(fed_X, fed_y)  # Split model training
 ```

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Implement all TODOs in FL/SL/SS modules
+Implement all TODOs in FL/split_learning/SS modules
 
 This script batch-updates all TODO items using regex patterns.
 """
@@ -10,9 +10,9 @@ import re
 from pathlib import Path
 
 BASE_PATHS = [
-    Path(__file__).parent.parent / "secretlearn" / "SL",
-    Path(__file__).parent.parent / "secretlearn" / "FL",
-    Path(__file__).parent.parent / "secretlearn" / "SS",
+    Path(__file__).parent.parent / "secretlearn" / "split_learning",
+    Path(__file__).parent.parent / "secretlearn" / "federated_learning",
+    Path(__file__).parent.parent / "secretlearn" / "secret_sharing",
 ]
 
 
@@ -155,12 +155,12 @@ def fix_file(filepath: Path):
     original = content
     
     # Detect mode from file path
-    if '/FL/' in str(filepath):
-        mode = 'FL'
-    elif '/SS/' in str(filepath):
-        mode = 'SS'
+    if '/federated_learning/' in str(filepath):
+        mode = 'federated_learning'
+    elif '/secret_sharing/' in str(filepath):
+        mode = 'secret_sharing'
     else:
-        mode = 'SL'
+        mode = 'split_learning'
     
     # Pattern 1: info logging with TODO
     pattern1 = re.compile(
@@ -214,7 +214,7 @@ def fix_file(filepath: Path):
 
 def main():
     print("=" * 60)
-    print(" Implementing TODOs in FL/SL/SS modules")
+    print(" Implementing TODOs in FL/split_learning/SS modules")
     print("=" * 60)
     
     fixed_count = 0

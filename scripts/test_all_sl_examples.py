@@ -12,7 +12,7 @@ from datetime import datetime
 import time
 
 BASE_PATH = Path(__file__).parent.parent
-EXAMPLES_PATH = BASE_PATH / "examples" / "SL"
+EXAMPLES_PATH = BASE_PATH / "examples" / "split_learning"
 LOG_DIR = BASE_PATH / "logs"
 TIMEOUT = 180  # 3 minutes per example
 

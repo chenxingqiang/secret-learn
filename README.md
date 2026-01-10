@@ -112,15 +112,15 @@ Secret-Learn provides **573 privacy-preserving ML algorithms** through three mod
 
 ```bash
 # Run FL example (easiest to start)
-python examples/FL/linear_regression.py
+python examples/federated_learning/linear_regression.py
 
 # Run other examples
-python examples/FL/kmeans.py
-python examples/SL/random_forest_classifier.py
+python examples/federated_learning/kmeans.py
+python examples/split_learning/random_forest_classifier.py
 
 # For maximum privacy (SS mode - requires multi-party)
-# Terminal 1: python examples/SS/pca.py --party bob
-# Terminal 2: python examples/SS/pca.py --party alice
+# Terminal 1: python examples/secret_sharing/pca.py --party bob
+# Terminal 2: python examples/secret_sharing/pca.py --party alice
 ```
 
 ### SecretFlow Privacy-Preserving Usage
@@ -133,20 +133,20 @@ The easiest way to get started is running the complete examples:
 
 ```bash
 # FL Mode - Best for learning (works in examples)
-python examples/FL/linear_regression.py      # Linear regression
-python examples/FL/kmeans.py                 # Clustering  
-python examples/FL/random_forest_classifier.py  # Ensemble
+python examples/federated_learning/linear_regression.py      # Linear regression
+python examples/federated_learning/kmeans.py                 # Clustering  
+python examples/federated_learning/random_forest_classifier.py  # Ensemble
 
 # SL Mode - Split learning examples
-python examples/SL/mlp_classifier.py
-python examples/SL/linear_regression.py
+python examples/split_learning/mlp_classifier.py
+python examples/split_learning/linear_regression.py
 
 # SS Mode - Requires multi-party setup (highest security)
 # Terminal 1 (Bob):
-python examples/SS/pca.py --party bob
+python examples/secret_sharing/pca.py --party bob
 
 # Terminal 2 (Alice):  
-python examples/SS/pca.py --party alice
+python examples/secret_sharing/pca.py --party alice
 ```
 
 #### Why Use Example Scripts?
@@ -159,9 +159,9 @@ SecretFlow 1.14+ uses PRODUCTION mode which requires:
 The example scripts handle all this complexity for you. For custom code, use the examples as templates.
 
 See complete working examples in:
-- [`examples/FL/`](examples/FL/) - 191 FL examples
-- [`examples/SL/`](examples/SL/) - 191 SL examples
-- [`examples/SS/`](examples/SS/) - 191 SS examples
+- [`examples/federated_learning/`](examples/federated_learning/) - 191 FL examples
+- [`examples/split_learning/`](examples/split_learning/) - 191 SL examples
+- [`examples/secret_sharing/`](examples/secret_sharing/) - 191 SS examples
 
 ### Running Examples
 
@@ -169,18 +169,18 @@ Secret-Learn includes **573 complete examples** (191 algorithms × 3 modes):
 
 ```bash
 # Run FL examples (single process, recommended for testing)
-python examples/FL/linear_regression.py
-python examples/FL/kmeans.py
-python examples/FL/adaboost_classifier.py
+python examples/federated_learning/linear_regression.py
+python examples/federated_learning/kmeans.py
+python examples/federated_learning/adaboost_classifier.py
 
 # Run SL examples (single process)
-python examples/SL/mlp_classifier.py
-python examples/SL/random_forest_classifier.py
+python examples/split_learning/mlp_classifier.py
+python examples/split_learning/random_forest_classifier.py
 
 # Run SS examples (requires multi-party setup)
-# Terminal 1: python examples/SS/pca.py --party bob
-# Terminal 2: python examples/SS/pca.py --party alice
-# Or use: ./examples/SS/run_any_example.sh pca
+# Terminal 1: python examples/secret_sharing/pca.py --party bob
+# Terminal 2: python examples/secret_sharing/pca.py --party alice
+# Or use: ./examples/secret_sharing/run_any_example.sh pca
 
 # Batch run examples
 python scripts/run_all_fl_examples.py
@@ -198,10 +198,10 @@ python scripts/run_all_ss_examples.py
 View results:
 ```bash
 # View FL summary
-cat logs/examples/FL/_SUMMARY.txt
+cat logs/examples/federated_learning/_SUMMARY.txt
 
 # Check specific example log
-cat logs/examples/FL/linear_regression.log
+cat logs/examples/federated_learning/linear_regression.log
 ```
 
 ---
@@ -217,7 +217,7 @@ cat logs/examples/FL/linear_regression.log
 - Best for: Horizontal federated learning
 
 ```python
-from secretlearn.FL.decomposition import FLPCA
+from secretlearn.federated_learning.decomposition import FLPCA
 
 model = FLPCA(
     devices={'alice': alice, 'bob': bob},
@@ -237,7 +237,7 @@ X_reduced = model.transform(fed_X)
 - Best for: Deep learning, vertical federated learning
 
 ```python
-from secretlearn.SL.neural_network import SLMLPClassifier
+from secretlearn.split_learning.neural_network import SLMLPClassifier
 
 model = SLMLPClassifier(
     devices={'alice': alice, 'bob': bob},
@@ -256,7 +256,7 @@ predictions = model.predict(fed_X_test)
 - Best for: Maximum privacy requirements
 
 ```python
-from secretlearn.SS.decomposition import SSPCA
+from secretlearn.secret_sharing.decomposition import SSPCA
 
 spu = sf.SPU(...)
 model = SSPCA(spu=spu, n_components=10)
@@ -366,14 +366,14 @@ except ImportError:
 
 # Test algorithm import (FL mode)
 try:
-    from secretlearn.FL.linear_models.linear_regression import FLLinearRegression
+    from secretlearn.federated_learning.linear_models.linear_regression import FLLinearRegression
     print("FL algorithms available: ✅")
 except ImportError as e:
     print(f"Import error: {e}")
 
 # Quick functionality test - run an example
 print("\nTo test functionality, run an example:")
-print("  python examples/FL/linear_regression.py")
+print("  python examples/federated_learning/linear_regression.py")
 ```
 
 ---
@@ -386,7 +386,7 @@ FL mode keeps data local while enabling collaborative learning:
 
 ```bash
 # Run complete FL example
-python examples/FL/linear_regression.py
+python examples/federated_learning/linear_regression.py
 ```
 
 The example demonstrates:
@@ -402,11 +402,11 @@ The example demonstrates:
 ```python
 # Run existing FL examples - no complex setup needed!
 # These work out of the box:
-# python examples/FL/linear_regression.py
-# python examples/FL/kmeans.py
-# python examples/FL/random_forest_classifier.py
+# python examples/federated_learning/linear_regression.py
+# python examples/federated_learning/kmeans.py
+# python examples/federated_learning/random_forest_classifier.py
 
-# For custom FL code, see examples/FL/ directory
+# For custom FL code, see examples/federated_learning/ directory
 # FL mode simulates federation in a single process
 ```
 
@@ -419,15 +419,15 @@ The example demonstrates:
 ```bash
 # Run existing SS examples (multi-process required):
 # Terminal 1 - Bob
-python examples/SS/adaboost_classifier.py --party bob
+python examples/secret_sharing/adaboost_classifier.py --party bob
 
 # Terminal 2 - Alice  
-python examples/SS/adaboost_classifier.py --party alice
+python examples/secret_sharing/adaboost_classifier.py --party alice
 
 # Each party's data stays completely private with full MPC protection
 ```
 
-See [`examples/SS/`](examples/SS/) directory for 191 complete SS mode examples.
+See [`examples/secret_sharing/`](examples/secret_sharing/) directory for 191 complete SS mode examples.
 
 ---
 
@@ -473,9 +473,9 @@ Train models on distributed medical data across hospitals without sharing patien
 
 ```python
 # Each hospital keeps their data locally
-from secretlearn.FL.ensemble.random_forest_classifier import FLRandomForestClassifier
+from secretlearn.federated_learning.ensemble.random_forest_classifier import FLRandomForestClassifier
 
-# See complete example: examples/FL/random_forest_classifier.py
+# See complete example: examples/federated_learning/random_forest_classifier.py
 model = FLRandomForestClassifier(
     devices={'hospital_a': alice, 'hospital_b': bob},
     n_estimators=100
@@ -487,10 +487,10 @@ model.fit(fed_patient_data, fed_diagnoses)
 Collaborative fraud detection across banks while preserving transaction privacy.
 
 ```python
-from secretlearn.SS.svm.svc import SSSVC
+from secretlearn.secret_sharing.svm.svc import SSSVC
 
 # Full MPC protection for sensitive financial data
-# See examples/SS/svc.py for complete multi-party setup
+# See examples/secret_sharing/svc.py for complete multi-party setup
 model = SSSVC(spu=spu)
 model.fit(fed_transactions, fed_fraud_labels)
 ```
@@ -499,10 +499,10 @@ model.fit(fed_transactions, fed_fraud_labels)
 Federated learning on edge devices with encrypted aggregation.
 
 ```python
-from secretlearn.FL.neural_network.mlp_classifier import FLMLPClassifier
+from secretlearn.federated_learning.neural_network.mlp_classifier import FLMLPClassifier
 
 # Train on distributed IoT devices
-# See examples/FL/mlp_classifier.py for complete setup
+# See examples/federated_learning/mlp_classifier.py for complete setup
 model = FLMLPClassifier(
     devices=edge_devices,
     hidden_layer_sizes=(100,)
@@ -657,9 +657,9 @@ Secret-Learn includes **573 complete usage examples** covering all algorithms in
 
 ```bash
 # Run a single example
-python examples/FL/linear_regression.py
-python examples/SS/kmeans.py
-python examples/SL/adaboost_classifier.py
+python examples/federated_learning/linear_regression.py
+python examples/secret_sharing/kmeans.py
+python examples/split_learning/adaboost_classifier.py
 
 # Run all examples for one mode
 python run_all_fl_examples.py      # Incremental (skip successful)
@@ -686,13 +686,13 @@ python run_all_fl_examples.py --force
 
 ```bash
 # View execution summary
-cat logs/examples/FL/_SUMMARY.txt
+cat logs/examples/federated_learning/_SUMMARY.txt
 
 # Check specific example log
-cat logs/examples/FL/linear_regression.log
+cat logs/examples/federated_learning/linear_regression.log
 
 # Count successful runs
-grep -c "SUCCESS" logs/examples/FL/*.log
+grep -c "SUCCESS" logs/examples/federated_learning/*.log
 ```
 
 ### Example Features
@@ -719,7 +719,7 @@ For detailed usage instructions, see [`EXAMPLES_USAGE_GUIDE.md`](EXAMPLES_USAGE_
 Each algorithm has complete documentation:
 
 ```python
-from secretlearn.FL.clustering import FLKMeans
+from secretlearn.federated_learning.clustering import FLKMeans
 help(FLKMeans)  # Complete docstring with examples
 ```
 
@@ -790,9 +790,9 @@ print(char['use_epochs'])  # True
 
 ```python
 # Collaborative research without data sharing
-from secretlearn.FL.ensemble.random_forest_classifier import FLRandomForestClassifier
+from secretlearn.federated_learning.ensemble.random_forest_classifier import FLRandomForestClassifier
 
-# Complete example: examples/FL/random_forest_classifier.py
+# Complete example: examples/federated_learning/random_forest_classifier.py
 institutions = {
     'hospital_a': alice,
     'hospital_b': bob,
@@ -810,10 +810,10 @@ model.fit(fed_patient_data, fed_diagnoses)
 
 ```python
 # Collaborative fraud detection with full privacy
-from secretlearn.SS.neural_network.mlp_classifier import SSMLPClassifier
+from secretlearn.secret_sharing.neural_network.mlp_classifier import SSMLPClassifier
 
-# Complete example: examples/SS/mlp_classifier.py
-# Requires multi-party execution (see examples/SS/README.md)
+# Complete example: examples/secret_sharing/mlp_classifier.py
+# Requires multi-party execution (see examples/secret_sharing/README.md)
 model = SSMLPClassifier(
     spu=spu,
     hidden_layer_sizes=(100, 50)

@@ -17,31 +17,31 @@ def test_secretlearn_import():
 
 def test_sl_modules():
     """Test SL module imports"""
-    from secretlearn.SL.anomaly_detection import isolation_forest
-    from secretlearn.SL.linear_models import linear_regression
-    from secretlearn.SL.ensemble import adaboost_classifier
+    from secretlearn.split_learning.anomaly_detection import isolation_forest
+    from secretlearn.split_learning.linear_models import linear_regression
+    from secretlearn.split_learning.ensemble import adaboost_classifier
     print("✓ SL modules import OK")
 
 
 def test_fl_modules():
     """Test FL module imports"""
-    from secretlearn.FL.anomaly_detection import isolation_forest
-    from secretlearn.FL.linear_models import linear_regression
-    from secretlearn.FL.ensemble import adaboost_classifier
+    from secretlearn.federated_learning.anomaly_detection import isolation_forest
+    from secretlearn.federated_learning.linear_models import linear_regression
+    from secretlearn.federated_learning.ensemble import adaboost_classifier
     print("✓ FL modules import OK")
 
 
 def test_ss_modules():
     """Test SS module imports"""
-    from secretlearn.SS.anomaly_detection import isolation_forest
-    from secretlearn.SS.linear_models import linear_regression
-    from secretlearn.SS.ensemble import adaboost_classifier
+    from secretlearn.secret_sharing.anomaly_detection import isolation_forest
+    from secretlearn.secret_sharing.linear_models import linear_regression
+    from secretlearn.secret_sharing.ensemble import adaboost_classifier
     print("✓ SS modules import OK")
 
 
 def test_secure_aggregator_implementation():
     """Test that _secure_aggregate_parameters is properly implemented"""
-    from secretlearn.SL.linear_models.linear_regression import SLLinearRegression
+    from secretlearn.split_learning.linear_models.linear_regression import SLLinearRegression
     
     # Check method exists and has proper docstring
     method = getattr(SLLinearRegression, '_secure_aggregate_parameters', None)
@@ -55,7 +55,7 @@ def test_secure_aggregator_implementation():
 
 def test_isolation_forest_implementation():
     """Test IsolationForest secure aggregation"""
-    from secretlearn.SL.anomaly_detection.isolation_forest import SLIsolationForest
+    from secretlearn.split_learning.anomaly_detection.isolation_forest import SLIsolationForest
     
     # Check method exists and has proper docstring
     method = SLIsolationForest._secure_aggregate_scores

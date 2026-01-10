@@ -87,9 +87,9 @@ def main():
     print()
     print("="*80)
     print("View detailed logs:")
-    print("  - logs/examples/FL/_SUMMARY.txt")
-    print("  - logs/examples/SS/_SUMMARY.txt")
-    print("  - logs/examples/SL/_SUMMARY.txt")
+    print("  - logs/examples/federated_learning/_SUMMARY.txt")
+    print("  - logs/examples/secret_sharing/_SUMMARY.txt")
+    print("  - logs/examples/split_learning/_SUMMARY.txt")
     print("="*80)
 
 if __name__ == "__main__":

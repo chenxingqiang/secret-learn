@@ -26,7 +26,7 @@ EXAMPLES = [
 
 def run_example(name: str) -> tuple:
     """Run a single example"""
-    filepath = BASE_PATH / "examples" / "SS" / name
+    filepath = BASE_PATH / "examples" / "secret_sharing" / name
     if not filepath.exists():
         return False, 0, f"File not found"
     
