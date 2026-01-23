@@ -64,3 +64,4 @@ _configtest.o.d
 # file recognised by vscode IDEs containing env variables
 .env
 *.log
+docs/.$secret_learn_architecture.drawio.dtmp
