@@ -7,7 +7,7 @@
 [![JAX-sklearn](https://img.shields.io/badge/JAX--sklearn-0.1.0+-red.svg)](https://github.com/chenxingqiang/jax-sklearn)
 [![SecretFlow](https://img.shields.io/badge/SecretFlow-1.0.0+-green.svg)](https://github.com/secretflow/secretflow)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](COPYING)
-[![Version](https://img.shields.io/badge/version-0.3.0-brightgreen.svg)](https://pypi.org/project/secret-learn/)
+[![Version](https://img.shields.io/badge/version-0.3.1-brightgreen.svg)](https://pypi.org/project/secret-learn/)
 [![sklearn Compatible](https://img.shields.io/badge/sklearn-compatible-blue.svg)](https://scikit-learn.org)
 
 ---
@@ -704,6 +704,20 @@ grep -c "SUCCESS" logs/examples/federated_learning/*.log
 - ✅ **Summary Reports**: Automatic generation of execution summaries
 
 For detailed usage instructions, see [`EXAMPLES_USAGE_GUIDE.md`](EXAMPLES_USAGE_GUIDE.md) (if available).
+
+### 📓 Jupyter Notebooks
+
+Interactive tutorials are available in `examples/notebooks/`:
+
+| Notebook | Description |
+|----------|-------------|
+| `01_quick_start.ipynb` | Basic FL, SS, SL tutorial with SecretFlow setup |
+| `02_fl_classification.ipynb` | FL classification with multiple algorithms |
+
+```bash
+# Launch Jupyter to explore notebooks
+jupyter notebook examples/notebooks/
+```
 
 ---
 
