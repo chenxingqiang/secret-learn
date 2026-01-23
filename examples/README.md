@@ -7,7 +7,7 @@ This directory contains **579 example files** demonstrating privacy-preserving m
 ```
 examples/
 ├── federated_learning/    # 193 FL examples
-├── secret_sharing/        # 193 SS examples  
+├── secret_sharing/        # 193 SS examples
 └── split_learning/        # 193 SL examples
 ```
 
@@ -141,7 +141,7 @@ python scripts/test_all_fl_examples.py
 # Run all SS examples
 python scripts/test_all_ss_examples.py
 
-# Run all SL examples  
+# Run all SL examples
 python scripts/test_all_sl_examples.py
 ```
 

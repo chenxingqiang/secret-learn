@@ -43,7 +43,7 @@
 
 Secret-Learn features a 6-layer architecture that seamlessly integrates JAX acceleration with privacy-preserving computation:
 
-![Secret-Learn Architecture](docs/secret_learn_architecture.svg)
+![Secret-Learn Architecture](docs/secret_learn_architecture.drawio.svg)
 
 ### Architecture Layers
 
