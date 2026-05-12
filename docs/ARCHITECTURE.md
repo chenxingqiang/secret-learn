@@ -12,18 +12,18 @@ Secret-Learn is a 6-layer architecture that combines JAX acceleration with priva
                                  ↓
 ┌────────────────────────────────────────────────────────────────────┐
 │  Layer 2: sklearn-Compatible API (100%)                            │
-│  Linear Models | Ensemble | Clustering | SVM | Decomposition      │
+│  Linear Models | Ensemble | Clustering | SVM | Decomposition       │
 │  Preprocessing | Neighbors | Feature Selection | ... (191 total)   │
 └────────────────────────────────────────────────────────────────────┘
                                  ↓
 ┌────────────────────────────────────────────────────────────────────┐
 │  Layer 3: Privacy-Preserving Modes (573 Implementations)           │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                        │
-│  │ FL Mode  │  │ SS Mode  │  │ SL Mode  │                        │
-│  │ 191 algo │  │ 191 algo │  │ 191 algo │                        │
-│  │ Local    │  │ SPU MPC  │  │ Split    │                        │
-│  │ 3-5x     │  │ 1-2x     │  │ 2-4x     │                        │
-│  └──────────┘  └──────────┘  └──────────┘                        │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐                          │
+│  │ FL Mode  │  │ SS Mode  │  │ SL Mode  │                          │
+│  │ 191 algo │  │ 191 algo │  │ 191 algo │                          │
+│  │ Local    │  │ SPU MPC  │  │ Split    │                          │
+│  │ 3-5x     │  │ 1-2x     │  │ 2-4x     │                          │
+│  └──────────┘  └──────────┘  └──────────┘                          │
 └────────────────────────────────────────────────────────────────────┘
                                  ↓
 ┌────────────────────────────────────────────────────────────────────┐
