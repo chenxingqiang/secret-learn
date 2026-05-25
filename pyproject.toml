@@ -82,14 +82,12 @@ tests = [
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
-packages = {find = {where = ["src"], include = ["secretlearn*"]}}
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["secretlearn*"]
 
 [tool.setuptools.package-data]
 secretlearn = ["**/*.py"]
-
-[tool.setuptools.packages.find]
-where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
